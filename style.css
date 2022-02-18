@@ -1,0 +1,22 @@
+body {
+    min-height: 100vh;
+    min-width: 100wh;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    right: 0;
+    height: 200px;
+    background-color: darkgray;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background-color: blue;
+}
