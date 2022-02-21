@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-html,
+
+/* html,
 body {
     overflow-x: hidden;
     height: 100%;
-}
+} */
 
-body {
+
+/* body {
     background: #fff;
     padding: 0;
     margin: 0;
     font-family: 'Varela Round', sans-serif;
-}
+} */
+
+
+/* In style.css because of globalscope*/
 
 .d-none {
     display: none !important;

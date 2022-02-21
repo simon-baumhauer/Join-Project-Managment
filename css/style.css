@@ -1,0 +1,15 @@
+html,
+body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100wh;
+    margin-left: 250px;
+    background: #fff;
+    padding: 0;
+    margin-left: 250px;
+    font-family: 'Varela Round', sans-serif;
+}

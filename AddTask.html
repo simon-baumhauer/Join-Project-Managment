@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/addTask.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="templates.js"></script>
+    <title>addTask</title>
+</head>
+
+<body onload="includeHTML()">
+    <div w3-include-html="templates/header.html" class="header"></div>
+    <div class="heading1">
+        <h1>addTask</h1>
+        <span class="clr-blue">Learning Management System Project</span>
+    </div>
+    <label for="title">TITLE</label>
+    <input type="text" id="title">
+    <label for="due date">DUE DATE</label>
+    <input type="date" id="date">
+    <label for="category">CATERGORY</label>
+    <input list="categorys" name="category" id="category">
+    <datalist id="categorys">
+        <option value="Edge">
+            <option value="Management">
+            <option value="Marketing">
+            <option value="Sales">
+            <option value="Human Resources">
+    </datalist>
+    <label for="urgency">URGENCY</label>
+    <input list="levels" name="level" id="level">
+    <datalist id="levels">
+        <option value="High">
+            <option value="Intermediate">
+            <option value="Low">
+    </datalist>
+    <label for="text">DESCRIPTION</label>
+    <textarea id="text" cols="30" rows="10"></textarea>
+    <h2>ASSIGNED TO</h2>
+    <img src="Img/Simon_Baumhauer.jpg" class="profile-picture">
+    <img src="Img/icon plus.png">
+    <button>CANCEL</button>
+    <button>CREATE TASK</button>
+</body>
+
+</html>
