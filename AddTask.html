@@ -22,37 +22,35 @@
         <div class="row row-1">
             <div class="input">
                 <label for="title">TITLE</label>
-                <input type="text" id="title" placeholder="Managment meeting preparation">
+                <input class="inputfield" type="text" id="title" placeholder="Managment meeting preparation">
             </div>
             <div class="input">
                 <label for="due date">DUE DATE</label>
-                <input type="date" id="date" placeholder="08.11.2021">
+                <input class="inputfield" type="date" id="date" placeholder="08.11.2021">
             </div>
         </div>
         <div class="row row-2">
             <div class="input">
                 <label for="category">CATERGORY</label>
-                <input list="categorys" name="category" id="category" placeholder="Management">
-                <datalist id="categorys">
-                        <option value="Management">
-                        <option value="Marketing">
-                        <option value="Sales">
-                        <option value="Human Resources">
-                </datalist>
+                <select class="inputfield" name="" id="" placeholder="Management">
+                    <option value="Management">Management</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Human Resources">Human Resources</option>
+                </select>
             </div>
             <div class="input">
                 <label for="urgency">URGENCY</label>
-                <input list="levels" name="level" id="level" placeholder="High">
-                <datalist id="levels">
-                <option value="High">
-                    <option value="Intermediate">
-                    <option value="Low">
-            </datalist>
+                <select class="inputfield">
+                        <option value="High">High</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Low">Low</option>
+                </select>
             </div>
         </div>
         <div class="row row-3">
             <div class="textarea">
-                <label for="text">DESCRIPTION</label>
+                <label class="input" for="text">DESCRIPTION</label>
                 <textarea id="text" cols="30" rows="10"></textarea>
             </div>
             <div>
