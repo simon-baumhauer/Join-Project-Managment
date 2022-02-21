@@ -1,14 +1,19 @@
 html,
 body {
     overflow-x: hidden;
-    height: 100%;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%
 }
 
 body {
     min-height: 100vh;
-    min-width: 100wh;
     background: #fff;
-    padding: 0;
-    margin-left: 300px;
+    margin-left: 250px;
     font-family: 'Varela Round', sans-serif;
+}
+
+.heading1 {
+    margin-left: 50px;
 }

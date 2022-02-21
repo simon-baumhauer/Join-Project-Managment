@@ -5,56 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/addTask.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/addTask.css">
     <script src="templates.js"></script>
     <title>addTask</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML()" class="body">
     <div w3-include-html="templates/header.html" class="header"></div>
     <div class="heading1">
         <h1>addTask</h1>
         <span class="clr-blue">Learning Management System Project</span>
     </div>
-    <div>
-        <label for="title">TITLE</label>
-        <input type="text" id="title">
-        <label for="due date">DUE DATE</label>
-        <input type="date" id="date">
-    </div>
-    <div>
-        <label for="category">CATERGORY</label>
-        <input list="categorys" name="category" id="category">
-        <datalist id="categorys">
-        <option value="Edge">
-            <option value="Management">
-            <option value="Marketing">
-            <option value="Sales">
-            <option value="Human Resources">
-    </datalist>
-        <label for="urgency">URGENCY</label>
-        <input list="levels" name="level" id="level">
-        <datalist id="levels">
-        <option value="High">
-            <option value="Intermediate">
-            <option value="Low">
-    </datalist>
-    </div>
-    <div class="row-3">
-        <div class="textarea">
-            <label for="text">DESCRIPTION</label>
-            <textarea id="text" cols="30" rows="10"></textarea>
+    <main class="main-addTask">
+        <div class="row row-1">
+            <div class="input">
+                <label for="title">TITLE</label>
+                <input type="text" id="title" placeholder="Managment meeting preparation">
+            </div>
+            <div class="input">
+                <label for="due date">DUE DATE</label>
+                <input type="date" id="date" placeholder="08.11.2021">
+            </div>
         </div>
-        <div>
-            <h2>ASSIGNED TO</h2>
-            <img src="Img/Simon_Baumhauer.jpg" class="profile-picture">
-            <img src="Img/icon plus.png">
-            <button>CANCEL</button>
-            <button>CREATE TASK</button>
+        <div class="row row-2">
+            <div class="input">
+                <label for="category">CATERGORY</label>
+                <input list="categorys" name="category" id="category" placeholder="Management">
+                <datalist id="categorys">
+                        <option value="Management">
+                        <option value="Marketing">
+                        <option value="Sales">
+                        <option value="Human Resources">
+                </datalist>
+            </div>
+            <div class="input">
+                <label for="urgency">URGENCY</label>
+                <input list="levels" name="level" id="level" placeholder="High">
+                <datalist id="levels">
+                <option value="High">
+                    <option value="Intermediate">
+                    <option value="Low">
+            </datalist>
+            </div>
         </div>
-    </div>
+        <div class="row row-3">
+            <div class="textarea">
+                <label for="text">DESCRIPTION</label>
+                <textarea id="text" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <h2>ASSIGNED TO</h2>
+                <div class="profile-pictures">
+                    <img src="Img/Simon_Baumhauer.jpg" class="profile-picture">
+                    <img src="Img/icon plus.png">
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-cancel">CANCEL</button>
+                    <button class="btn btn-create-task">CREATE TASK</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 
