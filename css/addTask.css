@@ -3,3 +3,12 @@
     max-height: 60px;
     border-radius: 50%;
 }
+
+.row-3 {
+    display: flex;
+}
+
+.textarea {
+    display: flex;
+    flex-direction: column;
+}
