@@ -1,16 +1,16 @@
 body {
     margin: 0;
     height: 100%;
-    width: calc(100% - 250px);
     display: flex;
 }
 
 .content {
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: center; 
     align-items: center;
     font-weight:bolder;
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boards {
@@ -23,6 +23,7 @@ body {
 }
 
 .board {
+    margin-top: 8px;
     width: 15vw;
     height: 80vh;
     background-color: rgb(238, 238, 238);
