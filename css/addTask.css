@@ -36,8 +36,6 @@ h2 {
     text-indent: 5px;
 }
 
-.inputfield>select {}
-
 .input input::placeholder {
     color: black;
 }
@@ -52,7 +50,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-width: thin;
 }
 
-.row-3 {
+.styled-select {
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+    background: url('../Img/chevron\ .png') no-repeat white;
+    background-position: 97% 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.styled-select select {
+    background: transparent;
+    -webkit-appearance: none;
+    width: 100%;
+    min-height: 50px;
+    font-size: 11px;
+    border: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    text-indent: 5px;
+}
+
+s .row-3 {
     display: flex;
 }
 

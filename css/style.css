@@ -1,3 +1,7 @@
+* {
+    font-family: 'Varela Round', sans-serif;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -11,7 +15,6 @@ body {
     min-height: 100vh;
     background: #fff;
     margin-left: 250px;
-    font-family: 'Varela Round', sans-serif;
 }
 
 .heading1 {
