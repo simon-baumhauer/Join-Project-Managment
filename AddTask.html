@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/addTask.css">
-    <script src="templates.js"></script>
+    <script src="javascript/templates.js"></script>
+    <script src="javascript/addTask.js"></script>
     <title>addTask</title>
 </head>
 
@@ -26,13 +27,14 @@
             </div>
             <div class="input">
                 <label for="due date">DUE DATE</label>
-                <input class="inputfield" type="date" id="date" placeholder="08.11.2021">
+                <input class="inputfield" type="date" id="date" value="01.01.2021">
             </div>
         </div>
         <div class="row row-2">
             <div class="input">
                 <label for="category">CATERGORY</label>
                 <div class="styled-select inputfield">
+                    <div class="border"></div>
                     <select placeholder="Management">
                         <option value="Management">Management</option>
                             <option value="Marketing">Marketing</option>
@@ -44,7 +46,8 @@
             <div class="input">
                 <label for="urgency">URGENCY</label>
                 <div class="styled-select inputfield">
-                    <select class="inputfield">
+                    <div class="border"></div>
+                    <select>
                         <option value="High">High</option>
                         <option value="Intermediate">Intermediate</option>
                         <option value="Low">Low</option>
@@ -57,11 +60,11 @@
                 <label class="input" for="text">DESCRIPTION</label>
                 <textarea id="text" cols="30" rows="10"></textarea>
             </div>
-            <div>
+            <div class="assingments">
                 <h2>ASSIGNED TO</h2>
                 <div class="profile-pictures">
                     <img src="Img/Simon_Baumhauer.jpg" class="profile-picture">
-                    <img src="Img/icon plus.png">
+                    <img src="Img/icon plus.png" onclick="openModal()" class="selectEmployee">
                 </div>
                 <div class="buttons">
                     <button class="btn btn-cancel">CANCEL</button>
@@ -69,8 +72,20 @@
                 </div>
             </div>
         </div>
+        </div>
     </main>
-
+    <div class="modal d-none" id="modal">
+        <div class="modal-header">
+            <div class="title">Available Employees</div>
+            <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. A neque exercitationem, qui numquam accusamus cumque nihil eveniet esse, ducimus voluptatem est ab consectetur beatae sint possimus velit, quia quas aut dolorum. Accusantium fuga perferendis reiciendis
+            quia officiis, quisquam at impedit est recusandae? Quisquam consectetur nam tempora quasi modi labore officia, reprehenderit dicta natus, provident aliquid itaque, quia amet dolore inventore corporis animi laboriosam. Facilis blanditiis quod
+            vitae! Velit magnam distinctio veritatis libero minus placeat. Voluptate sit modi tenetur neque suscipit?
+        </div>
+    </div>
+    <div id="overlay" class="d-none"></div>
 </body>
 
 </html>
