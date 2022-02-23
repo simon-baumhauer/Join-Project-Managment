@@ -150,7 +150,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 10px;
     z-index: 10;
     background-color: white;
-    width: 500px;
+    width: 600px;
     max-width: 80%;
 }
 
@@ -162,9 +162,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-bottom: 1px solid rgb(210, 210, 212);
 }
 
-.modal-header .title {
+.modal-title {
     font-weight: bold;
     font-size: 20px;
+    color: rgb(34, 49, 139);
 }
 
 .modal-header .close-button {
@@ -177,10 +178,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .modal-body {
-    padding: 10px 15px;
+    padding: 10px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.modal-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(210, 210, 212);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 95%;
+}
+
+.modal-profile-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+}
+
+.job-position {
+    margin-right: 5px;
 }
 
 #overlay {
