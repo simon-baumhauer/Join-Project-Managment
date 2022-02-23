@@ -21,6 +21,10 @@ body {
     margin-left: 50px;
 }
 
+.m-left-50 {
+    margin-left: 50px;
+}
+
 @media(max-width: 900px) {
     body {
         margin-left: 0;
