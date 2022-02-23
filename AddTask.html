@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/addTask.css">
-    <script src="javascript/templates.js"></script>
     <script src="javascript/addTask.js"></script>
     <script src="javascript/main.js"></script>
+    <script src="javascript/templates.js"></script>
     <title>addTask</title>
 </head>
 
@@ -20,11 +20,11 @@
         <h1>addTask</h1>
         <span class="clr-blue">Learning Management System Project</span>
     </div>
-    <main class="main-addTask">
+    <form class="main-addTask">
         <div class="row row-1">
             <div class="input">
-                <label for="description">TITLE</label>
-                <input class="inputfield" type="text" id="description" value="Managment meeting preparation" placeholder="Managment meeting preparation">
+                <label for="title">TITLE</label>
+                <input class="inputfield" type="text" id="title" required placeholder="Managment meeting preparation">
             </div>
             <div class="input">
                 <label for="due date">DUE DATE</label>
@@ -58,8 +58,8 @@
         </div>
         <div class="row row-3">
             <div class="textarea">
-                <label class="input" for="text">DESCRIPTION</label>
-                <textarea id="text" cols="30" rows="10"></textarea>
+                <label class="input" for="c">DESCRIPTION</label>
+                <textarea required id="text" minlength="20" cols="30" rows="10"></textarea>
             </div>
             <div class="assingments">
                 <h2>ASSIGNED TO</h2>
@@ -74,11 +74,11 @@
             </div>
         </div>
         </div>
-    </main>
+    </form>
     <div class="modal d-none" id="modal">
         <div class="modal-header">
             <div class="modal-title">Available Employees</div>
-            <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
+            <button data-close-button class="close-button" onsubmit="closeModal()">&times;</button>
         </div>
         <div class="modal-body">
             <div class="modal-profile">

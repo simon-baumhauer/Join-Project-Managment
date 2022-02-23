@@ -141,6 +141,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: rgb(34, 49, 139);
 }
 
+.btn-create-task:hover {
+    color: rgb(12, 17, 44);
+    background-color: rgb(34, 49, 139);
+}
+
 .modal {
     position: fixed;
     top: 50%;
