@@ -20,3 +20,13 @@ body {
 .heading1 {
     margin-left: 50px;
 }
+
+@media(max-width: 900px) {
+    body {
+        margin-left: 0;
+        overflow-y: scroll;
+    }
+    .heading1 {
+        margin-left: 15px;
+    }
+}
