@@ -1,6 +1,11 @@
 .footer {
     position: absolute;
+    display: flex;
     right: 0;
     bottom: 0;
+}
 
+a {
+    margin-right: 8px;
+    margin-bottom: 3vh;
 }
