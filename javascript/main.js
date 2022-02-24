@@ -32,8 +32,10 @@
   * 
   */
  function LoadAllTasks() {
-     let allTaskAsString = localStorage.getItem('allTasks');
-     allTasks = JSON.parse(allTaskAsString);
-
-     includeHTML()
+    let allTaskAsString = localStorage.getItem('allTasks');
+    allTasks = JSON.parse(allTaskAsString);
+    pushToBoard();
+    includeHTML();
  }
+
+ function pushToBoard()
