@@ -6,6 +6,8 @@
 }
 
 a {
-    margin-right: 8px;
-    margin-bottom: 3vh;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+    text-decoration: none;
+    color: rgb(99, 99, 99);
 }
