@@ -11,6 +11,10 @@
     <script src="javascript/addTask.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/templates.js"></script>
+    <script src="javascript/mini_backend.js"></script>
+    <script>
+        setURL('http://developerakademie.com/smallest_backend_ever');
+    </script>
     <title>addTask</title>
 </head>
 
@@ -69,7 +73,7 @@
                 </div>
                 <div class="buttons">
                     <button class="btn btn-cancel">CANCEL</button>
-                    <button class="btn btn-create-task" onclick="createTask()">CREATE TASK</button>
+                    <button class="btn btn-create-task" onsubmit="createTask()">CREATE TASK</button>
                 </div>
             </div>
         </div>
@@ -78,7 +82,7 @@
     <div class="modal d-none" id="modal">
         <div class="modal-header">
             <div class="modal-title">Available Employees</div>
-            <button data-close-button class="close-button" onsubmit="closeModal()">&times;</button>
+            <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
         </div>
         <div class="modal-body">
             <div class="modal-profile">
