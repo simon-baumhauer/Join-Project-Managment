@@ -6,6 +6,7 @@
   * 
   */
  function createTask() {
+     allTasks = [];
      let title = document.getElementById('title').value;
      let date = document.getElementById('date').value;
      let catergory = document.getElementById('catergory').value;
@@ -33,8 +34,6 @@
  function LoadAllTasks() {
      let allTaskAsString = localStorage.getItem('allTasks');
      allTasks = JSON.parse(allTaskAsString);
-     console.log(allTasks);
-
 
      includeHTML()
  }
