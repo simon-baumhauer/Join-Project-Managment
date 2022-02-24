@@ -14,11 +14,13 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="javascript/templates.js"></script>
     <script src="javascript/main.js"></script>
+    <script src="javascript/board.js"></script>
+    <script src="javascript/addTask.js"></script>
     <title>Join</title>
 </head>
 
-<body onload="LoadAllTasks()">
-    <div w3-include-html="templates/header.html" class="header footer"></div>
+<body onload="loadAllTasks(); pushToBoard();">
+    <div w3-include-html="templates/header.html" class="header"></div>
 
     <div>
         <h1 class="animated-text">Join</h1>
@@ -27,7 +29,7 @@
 
 
 
-
+    <div w3-include-html="templates/footer.html" class="footer"></div>
 </body>
 
 </html>
