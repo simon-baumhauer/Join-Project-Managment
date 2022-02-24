@@ -6,7 +6,7 @@ let allTasks = [];
  * 
  */
 function createTask() {
-    allTasks = [];
+    // allTasks = [];
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
@@ -30,8 +30,24 @@ function createTask() {
  * This function accesses the stored data from the Browser and loads it again in the array
  * 
  */
-function LoadAllTasks() {
+function loadAllTasks() {
     let allTaskAsString = localStorage.getItem('allTasks');
+<<<<<<< HEAD
     allTasks = JSON.parse(allTaskAsString);
     includeHTML();
 }
+=======
+
+    if (allTaskAsString) {
+        allTasks = JSON.parse(allTaskAsString);
+    }
+
+
+    if(window.location.pathname === '/board.html'){
+        pushToBoard();
+    }
+    includeHTML();
+    
+}
+
+>>>>>>> e7d77fc3b57404b5ea37532056fbea16957f3de1
