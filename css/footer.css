@@ -11,3 +11,7 @@ a {
     text-decoration: none;
     color: rgb(99, 99, 99);
 }
+
+.width {
+    max-width: 60vw;
+}
