@@ -37,10 +37,11 @@ function loadAllTasks() {
     if (allTaskAsString) {
         allTasks = JSON.parse(allTaskAsString);
     }
+
+
     if(window.location.pathname === '/board.html'){
         pushToBoard();
     }
-
     includeHTML();
     
 }
