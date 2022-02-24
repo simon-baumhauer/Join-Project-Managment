@@ -6,6 +6,7 @@ let allTasks = [];
  * 
  */
 function createTask() {
+    let description = document.getElementById('description').value;
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
@@ -14,6 +15,7 @@ function createTask() {
 
 
     let task = {
+        'description': description,
         'title': title,
         'date': date,
         'catergory': catergory,
@@ -21,19 +23,22 @@ function createTask() {
         'urgency': urgency,
         'createdAt': new Date().getTime()
     }
-    allTasks.push(task);
 
-    allTaskAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTaskAsString);
 
+    console.log(title);
 }
 
+// allTasks.push(task);
+
+// let allTaskAsString = JSON.stringify(allTasks);
+// localStorage.setItem('allTasks', allTaskAsString);
 
 /**
  * This function accesses the stored data from the Browser and loads it again in the array
  * 
  */
-function LoadAllTasks() {
-    let allTaskAsString = localStorage.getItem('allTasks');
-    let allTasks = JSON.parse(allTaskAsString);
-}
+// function LoadAllTasks() {
+//     let allTaskAsString = localStorage.getItem('allTasks');
+//     allTasks = JSON.parse(allTaskAsString);
+//     includeHTML()
+// }

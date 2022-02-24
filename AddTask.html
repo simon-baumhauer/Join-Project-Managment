@@ -8,17 +8,14 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/addTask.css">
+    <script src="javascript/templates.js"></script>
     <script src="javascript/addTask.js"></script>
     <script src="javascript/main.js"></script>
-    <script src="javascript/templates.js"></script>
-    <script src="javascript/mini_backend.js"></script>
-    <script>
-        setURL('http://developerakademie.com/smallest_backend_ever');
-    </script>
     <title>addTask</title>
 </head>
+<!-- onload="LoadAllTasks()" -->
 
-<body onload="includeHTML()" class="body">
+<body class="body"> onload="LoadAllTasks()"
     <div w3-include-html="templates/header.html" class="header"></div>
     <div class="heading1">
         <h1>addTask</h1>
@@ -73,7 +70,7 @@
                 </div>
                 <div class="buttons">
                     <button class="btn btn-cancel">CANCEL</button>
-                    <button class="btn btn-create-task" onsubmit="createTask()">CREATE TASK</button>
+                    <button class="btn btn-create-task" onclick="createTask()">CREATE TASK</button>
                 </div>
             </div>
         </div>

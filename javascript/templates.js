@@ -24,5 +24,4 @@ function includeHTML() {
             return;
         }
     }
-    LoadAllTasks();
 }
