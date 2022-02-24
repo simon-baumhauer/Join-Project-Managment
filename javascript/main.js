@@ -31,13 +31,17 @@ function createTask() {
  * This function accesses the stored data from the Browser and loads it again in the array
  * 
  */
-function LoadAllTasks() {
+function loadAllTasks() {
     let allTaskAsString = localStorage.getItem('allTasks');
 
     if (allTaskAsString) {
         allTasks = JSON.parse(allTaskAsString);
     }
-    pushToBoard();
+    if(window.location.pathname === '/board.html'){
+        pushToBoard();
+    }
+
     includeHTML();
+    
 }
 
