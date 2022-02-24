@@ -28,3 +28,7 @@ body {
     height: 80vh;
     background-color: rgb(238, 238, 238);
 }
+
+.board:hover {
+    filter: contrast(95%);
+}
