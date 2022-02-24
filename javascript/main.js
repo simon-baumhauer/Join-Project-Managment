@@ -6,7 +6,7 @@ let allTasks = [];
  * 
  */
 function createTask() {
-    allTasks = [];
+    // allTasks = [];
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
