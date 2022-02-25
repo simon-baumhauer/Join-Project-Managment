@@ -5,7 +5,7 @@ let done = [];
 let currentTask = 0;
 
 function pushToBoard() {
-    toDo.push(allTasks);
+    toDo = JSON.parse(JSON.stringify(allTasks));
     renderTasks();
 }
 
