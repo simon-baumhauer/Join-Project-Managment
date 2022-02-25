@@ -32,22 +32,17 @@ function createTask() {
  */
 function loadAllTasks() {
     let allTaskAsString = localStorage.getItem('allTasks');
-<<<<<<< HEAD
     allTasks = JSON.parse(allTaskAsString);
-    includeHTML();
-}
-=======
+
 
     if (allTaskAsString) {
         allTasks = JSON.parse(allTaskAsString);
     }
 
 
-    if(window.location.pathname === '/board.html'){
+    if (window.location.pathname === '/board.html') {
         pushToBoard();
     }
     includeHTML();
-    
-}
 
->>>>>>> e7d77fc3b57404b5ea37532056fbea16957f3de1
+}
