@@ -2,7 +2,7 @@ let EmployeesArray = [{
         'bild-src': 'Img/Simon_Baumhauer.jpg',
         'e-mail': 'Simon.Baumhauer@hotmail.ch',
         'name': 'Simon Baumhauer',
-        'position': '$Software Developer'
+        'position': 'Software Developer'
     },
     {
         'bild-src': 'Img/profile-picture.png',
@@ -45,10 +45,14 @@ function Employees() {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
         <div class="modal-profile" onclick="assigningEmployees(${i})">
-          <img src="${element['bild-src']}" alt="" class="modal-profile-image">
-          <span href="">${element['e-mail']}</span>
-          <span>${element['name']}</span>
-          <span class="job-position">Scrum Master</span>
+        <div class=modal-profile-column1>
+        <img src="${element['bild-src']}" alt="" class="modal-profile-image">
+        <span href="">${element['e-mail']}</span>
+        </div>
+        <div class=modal-profile-column2>
+        <span>${element['name']}</span>
+        <span class="job-position">${element['position']}</span>
+        </div>
         </div>`;
     }
 }
