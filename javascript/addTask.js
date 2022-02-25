@@ -92,7 +92,6 @@ function closeModal() {
  * 
  */
 function createTask() {
-    // allTasks = [];
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
@@ -107,8 +106,24 @@ function createTask() {
         'createdAt': new Date().getTime(),
         'assignEmployee': assignedEmployees
     }
-
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTaskAsString);
+}
+
+function deleteTask() {
+    let title = document.getElementById('title').value;
+    let date = document.getElementById('date').value;
+    let catergory = document.getElementById('catergory').value;
+    let text = document.getElementById('text').value;
+    let urgency = document.getElementById('urgency').value;
+    let task = {
+        'title': '',
+        'date': '',
+        'catergory': '',
+        'text': '',
+        'urgency': '',
+        'createdAt': '',
+        'assignEmployee': ''
+    }
 }
