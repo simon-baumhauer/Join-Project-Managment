@@ -5,9 +5,15 @@ let done = [];
 let currentTask = 0;
 
 function pushToBoard() {
+    toDo.push(allTasks);
+    renderTasks();
+}
+
+
+function renderTasks() {
     let renderTask = document.getElementById('tasks');
-    for (let i = 0; i < allTasks.length; i++) {
-        let task = allTasks[i];
+    for (let i = 0; i < toDo.length; i++) {
+        let task = toDo[i];
         renderTask.innerHTML += `
             <div class="tasks">
                 ${task['title']}
