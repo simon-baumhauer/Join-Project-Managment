@@ -16,7 +16,7 @@ function renderTasks() {
         let task = toDo[i];
         renderTask.innerHTML += `
             <div class="tasks" onclick="openTask(${i})">
-                ${task['title']}
+                <span class="titleTask">${task['title']}</span>
                 <img class="delete" onclick="deleteTask(${task})" src="img/x.ico"> 
             </div>    
         `;
@@ -30,14 +30,14 @@ function openTask(i) {
     document.getElementById('openTask').innerHTML = `
         <div class="openTask" id="openTask">
             <div class="date">
-                <div>Due Date${task['date']}</div>
-                <div>Created On ${task['createdAt']}</div>
+                <div>Due Date: <span class="bold">${task['date']}</span></div>
+                <div>Created On: <span class="bold">${task['createdAt']}</span></div>
             </div> 
-            <div>Urgency:  <span class="red">${task['urgency']}</span></div>   
-            <div class="title">${task['title']}</div>
+            <div>Urgency:  <span class="red bold">${task['urgency']}</span></div>   
+            <div class="title bold">${task['title']}</div>
             <div>${task['text']}</div>
             <div class="footerTask">
-                <div>Category: <span class="catogery">${task['catergory']}</span></div>
+                <div>Category: <span class="bold">${task['catergory']}</span></div>
                 <img class="assignedEmployees" src=${task['assignedEmployeess']};
             </div>    
         </div>
