@@ -1,32 +1,38 @@
 let EmployeesArray = [{
         'bild-src': 'Img/Simon_Baumhauer.jpg',
         'e-mail': 'Simon.Baumhauer@hotmail.ch',
-        'Name': 'Simon Baumhauer'
+        'name': 'Simon Baumhauer',
+        'position': '$Software Developer'
     },
     {
         'bild-src': 'Img/profile-picture.png',
-        'e-mail': 'Simon.Baumhauer@hotmail.ch',
-        'Name': 'navi'
+        'e-mail': 'navi@hotmail.ch',
+        'name': 'navi',
+        'position': 'Software Developer'
     },
     {
         'bild-src': 'Img/profile-picture.png',
-        'e-mail': 'Simon.Baumhauer@hotmail.ch',
-        'Name': 'jürgen'
+        'e-mail': 'jürgen@hotmail.ch',
+        'name': 'jürgen',
+        'position': 'Software Developer'
     },
     {
         'bild-src': 'Img/profile-picture.png',
-        'e-mail': 'Simon.Baumhauer@hotmail.ch',
-        'Name': 'Simon Baumhauer'
+        'e-mail': 'karl@hotmail.ch',
+        'name': 'karl',
+        'position': 'UX/UI Designer'
     },
     {
         'bild-src': 'Img/profile-picture.png',
-        'e-mail': 'Simon.Baumhauer@hotmail.ch',
-        'Name': 'Simon Baumhauer'
+        'e-mail': 'lea@hotmail.ch',
+        'name': 'lea',
+        'position': 'Scrum Master'
     },
     {
         'bild-src': 'Img/profile-picture.png',
-        'e-mail': 'Simon.Baumhauer@hotmail.ch',
-        'Name': 'Simon Baumhauer'
+        'e-mail': 'Lisa@hotmail.ch',
+        'name': 'Lisa',
+        'position': 'Product owner'
     },
 ]
 let assignedEmployees = [];
@@ -39,8 +45,9 @@ function Employees() {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
         <div class="modal-profile" onclick="assigningEmployees(${i})">
-          <img src="img/profile-picture.png" alt="" class="modal-profile-image">
-          <a href="">elisabeth.müller@hotmail.ch</a>
+          <img src="${element['bild-src']}" alt="" class="modal-profile-image">
+          <span href="">${element['e-mail']}</span>
+          <span>${element['name']}</span>
           <span class="job-position">Scrum Master</span>
         </div>`;
     }
