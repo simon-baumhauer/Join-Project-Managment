@@ -9,17 +9,15 @@ let allTasks = [];
  */
 function loadAllTasks() {
     let allTaskAsString = localStorage.getItem('allTasks');
-    allTasks = JSON.parse(allTaskAsString);
-
 
     if (allTaskAsString) {
         allTasks = JSON.parse(allTaskAsString);
     }
 
 
-    if (window.location.pathname === '/board.html') {
+    if(window.location.pathname === '/board.html'){
         pushToBoard();
     }
     includeHTML();
-
+    
 }
