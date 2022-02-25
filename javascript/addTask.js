@@ -86,12 +86,19 @@ function closeModal() {
     overlay.classList.add('d-none')
 }
 
-
 /**
  * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
  * 
  */
+/**
+ * This function references to the form elements and assings the values to an Json object stores the Json object in an array. The array is stored in the browser.
+ * 
+ */
 function createTask() {
+    // allTasks = [];
+    >>>
+    >>>
+    > fcb02e72b441481beb7aa071b41f5107505346a7
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
@@ -103,22 +110,10 @@ function createTask() {
         'catergory': catergory,
         'text': text,
         'urgency': urgency,
-        'createdAt': new Date().getTime(),
-        'assignEmployee': assignedEmployees
+        'createdAt': new Date().getTime()
     }
+
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTaskAsString);
-}
-
-function deleteTask() {
-    let task = {
-        'title': '',
-        'date': '',
-        'catergory': '',
-        'text': '',
-        'urgency': '',
-        'createdAt': '',
-        'assignEmployee': ''
-    }
 }

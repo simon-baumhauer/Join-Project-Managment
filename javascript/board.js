@@ -1,3 +1,7 @@
+let toDo = [];
+let inProgress = [];
+let testing = [];
+let done = [];
 let currentTask = 0;
 
 function pushToBoard() {
@@ -6,8 +10,14 @@ function pushToBoard() {
         let task = allTasks[i];
         renderTask.innerHTML += `
             <div class="tasks">
-                &nbsp; ${task['title']}
+                ${task['title']}
+                <img class="delete" onclick="deleteTask(${task})" src="img/x.ico"> 
             </div>    
         `;
     }
 }
+
+// function deleteTask(i) {
+//     allTasks.splice(i, 1);
+//     loadAllTasks();
+// }
