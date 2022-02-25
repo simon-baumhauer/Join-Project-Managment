@@ -4,6 +4,10 @@ body {
     display: flex;
 }
 
+.d-none {
+    display: none;
+}
+
 .container {
     width: 100%;
 }
@@ -69,6 +73,57 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 4px;
-    margin-right: 4px;
+    padding: 6px;
+}
+
+
+/* overlay */
+
+.overlayBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(225, 225, 225, 0.8);
+    z-index: 998;
+    filter: opacity(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.openTask {
+    background-color: rgb(189, 189, 189);
+    padding: 4px;
+    width: 400px;
+    border-radius: 6px;
+    z-index: 999;
+}
+
+.red {
+    color: rgb(184, 0, 0);
+    font-weight: bold;
+}
+
+.date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+
+.catogery {
+    font-weight: bold;
+}
+
+.footerTask {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
 }
