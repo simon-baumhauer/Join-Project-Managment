@@ -1,35 +1,35 @@
 let EmployeesArray = [{
-        'bild-src': 'Img/Simon_Baumhauer.jpg',
+        'bild-src': 'img/Simon_Baumhauer.jpg',
         'e-mail': 'Simon.Baumhauer@hotmail.de',
         'name': 'Simon Baumhauer',
         'position': 'Software Developer'
     },
     {
-        'bild-src': 'Img/profile-picture.png',
+        'bild-src': 'img/profile-picture.png',
         'e-mail': 'navi@hotmail.de',
         'name': 'Navjot Singh',
         'position': 'Software Developer'
     },
     {
-        'bild-src': 'Img/profile-picture.png',
+        'bild-src': 'img/profile-picture.png',
         'e-mail': 'jürgen@hotmail.de',
         'name': 'Jürgen Hildbrand',
         'position': 'Software Developer'
     },
     {
-        'bild-src': 'Img/profile-picture.png',
+        'bild-src': 'img/profile-picture.png',
         'e-mail': 'karl@hotmail.ch',
         'name': 'karl',
         'position': 'UX/UI Designer'
     },
     {
-        'bild-src': 'Img/profile-picture.png',
+        'bild-src': 'img/profile-picture.png',
         'e-mail': 'lea@hotmail.ch',
         'name': 'lea',
         'position': 'Scrum Master'
     },
     {
-        'bild-src': 'Img/profile-picture.png',
+        'bild-src': 'img/profile-picture.png',
         'e-mail': 'Lisa@hotmail.ch',
         'name': 'Lisa',
         'position': 'Product owner'
