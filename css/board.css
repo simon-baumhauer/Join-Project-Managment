@@ -48,10 +48,27 @@ body {
     margin-top: 5px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     text-align: left;
     font-size: 14px;
     font-weight: 100;
     padding-top: 4px;
     padding-bottom: 4px;
     background-color: beige;
+    padding: 4px;
+    position: relative;
+}
+
+.tasks:hover {
+    cursor: pointer;
+
+}
+
+.delete {
+    height: 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 4px;
+    margin-right: 4px;
 }
