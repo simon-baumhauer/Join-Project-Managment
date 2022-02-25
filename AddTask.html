@@ -60,10 +60,9 @@
                 </div>
                 <div class="assingments">
                     <h2>ASSIGNED TO</h2>
-                    <div class="profile-pictures">
-                        <img src="img/Simon_Baumhauer.jpg" class="profile-picture">
-                        <img src="img/icon plus.png" onclick="openModal()" class="selectEmployee">
+                    <div class="profile-pictures" id="test1">
                     </div>
+                    <img src="img/icon plus.png" onclick="openModal()" class="selectEmployee">
                     <div class="buttons">
                         <button class="btn btn-cancel">CANCEL</button>
                         <button class="btn btn-create-task" onclick="createTask()">CREATE TASK</button>
@@ -77,30 +76,29 @@
         <div class="modal-header">
             <div class="modal-title">Available Employees</div>
             <button data-close-button class="close-button" onclick="closeModal()">&times;</button>
-            <button data-close-button class="close-button" onsubmit="closeModal()">&times;</button>
         </div>
         <div class="modal-body">
-            <div class="modal-profile">
+            <div class="modal-profile" onclick="assigningEmployees()">
                 <img src="img/profile-picture.png" alt="" class="modal-profile-image">
                 <a href="">elisabeth.müller@hotmail.ch</a>
                 <span class="job-position">Scrum Master</span>
             </div>
-            <div class="modal-profile">
+            <div class="modal-profile" onclick="assigningEmployees()">
                 <img src="img/profile-picture.png" alt="" class="modal-profile-image">
                 <a href="">david.stegen@hotmail.ch</a>
                 <span class="job-position">Product Manager</span>
             </div>
-            <div class="modal-profile">
+            <div class="modal-profile" onclick="assigningEmployees()">
                 <img src="img/profile-picture.png" alt="" class="modal-profile-image">
                 <a href="">lisa.becker@hotmail.ch</a>
                 <span class="job-position">UX/UI Designer</span>
             </div>
-            <div class="modal-profile">
+            <div class="modal-profile" onclick="assigningEmployees()">
                 <img src="img/profile-picture.png" alt="" class="modal-profile-image">
                 <a href="">reto.nüssli@hotmail.ch</a>
                 <span class="job-position">Frontend Developer</span>
             </div>
-            <div class="modal-profile">
+            <div class="modal-profile" onclick="assigningEmployees()">
                 <img src="img/profile-picture.png" alt="" class="modal-profile-image">
                 <a href="">frank.taler@hotmail.ch</a>
                 <span class="job-position">Backend Developer</span>
@@ -110,4 +108,5 @@
     <div id="overlay" class="d-none"></div>
     <div w3-include-html="templates/footer.html" class="footer"></div>
 </body>
+
 </html>

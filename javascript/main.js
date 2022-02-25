@@ -2,7 +2,7 @@ let allTasks = [];
 
 
 /**
- * This function references to the form elements and assings the values to an Json object stores the Json object in an array. The array is stored in the browser.
+ * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
  * 
  */
 function createTask() {
@@ -18,13 +18,14 @@ function createTask() {
         'catergory': catergory,
         'text': text,
         'urgency': urgency,
-        'createdAt': new Date().getTime()
+        'createdAt': new Date().getTime(),
     }
 
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTaskAsString);
 }
+
 
 /**
  * This function accesses the stored data from the Browser and loads it again in the array
