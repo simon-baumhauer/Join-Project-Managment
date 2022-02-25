@@ -19,6 +19,7 @@ function createTask() {
         'text': text,
         'urgency': urgency,
         'createdAt': new Date().getTime(),
+        'assignEmployee': assignedEmployees
     }
 
     allTasks.push(task);
