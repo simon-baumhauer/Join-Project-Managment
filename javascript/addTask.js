@@ -1,6 +1,6 @@
 let EmployeesArray = [{
         'bild-src': 'img/Simon_Baumhauer.jpg',
-        'e-mail': 'Simon.Baumhauer@hotmail.de',
+        'e-mail': 'simon.Baumhauer@hotmail.de',
         'name': 'Simon Baumhauer',
         'position': 'Software Developer'
     },
@@ -18,20 +18,20 @@ let EmployeesArray = [{
     },
     {
         'bild-src': 'img/profile-picture.png',
-        'e-mail': 'karl@hotmail.ch',
-        'name': 'karl',
+        'e-mail': 'max.mustermann@hotmail.ch',
+        'name': 'Max Mustermann',
         'position': 'UX/UI Designer'
     },
     {
         'bild-src': 'img/profile-picture.png',
-        'e-mail': 'lea@hotmail.ch',
-        'name': 'lea',
+        'e-mail': 'max.mustermann@hotmail.ch',
+        'name': 'Max Mustermann',
         'position': 'Scrum Master'
     },
     {
         'bild-src': 'img/profile-picture.png',
-        'e-mail': 'Lisa@hotmail.ch',
-        'name': 'Lisa',
+        'e-mail': 'max.mustermann@hotmail.ch',
+        'name': 'Max Mustermann',
         'position': 'Product owner'
     },
 ]
@@ -112,11 +112,6 @@ function createTask() {
 }
 
 function deleteTask() {
-    let title = document.getElementById('title').value;
-    let date = document.getElementById('date').value;
-    let catergory = document.getElementById('catergory').value;
-    let text = document.getElementById('text').value;
-    let urgency = document.getElementById('urgency').value;
     let task = {
         'title': '',
         'date': '',
