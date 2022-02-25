@@ -95,10 +95,6 @@ function closeModal() {
  * 
  */
 function createTask() {
-    // allTasks = [];
-    >>>
-    >>>
-    > fcb02e72b441481beb7aa071b41f5107505346a7
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
