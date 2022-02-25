@@ -46,7 +46,7 @@ body {
 }
 
 .tasks {
-    width: 17vw;
+    width: 16.5vw;
     border: 1px solid rgb(159, 158, 158);
     border-radius: 4px;
     margin-top: 5px;
@@ -61,6 +61,10 @@ body {
     background-color: beige;
     padding: 4px;
     position: relative;
+}
+
+.titleTask {
+    margin-right: 14px;
 }
 
 .tasks:hover {
@@ -78,6 +82,10 @@ body {
 
 
 /* overlay */
+
+.bold {
+    font-weight: bold;
+}
 
 .overlayBg {
     position: fixed;
@@ -103,23 +111,18 @@ body {
 
 .red {
     color: rgb(184, 0, 0);
-    font-weight: bold;
 }
 
 .date {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 
 .title {
     font-size: larger;
-    font-weight: bold;
     margin-top: 16px;
     margin-bottom: 4px;
-}
-
-.catogery {
-    font-weight: bold;
 }
 
 .footerTask {
