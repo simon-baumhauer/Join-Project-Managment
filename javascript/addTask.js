@@ -1,5 +1,5 @@
 let EmployeesArray = [{
-        'bild-src': 'img/Simon_Baumhauer.jpg',
+        'bild-src': 'img/simon_baumhauer.jpg',
         'e-mail': 'Simon.Baumhauer@hotmail.de',
         'name': 'Simon Baumhauer',
         'position': 'Software Developer'
