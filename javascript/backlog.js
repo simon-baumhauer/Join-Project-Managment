@@ -30,15 +30,42 @@ function renderBacklogTasks() {
                   <h3 class="font-s-17" id="catagory">${info['catergory']}</h3>
              </div>
              <div class="details">
-                  <span class="font-s-17" id="details" onclick="edit_details(${index})">${info['text']}</span>
+             <div class="d-none chnge-container" id=chnge-container${index}>
+
+             <textarea type="text" id="text-edit${index}" class="d-none input-feld" value="${info['text']}"></textarea>
+             
+             <button onclick="saveChanges(${index})">Save</button>
+             </div>
+             
+                  <span class="font-s-17" id="details${index}" onclick="edit_details(${index})">${info['text']}</span>
             </div>
             </div>`;
     }
 
 }
 
-function edit_details() {
-    let edit = document.getElementById('details');
-    let input = document.create
+/* function hide() {
+    let hidedetails = document.getElementById('details');
+    let edit = document.getElementById('text-edit');
+    console.log('clicked');
+} */
 
+function edit_details(index) {
+    let containeredit = document.getElementById('chnge-container' + index);
+    let hidedetails = document.getElementById('details' + index);
+    let edit = document.getElementById('text-edit' + index);
+    edit.classList.remove('d-none');
+    containeredit.classList.remove('d-none');
+    hidedetails.classList.add('d-none');
+
+}
+
+function saveChanges(index) {
+    console.log(backlogInfo[index]['text']);
+    let text = document.getElementById('text-edit' + index).value;
+
+    backlogInfo[index]['text'].push(text);
+    let detailsAsString = JSON.stringify(details);
+    localStorage.setItem('text', detailsAsString)
+    console.log(text);
 }
