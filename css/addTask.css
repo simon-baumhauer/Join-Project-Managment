@@ -45,7 +45,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     display: block;
-    background: url('../Img/icons8-calendar-150.png') no-repeat;
+    background: url('..Img/icons8-calendar-150.png') no-repeat;
     width: 40px;
     height: 40px;
     border-width: thin;
@@ -54,7 +54,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .styled-select {
     overflow: hidden;
     overflow: -moz-hidden-unscrollable;
-    background: url('../Img/chevron\ .png') no-repeat white;
+    background: url('..Img/chevron\ .png') no-repeat white;
     background-position: 98% 56%;
     display: inline-block;
     position: relative;
@@ -207,9 +207,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 75px;
     height: 75px;
     border-radius: 100%;
+    margin-right: 10px;
 }
 
-.job-position {
+.modal-profile-column1 {
+    display: flex;
+    align-items: center;
+}
+
+.modal-profile-column2 {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
     margin-right: 5px;
 }
 

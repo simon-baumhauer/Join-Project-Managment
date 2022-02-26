@@ -11,9 +11,9 @@ body {
 .content {
     height: 100vh;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    font-weight:bolder;
+    font-weight: bolder;
     margin-left: auto;
     margin-right: auto;
 }
@@ -29,11 +29,29 @@ body {
 
 .board {
     margin-top: 8px;
-    width: 15vw;
+    width: 18vw;
     height: 80vh;
     background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .board:hover {
     filter: contrast(95%);
+}
+
+.tasks {
+    width: 17vw;
+    border: 1px solid rgb(159, 158, 158);
+    border-radius: 4px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 100;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: beige;
 }
