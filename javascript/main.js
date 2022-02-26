@@ -12,9 +12,12 @@ function loadAllTasks() {
     }
 
 
-    if(window.location.pathname === '/board.html'){
+    if (window.location.pathname === '/board.html') {
         pushToBoard();
     }
+    if (window.location.pathname === '/backlog.html') {
+        pushToBacklog();
+    }
     includeHTML();
-    
+
 }
