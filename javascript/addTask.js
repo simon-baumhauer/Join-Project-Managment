@@ -1,5 +1,5 @@
 let EmployeesArray = [{
-        'bild-src': 'img/Simon_Baumhauer.jpg',
+        'bild-src': 'img/simon_baumhauer.jpg',
         'e-mail': 'Simon.Baumhauer@hotmail.de',
         'name': 'Simon Baumhauer',
         'position': 'Software Developer'
@@ -44,16 +44,16 @@ function Employees() {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-        <div class="modal-profile" onclick="assigningEmployees(${i})">
-        <div class=modal-profile-column1>
-        <img src="${element['bild-src']}" alt="" class="modal-profile-image">
-        <span href="">${element['e-mail']}</span>
-        </div>
-        <div class=modal-profile-column2>
-        <span>${element['name']}</span>
-        <span class="job-position">${element['position']}</span>
-        </div>
-        </div>`;
+    <div class="modal-profile" onclick="assigningEmployees(${i})">
+    <div class=modal-profile-column1>
+    <img src="${element['bild-src']}" alt="" class="modal-profile-image">
+    <span href="">${element['e-mail']}</span>
+    </div>
+    <div class=modal-profile-column2>
+    <span>${element['name']}</span>
+    <span class="job-position">${element['position']}</span>
+    </div>
+    </div>`;
     }
 }
 
@@ -92,7 +92,6 @@ function closeModal() {
  * 
  */
 function createTask() {
-    // allTasks = [];
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let catergory = document.getElementById('catergory').value;
@@ -107,8 +106,24 @@ function createTask() {
         'createdAt': new Date().getTime(),
         'assignEmployee': assignedEmployees
     }
-
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTaskAsString);
+}
+
+function deleteTask() {
+    let title = document.getElementById('title').value;
+    let date = document.getElementById('date').value;
+    let catergory = document.getElementById('catergory').value;
+    let text = document.getElementById('text').value;
+    let urgency = document.getElementById('urgency').value;
+    let task = {
+        'title': '',
+        'date': '',
+        'catergory': '',
+        'text': '',
+        'urgency': '',
+        'createdAt': '',
+        'assignEmployee': ''
+    }
 }
