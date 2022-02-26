@@ -134,9 +134,11 @@ body {
 .footerTask {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 24px;
 }
 
 .profileImg {
-    height: 20px;
+    height: 50px;
+    border-radius: 100%;
 }
