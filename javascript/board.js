@@ -25,8 +25,11 @@ function renderTasks() {
 
 function openTask(i) {
     currentTask = i;
+    currentImg = i;
     document.getElementById('overlayBg').classList.remove('d-none');
+    document.getElementById('openTask').classList.remove('d-none');
     let task = toDo[currentTask];
+    let profileImg = EmployeesArray[currentImg];
     document.getElementById('openTask').innerHTML = `
         <div class="openTask" id="openTask">
             <div class="date">
@@ -38,7 +41,7 @@ function openTask(i) {
             <div>${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <img class="assignedEmployees" src=${task['assignedEmployeess']};
+                <img class="profileImg" src=${profileImg['bild-src']};>
             </div>    
         </div>
     
@@ -47,9 +50,5 @@ function openTask(i) {
 
 function backToBoard() {
     document.getElementById('overlayBg').classList.add('d-none');
+    document.getElementById('openTask').classList.add('d-none');
 }
-
-// function deleteTask(i) {
-//     allTasks.splice(i, 1);
-//     loadAllTasks();
-// }
