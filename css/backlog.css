@@ -65,7 +65,7 @@
  }
  
  .details {
-     height: 90px;
+     height: min-content;
      padding-top: 15px;
      padding-bottom: 15px;
      width: 25%;
