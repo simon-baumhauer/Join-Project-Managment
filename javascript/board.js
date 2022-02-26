@@ -4,6 +4,7 @@ let testing = [];
 let done = [];
 let currentTask = 0;
 
+
 function pushToBoard() {
     toDo = JSON.parse(JSON.stringify(allTasks));
     renderTasks();
@@ -25,11 +26,10 @@ function renderTasks() {
 
 function openTask(i) {
     currentTask = i;
-    currentImg = i;
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
     let task = toDo[currentTask];
-    let profileImg = EmployeesArray[currentImg];
+    let employers = toDo[currentTask]['assignEmployee'];
     document.getElementById('openTask').innerHTML = `
         <div class="openTask" id="openTask">
             <div class="date">
@@ -41,11 +41,15 @@ function openTask(i) {
             <div>${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <img class="profileImg" src=${profileImg['bild-src']};>
+                <div id="currentEmployer${i}"></div>
             </div>    
         </div>
-    
     `;
+    for (let j = 0; j < employers.length; j++) {
+        let employer = employers[j];
+        document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`;
+        
+    }
 }
 
 function backToBoard() {
