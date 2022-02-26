@@ -16,6 +16,7 @@ function renderBacklogTasks() {
         const info = backlogInfo[index];
 
         backlogContainer.innerHTML += `
+        <div class="todo-container heading1">
             <div class="person-info" id="person_info">
             <div class="profile-img">
                 <img class="profile" id="profile_img" src=${info['assignEmployee'][0]['bild-src']}>
@@ -29,8 +30,15 @@ function renderBacklogTasks() {
                   <h3 class="font-s-17" id="catagory">${info['catergory']}</h3>
              </div>
              <div class="details">
-                  <span class="font-s-17" id="details">${info['text']}</span>
+                  <span class="font-s-17" id="details" onclick="edit_details(${index})">${info['text']}</span>
+            </div>
             </div>`;
     }
+
+}
+
+function edit_details() {
+    let edit = document.getElementById('details');
+    let input = document.create
 
 }
