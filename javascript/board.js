@@ -30,7 +30,15 @@ function openTask(i) {
     document.getElementById('openTask').classList.remove('d-none');
     let task = toDo[currentTask];
     let employers = toDo[currentTask]['assignEmployee'];
-    document.getElementById('openTask').innerHTML = `
+    document.getElementById('openTask').innerHTML = generateTaskHTML(task, i);
+    for (let j = 0; j < employers.length; j++) {
+        let employer = employers[j];
+        document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`;
+    }
+}
+
+function generateTaskHTML(task, i) {
+    return `
         <div class="openTask" id="openTask">
             <div class="date">
                 <div>Due Date: <span class="bold">${task['date']}</span></div>
@@ -45,11 +53,6 @@ function openTask(i) {
             </div>    
         </div>
     `;
-    for (let j = 0; j < employers.length; j++) {
-        let employer = employers[j];
-        document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`;
-        
-    }
 }
 
 function backToBoard() {
