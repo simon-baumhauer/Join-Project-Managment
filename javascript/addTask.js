@@ -36,7 +36,6 @@ let EmployeesArray = [{
     },
 ]
 let assignedEmployees = [];
-let allTasks = [];
 
 
 function Employees() {
@@ -111,6 +110,7 @@ function createTask() {
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTaskAsString);
+    
 }
 
 function deleteTask() {
