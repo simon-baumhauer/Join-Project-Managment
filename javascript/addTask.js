@@ -36,6 +36,7 @@ let EmployeesArray = [{
     },
 ]
 let assignedEmployees = [];
+let allTasks = [];
 
 
 function Employees() {
