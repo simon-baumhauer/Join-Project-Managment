@@ -1,4 +1,4 @@
-let allTasks = [];
+
 
 /**
  * This function accesses the stored data from the Browser and loads it again in the array
