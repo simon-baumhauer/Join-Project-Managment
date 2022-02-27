@@ -1,49 +1,41 @@
-let toDo = [];
-let inProgress = [];
-let testing = [];
-let done = [];
 let currentTask = 0;
 let currenDraggedElement;
 
-function pushToBoard() {
-    load();
-    toDo = JSON.parse(JSON.stringify(allTasks));
-    save();
-    renderTasks();
-}
 
-function renderTasks() {
-    let renderTask = document.getElementById('tasks');
-    let renderInProgress = document.getElementById('inProgress');
-    let renderTesting = document.getElementById('testing');
-    let renderDone = document.getElementById('done');
-    document.getElementById('tasks').innerHTML = '';
+
+function generateHTML() {
+    let toDo = allTasks.filter(t => t['inArray'] == 'toDo');
+    let inProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
+    let testing = allTasks.filter(t => t['inArray'] == 'testing');
+    let done = allTasks.filter(t => t['inArray'] == 'done');
+    document.getElementById('toDo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < toDo.length; i++) {
-        let task = toDo[i];
-        renderTask.innerHTML += generateTasksHTML(task, i);
+        const element = toDo[i];
+        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
     }
     for (let i = 0; i < inProgress.length; i++) {
-        let task = inProgress[i];
-        renderInProgress.innerHTML += generateTasksHTML(task, i);
+        const element = inProgress[i];
+        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
     }
     for (let i = 0; i < testing.length; i++) {
-        let task = testing[i];
-        renderTesting.innerHTML += generateTasksHTML(task, i);
+        const element = testing[i];
+        document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
     }
     for (let i = 0; i < done.length; i++) {
-        let task = done[i];
-        renderDone.innerHTML += generateTasksHTML(task, i);
+        const element = done[i];
+        document.getElementById('done').innerHTML += generateTasksHTML(element, i);
     }
+
 }
 
-function generateTasksHTML(task, i) {
+function generateTasksHTML(element, i) {
     return  `
         <div draggable="true" ondragstart="startDragging(${i})" class="tasks" onclick="openTask(${i})">
-            <span class="titleTask">${task['title']}</span>
-            <img class="delete" onclick="deleteTask(${task})" src="img/x.ico"> 
+            <span class="titleTask">${element['title']}</span>
+            <img class="delete" onclick="deleteTask(${element})" src="img/x.ico"> 
         </div>    
     `;
 }
@@ -59,60 +51,27 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveToInProgress() {
-    inProgress.push(toDo[currenDraggedElement]);
-    allTasks.splice(currenDraggedElement, 1);
-    toDo.splice(currenDraggedElement, 1);
-    save();
-    renderTasks();
-}
-
-function moveToTesting() {
-    testing.push(inProgress[currenDraggedElement]);
-    inProgress.splice(currenDraggedElement, 1);
-    save();
-    renderTasks();
-}
-
-function moveToDone() {
-    done.push(testing[currenDraggedElement]);
-    testing.splice(currenDraggedElement, 1);
-    save();
-    renderTasks();
+function moveTo(inArray) {
+   allTasks[currenDraggedElement]['inArray'] = inArray;
+   generateHTML();
 }
 
 
 
-function save() {
-    let allTaskAsText = JSON.stringify(allTasks);
-    let toDoAsText = JSON.stringify(toDo);
-    let inProgressAsText = JSON.stringify(inProgress);
-    let testingAsText = JSON.stringify(testing);
-    let doneAsText = JSON.stringify(done);
-    localStorage.setItem('allTasks', allTaskAsText);
-    localStorage.setItem('toDo', toDoAsText);
-    localStorage.setItem('inProgress', inProgressAsText);
-    localStorage.setItem('testing', testingAsText);
-    localStorage.setItem('done', doneAsText);
-}
+// function save() {
+//     let allTaskAsText = JSON.stringify(allTasks);
+//     let toDoAsText = JSON.stringify(toDo);
+//     localStorage.setItem('allTasks', allTaskAsText);
+//     localStorage.setItem('toDo', toDoAsText);
 
-function load() {
-    let toDoAsText = localStorage.getItem('toDo');
-    let inProgressAsText = localStorage.getItem('inProgress');
-    let testingAsText = localStorage.getItem('testing');
-    let doneAsText = localStorage.getItem('done');
- 
-    
-    if(toDoAsText && inProgressAsText) {
-        toDo = JSON.parse(toDoAsText);
-        inProgress = JSON.parse(inProgressAsText);
-    }  
-  
-    if(testingAsText && doneAsText) { 
-        testing = JSON.parse(testingAsText);
-        done = JSON.parse(doneAsText);
-    }  
-  }
+// }
+
+// function load() {
+//     let toDoAsText = localStorage.getItem('toDo');
+//     if(toDoAsText) {
+//         toDo = JSON.parse(toDoAsText);
+//     }    
+//   }
 
 
 
