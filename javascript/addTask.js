@@ -104,7 +104,8 @@ function createTask() {
         'text': text,
         'urgency': urgency,
         'createdAt': new Date().getTime(),
-        'assignEmployee': assignedEmployees
+        'assignEmployee': assignedEmployees,
+        'inArray': 'toDo'
     }
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
