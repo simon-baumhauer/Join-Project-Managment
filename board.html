@@ -40,17 +40,17 @@
 
             <div class="boards">
                 IN PROGRESS
-                <div class="board" ondrop="moveTo('closed')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="inProgress" ondrop="moveToInProgress()" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 TESTING
-                <div class="board" ondrop="moveTo('closed')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="testing" ondrop="moveToTesting()" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 DONE
-                <div class="board" ondrop="moveTo('closed')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="done" ondrop="moveToDone()" ondragover="allowDrop(event)"></div>
             </div>
 
         </div>
