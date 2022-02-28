@@ -33,22 +33,22 @@
 
             <div class="boards">
                 TO DO
-                <div class="board" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="toDo" ondrop="moveToDo('toDo')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 IN PROGRESS
-                <div class="board" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="inProgress" ondrop="moveToInProgress('inProgress')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 TESTING
-                <div class="board" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="testing" ondrop="moveToTesting('testing')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 DONE
-                <div class="board" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+                <div class="board" id="done" ondrop="moveToDone('done')" ondragover="allowDrop(event)"></div>
             </div>
 
         </div>
