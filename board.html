@@ -22,9 +22,9 @@
 
 <body onload="loadAllTasks()">
 
-    <div class="d-none overlayBg" id="overlayBg" onclick="backToBoard()">
-        <div class="openTask" id="openTask"></div>
-    </div>
+    <div class="d-none overlayBg" id="overlayBg" onclick="backToBoard()"></div>
+    <div class="d-none openTask" id="openTask"></div>
+    
 
     <div w3-include-html="templates/header.html"></div>
 
@@ -33,24 +33,22 @@
 
             <div class="boards">
                 TO DO
-                <div class="board">
-                    <div id="tasks"></div>
-                </div>
+                <div class="board" id="toDo" ondrop="moveToDo('toDo')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 IN PROGRESS
-                <div class="board"></div>
+                <div class="board" id="inProgress" ondrop="moveToInProgress('inProgress')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 TESTING
-                <div class="board"></div>
+                <div class="board" id="testing" ondrop="moveToTesting('testing')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="boards">
                 DONE
-                <div class="board"></div>
+                <div class="board" id="done" ondrop="moveToDone('done')" ondragover="allowDrop(event)"></div>
             </div>
 
         </div>
