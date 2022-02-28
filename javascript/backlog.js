@@ -61,7 +61,7 @@ function edit_details(index) {
 
 }
 
-function saveChanges(index) {
+/* function saveChanges(index) {
 
     let text = document.getElementById('text-edit' + index).value;
     let detail = allTasks[index]['text'];
@@ -74,7 +74,7 @@ function saveChanges(index) {
     localStorage.setItem('allTasks', detailsAsString)
     console.log(backlogInfo[index]['text']);
     clickedSaved(index);
-}
+} */
 
 function clickedSaved(index) {
     let containeredit = document.getElementById('chnge-container' + index);

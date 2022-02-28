@@ -121,7 +121,7 @@ function deleteTask() {
         'title': '',
         'date': '',
         'catergory': '',
-        'text': '',
+        'text': [''],
         'urgency': '',
         'createdAt': '',
         'assignEmployee': ''
