@@ -27,7 +27,6 @@
      justify-content: space-between;
      background-color: #d6d5dc;
      height: 100px;
-     overflow: scroll;
      margin-right: 40px;
      border-radius: 10px;
      border-left: 10px solid black;
@@ -73,7 +72,6 @@
      padding-top: 15px;
      padding-bottom: 15px;
      width: 25%;
-     overflow: scroll;
      text-align: center;
  }
  
