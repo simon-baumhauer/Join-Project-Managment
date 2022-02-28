@@ -57,15 +57,30 @@ function edit_details(index) {
     edit.classList.remove('d-none');
     containeredit.classList.remove('d-none');
     hidedetails.classList.add('d-none');
+    console.log('hier ist allTasks', allTasks[index]['text']);
 
 }
 
 function saveChanges(index) {
-    console.log(backlogInfo[index]['text']);
-    let text = document.getElementById('text-edit' + index).value;
 
-    backlogInfo[index]['text'].push(text);
+    let text = document.getElementById('text-edit' + index).value;
+    let detail = allTasks[index]['text'];
+    let details = detail.push(text);
+
+
+    detail.splice(index, 1);
+
     let detailsAsString = JSON.stringify(details);
-    localStorage.setItem('text', detailsAsString)
-    console.log(text);
+    localStorage.setItem('allTasks', detailsAsString)
+    console.log(backlogInfo[index]['text']);
+    clickedSaved(index);
+}
+
+function clickedSaved(index) {
+    let containeredit = document.getElementById('chnge-container' + index);
+    let hidedetails = document.getElementById('details' + index);
+    let edit = document.getElementById('text-edit' + index);
+    edit.classList.add('d-none');
+    containeredit.classList.add('d-none');
+    hidedetails.classList.remove('d-none');
 }
