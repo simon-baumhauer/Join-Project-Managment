@@ -14,7 +14,7 @@ function loadAllTasks() {
 
 
     if (window.location.pathname === '/board.html') {
-        generateHTML();
+        pushToBoard();
     }
     if (window.location.pathname === '/backlog.html') {
         pushToBacklog();
