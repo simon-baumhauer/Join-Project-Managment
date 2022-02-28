@@ -17,6 +17,10 @@
      margin-bottom: 25px;
  }
  
+ .d-none {
+     display: none !important;
+ }
+ 
  .todo-container {
      display: flex;
      align-items: center;
@@ -92,6 +96,21 @@
  
  .m-btm-2 {
      margin-bottom: 2px;
+ }
+ 
+ .input-feld {
+     text-align: center;
+     overflow: visible;
+     height: min-content;
+ }
+ 
+ .chnge-container {
+     height: 100%;
+     background-color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
  }
  /* Responsive */
  
