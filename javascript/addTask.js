@@ -104,13 +104,18 @@ function createTask() {
         'text': text.value,
         'urgency': urgency.value,
         'createdAt': new Date().getTime(),
-        'assignEmployee': assignedEmployees.value,
+        'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
     }
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
     localStorage.setItem('allTasks', allTaskAsString);
-
+    title.value = ''
+    date.value = '';
+    catergory.value = '';
+    text.value = '';
+    urgency.value = '';
+    /*  assignEmployee = ''; */
 }
 
 function deleteTask() {
@@ -123,7 +128,7 @@ function deleteTask() {
         'title': '',
         'date': '',
         'catergory': '',
-        'text': [''],
+        'text': '',
         'urgency': '',
         'createdAt': '',
         'assignEmployee': ''
