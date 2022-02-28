@@ -7,7 +7,10 @@ let currenDraggedElement;
 
 
 
+
 function generateHTML() {
+    load()
+    inProgress = allTasks;
     let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
     let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
     let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
@@ -45,9 +48,6 @@ function generateTasksHTML(element, i) {
 }
 
 // der wert des elementes was verschoben wird, wird in die globale variabe gespeichert
-function startDragging(i) {
-    currenDraggedElement = i;
-}
 
 function startDragging(i) {
     currenDraggedElement = i;
@@ -66,8 +66,8 @@ function openTask(i) {
     currentTask = i;
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
-    let task = toDo[currentTask];
-    let employers = toDo[currentTask]['assignEmployee'];
+    let task = allTasks[currentTask];
+    let employers = allTasks[currentTask]['assignEmployee'];
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(task, i);
     for (let j = 0; j < employers.length; j++) {
         let employer = employers[j];
@@ -98,30 +98,30 @@ function backToBoard() {
     document.getElementById('openTask').classList.add('d-none');
 }
 
-// function save() {
-//     let toDoAsText = JSON.stringify(toDo);
-//     let inProgressAsText = JSON.stringify(inProgress);
-//     let testingAsText = JSON.stringify(testing);
-//     let doneAsText = JSON.stringify(done);
-//     localStorage.setItem('toDo', toDoAsText);
-//     localStorage.setItem('inProgress', inProgressAsText);
-//     localStorage.setItem('testing', testingAsText);
-//     localStorage.setItem('done', doneAsText);
+function save() {
+    let toDoAsText = JSON.stringify(toDo);
+    let inProgressAsText = JSON.stringify(inProgress);
+    let testingAsText = JSON.stringify(testing);
+    let doneAsText = JSON.stringify(done);
+    localStorage.setItem('toDo', toDoAsText);
+    localStorage.setItem('inProgress', inProgressAsText);
+    localStorage.setItem('testing', testingAsText);
+    localStorage.setItem('done', doneAsText);
 
-// }
+}
 
-// function load() {
-//     let toDoAsText = localStorage.getItem('toDo');
-//     let inProgressAsText = localStorage.getItem('inProgress');
-//     let testingAsText = localStorage.getItem('testing');
-//     let doneAsText = localStorage.getItem('done');
-//     if (toDoAsText && inProgressAsText) {
-//         toDo = JSON.parse(toDoAsText);
-//         inProgress = JSON.parse(inProgressAsText);
-//     }
-//     if (testingAsText && doneAsText) {
-//         testing = JSON.parse(testingAsText);
-//         done = JSON.parse(doneAsText);
-//     }
+function load() {
+    let toDoAsText = localStorage.getItem('toDo');
+    let inProgressAsText = localStorage.getItem('inProgress');
+    let testingAsText = localStorage.getItem('testing');
+    let doneAsText = localStorage.getItem('done');
+    if (toDoAsText && inProgressAsText) {
+        toDo = JSON.parse(toDoAsText);
+        inProgress = JSON.parse(inProgressAsText);
+    }
+    if (testingAsText && doneAsText) {
+        testing = JSON.parse(testingAsText);
+        done = JSON.parse(doneAsText);
+    }
 
-// }
+}
