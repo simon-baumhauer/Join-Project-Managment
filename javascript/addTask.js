@@ -98,7 +98,6 @@ function createTask() {
     let text = document.getElementById('text').value;
     let urgency = document.getElementById('urgency').value;
     let task = {
-        'id': time.getTime(),
         'title': title,
         'date': date,
         'catergory': catergory,
