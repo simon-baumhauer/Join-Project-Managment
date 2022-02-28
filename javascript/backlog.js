@@ -32,7 +32,7 @@ function renderBacklogTasks() {
              <div class="details">
              <div class="d-none chnge-container" id=chnge-container${index}>
 
-             <textarea type="text" id="text-edit${index}" class="d-none input-feld" value="${info['text']}"></textarea>
+             <input type="text" id="text-edit${index}" class="d-none input-feld" value="${info['text']}">
              
              <button onclick="saveChanges(${index})">Save</button>
              </div>
