@@ -5,16 +5,20 @@ let done = [];
 let currentTask = 0;
 let currenDraggedElement;
 
-
+function pushToBoard() {
+    load();
+    toDo = JSON.parse(JSON.stringify(allTasks));
+    save();
+    generateHTML()
+}
 
 
 function generateHTML() {
-    load()
-    inProgress = allTasks;
-    let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
-    let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
-    let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
-    let currentDone = allTasks.filter(t => t['inArray'] == 'done');
+    load();
+    let currentToDo = toDo //.filter(t => t['inArray'] == 'toDo');
+    let currentInProgress = inProgress.filter(t => t['inArray'] == 'inProgress');
+    let currentTesting = testing.filter(t => t['inArray'] == 'testing');
+    let currentDone = done.filter(t => t['inArray'] == 'done');
     document.getElementById('toDo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
@@ -35,7 +39,6 @@ function generateHTML() {
         const element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element, i);
     }
-    // save();
 }
 
 function generateTasksHTML(element, i) {
@@ -57,8 +60,36 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(inArray) {
+function moveToDo(inArray) {
+    inProgress[currenDraggedElement]['inArray'] = inArray;
+    toDo.push(allTasks[currenDraggedElement]);
+    inProgress.splice(currenDraggedElement);
+    save();
+    generateHTML();
+}
+
+function moveToInProgress(inArray) {
     allTasks[currenDraggedElement]['inArray'] = inArray;
+    inProgress.push(allTasks[currenDraggedElement]);
+    allTasks.splice(currenDraggedElement);
+    toDo.splice(currenDraggedElement);
+    save();
+    generateHTML();
+}
+
+function moveToTesting(inArray) {
+    inProgress[currenDraggedElement]['inArray'] = inArray;
+    testing.push(inProgress[currenDraggedElement]);
+    inProgress.splice(currenDraggedElement);
+    save();
+    generateHTML();
+}
+
+function moveToDone(inArray) {
+    testing[currenDraggedElement]['inArray'] = inArray;
+    done.push(testing[currenDraggedElement]);
+    testing.splice(currenDraggedElement);
+    save();
     generateHTML();
 }
 
@@ -99,10 +130,12 @@ function backToBoard() {
 }
 
 function save() {
+    let allTasksAsText = JSON.stringify(allTasks);
     let toDoAsText = JSON.stringify(toDo);
     let inProgressAsText = JSON.stringify(inProgress);
     let testingAsText = JSON.stringify(testing);
     let doneAsText = JSON.stringify(done);
+    localStorage.setItem('allTasks', allTasksAsText);
     localStorage.setItem('toDo', toDoAsText);
     localStorage.setItem('inProgress', inProgressAsText);
     localStorage.setItem('testing', testingAsText);
@@ -115,6 +148,7 @@ function load() {
     let inProgressAsText = localStorage.getItem('inProgress');
     let testingAsText = localStorage.getItem('testing');
     let doneAsText = localStorage.getItem('done');
+    let allTasksAsText = localStorage.getItem('allTasks');
     if (toDoAsText && inProgressAsText) {
         toDo = JSON.parse(toDoAsText);
         inProgress = JSON.parse(inProgressAsText);
@@ -122,6 +156,9 @@ function load() {
     if (testingAsText && doneAsText) {
         testing = JSON.parse(testingAsText);
         done = JSON.parse(doneAsText);
+    }
+    if (allTasksAsText) {
+        allTasks = JSON.parse(allTasksAsText);
     }
 
 }
