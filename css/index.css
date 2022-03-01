@@ -55,6 +55,7 @@
         }
         
         .myAnimation {
+            font-size: 16px;
             position: absolute;
             text-align: center;
             width: 80%;
@@ -103,7 +104,7 @@
         }
         
         .names:hover span:nth-child(1) {
-            margin-right: 5px
+            margin-right: 20px;
         }
         
         .names:hover span:nth-child(1):after {
@@ -111,7 +112,7 @@
         }
         
         .names:hover span:nth-child(2) {
-            margin-left: 30px
+            margin-left: 10px;
         }
         
         .names:hover span {
