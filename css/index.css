@@ -87,3 +87,34 @@
                 opacity: 1;
             }
         }
+        /* Name affects */
+        
+        .names {
+            color: #484848;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: monospace;
+            letter-spacing: 7px;
+            cursor: pointer
+        }
+        
+        .names span {
+            transition: .2s linear
+        }
+        
+        .names:hover span:nth-child(1) {
+            margin-right: 15px
+        }
+        
+        .names:hover span:nth-child(1):after {
+            content: "";
+        }
+        
+        .names:hover span:nth-child(2) {
+            margin-left: 30px
+        }
+        
+        .names:hover span {
+            color: #484848;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+        }
