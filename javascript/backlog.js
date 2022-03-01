@@ -1,14 +1,20 @@
+let backlogInfo = [];
+let backlogText = [];
+
 function pushToBacklog() {
 
     backlogInfo = JSON.parse(JSON.stringify(allTasks));
+
     renderBacklogTasks();
+
 }
 
 function renderBacklogTasks() {
+
     let backlogContainer = document.getElementById('backlog_container');
     backlogContainer.innerHTML = '';
-    for (let index = 0; index < allTasks.length; index++) {
-        const info = allTasks[index];
+    for (let index = 0; index < backlogInfo.length; index++) {
+        const info = backlogInfo[index];
 
         let employe = info['assignEmployee'];
         for (let z = 0; z < employe.length; z++) {
@@ -56,14 +62,14 @@ function renderTemplate(emp, info, index) {
     console.log('clicked');
 } */
 
-function edit_details(index) {
+function edit_details(index, info) {
     let containeredit = document.getElementById('chnge-container' + index);
     let hidedetails = document.getElementById('details' + index);
     let edit = document.getElementById('text-edit' + index);
     edit.classList.remove('d-none');
     containeredit.classList.remove('d-none');
     hidedetails.classList.add('d-none');
-    console.log(allTasks[index]['text']);
+
 
 
 }
@@ -71,17 +77,16 @@ function edit_details(index) {
 
 
 function saveChanges(index) {
-
-    let text = document.getElementById('text-edit' + index).value;
-    let detail = allTasks[index]['text'];
-
-    let details = detail.push(text);
+    let change = document.getElementById('text-edit' + index).value;
 
 
+    let detail = backlogInfo[index]['text'];
+    console.log(detail);
 
+
+    let details = detail.push(change);
     let detailsAsString = JSON.stringify(details);
-    localStorage.setItem('allTasks', detailsAsString)
-    console.log(allTasks[index]['text']);
+    localStorage.setItem('allTasks1', detailsAsString)
     clickedSaved(index);
 }
 
