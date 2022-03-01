@@ -10,20 +10,31 @@ function pushToBacklog() {
 }
 
 function renderBacklogTasks() {
-
     let backlogContainer = document.getElementById('backlog_container');
     backlogContainer.innerHTML = '';
-    for (let index = 0; index < backlogInfo.length; index++) {
-        const info = backlogInfo[index];
+    if (backlogInfo == "") {
+        backlogContainer.innerHTML = noTasks();
+    } else {
 
-        let employe = info['assignEmployee'];
-        for (let z = 0; z < employe.length; z++) {
-            let emp = employe[z];
 
-            backlogContainer.innerHTML += renderTemplate(emp, info, index);
+        for (let index = 0; index < backlogInfo.length; index++) {
+            const info = backlogInfo[index];
+
+            let employe = info['assignEmployee'];
+            for (let z = 0; z < employe.length; z++) {
+                let emp = employe[z];
+
+                backlogContainer.innerHTML += renderTemplate(emp, info, index);
+            }
         }
     }
+}
 
+function noTasks() {
+    return `
+    <div class="todo-container heading1" style="justify-content:center;">
+    Keine Tasks mehr
+    </div>`;
 }
 
 function renderTemplate(emp, info, index) {

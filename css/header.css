@@ -17,12 +17,19 @@ body {
 
 /* In style.css because of globalscope*/
 
+body {
+    margin: 0;
+}
+
 .d-none {
     display: none !important;
 }
 
+a {
+    margin-right: 0 !important;
+}
+
 .header {
-    display: block;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +44,8 @@ body {
 
 .header-img {
     display: none;
-    width: 40px;
+    width: 35px;
+    margin-top: 20px;
 }
 
 .main {
@@ -198,6 +206,9 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
 }
 
 @media (max-width: 900px) {
+    .d-none {
+        display: flex !important;
+    }
     .sidebarIconToggle {
         display: block;
     }
