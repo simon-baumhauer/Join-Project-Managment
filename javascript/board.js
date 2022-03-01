@@ -1,24 +1,13 @@
-let toDo = [];
-let inProgress = [];
-let testing = [];
-let done = [];
 let currentTask = 0;
 let currenDraggedElement;
-
-function pushToBoard() {
-    load();
-    toDo = JSON.parse(JSON.stringify(allTasks));
-    save();
-    generateHTML()
-}
 
 
 function generateHTML() {
     load();
-    let currentToDo = toDo //.filter(t => t['inArray'] == 'toDo');
-    let currentInProgress = inProgress.filter(t => t['inArray'] == 'inProgress');
-    let currentTesting = testing.filter(t => t['inArray'] == 'testing');
-    let currentDone = done.filter(t => t['inArray'] == 'done');
+    let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
+    let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
+    let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
+    let currentDone = allTasks.filter(t => t['inArray'] == 'done');
     document.getElementById('toDo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
@@ -43,7 +32,7 @@ function generateHTML() {
 
 function generateTasksHTML(element, i) {
     return `
-        <div draggable="true" ondragstart="startDragging(${i})" class="tasks" onclick="openTask(${i})">
+        <div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks" onclick="openTask(${i})">
             <span class="titleTask">${element['title']}</span>
             <img class="delete" onclick="deleteTask(${element})" src="img/x.ico"> 
         </div>    
@@ -60,38 +49,13 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveToDo(inArray) {
-    inProgress[currenDraggedElement]['inArray'] = inArray;
-    toDo.push(allTasks[currenDraggedElement]);
-    inProgress.splice(currenDraggedElement);
+function moveTo(i) {
+    allTasks[currenDraggedElement]['inArray'] = i;
     save();
     generateHTML();
 }
 
-function moveToInProgress(inArray) {
-    allTasks[currenDraggedElement]['inArray'] = inArray;
-    inProgress.push(allTasks[currenDraggedElement]);
-    allTasks.splice(currenDraggedElement);
-    toDo.splice(currenDraggedElement);
-    save();
-    generateHTML();
-}
 
-function moveToTesting(inArray) {
-    inProgress[currenDraggedElement]['inArray'] = inArray;
-    testing.push(inProgress[currenDraggedElement]);
-    inProgress.splice(currenDraggedElement);
-    save();
-    generateHTML();
-}
-
-function moveToDone(inArray) {
-    testing[currenDraggedElement]['inArray'] = inArray;
-    done.push(testing[currenDraggedElement]);
-    testing.splice(currenDraggedElement);
-    save();
-    generateHTML();
-}
 
 function openTask(i) {
     currentTask = i;
@@ -131,34 +95,12 @@ function backToBoard() {
 
 function save() {
     let allTasksAsText = JSON.stringify(allTasks);
-    let toDoAsText = JSON.stringify(toDo);
-    let inProgressAsText = JSON.stringify(inProgress);
-    let testingAsText = JSON.stringify(testing);
-    let doneAsText = JSON.stringify(done);
     localStorage.setItem('allTasks', allTasksAsText);
-    localStorage.setItem('toDo', toDoAsText);
-    localStorage.setItem('inProgress', inProgressAsText);
-    localStorage.setItem('testing', testingAsText);
-    localStorage.setItem('done', doneAsText);
-
 }
 
 function load() {
-    let toDoAsText = localStorage.getItem('toDo');
-    let inProgressAsText = localStorage.getItem('inProgress');
-    let testingAsText = localStorage.getItem('testing');
-    let doneAsText = localStorage.getItem('done');
     let allTasksAsText = localStorage.getItem('allTasks');
-    if (toDoAsText && inProgressAsText) {
-        toDo = JSON.parse(toDoAsText);
-        inProgress = JSON.parse(inProgressAsText);
-    }
-    if (testingAsText && doneAsText) {
-        testing = JSON.parse(testingAsText);
-        done = JSON.parse(doneAsText);
-    }
     if (allTasksAsText) {
         allTasks = JSON.parse(allTasksAsText);
     }
-
 }
