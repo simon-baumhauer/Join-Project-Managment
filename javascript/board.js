@@ -50,7 +50,8 @@ function allowDrop(ev) {
 }
 
 function moveTo(i) {
-    allTasks[currenDraggedElement]['inArray'] = i;
+    let task = allTasks.find(t => t.createdAt === currenDraggedElement);
+    task['inArray'] = i;
     save();
     generateHTML();
 }
