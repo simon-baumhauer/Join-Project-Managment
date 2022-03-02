@@ -17,12 +17,19 @@ body {
 
 /* In style.css because of globalscope*/
 
+body {
+    margin: 0;
+}
+
 .d-none {
     display: none !important;
 }
 
+a {
+    margin-right: 0 !important;
+}
+
 .header {
-    display: block;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +44,8 @@ body {
 
 .header-img {
     display: none;
-    width: 40px;
+    width: 35px;
+    margin-top: 20px;
 }
 
 .main {
@@ -89,6 +97,12 @@ body {
     font-weight: bold;
     padding: 20px;
     cursor: pointer;
+    border-left: 5px transparent white;
+}
+
+.sidebarMenuInner li:hover {
+    border-left: 5px solid white;
+    transition: 155ms ease-in-out;
 }
 
 .sidebarMenuInner li span {
@@ -182,22 +196,26 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
     margin-top: -9px;
 }
 
-.border-left {
+
+/* .border-left {
     width: 100%;
+    transition: all 2s ease-in-out;
     border-left: 4px transparent white;
-    transition: all 155ms ease-in-out;
 }
 
 .border-left:hover {
-    border-left: 4px solid white;
-    transition: all 155ms ease-in-out;
-}
+    transition: 155ms ease-in-out;
+   
+} */
 
 .responsive-mobile {
     display: block;
 }
 
 @media (max-width: 900px) {
+    .d-none {
+        display: flex !important;
+    }
     .sidebarIconToggle {
         display: block;
     }
