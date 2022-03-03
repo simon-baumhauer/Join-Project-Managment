@@ -40,6 +40,7 @@ a {
     height: 60px!important;
     overflow: hidden;
     z-index: 10;
+
 }
 
 .header-img {
@@ -211,6 +212,14 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
 .responsive-mobile {
     display: block;
 }
+
+@media(max-width: 1200px) {
+
+    #sidebarMenu {
+        width: 200px;
+    }
+}
+
 
 @media (max-width: 900px) {
     .d-none {

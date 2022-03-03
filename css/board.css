@@ -1,6 +1,7 @@
 body {
     margin: 0;
     height: 100%;
+    width: 100%;
     display: flex;
 }
 
@@ -8,11 +9,10 @@ body {
     display: none;
 }
 
-.container {
-    width: 100%;
-}
-
 .content {
+    min-width: calc(100% - 250px);
+    width: 90vh;
+    margin-left: 250px !important;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -25,6 +25,7 @@ body {
 .boards {
     display: flex;
     flex-direction: column;
+    width: 250px;
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
@@ -33,7 +34,6 @@ body {
 
 .board {
     margin-top: 8px;
-    width: 18vw;
     height: 80vh;
     background-color: rgb(238, 238, 238);
     display: flex;
@@ -46,7 +46,7 @@ body {
 }
 
 .tasks {
-    width: 16.5vw;
+    width: 92%;
     border: 1px solid rgb(159, 158, 158);
     border-radius: 4px;
     margin-top: 5px;
@@ -142,4 +142,18 @@ body {
     height: 50px;
     border-radius: 100%;
     margin-left: 8px;
+}
+
+@media(max-width: 1200px) {
+
+    .content {
+        min-width: calc(100% - 200px);
+        margin-left: 200px !important;
+    }    
+
+
+
+
+
+
 }
