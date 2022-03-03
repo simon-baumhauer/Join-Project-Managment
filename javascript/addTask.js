@@ -1,3 +1,5 @@
+let allTasks = [];
+let assignedEmployees = [];
 let EmployeesArray = [{
         'bild-src': 'img/simon_baumhauer.jpg',
         'e-mail': 'Simon.Baumhauer@hotmail.de',
@@ -34,9 +36,48 @@ let EmployeesArray = [{
         'name': 'Lisa',
         'position': 'Product owner'
     },
-]
-let assignedEmployees = [];
+];
 
+/**
+ * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
+ * 
+ */
+async function createTask() {
+    let title = document.getElementById('title');
+    let date = document.getElementById('date');
+    let catergory = document.getElementById('catergory');
+    let text = document.getElementById('text');
+    let urgency = document.getElementById('urgency');
+    let task = {
+        'title': title.value,
+        'date': date.value,
+        'catergory': catergory.value,
+        'text': text.value,
+        'urgency': urgency.value,
+        'createdAt': new Date().getTime(),
+        'assignEmployee': assignedEmployees,
+        'inArray': 'toDo'
+    }
+    allTasks.push(task);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    // saveBackend(task);
+    // allTasks.push(task);
+    // allTaskAsString = JSON.stringify(allTasks);
+    // localStorage.setItem('allTasks', allTaskAsString);
+    title.value = ''
+    date.value = '';
+    catergory.value = '';
+    text.value = '';
+    urgency.value = '';
+    /*  assignEmployee = ''; */
+}
+
+// async function saveBackend(task) {
+//     allTasks.push('task', task);
+//     // let allTasksAsString = JSON.stringify(allTasks);
+//     // await backend.setItem('allTasks', allTasksAsString);
+//     await backend.setItem('allTasks', JSON.stringify(allTasks));
+// }
 
 function Employees() {
     let modal_body = document.getElementById('modal-body');
@@ -87,50 +128,23 @@ function closeModal() {
 }
 
 
-/**
- * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
- * 
- */
-function createTask() {
-    let title = document.getElementById('title');
-    let date = document.getElementById('date');
-    let catergory = document.getElementById('catergory');
-    let text = document.getElementById('text');
-    let urgency = document.getElementById('urgency');
-    let task = {
-        'title': title.value,
-        'date': date.value,
-        'catergory': catergory.value,
-        'text': text.value,
-        'urgency': urgency.value,
-        'createdAt': new Date().getTime(),
-        'assignEmployee': assignedEmployees,
-        'inArray': 'toDo'
-    }
-    allTasks.push(task);
-    allTaskAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTaskAsString);
-    title.value = ''
-    date.value = '';
-    catergory.value = '';
-    text.value = '';
-    urgency.value = '';
-    /*  assignEmployee = ''; */
+function deleteAllTasks(task) {
+    backend.deleteItem('allTasks', task);
 }
 
-function deleteTask() {
-    let title = document.getElementById('title').value;
-    let date = document.getElementById('date').value;
-    let catergory = document.getElementById('catergory').value;
-    let text = document.getElementById('text').value;
-    let urgency = document.getElementById('urgency').value;
-    let task = {
-        'title': '',
-        'date': '',
-        'catergory': '',
-        'text': '',
-        'urgency': '',
-        'createdAt': '',
-        'assignEmployee': ''
-    }
-}
+// function deleteTask() {
+//     let title = document.getElementById('title').value;
+//     let date = document.getElementById('date').value;
+//     let catergory = document.getElementById('catergory').value;
+//     let text = document.getElementById('text').value;
+//     let urgency = document.getElementById('urgency').value;
+//     let task = {
+//         'title': '',
+//         'date': '',
+//         'catergory': '',
+//         'text': '',
+//         'urgency': '',
+//         'createdAt': '',
+//         'assignEmployee': ''
+//     }
+// }

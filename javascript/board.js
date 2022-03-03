@@ -1,9 +1,11 @@
 let currentTask = 0;
 let currenDraggedElement;
 
-
-function generateHTML() {
-    load();
+/**
+ *  This function filters the tasks from the array and generated in the right place on the board 
+ * 
+ */
+function renderBoard() {
     let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
     let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
     let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
@@ -39,16 +41,29 @@ function generateTasksHTML(element, i) {
     `;
 }
 
-// der wert des elementes was verschoben wird, wird in die globale variabe gespeichert
-
+/**
+ * if you drag a task with the mouse, the value ('createdAt') is given to the variable currendDraggedElement.
+ * 
+ * @param {string} i 
+ */
 function startDragging(i) {
     currenDraggedElement = i;
 }
 
+/**
+ * this function allows the html to drop something
+ * 
+ * @param {parameter} ev 
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
+/**
+ * this function starts when you drop a task on the html and save in backend
+ * 
+ * @param {parameter} i 
+ */
 function moveTo(i) {
     let task = allTasks.find(t => t.createdAt === currenDraggedElement);
     task['inArray'] = i;
@@ -56,8 +71,11 @@ function moveTo(i) {
     generateHTML();
 }
 
-
-
+/**
+ * this function open the task (overlay)
+ * 
+ * @param {parameter} i 
+ */
 function openTask(i) {
     currentTask = i;
     document.getElementById('overlayBg').classList.remove('d-none');
@@ -89,19 +107,32 @@ function generateOpenTaskHTML(task, i) {
     `;
 }
 
+/**
+ * this function close the opened task (overlay)
+ * 
+ */
 function backToBoard() {
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
 }
 
-function save() {
-    let allTasksAsText = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTasksAsText);
+/**
+ * this function save the array in the backend
+ * 
+ */
+async function save() {
+    // users.push('John);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
-function load() {
-    let allTasksAsText = localStorage.getItem('allTasks');
-    if (allTasksAsText) {
-        allTasks = JSON.parse(allTasksAsText);
-    }
-}
+// function save() {
+//     let allTasksAsText = JSON.stringify(allTasks);
+//     localStorage.setItem('allTasks', allTasksAsText);
+// }
+
+// function load() {
+//     let allTasksAsText = localStorage.getItem('allTasks');
+//     if (allTasksAsText) {
+//         allTasks = JSON.parse(allTasksAsText);
+//     }
+// }

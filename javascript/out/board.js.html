@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let currentTask = 0;
+let currenDraggedElement;
+
+
+/**
+ * This function loads the array from the backend
+ * 
+ */
+async function renderBoard() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    generateHTML();
+    includeHTML();
+}
+
+/**
+ *  This function filters the tasks from the array and generated in the right place on the board 
+ * 
+ */
+function generateHTML() {
+    let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
+    let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
+    let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
+    let currentDone = allTasks.filter(t => t['inArray'] == 'done');
+    document.getElementById('toDo').innerHTML = '';
+    document.getElementById('inProgress').innerHTML = '';
+    document.getElementById('testing').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
+    for (let i = 0; i &lt; currentToDo.length; i++) {
+        const element = currentToDo[i];
+        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
+    }
+    for (let i = 0; i &lt; currentInProgress.length; i++) {
+        const element = currentInProgress[i];
+        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
+    }
+    for (let i = 0; i &lt; currentTesting.length; i++) {
+        const element = currentTesting[i];
+        document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
+    }
+    for (let i = 0; i &lt; currentDone.length; i++) {
+        const element = currentDone[i];
+        document.getElementById('done').innerHTML += generateTasksHTML(element, i);
+    }
+}
+
+function generateTasksHTML(element, i) {
+    return `
+        &lt;div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks" onclick="openTask(${i})">
+            &lt;span class="titleTask">${element['title']}&lt;/span>
+            &lt;img class="delete" onclick="deleteTask(${element})" src="img/x.ico"> 
+        &lt;/div>    
+    `;
+}
+
+/**
+ * if you drag a task with the mouse, the value ('createdAt') is given to the variable currendDraggedElement.
+ * 
+ * @param {string} i 
+ */
+function startDragging(i) {
+    currenDraggedElement = i;
+}
+
+/**
+ * this function allows the html to drop something
+ * 
+ * @param {parameter} ev 
+ */
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+/**
+ * this function starts when you drop a task on the html and save in backend
+ * 
+ * @param {parameter} i 
+ */
+function moveTo(i) {
+    let task = allTasks.find(t => t.createdAt === currenDraggedElement);
+    task['inArray'] = i;
+    save();
+    generateHTML();
+}
+
+/**
+ * this function open the task
+ * 
+ * @param {parameter} i 
+ */
+function openTask(i) {
+    currentTask = i;
+    document.getElementById('overlayBg').classList.remove('d-none');
+    document.getElementById('openTask').classList.remove('d-none');
+    let task = allTasks[currentTask];
+    let employers = allTasks[currentTask]['assignEmployee'];
+    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(task, i);
+    for (let j = 0; j &lt; employers.length; j++) {
+        let employer = employers[j];
+        document.getElementById('currentEmployer' + i).innerHTML += `&lt;img class="profileImg" src="${employer['bild-src']}">`;
+    }
+}
+
+function generateOpenTaskHTML(task, i) {
+    return `
+        &lt;div class="openTask" id="openTask">
+            &lt;div class="date">
+                &lt;div>Due Date: &lt;span class="bold">${task['date']}&lt;/span>&lt;/div>
+                &lt;div>Created On: &lt;span class="bold">${task['createdAt']}&lt;/span>&lt;/div>
+            &lt;/div> 
+            &lt;div>Urgency:  &lt;span class="red bold">${task['urgency']}&lt;/span>&lt;/div>   
+            &lt;div class="title bold">${task['title']}&lt;/div>
+            &lt;div>${task['text']}&lt;/div>
+            &lt;div class="footerTask">
+                &lt;div>Category: &lt;span class="bold">${task['catergory']}&lt;/span>&lt;/div>
+                &lt;div id="currentEmployer${i}">&lt;/div>
+            &lt;/div>    
+        &lt;/div>
+    `;
+}
+
+/**
+ * this function close the task
+ * 
+ */
+function backToBoard() {
+    document.getElementById('overlayBg').classList.add('d-none');
+    document.getElementById('openTask').classList.add('d-none');
+}
+
+/**
+ * this function save the array in the backend
+ * 
+ */
+async function save() {
+    // users.push('John);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+}
+
+// function save() {
+//     let allTasksAsText = JSON.stringify(allTasks);
+//     localStorage.setItem('allTasks', allTasksAsText);
+// }
+
+// function load() {
+//     let allTasksAsText = localStorage.getItem('allTasks');
+//     if (allTasksAsText) {
+//         allTasks = JSON.parse(allTasksAsText);
+//     }
+// }</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#backToBoard">backToBoard</a></li><li><a href="global.html#closeModal">closeModal</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#generateHTML">generateHTML</a></li><li><a href="global.html#loadJSONFromServer">loadJSONFromServer</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openModal">openModal</a></li><li><a href="global.html#openTask">openTask</a></li><li><a href="global.html#renderBoard">renderBoard</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#saveJSONToServer">saveJSONToServer</a></li><li><a href="global.html#startDragging">startDragging</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Mar 03 2022 12:23:15 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

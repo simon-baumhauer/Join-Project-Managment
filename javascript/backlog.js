@@ -1,13 +1,15 @@
 let backlogInfo = [];
 let backlogText = [];
 
-function pushToBacklog() {
 
-    backlogInfo = JSON.parse(JSON.stringify(allTasks));
 
-    renderBacklogTasks();
+// function pushToBacklog() {
 
-}
+//     backlogInfo = JSON.parse(JSON.stringify(allTasks));
+
+//     renderBacklogTasks();
+
+// }
 
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
