@@ -68,7 +68,7 @@ function moveTo(i) {
     let task = allTasks.find(t => t.createdAt === currenDraggedElement);
     task['inArray'] = i;
     save();
-    generateHTML();
+    renderBoard();
 }
 
 /**
