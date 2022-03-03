@@ -4,8 +4,8 @@ let backlogText = [];
 function pushToBacklog() {
 
     backlogInfo = JSON.parse(JSON.stringify(allTasks));
-
     renderBacklogTasks();
+    trytodo();
 
 }
 
@@ -19,7 +19,6 @@ function renderBacklogTasks() {
 
         for (let index = 0; index < backlogInfo.length; index++) {
             const info = backlogInfo[index];
-
             let employe = info['assignEmployee'];
             for (let z = 0; z < employe.length; z++) {
                 let emp = employe[z];
@@ -30,12 +29,13 @@ function renderBacklogTasks() {
     }
 }
 
-function noTasks() {
-    return `
-    <div class="todo-container heading1" style="justify-content:center;">
-    Keine Tasks mehr
-    </div>`;
+function trytodo(index) {
+    for (let w = 0; w < backlogText.length; w++) {
+        const element = backlogText[w];
+        console.log('hier ist ', element);
+    }
 }
+
 
 function renderTemplate(emp, info, index) {
     return `
@@ -67,12 +67,6 @@ function renderTemplate(emp, info, index) {
 
 }
 
-/* function hide() {
-    let hidedetails = document.getElementById('details');
-    let edit = document.getElementById('text-edit');
-    console.log('clicked');
-} */
-
 function edit_details(index, info) {
     let containeredit = document.getElementById('chnge-container' + index);
     let hidedetails = document.getElementById('details' + index);
@@ -81,20 +75,14 @@ function edit_details(index, info) {
     containeredit.classList.remove('d-none');
     hidedetails.classList.add('d-none');
 
-
-
 }
 
 
 
 function saveChanges(index) {
     let change = document.getElementById('text-edit' + index).value;
-
-
     let detail = backlogInfo[index]['text'];
     console.log(detail);
-
-
     let details = detail.push(change);
     let detailsAsString = JSON.stringify(details);
     localStorage.setItem('allTasks1', detailsAsString)
