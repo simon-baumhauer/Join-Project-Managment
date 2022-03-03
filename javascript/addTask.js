@@ -128,10 +128,6 @@ function closeModal() {
 }
 
 
-function deleteAllTasks(task) {
-    backend.deleteItem('allTasks', task);
-}
-
 // function deleteTask() {
 //     let title = document.getElementById('title').value;
 //     let date = document.getElementById('date').value;

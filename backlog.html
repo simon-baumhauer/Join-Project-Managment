@@ -22,16 +22,17 @@
     <script src="javascript/addTask.js"></script>
     <title>Join</title>
     <script>
-        setURL('http://juergen-hildbrand.developerakademie.net/smallest_backend_ever');
+        setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
     
         async function init() {
             await downloadFromServer();
             allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+            renderBacklogTasks();
         }
     </script>
 </head>
 
-<body onload="includeHTML(), init(), renderBacklogTasks()">
+<body onload="includeHTML(), init()">
     <div w3-include-html="templates/header.html" class="header"></div>
     <div class="heading1">
         <h1>Backlog</h1>

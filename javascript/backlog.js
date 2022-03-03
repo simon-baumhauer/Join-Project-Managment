@@ -11,6 +11,8 @@ let backlogText = [];
 
 // }
 
+
+
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
     backlogContainer.innerHTML = '';

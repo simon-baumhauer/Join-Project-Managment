@@ -125,6 +125,10 @@ async function save() {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
+function deleteAllTasks(task) {
+    backend.deleteItem('allTasks', task);
+}
+
 // function save() {
 //     let allTasksAsText = JSON.stringify(allTasks);
 //     localStorage.setItem('allTasks', allTasksAsText);
