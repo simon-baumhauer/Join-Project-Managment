@@ -5,28 +5,30 @@ function pushToBacklog() {
 
     backlogInfo = JSON.parse(JSON.stringify(allTasks));
     renderBacklogTasks();
-    trytodo();
 
 }
 
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
     backlogContainer.innerHTML = '';
-    if (backlogInfo == "") {
-        backlogContainer.innerHTML = noTasks();
-    } else {
+    /*    if (backlogInfo == "") {
+           backlogContainer.innerHTML = noTasks();
+       } else { */
 
 
-        for (let index = 0; index < backlogInfo.length; index++) {
-            const info = backlogInfo[index];
-            let employe = info['assignEmployee'];
-            for (let z = 0; z < employe.length; z++) {
-                let emp = employe[z];
+    for (let index = 0; index < backlogInfo.length; index++) {
+        const info = backlogInfo[index];
+        let employe = info['assignEmployee'];
+        for (let z = 0; z < employe.length; z++) {
+            let emp = employe[z];
 
-                backlogContainer.innerHTML += renderTemplate(emp, info, index);
-            }
+            backlogContainer.innerHTML += renderTemplate(emp, info, index);
         }
     }
+}
+
+function noTasks() {
+
 }
 
 function trytodo(index) {
