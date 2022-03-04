@@ -203,17 +203,17 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
 
 @media(max-width: 1200px) {
     #sidebarMenu {
-        width: 200px;
+        max-width: 200px !important;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 775px) {
     .sidebarIconToggle {
         display: block;
     }
     .hide-img {
         display: flex;
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
     .hide-img img {
         width: 32px;
@@ -229,7 +229,7 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
         width: 100% !important;
     }
     .header-img {
-        display: block;
+        display: flex;
     }
     .responsive-mobile {
         display: none;

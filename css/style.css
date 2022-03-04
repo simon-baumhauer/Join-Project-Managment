@@ -26,8 +26,13 @@ body {
     margin-left: 50px;
 }
 
+@media(max-width: 1200px) {
+    body {
+        margin-left: 200px;
+    }
+}
 
-@media(max-width: 900px) {
+@media(max-width: 775px) {
     body {
         margin-left: 0;
         overflow-y: scroll;

@@ -89,6 +89,9 @@ function openTask(i) {
     for (let j = 0; j < employers.length; j++) {
         let employer = employers[j];
         document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`;
+        if (task['inArray'] == 'toDo') {
+            document.getElementById('pushTo').innerHTML = 'Push to in Progress'
+        }
     }
 }
 
@@ -105,7 +108,11 @@ function generateOpenTaskHTML(task, i) {
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
                 <div id="currentEmployer${i}"></div>
-            </div>    
+            </div>
+            <div class="pushTo">
+                <span id="pushTo"></span>
+                <img class="arrow" src="img/arrow.ico">
+            </div>
         </div>
     `;
 }
