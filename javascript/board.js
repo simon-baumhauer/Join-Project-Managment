@@ -1,3 +1,4 @@
+setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
 let currentTask = 0;
 let currenDraggedElement;
 
@@ -5,7 +6,9 @@ let currenDraggedElement;
  *  This function filters the tasks from the array and generated in the right place on the board 
  * 
  */
-function renderBoard() {
+async function renderBoard() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
     let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
     let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
@@ -34,9 +37,9 @@ function renderBoard() {
 
 function generateTasksHTML(element, i) {
     return `
-        <div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks" onclick="openTask(${i})">
-            <span class="titleTask">${element['title']}</span>
-            <img class="delete" onclick="deleteTask(${element})" src="img/x.ico"> 
+        <div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks">
+            <span class="titleTask" onclick="openTask(${i})">${element['title']}</span>
+            <img class="delete" onclick="deleteTask(${element[i]})" src="img/x.ico"> 
         </div>    
     `;
 }
@@ -123,11 +126,16 @@ function backToBoard() {
 async function save() {
     // users.push('John);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderBoard();
 }
 
-function deleteAllTasks(task) {
-    backend.deleteItem('allTasks', task);
+async function deleteTask(i) {
+    backend.deleteItem('allTasks', i);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderBoard();
 }
+
+
 
 // function save() {
 //     let allTasksAsText = JSON.stringify(allTasks);

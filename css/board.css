@@ -150,10 +150,34 @@ body {
         min-width: calc(100% - 200px);
         margin-left: 200px !important;
     }    
+}
 
+@media(max-width: 775px) {
 
+    .content {
+        max-height: calc(100vh - 200px);
+        margin-top: 160px;
+        min-width: 100%;
+        margin-left: 0 !important;
+    }
 
+    .board {
+        height: 70vh;
+    }
+}
 
+@media(max-width: 560px) {
+    .content {
+        max-height: calc(100vh - 200px);
+        flex-wrap: wrap;
+        margin-top: 160px;
+    }
 
+    .boards {
+        width: 40vw;
+    }
 
+    .board {
+        height: 35vh;
+    }
 }
