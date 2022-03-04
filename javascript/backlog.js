@@ -95,7 +95,7 @@ function saveChanges(index) {
     let change = document.getElementById('text-edit' + index).value;
 
 
-    let detail = backlogInfo[index]['text'];
+    let detail = allTasks[index]['text'];
     console.log(detail);
 
 
