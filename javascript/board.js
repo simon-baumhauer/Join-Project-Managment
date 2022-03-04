@@ -1,14 +1,18 @@
 setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
-let currentTask = 0;
 let currenDraggedElement;
+
+async function loadBoard() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    renderBoard();
+}
+
 
 /**
  *  This function filters the tasks from the array and generated in the right place on the board 
  * 
  */
-async function renderBoard() {
-    await downloadFromServer();
-    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+function renderBoard() {
     let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
     let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
     let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
@@ -18,28 +22,28 @@ async function renderBoard() {
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < currentToDo.length; i++) {
-        const element = currentToDo[i];
-        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i);
+        let element = currentToDo[i];
+        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
     }
     for (let i = 0; i < currentInProgress.length; i++) {
-        const element = currentInProgress[i];
-        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i);
+        let element = currentInProgress[i];
+        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
     }
     for (let i = 0; i < currentTesting.length; i++) {
-        const element = currentTesting[i];
-        document.getElementById('testing').innerHTML += generateTasksHTML(element, i);
+        let element = currentTesting[i];
+        document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
     }
     for (let i = 0; i < currentDone.length; i++) {
-        const element = currentDone[i];
-        document.getElementById('done').innerHTML += generateTasksHTML(element, i);
+        let element = currentDone[i];
+        document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
     }
 }
 
-function generateTasksHTML(element, i) {
+function generateTasksHTML(element, i, type) {
     return `
         <div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks">
-            <span class="titleTask" onclick="openTask(${i})">${element['title']}</span>
-            <img class="delete" onclick="deleteTask(${element[i]})" src="img/x.ico"> 
+            <span class="titleTask" onclick="openTask(${i}, '${type}')">${element['title']}</span>
+            <img class="delete" onclick="deleteTask(${element})" src="img/x.ico"> 
         </div>    
     `;
 }
@@ -71,7 +75,6 @@ function moveTo(i) {
     let task = allTasks.find(t => t.createdAt === currenDraggedElement);
     task['inArray'] = i;
     save();
-    renderBoard();
 }
 
 /**
@@ -79,29 +82,36 @@ function moveTo(i) {
  * 
  * @param {parameter} i 
  */
-function openTask(i) {
-    currentTask = i;
+function openTask(i, type) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
-    let task = allTasks[currentTask];
-    let employers = allTasks[currentTask]['assignEmployee'];
-    document.getElementById('openTask').innerHTML = generateOpenTaskHTML(task, i);
-    for (let j = 0; j < employers.length; j++) {
-        let employer = employers[j];
-        document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
-    }
-    if (task['inArray'] == 'toDo') {
+    let tasks = allTasks.filter(t => t['inArray'] == type);
+
+    if (tasks[i]['inArray'] == 'toDo') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
         document.getElementById('pushTo').innerHTML = 'Push to in Progress';
     }
-    if (task['inArray'] == 'inProgress') {
+    if (tasks[i]['inArray'] == 'inProgress') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
         document.getElementById('pushTo').innerHTML = 'Push to Testing';
     }
-    if (task['inArray'] == 'testing') {
+    if (tasks[i]['inArray'] == 'testing') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
         document.getElementById('pushTo').innerHTML = 'Push to in Done';
     }
+    if (tasks[i]['inArray'] == 'done') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+    }
+   
+
+    let employers = tasks[i]['assignEmployee'];
+    for (let j = 0; j < employers.length; j++) {
+        let employer = employers[j];
+        document.getElementById('currentEmployer').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
+    }   
 }
 
-function generateOpenTaskHTML(task, i) {
+function generateOpenTaskHTML(task) {
     return `
         <div class="openTask" id="openTask">
             <div class="date">
@@ -113,7 +123,7 @@ function generateOpenTaskHTML(task, i) {
             <div>${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <div id="currentEmployer${i}"></div>
+                <div id="currentEmployer"></div>
             </div>
             <div class="pushTo">
                 <span id="pushTo"></span>
@@ -139,13 +149,13 @@ function backToBoard() {
 async function save() {
     // users.push('John);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    renderBoard();
+    loadBoard();
 }
 
 async function deleteTask(i) {
     backend.deleteItem('allTasks', i);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    renderBoard();
+    loadBoard();
 }
 
 
