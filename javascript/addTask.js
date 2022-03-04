@@ -70,6 +70,7 @@ async function createTask() {
     text.value = '';
     urgency.value = '';
     /*  assignEmployee = ''; */
+    location.reload();
 }
 
 // async function saveBackend(task) {

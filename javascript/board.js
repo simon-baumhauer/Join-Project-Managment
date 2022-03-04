@@ -88,10 +88,16 @@ function openTask(i) {
     document.getElementById('openTask').innerHTML = generateOpenTaskHTML(task, i);
     for (let j = 0; j < employers.length; j++) {
         let employer = employers[j];
-        document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`;
-        if (task['inArray'] == 'toDo') {
-            document.getElementById('pushTo').innerHTML = 'Push to in Progress'
-        }
+        document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
+    }
+    if (task['inArray'] == 'toDo') {
+        document.getElementById('pushTo').innerHTML = 'Push to in Progress';
+    }
+    if (task['inArray'] == 'inProgress') {
+        document.getElementById('pushTo').innerHTML = 'Push to Testing';
+    }
+    if (task['inArray'] == 'testing') {
+        document.getElementById('pushTo').innerHTML = 'Push to in Done';
     }
 }
 
