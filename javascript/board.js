@@ -3,9 +3,10 @@ let currenDraggedElement;
 
 async function loadBoard() {
     await downloadFromServer();
-    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    boardArray = JSON.parse(backend.getItem('boardArray')) || [];
     renderBoard();
 }
+
 
 
 /**
@@ -13,10 +14,10 @@ async function loadBoard() {
  * 
  */
 function renderBoard() {
-    let currentToDo = allTasks.filter(t => t['inArray'] == 'toDo');
-    let currentInProgress = allTasks.filter(t => t['inArray'] == 'inProgress');
-    let currentTesting = allTasks.filter(t => t['inArray'] == 'testing');
-    let currentDone = allTasks.filter(t => t['inArray'] == 'done');
+    let currentToDo = boardArray.filter(t => t['inArray'] == 'toDo');
+    let currentInProgress = boardArray.filter(t => t['inArray'] == 'inProgress');
+    let currentTesting = boardArray.filter(t => t['inArray'] == 'testing');
+    let currentDone = boardArray.filter(t => t['inArray'] == 'done');
     document.getElementById('toDo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
@@ -58,7 +59,7 @@ function generateTasksHTML(element, i, type) {
  function openTask(i, type) {
     document.getElementById('overlayBg').classList.remove('d-none');
     document.getElementById('openTask').classList.remove('d-none');
-    let tasks = allTasks.filter(t => t['inArray'] == type);
+    let tasks = boardArray.filter(t => t['inArray'] == type);
     if (tasks[i]['inArray'] == 'toDo') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
         document.getElementById('pushTo').innerHTML = 'Push to in Progress';
@@ -105,7 +106,7 @@ function generateOpenTaskHTML(task) {
 
 
 function pushToOtherBoard(i){
-    let tasks = allTasks.find(t => t['createdAt'] == i);
+    let tasks = boardArray.find(t => t['createdAt'] == i);
     if (tasks['inArray'] == 'toDo') {
         tasks['inArray'] = 'inProgress'
     } else {
@@ -157,7 +158,7 @@ function allowDrop(ev) {
  * @param {parameter} i 
  */
 function moveTo(i) {
-    let task = allTasks.find(t => t.createdAt === currenDraggedElement);
+    let task = boardArray.find(t => t.createdAt === currenDraggedElement);
     task['inArray'] = i;
     save();
 }
@@ -170,14 +171,14 @@ function moveTo(i) {
  */
 async function save() {
     // users.push('John);
-    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    await backend.setItem('boardArray', JSON.stringify(boardArray));
     loadBoard();
 }
 
 async function deleteTask(element) {
-    let i = allTasks.findIndex(obj => obj.createdAt==element);
-    allTasks.splice(i, 1);
-    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    let i = boardArray.findIndex(obj => obj.createdAt==element);
+    boardArray.splice(i, 1);
+    await backend.setItem('boardArray', JSON.stringify(boardArray));
     loadBoard();
 }
 

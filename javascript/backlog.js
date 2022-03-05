@@ -1,4 +1,5 @@
 setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
+let boardArray = [];
 // let backlogInfo = [];
 // let backlogText = [];
 
@@ -25,14 +26,11 @@ function renderBacklogTasks() {
         backlogContainer.innerHTML = noTasks();
     } else {
 
-
         for (let index = 0; index < allTasks.length; index++) {
             let info = allTasks[index];
-
             let employe = info['assignEmployee'];
             for (let z = 0; z < employe.length; z++) {
                 let emp = employe[z];
-
                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
             }
         }
@@ -71,9 +69,17 @@ function renderTemplate(emp, info, index) {
  
       <span class="font-s-17" id="details${index}" onclick="edit_details(${index})">${info['text']}</span>
 </div>
-</div>
+<img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})">
 `;
 
+}
+
+async function pushToBoard(i) {
+    boardArray.push(allTasks[i]);
+    allTasks.splice(i, 1);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    await backend.setItem('boardArray', JSON.stringify(boardArray));
+    renderBacklogTasks();
 }
 
 /* function hide() {

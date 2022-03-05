@@ -1,41 +1,41 @@
 let allTasks = [];
 let assignedEmployees = [];
 let EmployeesArray = [{
-        'bild-src': 'img/simon_baumhauer.jpg',
-        'e-mail': 'Simon.Baumhauer@hotmail.de',
-        'name': 'Simon Baumhauer',
-        'position': 'Software Developer'
-    },
-    {
-        'bild-src': 'img/profile-picture.png',
-        'e-mail': 'navi@hotmail.de',
-        'name': 'Navjot Singh',
-        'position': 'Software Developer'
-    },
-    {
-        'bild-src': 'img/profile-picture.png',
-        'e-mail': 'jürgen@hotmail.de',
-        'name': 'Jürgen Hildbrand',
-        'position': 'Software Developer'
-    },
-    {
-        'bild-src': 'img/profile-picture.png',
-        'e-mail': 'karl@hotmail.ch',
-        'name': 'karl',
-        'position': 'UX/UI Designer'
-    },
-    {
-        'bild-src': 'img/profile-picture.png',
-        'e-mail': 'lea@hotmail.ch',
-        'name': 'lea',
-        'position': 'Scrum Master'
-    },
-    {
-        'bild-src': 'img/profile-picture.png',
-        'e-mail': 'Lisa@hotmail.ch',
-        'name': 'Lisa',
-        'position': 'Product owner'
-    },
+    'bild-src': 'img/simon_baumhauer.jpg',
+    'e-mail': 'Simon.Baumhauer@hotmail.de',
+    'name': 'Simon Baumhauer',
+    'position': 'Software Developer'
+},
+{
+    'bild-src': 'img/profile-picture.png',
+    'e-mail': 'navi@hotmail.de',
+    'name': 'Navjot Singh',
+    'position': 'Software Developer'
+},
+{
+    'bild-src': 'img/profile-picture.png',
+    'e-mail': 'jürgen@hotmail.de',
+    'name': 'Jürgen Hildbrand',
+    'position': 'Software Developer'
+},
+{
+    'bild-src': 'img/profile-picture.png',
+    'e-mail': 'karl@hotmail.ch',
+    'name': 'karl',
+    'position': 'UX/UI Designer'
+},
+{
+    'bild-src': 'img/profile-picture.png',
+    'e-mail': 'lea@hotmail.ch',
+    'name': 'lea',
+    'position': 'Scrum Master'
+},
+{
+    'bild-src': 'img/profile-picture.png',
+    'e-mail': 'Lisa@hotmail.ch',
+    'name': 'Lisa',
+    'position': 'Product owner'
+},
 ];
 
 /**
@@ -58,19 +58,23 @@ async function createTask() {
         'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
     }
-    allTasks.push(task);
-    await backend.setItem('allTasks', JSON.stringify(allTasks));
-    // saveBackend(task);
-    // allTasks.push(task);
-    // allTaskAsString = JSON.stringify(allTasks);
-    // localStorage.setItem('allTasks', allTaskAsString);
-    title.value = ''
-    date.value = '';
-    catergory.value = '';
-    text.value = '';
-    urgency.value = '';
-    assignEmployee = '';
-    location.reload();
+    if (assignedEmployees.length == 0) {
+        alert('Please add employee')
+    } else {
+        allTasks.push(task);
+        await backend.setItem('allTasks', JSON.stringify(allTasks));
+        // saveBackend(task);
+        // allTasks.push(task);
+        // allTaskAsString = JSON.stringify(allTasks);
+        // localStorage.setItem('allTasks', allTaskAsString);
+        title.value = ''
+        date.value = '';
+        catergory.value = '';
+        text.value = '';
+        urgency.value = '';
+        assignEmployee = '';
+        location.reload();
+    }
 }
 
 // async function saveBackend(task) {
