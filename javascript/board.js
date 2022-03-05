@@ -43,9 +43,94 @@ function generateTasksHTML(element, i, type) {
     return `
         <div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks">
             <span class="titleTask" onclick="openTask(${i}, '${type}')">${element['title']}</span>
-            <img class="delete" onclick="deleteTask(${element})" src="img/x.ico"> 
+            <img class="delete" onclick="deleteTask('${element['createdAt']}')" src="img/x.ico"> 
         </div>    
     `;
+}
+
+
+
+/**
+ * this function open the task (overlay)
+ * 
+ * @param {parameter} i 
+ */
+ function openTask(i, type) {
+    document.getElementById('overlayBg').classList.remove('d-none');
+    document.getElementById('openTask').classList.remove('d-none');
+    let tasks = allTasks.filter(t => t['inArray'] == type);
+    if (tasks[i]['inArray'] == 'toDo') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+        document.getElementById('pushTo').innerHTML = 'Push to in Progress';
+    }
+    if (tasks[i]['inArray'] == 'inProgress') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+        document.getElementById('pushTo').innerHTML = 'Push to Testing';
+    }
+    if (tasks[i]['inArray'] == 'testing') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+        document.getElementById('pushTo').innerHTML = 'Push to in Done';
+    }
+    if (tasks[i]['inArray'] == 'done') {
+        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
+    }
+    let employers = tasks[i]['assignEmployee'];
+    for (let j = 0; j < employers.length; j++) {
+        let employer = employers[j];
+        document.getElementById('currentEmployer').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
+    }   
+}
+
+function generateOpenTaskHTML(task) {
+    return `
+        <div class="openTask" id="openTask">
+            <div class="date">
+                <div>Due Date: <span class="bold">${task['date']}</span></div>
+                <div>Created On: <span class="bold">${task['createdAt']}</span></div>
+            </div> 
+            <div>Urgency:  <span class="red bold">${task['urgency']}</span></div>   
+            <div class="title bold">${task['title']}</div>
+            <div>${task['text']}</div>
+            <div class="footerTask">
+                <div>Category: <span class="bold">${task['catergory']}</span></div>
+                <div id="currentEmployer"></div>
+            </div>
+            <div class="pushTo">
+                <span id="pushTo"></span>
+                <img class="arrow" src="img/arrow.ico" onclick="pushToOtherBoard('${task['createdAt']}')">
+            </div>
+        </div>
+    `;
+}
+
+
+function pushToOtherBoard(i){
+    let tasks = allTasks.find(t => t['createdAt'] == i);
+    if (tasks['inArray'] == 'toDo') {
+        tasks['inArray'] = 'inProgress'
+    } else {
+        if (tasks['inArray'] == 'inProgress') {
+            tasks['inArray'] = 'testing'
+        } else {
+            if (tasks['inArray'] == 'testing') {
+            tasks['inArray'] = 'done'
+            }
+        }
+    }        
+    document.getElementById('overlayBg').classList.add('d-none');
+    document.getElementById('openTask').classList.add('d-none');
+    save();
+
+}
+
+
+/**
+ * this function close the opened task (overlay)
+ * 
+ */
+function backToBoard() {
+    document.getElementById('overlayBg').classList.add('d-none');
+    document.getElementById('openTask').classList.add('d-none');
 }
 
 /**
@@ -77,70 +162,7 @@ function moveTo(i) {
     save();
 }
 
-/**
- * this function open the task (overlay)
- * 
- * @param {parameter} i 
- */
-function openTask(i, type) {
-    document.getElementById('overlayBg').classList.remove('d-none');
-    document.getElementById('openTask').classList.remove('d-none');
-    let tasks = allTasks.filter(t => t['inArray'] == type);
 
-    if (tasks[i]['inArray'] == 'toDo') {
-        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-        document.getElementById('pushTo').innerHTML = 'Push to in Progress';
-    }
-    if (tasks[i]['inArray'] == 'inProgress') {
-        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-        document.getElementById('pushTo').innerHTML = 'Push to Testing';
-    }
-    if (tasks[i]['inArray'] == 'testing') {
-        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-        document.getElementById('pushTo').innerHTML = 'Push to in Done';
-    }
-    if (tasks[i]['inArray'] == 'done') {
-        document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
-    }
-   
-
-    let employers = tasks[i]['assignEmployee'];
-    for (let j = 0; j < employers.length; j++) {
-        let employer = employers[j];
-        document.getElementById('currentEmployer').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
-    }   
-}
-
-function generateOpenTaskHTML(task) {
-    return `
-        <div class="openTask" id="openTask">
-            <div class="date">
-                <div>Due Date: <span class="bold">${task['date']}</span></div>
-                <div>Created On: <span class="bold">${task['createdAt']}</span></div>
-            </div> 
-            <div>Urgency:  <span class="red bold">${task['urgency']}</span></div>   
-            <div class="title bold">${task['title']}</div>
-            <div>${task['text']}</div>
-            <div class="footerTask">
-                <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <div id="currentEmployer"></div>
-            </div>
-            <div class="pushTo">
-                <span id="pushTo"></span>
-                <img class="arrow" src="img/arrow.ico">
-            </div>
-        </div>
-    `;
-}
-
-/**
- * this function close the opened task (overlay)
- * 
- */
-function backToBoard() {
-    document.getElementById('overlayBg').classList.add('d-none');
-    document.getElementById('openTask').classList.add('d-none');
-}
 
 /**
  * this function save the array in the backend
@@ -152,8 +174,9 @@ async function save() {
     loadBoard();
 }
 
-async function deleteTask(i) {
-    backend.deleteItem('allTasks', i);
+async function deleteTask(element) {
+    let i = allTasks.findIndex(obj => obj.createdAt==element);
+    allTasks.splice(i, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     loadBoard();
 }
