@@ -16,23 +16,14 @@
     <link rel="stylesheet" href="css/footer.css">
     <script src="javascript/templates.js"></script>
     <script src="javascript/mini_backend.js"></script>
+    <script src="javascript/addTask.js"></script>
     <script src="javascript/backlog.js"></script>
     <!-- <script src="javascript/main.js"></script> -->
     <!-- <script src="javascript/board.js"></script> -->
-    <script src="javascript/addTask.js"></script>
     <title>Join</title>
-    <script>
-        setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
-    
-        async function init() {
-            await downloadFromServer();
-            allTasks = JSON.parse(backend.getItem('allTasks')) || [];
-            renderBacklogTasks();
-        }
-    </script>
 </head>
 
-<body onload="includeHTML(), init()">
+<body onload="includeHTML(), loadBacklog()">
     <div w3-include-html="templates/header.html" class="header"></div>
     <div class="heading1">
         <h1>Backlog</h1>

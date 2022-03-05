@@ -1,7 +1,12 @@
-let backlogInfo = [];
-let backlogText = [];
+setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
+// let backlogInfo = [];
+// let backlogText = [];
 
-
+async function loadBacklog() {
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    renderBacklogTasks();
+}
 
 // function pushToBacklog() {
 
@@ -16,13 +21,13 @@ let backlogText = [];
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
     backlogContainer.innerHTML = '';
-    if (backlogInfo == "") {
+    if (allTasks == '') {
         backlogContainer.innerHTML = noTasks();
     } else {
 
 
-        for (let index = 0; index < backlogInfo.length; index++) {
-            const info = backlogInfo[index];
+        for (let index = 0; index < allTasks.length; index++) {
+            let info = allTasks[index];
 
             let employe = info['assignEmployee'];
             for (let z = 0; z < employe.length; z++) {

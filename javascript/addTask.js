@@ -69,7 +69,7 @@ async function createTask() {
     catergory.value = '';
     text.value = '';
     urgency.value = '';
-    /*  assignEmployee = ''; */
+    assignEmployee = '';
     location.reload();
 }
 
