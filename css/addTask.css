@@ -1,5 +1,6 @@
 .body {
     padding-bottom: 100px;
+    position: relative;
 }
 
 .main-addTask {
@@ -7,6 +8,7 @@
     margin: 15px;
     padding: 15px;
     border-radius: 10px;
+    position: relative;
 }
 
 .row {
@@ -248,6 +250,39 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .d-none {
     display: none;
 }
+@media(max-width:1275px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .input {
+        width: 100%;
+    }
+    .textarea {
+        width: 100%;
+    }
+}
+
+@media(max-width:800px) {
+    .input {
+        width:95%;
+    }
+    .textarea {
+         width:95%; 
+    }
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+} 
+
+@media  only screen and (max-width:600px) {
+    .input {
+        width: 100%;
+    }
+    .textarea {
+         width: 100%; 
+    }
 
 @media only screen and (max-width: 1280px) {
     .row {
@@ -255,3 +290,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         align-items: center;
     }
 }
+
+}
+
