@@ -26,16 +26,19 @@ function renderBacklogTasks() {
     if (allTasks == '') {
         backlogContainer.innerHTML = noTasks();
     } else {
-
         for (let index = 0; index < allTasks.length; index++) {
             let info = allTasks[index];
+            
             let employe = info['assignEmployee'];
             let emp;
+            
             for (let z = 0; z < employe.length; z++) {
                 emp = employe[z];
                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
                 document.getElementById('profile_img').innerHTML += `<img src="${emp['bild-src']}"`;
+                
             }
+            
         }
     }
 }
