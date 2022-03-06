@@ -76,9 +76,9 @@ function renderTemplate(emp, info, index) {
 
 async function pushToBoard(i) {
     boardArray.push(allTasks[i]);
+    await backend.setItem('boardArray', JSON.stringify(boardArray));
     allTasks.splice(i, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    await backend.setItem('boardArray', JSON.stringify(boardArray));
     renderBacklogTasks();
 }
 
