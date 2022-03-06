@@ -16,6 +16,7 @@ body {
     min-height: 100vh;
     background: #fff;
     margin-left: 250px;
+    position: relative;
 }
 
 .heading1 {
@@ -26,13 +27,7 @@ body {
     margin-left: 50px;
 }
 
-@media(max-width: 1200px) {
-    body {
-        margin-left: 200px;
-    }
-}
-
-@media(max-width: 775px) {
+@media(max-width: 900px) {
     body {
         margin-left: 0;
         overflow-y: scroll;

@@ -90,16 +90,16 @@ function Employees() {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-    <div class="modal-profile" onclick="assigningEmployees(${i})">
-    <div class=modal-profile-column1>
-    <img src="${element['bild-src']}" alt="" class="modal-profile-image">
-    <span href="">${element['e-mail']}</span>
-    </div>
-    <div class=modal-profile-column2>
-    <span>${element['name']}</span>
-    <span class="job-position">${element['position']}</span>
-    </div>
-    </div>`;
+<div class="modal-profile" onclick="assigningEmployees(${i})">
+<div class=modal-profile-column1>
+<img src="${element['bild-src']}" alt="" class="modal-profile-image">
+<span href="">${element['e-mail']}</span>
+</div>
+<div class=modal-profile-column2>
+<span>${element['name']}</span>
+<span class="job-position">${element['position']}</span>
+</div>
+</div>`;
     }
 }
 
