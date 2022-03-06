@@ -23,64 +23,64 @@ function renderBoard() {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i]; 
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
-        backgroundcolor(i);
+        backgroundcolor(i,'toDo');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
-            document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            document.getElementById(`currentEmployer${i}, ${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
         }
     }    
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
-        backgroundcolor(i);
+        backgroundcolor(i, 'inProgress');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
-            document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            document.getElementById(`currentEmployer${i}, ${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
         } 
     }
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
-        backgroundcolor(i);
+        backgroundcolor(i, 'testing');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
-            document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            document.getElementById(`currentEmployer${i}, ${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
         }
     }
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
-        backgroundcolor(i);
+        backgroundcolor(i, 'done');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
-            document.getElementById('currentEmployer' + i).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            document.getElementById(`currentEmployer${i}, ${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
         }
     }
 
 }
 
-function backgroundcolor(i) {
+function backgroundcolor(i, type) {
     let color = boardArray[i];
     if (color['urgency'] == 'High') {
-        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 147, 147)';
+        document.getElementById(`taskOnBoard${i}, ${type}`).style.backgroundColor = 'rgb(255, 147, 147)';
     }
     if (color['urgency'] == 'Intermediate') {
-        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 255, 100)';
+        document.getElementById(`taskOnBoard${i}, ${type}`).style.backgroundColor = 'rgb(255, 255, 100)';
     }
     if (color['urgency'] == 'Low') {
-        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(168, 255, 168)';
+        document.getElementById(`taskOnBoard${i}, ${type}`).style.backgroundColor = 'rgb(168, 255, 168)';
     }
 }
 
 function generateTasksHTML(element, i, type) {
     return `
-        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}">
+        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}, ${type}">
             <span class="titleTask">${element['title']}</span>
-            <div class="currentEmployer" id="currentEmployer${i}"></div> 
+            <div class="currentEmployer" id="currentEmployer${i}, ${type}"></div> 
         </div>    
     `;
 }
