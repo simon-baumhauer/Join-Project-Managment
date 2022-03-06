@@ -21,28 +21,49 @@ function renderBoard() {
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < currentToDo.length; i++) {
-        let element = currentToDo[i];
+        let element = currentToDo[i]; 
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
+        let employers = boardArray[i]['assignEmployee'];
+        for (let j = 0; j < employers.length; j++) {
+            let employer = employers[j];
+            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+        }
     }
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
+        let employers = boardArray[i]['assignEmployee'];
+        for (let j = 0; j < employers.length; j++) {
+            let employer = employers[j];
+            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+        }
     }
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
+        let employers = boardArray[i]['assignEmployee'];
+        for (let j = 0; j < employers.length; j++) {
+            let employer = employers[j];
+            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+        }
     }
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
+        let employers = boardArray[i]['assignEmployee'];
+        for (let j = 0; j < employers.length; j++) {
+            let employer = employers[j];
+            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+        }
     }
+    
 }
 
 function generateTasksHTML(element, i, type) {
     return `
-        <div draggable="true" ondragstart="startDragging(${element['createdAt']})" class="tasks">
-            <span class="titleTask" onclick="openTask(${i}, '${type}')">${element['title']}</span>
-            <img class="delete" onclick="deleteTask('${element['createdAt']}')" src="img/x.ico"> 
+        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})">
+            <span class="titleTask">${element['title']}</span>
+            <div class="currentEmployer" id="currentEmployer"></div> 
         </div>    
     `;
 }
@@ -84,9 +105,10 @@ function generateTasksHTML(element, i, type) {
 function generateOpenTaskHTML(task) {
     return `
         <div class="openTask" id="openTask">
-            <div class="date">
+            <div class="headerOpenTask">
                 <div>Due Date: <span class="bold">${task['date']}</span></div>
                 <div>Created On: <span class="bold">${task['createdAt']}</span></div>
+                <img class="delete" onclick="deleteTask('${task['createdAt']}')" src="img/x.ico">
             </div> 
             <div>Urgency:  <span class="red bold">${task['urgency']}</span></div>   
             <div class="title bold">${task['title']}</div>
@@ -185,6 +207,8 @@ async function deleteTask(element) {
     let i = boardArray.findIndex(obj => obj.createdAt==element);
     boardArray.splice(i, 1);
     await backend.setItem('boardArray', JSON.stringify(boardArray));
+    document.getElementById('overlayBg').classList.add('d-none');
+    document.getElementById('openTask').classList.add('d-none');
     loadBoard();
 }
 

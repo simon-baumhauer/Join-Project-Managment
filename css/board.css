@@ -55,11 +55,10 @@ h1 {
 .tasks {
     width: 90%;
     border: 1px solid rgb(159, 158, 158);
-    border-radius: 4px;
+    border-radius: 5px;
     margin-top: 5px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     text-align: left;
     font-size: 14px;
     font-weight: 100;
@@ -77,15 +76,17 @@ h1 {
 
 .tasks:hover {
     cursor: pointer;
-
 }
 
-.delete {
-    height: 8px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 6px;
+.currentEmployer {
+    display: flex;
+    justify-content: right;
+    margin-top: 4px;
+}
+
+.profileImgTaks {
+    height: 30px;
+    border-radius: 100%;
 }
 
 
@@ -127,10 +128,15 @@ h1 {
     color: rgb(184, 0, 0);
 }
 
-.date {
+.headerOpenTask {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+}
+
+.delete {
+    height: 8px;
+    padding: 6px;
 }
 
 .title {
@@ -181,6 +187,10 @@ h1 {
 }
 
 @media(max-width: 775px) {
+
+    .contentCont {
+        margin-top: 60px;
+    }
 
     .board {
         height: 70vh;
