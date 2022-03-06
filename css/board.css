@@ -136,9 +136,15 @@ h1 {
     margin-bottom: 16px;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
 .delete {
-    height: 8px;
     padding: 6px;
+    font-size: 12px;
+    color: red;
 }
 
 .title {

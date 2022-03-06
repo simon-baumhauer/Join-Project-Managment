@@ -123,10 +123,15 @@ function generateOpenTaskHTML(task) {
     return `
         <div class="openTask" id="openTask">
             <div class="headerOpenTask">
-                <div>Due Date: <span class="bold">${task['date']}</span></div>
-                <div>Created On: <span class="bold">${task['createdAt']}</span></div>
-                Delete
-                <img class="delete" onclick="deleteTask('${task['createdAt']}')" src="img/x.ico">
+                <div class="column">
+                    Due Date: 
+                    <span class="bold">${task['date']}</span>
+                </div>
+                <div class="column">
+                    Created On: 
+                    <span class="bold">${task['createdAt']}</span>
+                </div>
+                <div class="delete" onclick="deleteTask('${task['createdAt']}')" src="img/x.ico">Delete</div>
             </div> 
             <div>Urgency:  <span class="red bold">${task['urgency']}</span></div>   
             <div class="title bold">${task['title']}</div>
