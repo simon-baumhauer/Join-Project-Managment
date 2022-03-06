@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" type="text/css" href="css/addTask.css">
-<script src="javascript/templates.js"></script>
-<script src="javascript/addTask.js"></script>
-<script src="javascript/main.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Island+Moments&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Supermercado+One&display=swap"
-    rel="stylesheet">
-<title>addTask</title>
+<head>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/addTask.css">
+    <script src="javascript/templates.js"></script>
+    <script src="javascript/addTask.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/mini_backend.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Island+Moments&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Supermercado+One&display=swap"
+        rel="stylesheet">
+    <script>
+        setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
+        let allTaskAsString;
+        async function loadBackend() {
+            await downloadFromServer();
+            allTaskAsString = JSON.parse(backend.getItem('allTasks')) || [];
+        }
+    </script>
+    <title>addTask</title>
 </head>
 
-<body class="body" onload="loadAllTasks()">
+<body class="body" onload="loadBackend(), loadAllTasks()">
     <div w3-include-html="templates/header.html" class="header"></div>
     <div class="heading1">
         <h1>addTask</h1>
@@ -24,7 +34,7 @@
             <div class="row row-1">
                 <div class="input">
                     <label for="title">TITLE</label>
-                    <input class="inputfield" type="text" id="title" value="Managment meeting preparation" placeholder="Managment meeting preparation">
+                    <input class="inputfield" type="text" id="title" value="Management meeting preparation" placeholder="Managment meeting preparation">
                 </div>
                 <div class="input">
                     <label for="due date">DUE DATE</label>
@@ -65,14 +75,16 @@
                     <h2>ASSIGNED TO</h2>
                     <div class="profile-pictures" id="test1">
                     </div>
-                    <img src="img/icon plus.png" onclick="openModal()" class="selectEmployee">
                     <div class="buttons">
+                        <img src="img/icon plus.png" onclick="openModal()" class="selectEmployee">
+
                         <button class="btn btn-cancel" onclick="deleteTask()">CANCEL</button>
                         <button class="btn btn-create-task" onclick="createTask()">CREATE TASK</button>
                     </div>
                 </div>
             </div>
             </div>
+
     </main>
     </form>
     <div class="modal d-none" id="modal">

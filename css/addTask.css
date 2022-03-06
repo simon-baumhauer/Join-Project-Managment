@@ -12,11 +12,13 @@
 .row {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .input {
     display: flex;
     flex-direction: column;
+    width: 450px;
 }
 
 label,
@@ -27,7 +29,7 @@ h2 {
 }
 
 .inputfield {
-    width: 450px;
+    width: 100%;
     height: 65px;
     font-size: 18px;
     border-radius: 5px;
@@ -58,6 +60,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-position: 98% 56%;
     display: inline-block;
     position: relative;
+    width: 100%;
 }
 
 .border {
@@ -101,9 +104,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: solid 1px rgb(210, 210, 212);
 }
 
+.assingments {
+    position: relative;
+}
+
 .profile-pictures {
     width: 450px;
     margin-bottom: 10px;
+    min-height: 60px;
 }
 
 .profile-picture {
@@ -118,6 +126,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .buttons {
     float: right;
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .btn {
@@ -235,4 +247,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .d-none {
     display: none;
+}
+
+@media only screen and (max-width: 1280px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
 }

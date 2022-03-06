@@ -6,16 +6,16 @@
 html,
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     margin: 0;
     padding: 0;
-    height: 100%
 }
 
 body {
     min-height: 100vh;
     background: #fff;
     margin-left: 250px;
+    position: relative;
 }
 
 .heading1 {
@@ -25,7 +25,6 @@ body {
 .m-left-50 {
     margin-left: 50px;
 }
-
 
 @media(max-width: 900px) {
     body {

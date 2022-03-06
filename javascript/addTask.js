@@ -12,8 +12,8 @@ let EmployeesArray = [{
     },
     {
         'bild-src': 'img/profile-picture.png',
-        'e-mail': 'jürgen@hotmail.de',
-        'name': 'Jürgen Hildbrand',
+        'e-mail': 'jÃ¼rgen@hotmail.de',
+        'name': 'JÃ¼rgen Hildbrand',
         'position': 'Software Developer'
     },
     {
@@ -33,7 +33,7 @@ let EmployeesArray = [{
         'e-mail': 'Lisa@hotmail.ch',
         'name': 'Lisa',
         'position': 'Product owner'
-    },
+    }
 ]
 let assignedEmployees = [];
 
@@ -44,16 +44,16 @@ function Employees() {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-    <div class="modal-profile" onclick="assigningEmployees(${i})">
-    <div class=modal-profile-column1>
-    <img src="${element['bild-src']}" alt="" class="modal-profile-image">
-    <span href="">${element['e-mail']}</span>
-    </div>
-    <div class=modal-profile-column2>
-    <span>${element['name']}</span>
-    <span class="job-position">${element['position']}</span>
-    </div>
-    </div>`;
+<div class="modal-profile" onclick="assigningEmployees(${i})">
+<div class=modal-profile-column1>
+<img src="${element['bild-src']}" alt="" class="modal-profile-image">
+<span href="">${element['e-mail']}</span>
+</div>
+<div class=modal-profile-column2>
+<span>${element['name']}</span>
+<span class="job-position">${element['position']}</span>
+</div>
+</div>`;
     }
 }
 
@@ -104,13 +104,13 @@ function createTask() {
         'text': text.value,
         'urgency': urgency.value,
         'createdAt': new Date().getTime(),
-        'assignEmployee': assignedEmployees.value,
+        'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
-    }
+    };
+
     allTasks.push(task);
     allTaskAsString = JSON.stringify(allTasks);
-    localStorage.setItem('allTasks', allTaskAsString);
-
+    backend.setItem('allTasks', allTaskAsString);
 }
 
 function deleteTask() {
