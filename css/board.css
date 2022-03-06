@@ -165,12 +165,12 @@ h1 {
 
 @media(max-width: 1200px) {
 
-    .content {
+    .contentCont {
         width: calc(100% - 200px);
         min-width: 100%;
-        display: flex;
+        /* display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
     }    
 }
 
