@@ -200,7 +200,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    overflow: scroll;
     overflow-x: hidden;
 }
 
@@ -248,10 +247,44 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .d-none {
     display: none;
 }
-
-@media only screen and (max-width: 1280px) {
+ /* @media  only screen and (min-width:350px), (max-width:600px) {
+    .input {
+        width: 100%;
+    }
+    .textarea {
+         width: 100%; 
+    }
     .row {
         flex-direction: column;
         align-items: center;
     }
 }
+
+@media  only screen and (min-width:600px), (max-width:800px) {
+    .input {
+        width:95%;
+    }
+    .textarea {
+         width:95%; 
+    }
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+} */
+
+@media  only screen and(min-width:800px), (max-width:1275px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .input {
+        width: 100%;
+    }
+    .textarea {
+        width: 100%;
+    }
+} 
+
+
+
