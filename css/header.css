@@ -2,16 +2,16 @@
 
 /* html,
 body {
-    overflow-x: hidden;
-    height: 100%;
+overflow-x: hidden;
+height: 100%;
 } */
 
 
 /* body {
-    background: #fff;
-    padding: 0;
-    margin: 0;
-    font-family: 'Varela Round', sans-serif;
+background: #fff;
+padding: 0;
+margin: 0;
+font-family: 'Varela Round', sans-serif;
 } */
 
 
@@ -197,19 +197,39 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
     display: block;
 }
 
-@media (max-width: 900px) {
+.hide-img a {
+    display: none !important;
+}
+
+@media(max-width: 1200px) {
+    #sidebarMenu {
+        max-width: 200px !important;
+    }
+}
+
+@media (max-width: 775px) {
     .sidebarIconToggle {
         display: block;
+    }
+    .hide-img {
+        display: flex;
+        /* margin-top: 15px; */
+    }
+    .hide-img img {
+        width: 32px;
+    }
+    .hide-img a {
+        display: flex !important;
     }
     .header {
         width: 100%;
     }
     #sidebarMenu {
         transform: translateX(-100%);
-        width: 100%;
+        width: 100% !important;
     }
     .header-img {
-        display: block;
+        display: flex;
     }
     .responsive-mobile {
         display: none;

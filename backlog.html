@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Img/logo.png">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,15 +15,16 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="javascript/templates.js"></script>
-    <script src="javascript/main.js"></script>
+    <script src="javascript/mini_backend.js"></script>
+    <script src="javascript/addTask.js"></script>
     <script src="javascript/backlog.js"></script>
     <script src="javascript/board.js"></script>
-    <script src="javascript/addTask.js"></script>
-
+    <!-- <script src="javascript/main.js"></script> -->
+    <!-- <script src="javascript/board.js"></script> -->
     <title>Join</title>
 </head>
 
-<body onload="loadAllTasks()">
+<body onload="includeHTML(), loadBacklog()">
     <div w3-include-html="templates/header.html" class="header"></div>
     <div class="heading1">
         <h1>Backlog</h1>
@@ -33,6 +36,7 @@
         <div class="font-s-20">DETAILS</div>
     </div>
     <!-- start the main container -->
+
     <div id="backlog_container">
 
 
