@@ -1,37 +1,37 @@
 let allTasks = [];
 let assignedEmployees = [];
 let EmployeesArray = [{
-    'bild-src': 'img/simon_baumhauer.jpg',
+    'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'Simon.Baumhauer@hotmail.de',
     'name': 'Simon Baumhauer',
     'position': 'Software Developer'
 },
 {
-    'bild-src': 'img/profile-picture.png',
-    'e-mail': 'navi@hotmail.de',
-    'name': 'Navjot Singh',
-    'position': 'Software Developer'
-},
-{
-    'bild-src': 'img/profile-picture.png',
+    'bild-src': 'img/office_worker_4.jpg',
     'e-mail': 'jürgen@hotmail.de',
     'name': 'Jürgen Hildbrand',
     'position': 'Software Developer'
 },
 {
-    'bild-src': 'img/profile-picture.png',
-    'e-mail': 'karl@hotmail.ch',
-    'name': 'karl',
+    'bild-src': 'img/office_worker_6.jpg',
+    'e-mail': 'natalie@hotmail.ch',
+    'name': 'Natalie',
     'position': 'UX/UI Designer'
 },
 {
-    'bild-src': 'img/profile-picture.png',
+    'bild-src': 'img/office_worker_3.jpg',
     'e-mail': 'lea@hotmail.ch',
     'name': 'lea',
     'position': 'Scrum Master'
 },
 {
-    'bild-src': 'img/profile-picture.png',
+    'bild-src': 'img/office_worker_2.jpg',
+    'e-mail': 'navi@hotmail.de',
+    'name': 'Navjot Singh',
+    'position': 'Software Developer'
+},
+{
+    'bild-src': 'img/office_worker_7.jpg',
     'e-mail': 'Lisa@hotmail.ch',
     'name': 'Lisa',
     'position': 'Product owner'
