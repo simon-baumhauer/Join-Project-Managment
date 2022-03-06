@@ -213,7 +213,6 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
     }
     .hide-img {
         display: flex;
-        /* margin-top: 15px; */
     }
     .hide-img img {
         width: 32px;
