@@ -188,20 +188,26 @@ h1 {
 }
 
 @media(max-width: 560px) {
+
+    .contentCont {
+        margin-top: 60px;
+    }
+
     .content {
-        height: calc(100vh - 110px);
-        max-height: 100vh;
-        margin-top: 70px;
-        margin-bottom: 50px;
+        /* height: calc(100vh - 140px);
+        max-height: 100%; */
+        /* margin-top: 16px; */
         flex-wrap: wrap;
     }
 
     .boards {
+        margin-top: 8px !important;
         width: 40vw;
         margin-top: 0;
     }
 
     .board {
-        height: 40vh;
+        margin-top: 2px;
+        height: 36vh;
     }
 }
