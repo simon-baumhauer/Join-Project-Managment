@@ -202,6 +202,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    overflow: scroll;
     overflow-x: hidden;
 }
 
@@ -282,11 +283,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .textarea {
          width: 100%; 
     }
+
+@media only screen and (max-width: 1280px) {
     .row {
         flex-direction: column;
         align-items: center;
     }
 }
 
-
+}
 

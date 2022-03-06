@@ -6,6 +6,7 @@ let boardArray = [];
 async function loadBacklog() {
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+    boardArray = JSON.parse(backend.getItem('boardArray')) || [];
     renderBacklogTasks();
 }
 
@@ -29,9 +30,11 @@ function renderBacklogTasks() {
         for (let index = 0; index < allTasks.length; index++) {
             let info = allTasks[index];
             let employe = info['assignEmployee'];
+            let emp;
             for (let z = 0; z < employe.length; z++) {
-                let emp = employe[z];
+                emp = employe[z];
                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
+                document.getElementById('profile_img').innerHTML += `<img src="${emp['bild-src']}"`;
             }
         }
     }
@@ -49,7 +52,7 @@ function renderTemplate(emp, info, index) {
 <div class="todo-container heading1">
 <div class="person-info" id="person_info">
 <div class="profile-img">
-    <img class="profile" id="profile_img" src=${emp['bild-src']}>
+    <img class="profile" id="profile_img">
  </div>
 <div class="person-name">
      <h3 class="font-s-17 m-btm-2" id="person_name">${emp['name']}</h3>
@@ -75,7 +78,7 @@ function renderTemplate(emp, info, index) {
 }
 
 async function pushToBoard(i) {
-    boardArray.push(allTasks[i]);
+    boardArray.unshift(allTasks[i]);
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     allTasks.splice(i, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));

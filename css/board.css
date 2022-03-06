@@ -54,7 +54,6 @@ h1 {
 
 .tasks {
     width: 90%;
-    border: 1px solid rgb(159, 158, 158);
     border-radius: 5px;
     margin-top: 5px;
     display: flex;
@@ -67,6 +66,7 @@ h1 {
     background-color: beige;
     padding: 4px;
     position: relative;
+
 }
 
 .titleTask {
@@ -80,13 +80,15 @@ h1 {
 
 .currentEmployer {
     display: flex;
-    justify-content: right;
+    justify-content: left;
+    flex-wrap: wrap;
     margin-top: 4px;
 }
 
 .profileImgTaks {
     height: 30px;
     border-radius: 100%;
+    padding: 2px;
 }
 
 

@@ -22,46 +22,61 @@ function renderBoard() {
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i]; 
-        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
         let employers = boardArray[i]['assignEmployee'];
         for (let j = 0; j < employers.length; j++) {
             let employer = employers[j];
-            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+            document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
+            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            backgroundcolor(i); 
         }
     }
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
-        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
         let employers = boardArray[i]['assignEmployee'];
         for (let j = 0; j < employers.length; j++) {
             let employer = employers[j];
-            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+            document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
+            document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            backgroundcolor(i); 
         }
     }
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
-        document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
         let employers = boardArray[i]['assignEmployee'];
         for (let j = 0; j < employers.length; j++) {
             let employer = employers[j];
+            document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
             document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+            backgroundcolor(i);
         }
     }
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
-        document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
         let employers = boardArray[i]['assignEmployee'];
         for (let j = 0; j < employers.length; j++) {
             let employer = employers[j];
+            document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
             document.getElementById('currentEmployer').innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`; 
+            backgroundcolor(i);
         }
     }
-    
+}
+
+function backgroundcolor(i) {
+    if (boardArray[i]['urgency'] == 'High') {
+        document.getElementById('task').style.backgroundColor = 'rgb(255, 147, 147)';
+    }
+    if (boardArray[i]['urgency'] == 'Intermediate') {
+        document.getElementById('task').style.backgroundColor = 'rgb(255, 255, 100)';
+    }
+    if (boardArray[i]['urgency'] == 'Low') {
+        document.getElementById('task').style.backgroundColor = 'rgb(168, 255, 168)';
+    }
 }
 
 function generateTasksHTML(element, i, type) {
     return `
-        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})">
+        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="task">
             <span class="titleTask">${element['title']}</span>
             <div class="currentEmployer" id="currentEmployer"></div> 
         </div>    
