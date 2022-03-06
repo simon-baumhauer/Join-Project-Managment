@@ -5,17 +5,24 @@ body {
     overflow-y: hidden; /* Hide vertical scrollbar */
 }
 
+h1 {
+    margin-block-start: 0.2em;
+    margin-block-end: 0.1em;
+}
+
 .d-none {
     display: none;
 }
 
-.content {
+.contentCont {
     width: calc(100% - 250px);
     min-width: 100%;
     height: 100vh;
+}
+
+.content {
     display: flex;
     justify-content: center !important;
-    align-items: center;
     font-weight: bolder;
 }
 
@@ -23,6 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 250px;
+    margin-top: 16px;
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
@@ -32,6 +40,7 @@ body {
 .board {
     margin-top: 8px;
     height: 80vh;
+    border-radius: 5px;
     background-color: rgb(238, 238, 238);
     display: flex;
     flex-direction: column;

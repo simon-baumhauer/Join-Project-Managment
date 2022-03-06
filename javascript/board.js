@@ -7,8 +7,6 @@ async function loadBoard() {
     renderBoard();
 }
 
-
-
 /**
  *  This function filters the tasks from the array and generated in the right place on the board 
  * 
@@ -80,6 +78,7 @@ function generateTasksHTML(element, i, type) {
         let employer = employers[j];
         document.getElementById('currentEmployer').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
     }   
+    phoneSize();
 }
 
 function generateOpenTaskHTML(task) {
@@ -96,12 +95,20 @@ function generateOpenTaskHTML(task) {
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
                 <div id="currentEmployer"></div>
             </div>
-            <div class="pushTo">
+            <div class="pushTo d-none" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
-                <img class="arrow" src="img/arrow.ico" onclick="pushToOtherBoard('${task['createdAt']}')">
+                <img class="arrow" src="img/arrow.ico">
             </div>
         </div>
     `;
+}
+
+function phoneSize() {
+    if (window.matchMedia('(min-width: 775px)').matches) {
+        document.getElementById('pushToOtherBoard').classList.add('d-none');
+    } else {
+        document.getElementById('pushToOtherBoard').classList.remove('d-none');
+    }
 }
 
 
@@ -121,7 +128,6 @@ function pushToOtherBoard(i){
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
     save();
-
 }
 
 
