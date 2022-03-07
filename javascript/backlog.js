@@ -16,32 +16,48 @@ async function loadBacklog() {
 
 //     renderBacklogTasks();
 
+// function renderBacklogTasks() {
+//     let backlogContainer = document.getElementById('backlog_container');
+//     backlogContainer.innerHTML = '';
+//     if (allTasks == '') {
+//         backlogContainer.innerHTML = noTasks();
+//     } else {
+//         for (let index = 0; index < allTasks.length; index++) {
+//             let info = allTasks[index];
+           
+//             let employe = info['assignEmployee'];
+//             let emp;
+           
+//             for (let z = 0; z < employe.length; z++) {
+//                 emp = employe[z];
+//                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
+//                 document.getElementById('profile_img').innerHTML += `<img src="${emp['bild-src']}"`;
+               
+//             }
+           
+//         }
+//     }
 // }
 
+ 
+ function renderBacklogTasks() {
+     let backlogContainer = document.getElementById('backlog_container');
+     backlogContainer.innerHTML = '';
+     if (allTasks == '') {
+         backlogContainer.innerHTML = noTasks();
+     } else {
+         for (let index = 0; index < allTasks.length; index++) {
+             let info = allTasks[index];
+            
+             let employe = info['assignEmployee'];
+             let emp;
+                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
+             }
+            
+         }
+     }
+ 
 
-
-function renderBacklogTasks() {
-    let backlogContainer = document.getElementById('backlog_container');
-    backlogContainer.innerHTML = '';
-    if (allTasks == '') {
-        backlogContainer.innerHTML = noTasks();
-    } else {
-        for (let index = 0; index < allTasks.length; index++) {
-            let info = allTasks[index];
-            
-            let employe = info['assignEmployee'];
-            let emp;
-            
-            for (let z = 0; z < employe.length; z++) {
-                emp = employe[z];
-                backlogContainer.innerHTML += renderTemplate(emp, info, index);
-                document.getElementById('profile_img').innerHTML += `<img src="${emp['bild-src']}"`;
-                
-            }
-            
-        }
-    }
-}
 
 function noTasks() {
     return `
@@ -58,8 +74,8 @@ function renderTemplate(emp, info, index) {
     <img class="profile" id="profile_img">
  </div>
 <div class="person-name">
-     <h3 class="font-s-17 m-btm-2" id="person_name">${emp['name']}</h3>
-     <span class="person-mail clr-blue font-s-14" id="person_mail">${emp['e-mail']}</span>
+     <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
+     <span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span>
  </div>
  </div>
  <div class="catagroy ctg-absolute">

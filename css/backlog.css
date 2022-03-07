@@ -3,9 +3,7 @@
 } */
 /*In globalscope/style.css transferd because all pages need the layout adjustment of the header
 */
-.clr-blue {
-    color: #22318B;
-}
+
 
 .mainContainer {
     display: flex;
