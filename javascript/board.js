@@ -63,22 +63,22 @@ function renderBoard() {
 
 }
 
-function backgroundcolor(i) {
-    let color = boardArray[i];
-    if (color['urgency'] == 'High') {
-        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 147, 147)';
-    }
-    if (color['urgency'] == 'Intermediate') {
-        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 255, 100)';
-    }
-    if (color['urgency'] == 'Low') {
-        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(168, 255, 168)';
-    }
-}
+// function backgroundcolor(i) {
+//     let color = boardArray[i];
+//     if (color['urgency'] == 'High') {
+//         document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 147, 147)';
+//     }
+//     if (color['urgency'] == 'Intermediate') {
+//         document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 255, 100)';
+//     }
+//     if (color['urgency'] == 'Low') {
+//         document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(168, 255, 168)';
+//     }
+// }
 
 function generateTasksHTML(element, i, type) {
     return `
-        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}${type}">
+        <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}${type}">
             <span class="titleTask">${element['title']}</span>
             <div class="currentEmployer" id="currentEmployer${i}${type}"></div> 
         </div>    
