@@ -24,42 +24,45 @@ async function loadBacklog() {
 //     } else {
 //         for (let index = 0; index < allTasks.length; index++) {
 //             let info = allTasks[index];
-           
+
 //             let employe = info['assignEmployee'];
 //             let emp;
-           
+
 //            
-           
+
 //         }
 //     }
 // }
 
 
- function renderBacklogTasks() {
-     let backlogContainer = document.getElementById('backlog_container');
-     backlogContainer.innerHTML = '';
-     if (allTasks == '') {
-         backlogContainer.innerHTML = noTasks();
-     } else {
-         for (let index = 0; index < allTasks.length; index++) {
-             let info = allTasks[index];
-                 backlogContainer.innerHTML += renderTemplate(info, index);
-             
-             let employee = allTasks[index]['assignEmployee'];
-             for (let j = 0; j < employee.length; j++) {
-                                 emp = employee[j];
-                                 const img = document.createElement("img");
-                                 const staff_name = document.createElement("h3");
-                                 const name_as_text = document.createTextNode(emp['name']);
-                                 staff_name.appendChild(name_as_text);
-                                 img.src = emp['bild-src'];
-                                 document.getElementById(`person-name${index}`).appendChild(staff_name);
-                                 document.getElementById(`profile_img${index}`).appendChild(img);
-                             }
-                            }
-         }
-     }
- 
+function renderBacklogTasks() {
+    let backlogContainer = document.getElementById('backlog_container');
+    backlogContainer.innerHTML = '';
+    if (allTasks == '') {
+        backlogContainer.innerHTML = noTasks();
+    } else {
+        for (let index = 0; index < allTasks.length; index++) {
+            let info = allTasks[index];
+            backlogContainer.innerHTML += renderTemplate(info, index);
+
+            let employee = allTasks[index]['assignEmployee'];
+            for (let j = 0; j < employee.length; j++) {
+                emp = employee[j];
+                const img = document.createElement("img");
+                const staff_name = document.createElement("h3");
+                const name_as_text = document.createTextNode(emp['name']);
+                staff_name.appendChild(name_as_text);
+                img.src = emp['bild-src'];
+
+                document.getElementById(`person-name${index}`).appendChild(staff_name);
+
+                document.getElementById(`profile_img${index}`).appendChild(img);
+
+            }
+        }
+    }
+}
+
 
 
 function noTasks() {
@@ -69,24 +72,40 @@ function noTasks() {
     </div>`;
 }
 
-{/* <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
-<span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span> */}
+{
+    /* <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
+    <span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span> */
+}
 
 
-function renderTemplate(info, index) {
+function renderTemplate(info, index, emp) {
     return `
 <div class="todo-container heading1">
 <div class="person-info" id="person_info">
-<div class="profile-img" id="profile_img${index}">
+<div id="responsive${index}" class="responsive">
+<b>ASSIGNED TO</b>
+</div>
+<div class="profile-img" id="profile_img${index}" onmouseover="mouseOver(${index})" onmouseout="mouseOut(${index})">
  </div>
 <div class="person-name" id="person-name${index}">
  </div>
+             
+ </div>
+ <div class="assigend-to d-none" id="assigned-box${index}">
+
  </div>
  <div class="catagroy ctg-absolute">
+ <div id="responsive${index}" class="responsive">
+<b>CATEGORY</b>
+</div>
       <h3 class="font-s-17" id="catagory">${info['catergory']}</h3>
  </div>
  <div class="details">
+ <div id="responsive${index}" class="responsive">
+<b>DETAILS</b>
+</div>
  <div class="d-none chnge-container" id=chnge-container${index}>
+ 
 
  <input type="text" id="text-edit${index}" class="d-none input-feld" value="${info['text']}">
  
@@ -97,6 +116,13 @@ function renderTemplate(info, index) {
 </div>
 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})">
 `;
+
+}
+
+function renderBoxTemp(emp) {
+    let container = document.getElementById(`assigned_box`).innerHTML;
+    container.innerHTML = '';
+    container.innerHTML = '';
 
 }
 
@@ -149,4 +175,22 @@ function clickedSaved(index) {
     edit.classList.add('d-none');
     containeredit.classList.add('d-none');
     hidedetails.classList.remove('d-none');
+}
+
+function mouseOver(index) {
+    let mouseon = document.getElementById('assigned-box' + index);
+    mouseon.classList.remove('d-none');
+    let employes = allTasks[index]['assignEmployee'];
+    for (let a = 0; a < employes.length; a++) {
+        const box = employes[a];
+
+    }
+
+}
+
+function mouseOut(index) {
+    let mouseout = document.getElementById('assigned-box' + index);
+    mouseout.classList.add('d-none');
+
+    console.log('ich war da');
 }
