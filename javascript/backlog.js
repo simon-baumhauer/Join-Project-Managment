@@ -49,9 +49,12 @@ async function loadBacklog() {
              for (let j = 0; j < employee.length; j++) {
                                  emp = employee[j];
                                  const img = document.createElement("img");
+                                 const staff_name = document.createElement("h3");
+                                 const name_as_text = document.createTextNode(emp['name']);
+                                 staff_name.appendChild(name_as_text);
                                  img.src = emp['bild-src'];
-                                 document.getElementById(`profile_img${index}`).appendChild(img)
-                                 console.log(index);
+                                 document.getElementById(`person-name${index}`).appendChild(staff_name);
+                                 document.getElementById(`profile_img${index}`).appendChild(img);
                              }
                             }
          }
@@ -66,15 +69,17 @@ function noTasks() {
     </div>`;
 }
 
+{/* <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
+<span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span> */}
+
 function renderTemplate(info, index) {
     return `
 <div class="todo-container heading1">
 <div class="person-info" id="person_info">
 <div class="profile-img" id="profile_img${index}">
  </div>
-<div class="person-name">
-     <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
-     <span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span>
+<div class="person-name" id="person-name${index}">
+    
  </div>
  </div>
  <div class="catagroy ctg-absolute">
