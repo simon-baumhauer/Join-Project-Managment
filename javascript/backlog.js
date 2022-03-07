@@ -72,6 +72,7 @@ function noTasks() {
 {/* <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
 <span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span> */}
 
+
 function renderTemplate(info, index) {
     return `
 <div class="todo-container heading1">
@@ -79,7 +80,6 @@ function renderTemplate(info, index) {
 <div class="profile-img" id="profile_img${index}">
  </div>
 <div class="person-name" id="person-name${index}">
-    
  </div>
  </div>
  <div class="catagroy ctg-absolute">

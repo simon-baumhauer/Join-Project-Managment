@@ -2,7 +2,7 @@ let allTasks = [];
 let assignedEmployees = [];
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
-    'e-mail': 'Simon.Baumhauer@hotmail.de',
+    'e-mail': 'simon.baumhauer@hotmail.de',
     'name': 'Simon Baumhauer',
     'position': 'Software Developer'
 },
@@ -14,14 +14,14 @@ let EmployeesArray = [{
 },
 {
     'bild-src': 'img/office_worker_6.jpg',
-    'e-mail': 'natalie@hotmail.ch',
-    'name': 'Natalie',
+    'e-mail': 'natalie.schimdt@hotmail.ch',
+    'name': 'Natalie Schmidt',
     'position': 'UX/UI Designer'
 },
 {
     'bild-src': 'img/office_worker_3.jpg',
-    'e-mail': 'lea@hotmail.ch',
-    'name': 'lea',
+    'e-mail': 'lea.meier@hotmail.ch',
+    'name': 'Lea Meier',
     'position': 'Scrum Master'
 },
 {
@@ -32,8 +32,8 @@ let EmployeesArray = [{
 },
 {
     'bild-src': 'img/office_worker_7.jpg',
-    'e-mail': 'Lisa@hotmail.ch',
-    'name': 'Lisa',
+    'e-mail': 'lisa.müller@hotmail.ch',
+    'name': 'Lisa Müller',
     'position': 'Product owner'
 },
 ];
@@ -103,9 +103,12 @@ function Employees() {
     }
 }
 
+ 
+    
+
 function assigningEmployees(i) {
-    let test = document.getElementById('test1');
-    test.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
+     let profile_pictures = document.getElementById('profile_pictures');
+     profile_pictures.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
     assignedEmployees.push(EmployeesArray[i]);
 }
 
