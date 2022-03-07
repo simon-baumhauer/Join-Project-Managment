@@ -28,18 +28,13 @@ async function loadBacklog() {
 //             let employe = info['assignEmployee'];
 //             let emp;
            
-//             for (let z = 0; z < employe.length; z++) {
-//                 emp = employe[z];
-//                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
-//                 document.getElementById('profile_img').innerHTML += `<img src="${emp['bild-src']}"`;
-               
-//             }
+//            
            
 //         }
 //     }
 // }
 
- 
+
  function renderBacklogTasks() {
      let backlogContainer = document.getElementById('backlog_container');
      backlogContainer.innerHTML = '';
@@ -48,12 +43,17 @@ async function loadBacklog() {
      } else {
          for (let index = 0; index < allTasks.length; index++) {
              let info = allTasks[index];
-            
-             let employe = info['assignEmployee'];
-             let emp;
-                 backlogContainer.innerHTML += renderTemplate(emp, info, index);
-             }
-            
+                 backlogContainer.innerHTML += renderTemplate(info, index);
+             
+             let employee = allTasks[index]['assignEmployee'];
+             for (let j = 0; j < employee.length; j++) {
+                                 emp = employee[j];
+                                 const img = document.createElement("img");
+                                 img.src = emp['bild-src'];
+                                 document.getElementById(`profile_img${index}`).appendChild(img)
+                                 console.log(index);
+                             }
+                            }
          }
      }
  
@@ -66,12 +66,11 @@ function noTasks() {
     </div>`;
 }
 
-function renderTemplate(emp, info, index) {
+function renderTemplate(info, index) {
     return `
 <div class="todo-container heading1">
 <div class="person-info" id="person_info">
-<div class="profile-img">
-    <img class="profile" id="profile_img">
+<div class="profile-img" id="profile_img${index}">
  </div>
 <div class="person-name">
      <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>

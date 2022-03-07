@@ -56,6 +56,11 @@
     margin-left: 15px;
 }
 
+.profile-img > img{
+    width: 60px;
+    height: 60px;
+}
+
 .profile {
 
     height: 50px;
