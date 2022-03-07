@@ -158,6 +158,10 @@ h1 {
     color: red;
 }
 
+.delete:hover {
+    cursor: pointer;
+}
+
 .title {
     font-size: larger;
     margin-top: 16px;
@@ -239,4 +243,37 @@ h1 {
         margin-top: 2px;
         height: 36vh;
     }
+}
+
+@media(max-width: 450px) {
+
+        .openTask {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 240px
+        }
+
+
+    .headerOpenTask {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .column {
+        margin-top: 8px;
+    }
+
+    .footerTask {
+        flex-direction: column;
+    }
+
+    .currentEmployer2 {
+        margin-top: 8px;
+    }
+
 }

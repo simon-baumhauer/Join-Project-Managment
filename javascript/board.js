@@ -60,7 +60,6 @@ function renderBoard() {
             document.getElementById(`currentEmployer${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
         }
     }
-
 }
 
 // function backgroundcolor(i) {
@@ -114,7 +113,7 @@ function generateTasksHTML(element, i, type) {
     let employers = tasks[i]['assignEmployee'];
     for (let j = 0; j < employers.length; j++) {
         let employer = employers[j];
-        document.getElementById('currentEmployer').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
+        document.getElementById('currentEmployer2').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
     }   
     phoneSize();
 }
@@ -138,7 +137,7 @@ function generateOpenTaskHTML(task) {
             <div>${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <div id="currentEmployer"></div>
+                <div class="currentEmployer2" id="currentEmployer2"></div>
             </div>
             <div class="pushTo d-none" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
