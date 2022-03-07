@@ -91,6 +91,17 @@ h1 {
     padding: 2px;
 }
 
+.High {
+    background-color: rgb(255, 147, 147);
+}
+
+.Intermediate {
+    background-color: rgb(255, 255, 100);
+}
+
+.Low {
+    background-color: rgb(168, 255, 168);
+}
 
 /* overlay */
 
