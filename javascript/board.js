@@ -241,6 +241,3 @@ async function deleteTask(element) {
     document.getElementById('openTask').classList.add('d-none');
     loadBoard();
 }
-
-
-
