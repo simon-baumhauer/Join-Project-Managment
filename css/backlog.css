@@ -1,11 +1,13 @@
 /* .heading1 {
     margin-left: 300px;
 } */
+
+
 /*In globalscope/style.css transferd because all pages need the layout adjustment of the header
 */
 
-
 .mainContainer {
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,7 +25,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: #d6d5dc;
-    height: 100px;
+    height: 120px;
     margin-right: 40px;
     border-radius: 10px;
     border-left: 10px solid black;
@@ -34,40 +36,43 @@
 .todo-container:hover {
     background-color: #bdbdbd;
 }
+
 .person-info {
     display: flex;
     align-items: center;
-    width: 32%;
+    flex-direction: column;
+    width: calc(100%/3);
 }
 
 .person-name {
-    margin-bottom: 12px;
-}
-
-.person-name >h3 {
-    margin: 0;
-}
-
-  .profile-img {
-    border-radius: 60%;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 30px;
-    margin-left: 15px;
-}  
+}
 
-.profile-img > img{
+.person-name>h3 {
+    font-size: 12px;
+    width: 50%;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.profile-img {
+    border-radius: 60%;
+    margin-top: 15px;
+}
+
+.profile-img img {
     width: 60px;
-    height: 60px;
+    /*     height: 60px; */
     border-radius: 50%;
     border: white solid 4px;
-    margin-right: 3px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .profile {
-
     height: 50px;
     width: 50px;
     object-fit: contain;
@@ -87,7 +92,7 @@
 }
 
 .font-s-17 {
-   font-size: 17px;
+    font-size: 17px;
 }
 
 .font-s-14 {
@@ -123,15 +128,79 @@
     margin-right: 8px;
 }
 
+.responsive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    color: #22318B;
+}
+
+.person-name h3 {
+    width: 60%;
+}
+
+.assigend-to {
+    background-color: rgb(167, 164, 164);
+    z-index: 9;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+}
+
+
 /* Responsive */
 
-@media (max-width:900px) {
+@media (max-width:1095px) {
+    .todo-container {
+        margin-right: 12px;
+        height: 200px;
+        position: relative;
+    }
+    .person-info,
+    .catagroy,
+    .details {
+        width: fit-content;
+    }
+}
+
+@media (max-width:630px) {
+    .heading1 {
+        margin-left: 12px;
+        margin-top: 70px;
+        transition: all 115ms ease-in-out;
+        margin-bottom: 0;
+    }
+    .todo-container {
+        height: 50vh;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 0px !important;
+        margin-bottom: 15px !important;
+    }
+    .person-info {
+        flex-direction: column;
+    }
+    .responsive {
+        display: flex;
+    }
+    #catagory {
+        font-size: 12px;
+    }
+    .hide-cont {
+        display: none;
+    }
+}
+
+
+/* @media (max-width:900px) {
     .heading1 {
         margin-left: 12px;
         margin-top: 70px;
         transition: all 115ms ease-in-out;
     }
-
     .todo-container {
         margin-right: 12px;
         flex-direction: column;
@@ -139,15 +208,13 @@
         border-left: 30px solid green;
         position: relative;
     }
-
     .person-info,
     .catagroy,
     .details {
         width: fit-content;
     }
-
     .ctg-absolute {
         position: absolute;
         transform: rotate(270deg);
     }
-}
+} */
