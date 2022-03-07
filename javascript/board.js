@@ -23,7 +23,7 @@ function renderBoard() {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i]; 
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
-        backgroundcolor(i,'toDo');
+        // backgroundcolor(i,'toDo');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
@@ -33,7 +33,7 @@ function renderBoard() {
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
-        backgroundcolor(i, 'inProgress');
+        // backgroundcolor(i, 'inProgress');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
@@ -43,7 +43,7 @@ function renderBoard() {
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
-        backgroundcolor(i, 'testing');
+        // backgroundcolor(i, 'testing');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
@@ -53,7 +53,7 @@ function renderBoard() {
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
-        backgroundcolor(i, 'done');
+        // backgroundcolor(i, 'done');
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];           
@@ -63,22 +63,22 @@ function renderBoard() {
 
 }
 
-function backgroundcolor(i, type) {
+function backgroundcolor(i) {
     let color = boardArray[i];
     if (color['urgency'] == 'High') {
-        document.getElementById(`taskOnBoard${i}${type}`).style.backgroundColor = 'rgb(255, 147, 147)';
+        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 147, 147)';
     }
     if (color['urgency'] == 'Intermediate') {
-        document.getElementById(`taskOnBoard${i}${type}`).style.backgroundColor = 'rgb(255, 255, 100)';
+        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(255, 255, 100)';
     }
     if (color['urgency'] == 'Low') {
-        document.getElementById(`taskOnBoard${i}${type}`).style.backgroundColor = 'rgb(168, 255, 168)';
+        document.getElementById('taskOnBoard' + i).style.backgroundColor = 'rgb(168, 255, 168)';
     }
 }
 
 function generateTasksHTML(element, i, type) {
     return `
-        <div class="tasks" onclick="openTask(${i}'${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}${type}">
+        <div class="tasks" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}${type}">
             <span class="titleTask">${element['title']}</span>
             <div class="currentEmployer" id="currentEmployer${i}${type}"></div> 
         </div>    
@@ -114,7 +114,7 @@ function generateTasksHTML(element, i, type) {
     let employers = tasks[i]['assignEmployee'];
     for (let j = 0; j < employers.length; j++) {
         let employer = employers[j];
-        document.getElementById('currentEmployer2').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
+        document.getElementById('currentEmployer').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`; 
     }   
     phoneSize();
 }
@@ -138,7 +138,7 @@ function generateOpenTaskHTML(task) {
             <div>${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <div id="currentEmployer2"></div>
+                <div id="currentEmployer"></div>
             </div>
             <div class="pushTo d-none" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
