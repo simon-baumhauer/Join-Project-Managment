@@ -90,7 +90,7 @@ function Employees() {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-<div class="modal-profile" onclick="assigningEmployees(${i})">
+<div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
 <div class=modal-profile-column1>
 <img src="${element['bild-src']}" alt="" class="modal-profile-image">
 <span href="">${element['e-mail']}</span>
@@ -108,6 +108,7 @@ function Employees() {
 
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
+     let staff_member = document.getElementById(`employee_${i}`);
      profile_pictures.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
     assignedEmployees.push(EmployeesArray[i]);
 }

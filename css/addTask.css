@@ -207,7 +207,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    overflow: scroll;
     overflow-x: hidden;
 }
 
