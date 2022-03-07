@@ -23,6 +23,8 @@
     width: 450px;
 }
 
+
+
 label,
 h2 {
     color: rgb(34, 49, 139);
@@ -90,6 +92,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .row-3 {
     display: flex;
 }
+.assingments {
+    width: 450px;
+}
 
 .textarea {
     display: flex;
@@ -111,9 +116,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .profile-pictures {
-    width: 450px;
+    width: 100%;
     margin-bottom: 10px;
-    min-height: 60px;
+    min-height: 120px;
 }
 
 .profile-picture {
@@ -250,6 +255,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .d-none {
     display: none;
 }
+
+
 @media(max-width:1275px) {
     .row {
         flex-direction: column;
@@ -261,35 +268,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .textarea {
         width: 100%;
     }
+
+    .assingments {
+        width: 100%;
+    }
 }
 
-@media(max-width:800px) {
-    .input {
-        width:95%;
+
+@media(max-width:530px) {
+    .border {
+        width: 45px;
     }
-    .textarea {
-         width:95%; 
-    }
-    .row {
-        flex-direction: column;
-        align-items: center;
+    .profile-pictures {
+        min-height: 220px;
     }
 } 
 
-@media  only screen and (max-width:600px) {
-    .input {
-        width: 100%;
-    }
-    .textarea {
-         width: 100%; 
-    }
 
-@media only screen and (max-width: 1280px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
-}
+
+
 

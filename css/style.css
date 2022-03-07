@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    height: 100%;
+    /* height: 100%;  dies lässt mein impressum auf addtask nich am ende der seite sein bei der responsive styles*/ 
     scroll-behavior: smooth;
 }
 
