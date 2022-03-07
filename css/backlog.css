@@ -44,21 +44,26 @@
     margin-bottom: 12px;
 }
 
-.profile-img {
+.person-name >h3 {
+    margin: 0;
+}
+
+  .profile-img {
     border-radius: 60%;
-    border: white solid 4px;
     height: 50px;
-    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 30px;
     margin-left: 15px;
-}
+}  
 
 .profile-img > img{
     width: 60px;
     height: 60px;
+    border-radius: 50%;
+    border: white solid 4px;
+    margin-right: 3px;
 }
 
 .profile {
@@ -117,15 +122,6 @@
     height: 35px;
     margin-right: 8px;
 }
-
-
- 
-
-
-
-
-
-
 
 /* Responsive */
 
