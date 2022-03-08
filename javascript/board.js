@@ -82,20 +82,20 @@ function generateTasksHTML(element, i, type) {
     `;
 }
 
-let elem = document.getElementById(`currentEmployer${i}${type}`);
-  let ausgabe = document.getElementById('Ausgabe');
-  elem.addEventListener('mouseover', mouseOver);
-  elem.addEventListener('mouseout', mouseOut);
+// let elem = document.getElementById(`currentEmployer${i}${type}`);
+//   let ausgabe = document.getElementById('Ausgabe');
+//   elem.addEventListener('mouseover', mouseOver);
+//   elem.addEventListener('mouseout', mouseOut);
 
-  function mouseOver() {
-    ausgabe.innerHTML = 'Ich bin dynamisch!';
-    elem.innerHTML = 'Drüber!';
-  }
+//   function mouseOver() {
+//     ausgabe.innerHTML = 'Ich bin dynamisch!';
+//     elem.innerHTML = 'Drüber!';
+//   }
 
-  function mouseOut() {
-    ausgabe.innerHTML = ' ';
-	elem.innerHTML = 'Wieder weg!';
-  }
+//   function mouseOut() {
+//     ausgabe.innerHTML = ' ';
+// 	elem.innerHTML = 'Wieder weg!';
+//   }
 
 
 /**
