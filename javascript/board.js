@@ -82,19 +82,33 @@ function generateTasksHTML(element, i, type) {
     `;
 }
 
-let test = document.getElementById(`currentEmployer${i}${type}`);
 
-// This handler will be executed every time the cursor
-// is moved over a different list item
-test.addEventListener("mouseover", function( event ) {
-  // highlight the mouseover target
-  event.target.style.color = "orange";
 
-  // reset the color after a short delay
-  setTimeout(function() {
-    event.target.style.color = "";
-  }, 500);
-}, false);
+// const game = i => () => {
+//     // ...
+//    };
+  
+//   for (let i = 0; i < cards.length; i++) {
+//     const card = cards[i];
+//     card.addEventListener('click', card._click = game(i));
+//   }
+
+
+
+
+// let test = document.getElementById(`currentEmployer${i}${type}`);
+
+// // This handler will be executed every time the cursor
+// // is moved over a different list item
+// test.addEventListener("mouseover", function( event ) {
+//   // highlight the mouseover target
+//   event.target.style.color = "orange";
+
+//   // reset the color after a short delay
+//   setTimeout(function() {
+//     event.target.style.color = "";
+//   }, 500);
+// }, false);
 
 
 
@@ -180,7 +194,7 @@ function generateOpenTaskHTML(task) {
 }
 
 /**
- *  add a button to push to the next board
+ *  add a button in small size to push to the next board
  * 
  */
 function phoneSize() {
