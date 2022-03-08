@@ -82,6 +82,43 @@ function generateTasksHTML(element, i, type) {
     `;
 }
 
+let test = document.getElementById(`currentEmployer${i}${type}`);
+
+// This handler will be executed every time the cursor
+// is moved over a different list item
+test.addEventListener("mouseover", function( event ) {
+  // highlight the mouseover target
+  event.target.style.color = "orange";
+
+  // reset the color after a short delay
+  setTimeout(function() {
+    event.target.style.color = "";
+  }, 500);
+}, false);
+
+
+
+// let elem = document.getElementById(`currentEmployer${i}${type}`);
+//   let ausgabe = document.getElementById('Ausgabe');
+//   elem.addEventListener('mouseover', mouseOver);
+//   elem.addEventListener('mouseout', mouseOut);
+
+//   function mouseOver() {
+//     ausgabe.innerHTML = 'Ich bin dynamisch!';
+//     elem.innerHTML = 'Drüber!';
+//   }
+
+//   function mouseOut() {
+//     ausgabe.innerHTML = ' ';
+// 	elem.innerHTML = 'Wieder weg!';
+//   }
+
+
+
+
+
+
+
 /**
  * this function open the task (overlay)
  * 
