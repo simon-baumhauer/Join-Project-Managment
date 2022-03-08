@@ -1,5 +1,11 @@
 let allTasks = [];
 let assignedEmployees = [];
+let date = new Date();
+let year = date.getFullYear();
+let month = date.getMonth();
+let day = date.getDate();
+let hour = date.getHours();
+let minute = date.getMinutes();
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
@@ -38,11 +44,13 @@ let EmployeesArray = [{
 },
 ];
 
+   
 /**
  * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
  * 
  */
-async function createTask() {
+async function createTask() {  
+    
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
@@ -54,7 +62,7 @@ async function createTask() {
         'catergory': catergory.value,
         'text': text.value,
         'urgency': urgency.value,
-        'createdAt': new Date().getTime(),
+        'createdAt': year + "/" + month + "/" + day + " || " + hour + ":" + minute,
         'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
     }
@@ -90,7 +98,7 @@ function Employees() {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-<div class="modal-profile" onclick="assigningEmployees(${i})">
+<div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
 <div class=modal-profile-column1>
 <img src="${element['bild-src']}" alt="" class="modal-profile-image">
 <span href="">${element['e-mail']}</span>
@@ -108,6 +116,7 @@ function Employees() {
 
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
+     let staff_member = document.getElementById(`employee_${i}`);
      profile_pictures.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
     assignedEmployees.push(EmployeesArray[i]);
 }

@@ -207,7 +207,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    overflow: scroll;
     overflow-x: hidden;
 }
 
@@ -220,6 +219,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 5px;
     padding: 5px;
     width: 95%;
+    cursor: pointer;
+}
+
+.modal-profile:hover {
+    background-color: rgb(165, 165, 167);
 }
 
 .modal-profile-image {
