@@ -62,7 +62,7 @@ async function createTask() {
         'catergory': catergory.value,
         'text': text.value,
         'urgency': urgency.value,
-        'createdAt': year + "/" + month + "/" + day + " || " + hour + ":" + minute,
+        'createdAt': new Date().getTime(),
         'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
     }
