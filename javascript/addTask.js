@@ -1,5 +1,11 @@
 let allTasks = [];
 let assignedEmployees = [];
+let date = new Date();
+let year = date.getFullYear();
+let month = date.getMonth();
+let day = date.getDate();
+let hour = date.getHours();
+let minute = date.getMinutes();
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
@@ -38,11 +44,13 @@ let EmployeesArray = [{
 },
 ];
 
+   
 /**
  * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
  * 
  */
-async function createTask() {
+async function createTask() {  
+    
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
@@ -54,7 +62,7 @@ async function createTask() {
         'catergory': catergory.value,
         'text': text.value,
         'urgency': urgency.value,
-        'createdAt': new Date().getTime(),
+        'createdAt': year + "/" + month + "/" + day + " || " + hour + ":" + minute,
         'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
     }
