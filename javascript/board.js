@@ -82,6 +82,22 @@ function generateTasksHTML(element, i, type) {
     `;
 }
 
+let elem = document.getElementById(`currentEmployer${i}${type}`);
+  let ausgabe = document.getElementById('Ausgabe');
+  elem.addEventListener('mouseover', mouseOver);
+  elem.addEventListener('mouseout', mouseOut);
+
+  function mouseOver() {
+    ausgabe.innerHTML = 'Ich bin dynamisch!';
+    elem.innerHTML = 'Drüber!';
+  }
+
+  function mouseOut() {
+    ausgabe.innerHTML = ' ';
+	elem.innerHTML = 'Wieder weg!';
+  }
+
+
 /**
  * this function open the task (overlay)
  * 
@@ -143,7 +159,7 @@ function generateOpenTaskHTML(task) {
 }
 
 /**
- *  add a button in small size to push to the next board
+ *  in small screen-size add a button to push to the next board
  * 
  */
 function phoneSize() {
