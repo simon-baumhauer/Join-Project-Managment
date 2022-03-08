@@ -180,7 +180,8 @@
         margin-bottom: 0;
     }
     .todo-container {
-        height: 50vh;
+        height: fit-content;
+        min-height: 60vh;
         flex-direction: column;
         justify-content: space-around;
         margin-top: 0px !important;
@@ -197,6 +198,9 @@
     }
     .hide-cont {
         display: none;
+    }
+    .person-name {
+        flex-wrap: wrap;
     }
 }
 
