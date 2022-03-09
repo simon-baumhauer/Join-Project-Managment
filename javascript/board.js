@@ -33,6 +33,7 @@ function forLoop1(currentToDo) {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
+        globalI = i;
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];
@@ -82,20 +83,23 @@ function generateTasksHTML(element, i, type) {
     `;
 }
 
-// let elem = document.getElementById(`currentEmployer${i}${type}`);
-//   let ausgabe = document.getElementById('Ausgabe');
-//   elem.addEventListener('mouseover', mouseOver);
-//   elem.addEventListener('mouseout', mouseOut);
+let globalI;
+let globalTybe;
 
-//   function mouseOver() {
-//     ausgabe.innerHTML = 'Ich bin dynamisch!';
-//     elem.innerHTML = 'Drüber!';
-//   }
+let elem = document.getElementById(`currentEmployer${globalI}${type}`);
+  let ausgabe = document.getElementById('Ausgabe');
+  elem.addEventListener('mouseover', mouseOver);
+  elem.addEventListener('mouseout', mouseOut);
 
-//   function mouseOut() {
-//     ausgabe.innerHTML = ' ';
-// 	elem.innerHTML = 'Wieder weg!';
-//   }
+  function mouseOver() {
+    ausgabe.innerHTML = 'Ich bin dynamisch!';
+    elem.innerHTML = 'Drüber!';
+  }
+
+  function mouseOut() {
+    ausgabe.innerHTML = ' ';
+	elem.innerHTML = 'Wieder weg!';
+  }
 
 
 /**
