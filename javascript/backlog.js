@@ -30,11 +30,12 @@ function renderBacklogTasks() {
                 const staff_name = document.createElement("h3");
                 const name_as_text = document.createTextNode(emp['name']);
                 staff_name.appendChild(name_as_text);
-                img.innerHTML += renderImage(emp);
+                img.innerHTML += renderImage(emp, j);
 
 
                 let render = document.getElementById(`person-name${index}`);
                 render.innerHTML += renderImage(emp, index);
+                arrow(employee, index);
             }
         }
     }
@@ -50,14 +51,13 @@ function noTasks() {
     </div>`;
 }
 
-
-
-function renderImage(emp, index) {
+function renderImage(emp, j) {
     return `
+    
     <div class="profile-img" id="${emp['name']}">
-   
+  
 
-    <img src="${emp['bild-src']}" onmouseover= mouseon("${index}")  onmouseout=mouseOut("${emp['e-mail']}, ${emp['name']}")>
+    <img src="${emp['bild-src']}">
     <div class="d-none" id="box${emp['name']}">${emp['name']}, ${emp['e-mail']}
     <img src="${emp['bild-src']}">   
     </div>
@@ -76,6 +76,16 @@ function renderTemplate(info, index) {
     return `
 <div class="todo-container heading1">
 <div class="person-info" id="person_info">
+
+    <div class="arrow d-none" id="left-scrollbar${index}" onclick=scrollleft("${index}")>
+
+        <img id="left-arrow${index}" class="l-arrow-img" src="img/arrow-left-b.png">
+    </div>
+
+<div class="arrow" id="scrollbar${index}" onclick=scrollright("${index}")>
+
+    <img class="r-arrow-img" src="img/arrow-right-b.png">
+    </div>
 <div id="responsive${index}" class="responsive">
 <b>ASSIGNED TO</b>
 </div>
@@ -92,7 +102,7 @@ function renderTemplate(info, index) {
  <div id="responsive${index}" class="responsive">
 <b>CATEGORY</b>
 </div>
-      <h3 class="font-s-17" id="catagory">${info['catergory']}</h3>
+      <h3 class="font-s-17 p-left" id="catagory">${info['catergory']}</h3>
  </div>
  <div class="details">
  <div id="responsive${index}" class="responsive">
@@ -172,15 +182,40 @@ function clickedSaved(index) {
 
 
 } */
-function mouseon(id, name) {
+/* function mouseon(id, name) {
     tt = document.getElementById(`box${emp['name']}`);
     tt.classList.remove('d-none');
 
-}
+} */
 
 function mouseOut(index) {
     /*   let mouseout = document.getElementById('assigned-box' + index);
       mouseout.classList.remove('d-none'); */
 
     console.log('ich war da');
+}
+
+function arrow(pax, index) {
+    if (pax.length <= 3) {
+        document.getElementById(`scrollbar${index}`).classList.add('d-none');
+
+    }
+
+}
+
+function scrollright(index) {
+    document.getElementById(`left-scrollbar${index}`).classList.remove('d-none');
+    let content = document.getElementById(`person-name${index}`);
+    content.style.scrollBehavior = 'smooth';
+
+    content.scrollLeft += 200;
+
+    console.log('clicked')
+}
+
+function scrollleft(index) {
+    let content = document.getElementById(`person-name${index}`);
+    content.scrollLeft -= 200;
+
+
 }
