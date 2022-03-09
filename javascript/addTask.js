@@ -86,7 +86,7 @@ function Employees() {
 <div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
 <div class=modal-profile-column1>
 <img src="${element['bild-src']}" alt="" class="modal-profile-image">
-<span href="">${element['e-mail']}</span>
+<span class="email" href="#">${element['e-mail']}</span>
 </div>
 <div class=modal-profile-column2>
 <span>${element['name']}</span>
