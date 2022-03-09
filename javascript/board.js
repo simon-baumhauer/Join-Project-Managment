@@ -1,5 +1,7 @@
 setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
 let currenDraggedElement;
+let i;
+let type;
 
 /**
  * load from backendserver
@@ -32,8 +34,9 @@ function renderBoard() {
 function forLoop1(currentToDo) {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
-        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, 'toDo');
-        globalI = i;
+        i = i;
+        type = 'toDo';
+        document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];
@@ -44,7 +47,9 @@ function forLoop1(currentToDo) {
 function forLoop2(currentInProgress) {   
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
-        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, 'inProgress');
+        i = i;
+        type = 'inProgress';
+        document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];
@@ -55,7 +60,9 @@ function forLoop2(currentInProgress) {
 function forLoop3(currentTesting) {   
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
-        document.getElementById('testing').innerHTML += generateTasksHTML(element, i, 'testing');
+        i = i;
+        type = 'testing';
+        document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];
@@ -66,7 +73,9 @@ function forLoop3(currentTesting) {
 function forLoop4(currentDone) {   
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
-        document.getElementById('done').innerHTML += generateTasksHTML(element, i, 'done');
+        i = i;
+        type = 'done';
+        document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
             let employer = assignEmployee[j];
@@ -83,10 +92,9 @@ function generateTasksHTML(element, i, type) {
     `;
 }
 
-let globalI;
-let globalTybe;
 
-let elem = document.getElementById(`currentEmployer${globalI}${type}`);
+
+let elem = document.getElementById(`currentEmployer${i}${type}`);
   let ausgabe = document.getElementById('Ausgabe');
   elem.addEventListener('mouseover', mouseOver);
   elem.addEventListener('mouseout', mouseOut);
