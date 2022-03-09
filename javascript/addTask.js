@@ -1,11 +1,5 @@
 let allTasks = [];
 let assignedEmployees = [];
-let date = new Date();
-let year = date.getFullYear();
-let month = date.getMonth();
-let day = date.getDate();
-let hour = date.getHours();
-let minute = date.getMinutes();
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
@@ -43,14 +37,12 @@ let EmployeesArray = [{
     'position': 'Product owner'
 },
 ];
-
    
 /**
- * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
+ * This function references to the inputfields elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the in the Backend.
  * 
  */
 async function createTask() {  
-    
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
@@ -71,10 +63,6 @@ async function createTask() {
     } else {
         allTasks.push(task);
         await backend.setItem('allTasks', JSON.stringify(allTasks));
-        // saveBackend(task);
-        // allTasks.push(task);
-        // allTaskAsString = JSON.stringify(allTasks);
-        // localStorage.setItem('allTasks', allTaskAsString);
         title.value = ''
         date.value = '';
         catergory.value = '';
@@ -85,13 +73,10 @@ async function createTask() {
     }
 }
 
-// async function saveBackend(task) {
-//     allTasks.push('task', task);
-//     // let allTasksAsString = JSON.stringify(allTasks);
-//     // await backend.setItem('allTasks', allTasksAsString);
-//     await backend.setItem('allTasks', JSON.stringify(allTasks));
-// }
-
+/**
+ * This function accesesses the available Employees and renders each profile in a its own HTML element.
+ * 
+ */
 function Employees() {
     let modal_body = document.getElementById('modal-body');
     modal_body.innerHTML = '';
@@ -101,7 +86,7 @@ function Employees() {
 <div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
 <div class=modal-profile-column1>
 <img src="${element['bild-src']}" alt="" class="modal-profile-image">
-<span href="">${element['e-mail']}</span>
+<span class="email" href="#">${element['e-mail']}</span>
 </div>
 <div class=modal-profile-column2>
 <span>${element['name']}</span>
@@ -112,17 +97,20 @@ function Employees() {
 }
 
  
-    
-
+    /**
+     * 
+     * @param {This paramter givey each employee its own number so that the funtion scopes is only for the seleted an employee } i 
+     * The function creat a HTML element for the selected Employee and pushes his value in an array so that in can be accsessed from the backend. 
+     */
+    //  let staff_member = document.getElementById(`employee_${i}`);
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
-     let staff_member = document.getElementById(`employee_${i}`);
      profile_pictures.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
     assignedEmployees.push(EmployeesArray[i]);
 }
 
 /**
- * This function opens a Modal and overlay
+ * This function opens a Modal overlay
  * 
  */
 function openModal() {
@@ -145,19 +133,15 @@ function closeModal() {
 }
 
 
-// function deleteTask() {
-//     let title = document.getElementById('title').value;
-//     let date = document.getElementById('date').value;
-//     let catergory = document.getElementById('catergory').value;
-//     let text = document.getElementById('text').value;
-//     let urgency = document.getElementById('urgency').value;
-//     let task = {
-//         'title': '',
-//         'date': '',
-//         'catergory': '',
-//         'text': '',
-//         'urgency': '',
-//         'createdAt': '',
-//         'assignEmployee': ''
-//     }
-// }
+/**
+ * This function delete all the value of all inputfield and also of the array with the assigned employees
+ */
+ function deleteTask() {
+     document.getElementById('title').value = '';
+     document.getElementById('date').value = '';
+     document.getElementById('catergory').value = '';
+     document.getElementById('text').value = '';
+     document.getElementById('urgency').value = '';
+     profile_pictures.innerHTML = '';
+
+ }

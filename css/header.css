@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
-/* html,
-body {
-overflow-x: hidden;
-height: 100%;
-} */
-
-
-/* body {
-background: #fff;
-padding: 0;
-margin: 0;
-font-family: 'Varela Round', sans-serif;
-} */
-
-
-/* In style.css because of globalscope*/
-
 .d-none {
     display: none !important;
 }
@@ -88,8 +71,8 @@ font-family: 'Varela Round', sans-serif;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 20px;
     cursor: pointer;
+    padding: 20px 20px 20px 0px;
 }
 
 .sidebarMenuInner li span {
@@ -104,6 +87,7 @@ font-family: 'Varela Round', sans-serif;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+    padding: 20px;
 }
 
 input[type="checkbox"]:checked~#sidebarMenu {
@@ -197,6 +181,7 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
 
 .responsive-mobile {
     display: block;
+    padding-left: 20px;
 }
 
 .hide-img a {
