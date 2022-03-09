@@ -22,6 +22,19 @@
         display: none !important;
     }
     
+    .margin-a {
+        margin-right: 340px;
+    }
+    
+    .margin-b {
+        margin-left: 40px;
+        padding-right: 65px;
+    }
+    
+    .margin-b {
+        padding-left: 35px;
+    }
+    
     .todo-container {
         display: flex;
         align-items: center;
