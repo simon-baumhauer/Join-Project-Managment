@@ -136,7 +136,7 @@ function closeModal() {
 /**
  * This function delete all the value of all inputfield and also of the array with the assigned employees
  */
- function deleteTask() {
+ function clearTask() {
      document.getElementById('title').value = '';
      document.getElementById('date').value = '';
      document.getElementById('catergory').value = '';
