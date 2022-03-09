@@ -197,10 +197,18 @@ function mouseOut(index) {
 
 function arrow(pax, index) {
     if (pax.length <= 3) {
+        document.getElementById(`person-name${index}`).style.width = '100%';
         document.getElementById(`scrollbar${index}`).classList.add('d-none');
 
-    }
+        console.log('heir');
+    } else {
 
+
+        if (pax.length >= 3) {
+
+        }
+
+    }
 }
 
 function scrollright(index) {
