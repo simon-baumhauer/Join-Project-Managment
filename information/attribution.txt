@@ -1,0 +1,4 @@
+Folgender Satz muss in den Footer:
+
+Logos stammen u. A.von <a href="https://icons8.com">https://icons8.com</a>
+<a href='https://de.freepik.com/vektoren/mann'>Mann Vektor erstellt von studiogstock - de.freepik.com</a>
