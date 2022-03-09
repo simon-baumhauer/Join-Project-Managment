@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Img/logo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/templates.js"></script>
+    <script src="javascript/mini_backend.js"></script>
+    <script src="javascript/addTask.js"></script>
+    <title>Join</title>
+    <script>
+        setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
+    
+        async function init() {
+            await downloadFromServer();
+            allTasks = JSON.parse(backend.getItem('allTasks')) || [];
+        }
+    
+    </script>
+</head>
+
+<body onload="includeHTML(), init()">
+    <div w3-include-html="templates/header.html" class="header"></div>
+
+    <div class="main-container">
+        <h1 class="my">Join</h1>
+        <div class="myAnimation">Hallo, schön dass du da bist. <br> Join ist eine Kanban. Hier kannst du die tägliche Task, die dein Team bearbeiten soll, hinzufügen und schrittweise die Sachen per Drag and Drop function in verschiedene Container schieben. Join wurde von <a class="names"
+                href="https://github.com/navjotsingh96">Nav<span></span>jot</a>,
+            <a class="names" href="https://github.com/simon-baumhauer"><span>Si</span>mon</a> und <a class="names" href="https://github.com/JuergenHildbrand">J<span>ür</span>gen</a> programmiert.
+            <br> Wir wünschen dir viel Spaß!
+        </div>
+    </div>
+
+
+
+    <div w3-include-html="templates/footer.html"></div>
+</body>
+
+</html>

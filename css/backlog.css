@@ -1,0 +1,230 @@
+/* .heading1 {
+    margin-left: 300px;
+} */
+
+
+/*In globalscope/style.css transferd because all pages need the layout adjustment of the header
+*/
+
+.mainContainer {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 75px;
+    margin-right: 40px;
+    margin-bottom: 25px;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.todo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d6d5dc;
+    height: 140px;
+    margin-right: 40px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.todo-container:hover {
+    background-color: #bdbdbd;
+}
+
+.person-info {
+    display: flex;
+    align-items: center;
+    width: calc(100%/3);
+}
+
+.person-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-name>h3 {
+    font-size: 12px;
+    width: 50%;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.profile-img {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.emp-name {
+    margin-top: -10px;
+    width: 100px;
+    text-align: center;
+}
+
+.profile-img img {
+    width: 60px;
+    /*     height: 60px; */
+    border-radius: 50%;
+    border: white solid 4px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.profile {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    border-radius: 100%;
+}
+
+.details {
+    height: min-content;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 25%;
+    text-align: center;
+}
+
+.catagroy {
+    width: 10%;
+}
+
+.font-s-17 {
+    font-size: 17px;
+}
+
+.font-s-14 {
+    font-size: 14px;
+}
+
+.font-s-20 {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.m-btm-2 {
+    margin-bottom: 2px;
+}
+
+.input-feld {
+    text-align: center;
+    overflow: visible;
+    height: min-content;
+}
+
+.chnge-container {
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pushToBoard {
+    height: 35px;
+    margin-right: 8px;
+}
+
+.responsive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    color: #22318B;
+}
+
+.person-name h3 {
+    width: 60%;
+}
+
+.assigend-to {
+    background-color: rgb(167, 164, 164);
+    z-index: 9;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+}
+
+
+/* Responsive */
+
+@media (max-width:1095px) {
+    .todo-container {
+        margin-right: 12px;
+        height: 200px;
+        position: relative;
+    }
+    .person-info,
+    .catagroy,
+    .details {
+        width: fit-content;
+    }
+}
+
+@media (max-width:630px) {
+    .heading1 {
+        margin-left: 12px;
+        margin-top: 70px;
+        transition: all 115ms ease-in-out;
+        margin-bottom: 0;
+    }
+    .todo-container {
+        height: fit-content;
+        min-height: 60vh;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 0px !important;
+        margin-bottom: 15px !important;
+    }
+    .person-info {
+        flex-direction: column;
+    }
+    .responsive {
+        display: flex;
+    }
+    #catagory {
+        font-size: 12px;
+    }
+    .hide-cont {
+        display: none;
+    }
+    .person-name {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* @media (max-width:900px) {
+    .heading1 {
+        margin-left: 12px;
+        margin-top: 70px;
+        transition: all 115ms ease-in-out;
+    }
+    .todo-container {
+        margin-right: 12px;
+        flex-direction: column;
+        height: 250px;
+        border-left: 30px solid green;
+        position: relative;
+    }
+    .person-info,
+    .catagroy,
+    .details {
+        width: fit-content;
+    }
+    .ctg-absolute {
+        position: absolute;
+        transform: rotate(270deg);
+    }
+} */
