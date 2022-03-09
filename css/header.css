@@ -74,6 +74,7 @@ font-family: 'Varela Round', sans-serif;
     /*  transform: translateX(-250px); */
     transition: transform 250ms ease-in-out;
     background-color: #22318B;
+    z-index: 9;
 }
 
 .sidebarMenuInner {
@@ -128,6 +129,7 @@ input[type=checkbox] {
     height: 22px;
     width: 22px;
     display: none;
+    position: fixed;
 }
 
 .spinner {
@@ -203,7 +205,7 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
 
 @media(max-width: 1200px) {
     #sidebarMenu {
-        max-width: 200px !important;
+        width: 200px !important;
     }
 }
 

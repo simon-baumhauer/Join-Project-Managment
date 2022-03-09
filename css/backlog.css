@@ -25,10 +25,9 @@
     align-items: center;
     justify-content: space-between;
     background-color: #d6d5dc;
-    height: 120px;
+    height: 140px;
     margin-right: 40px;
     border-radius: 10px;
-    border-left: 10px solid black;
     margin-bottom: 25px;
     cursor: pointer;
 }
@@ -40,7 +39,6 @@
 .person-info {
     display: flex;
     align-items: center;
-    flex-direction: column;
     width: calc(100%/3);
 }
 
@@ -59,8 +57,16 @@
 }
 
 .profile-img {
-    border-radius: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     margin-top: 15px;
+}
+
+.emp-name {
+    margin-top: -10px;
+    width: 100px;
+    text-align: center;
 }
 
 .profile-img img {
@@ -174,7 +180,8 @@
         margin-bottom: 0;
     }
     .todo-container {
-        height: 50vh;
+        height: fit-content;
+        min-height: 60vh;
         flex-direction: column;
         justify-content: space-around;
         margin-top: 0px !important;
@@ -191,6 +198,9 @@
     }
     .hide-cont {
         display: none;
+    }
+    .person-name {
+        flex-wrap: wrap;
     }
 }
 

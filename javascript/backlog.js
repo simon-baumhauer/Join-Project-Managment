@@ -10,30 +10,6 @@ async function loadBacklog() {
     renderBacklogTasks();
 }
 
-// function pushToBacklog() {
-
-//     backlogInfo = JSON.parse(JSON.stringify(allTasks));
-
-//     renderBacklogTasks();
-
-// function renderBacklogTasks() {
-//     let backlogContainer = document.getElementById('backlog_container');
-//     backlogContainer.innerHTML = '';
-//     if (allTasks == '') {
-//         backlogContainer.innerHTML = noTasks();
-//     } else {
-//         for (let index = 0; index < allTasks.length; index++) {
-//             let info = allTasks[index];
-
-//             let employe = info['assignEmployee'];
-//             let emp;
-
-//            
-
-//         }
-//     }
-// }
-
 
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
@@ -41,27 +17,29 @@ function renderBacklogTasks() {
     if (allTasks == '') {
         backlogContainer.innerHTML = noTasks();
     } else {
+
         for (let index = 0; index < allTasks.length; index++) {
             let info = allTasks[index];
+
             backlogContainer.innerHTML += renderTemplate(info, index);
 
             let employee = allTasks[index]['assignEmployee'];
             for (let j = 0; j < employee.length; j++) {
                 emp = employee[j];
-                const img = document.createElement("img");
+                const img = document.createElement("div");
                 const staff_name = document.createElement("h3");
                 const name_as_text = document.createTextNode(emp['name']);
                 staff_name.appendChild(name_as_text);
-                img.src = emp['bild-src'];
+                img.innerHTML += renderImage(emp);
 
-                document.getElementById(`person-name${index}`).appendChild(staff_name);
 
-                document.getElementById(`profile_img${index}`).appendChild(img);
-
+                let render = document.getElementById(`person-name${index}`);
+                render.innerHTML += renderImage(emp, index);
             }
         }
     }
 }
+
 
 
 
@@ -72,20 +50,36 @@ function noTasks() {
     </div>`;
 }
 
-{
-    /* <h3 class="font-s-17 m-btm-2" id="person_name">{emp['name']}</h3>
-    <span class="person-mail clr-blue font-s-14" id="person_mail">{emp['e-mail']}</span> */
+
+
+function renderImage(emp, index) {
+    return `
+    <div class="profile-img" id="${emp['name']}">
+   
+
+    <img src="${emp['bild-src']}" onmouseover= mouseon("${index}")  onmouseout=mouseOut("${emp['e-mail']}, ${emp['name']}")>
+    <div class="d-none" id="box${emp['name']}">${emp['name']}, ${emp['e-mail']}
+    <img src="${emp['bild-src']}">   
+    </div>
+         <div class="emp-name">
+         <p> ${emp['name']}</p>
+        </div>
+       
+ </div>
+ `;
 }
 
 
-function renderTemplate(info, index, emp) {
+
+
+function renderTemplate(info, index) {
     return `
 <div class="todo-container heading1">
 <div class="person-info" id="person_info">
 <div id="responsive${index}" class="responsive">
 <b>ASSIGNED TO</b>
 </div>
-<div class="profile-img" id="profile_img${index}" onmouseover="mouseOver(${index})" onmouseout="mouseOut(${index})">
+<div class="profile-img" id="profile_img${index}">
  </div>
 <div class="person-name" id="person-name${index}">
  </div>
@@ -119,12 +113,6 @@ function renderTemplate(info, index, emp) {
 
 }
 
-function renderBoxTemp(emp) {
-    let container = document.getElementById(`assigned_box`).innerHTML;
-    container.innerHTML = '';
-    container.innerHTML = '';
-
-}
 
 async function pushToBoard(i) {
     boardArray.unshift(allTasks[i]);
@@ -134,11 +122,6 @@ async function pushToBoard(i) {
     renderBacklogTasks();
 }
 
-/* function hide() {
-    let hidedetails = document.getElementById('details');
-    let edit = document.getElementById('text-edit');
-    console.log('clicked');
-} */
 
 function edit_details(index, info) {
     let containeredit = document.getElementById('chnge-container' + index);
@@ -151,8 +134,6 @@ function edit_details(index, info) {
 
 
 }
-
-
 
 function saveChanges(index) {
     let change = document.getElementById('text-edit' + index).value;
@@ -177,20 +158,29 @@ function clickedSaved(index) {
     hidedetails.classList.remove('d-none');
 }
 
-function mouseOver(index) {
-    let mouseon = document.getElementById('assigned-box' + index);
-    mouseon.classList.remove('d-none');
-    let employes = allTasks[index]['assignEmployee'];
-    for (let a = 0; a < employes.length; a++) {
-        const box = employes[a];
+/* function mouseon(id, emp) {
+    for (let a = 0; a < allTasks.length; a++) {
+        const element = allTasks[a];
+        let empl = element['assignEmployee'];
+        for (let b = 0; b < empl.length; b++) {
+            const desi = empl[b];
+
+        }
+        console.log('hier is', id);
 
     }
+
+
+} */
+function mouseon(id, name) {
+    tt = document.getElementById(`box${emp['name']}`);
+    tt.classList.remove('d-none');
 
 }
 
 function mouseOut(index) {
-    let mouseout = document.getElementById('assigned-box' + index);
-    mouseout.classList.add('d-none');
+    /*   let mouseout = document.getElementById('assigned-box' + index);
+      mouseout.classList.remove('d-none'); */
 
     console.log('ich war da');
 }
