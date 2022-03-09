@@ -1,0 +1,10 @@
+@media (max-width: 775px) {
+    .help {
+        margin-top: 70px !important;
+        margin-left: 10px !important;
+    }
+    ul {
+        padding: 0;
+        margin-right: 10px;
+    }
+}

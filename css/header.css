@@ -205,7 +205,7 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
 
 @media(max-width: 1200px) {
     #sidebarMenu {
-        max-width: 200px !important;
+        width: 200px !important;
     }
 }
 
