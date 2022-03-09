@@ -1,9 +1,5 @@
 let allTasks = [];
 let assignedEmployees = [];
-//   let today = new Date();
-// let date = today.getFullYear() + '-' + (today. getMonth()+1) + '-' + today.getDate();
-//  var currentDate = today.toISOString().slice(0,10);
-//   document.getElementById("date").valueAsNumber = currentDate;
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
@@ -43,7 +39,7 @@ let EmployeesArray = [{
 ];
    
 /**
- * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
+ * This function references to the inputfields elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the in the Backend.
  * 
  */
 async function createTask() {  
@@ -77,7 +73,10 @@ async function createTask() {
     }
 }
 
-
+/**
+ * This function accesesses the available Employees and renders each profile in a its own HTML element.
+ * 
+ */
 function Employees() {
     let modal_body = document.getElementById('modal-body');
     modal_body.innerHTML = '';
@@ -98,17 +97,20 @@ function Employees() {
 }
 
  
-    
-
+    /**
+     * 
+     * @param {This paramter givey each employee its own number so that the funtion scopes is only for the seleted an employee } i 
+     * The function creat a HTML element for the selected Employee and pushes his value in an array so that in can be accsessed from the backend. 
+     */
+    //  let staff_member = document.getElementById(`employee_${i}`);
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
-     let staff_member = document.getElementById(`employee_${i}`);
      profile_pictures.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
     assignedEmployees.push(EmployeesArray[i]);
 }
 
 /**
- * This function opens a Modal and overlay
+ * This function opens a Modal overlay
  * 
  */
 function openModal() {
@@ -131,6 +133,9 @@ function closeModal() {
 }
 
 
+/**
+ * This function delete all the value of all inputfield and also of the array with the assigned employees
+ */
  function deleteTask() {
      document.getElementById('title').value = '';
      document.getElementById('date').value = '';
