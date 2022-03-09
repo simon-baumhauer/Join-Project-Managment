@@ -1,11 +1,9 @@
 let allTasks = [];
 let assignedEmployees = [];
-let date = new Date();
-let year = date.getFullYear();
-let month = date.getMonth();
-let day = date.getDate();
-let hour = date.getHours();
-let minute = date.getMinutes();
+//   let today = new Date();
+// let date = today.getFullYear() + '-' + (today. getMonth()+1) + '-' + today.getDate();
+//  var currentDate = today.toISOString().slice(0,10);
+//   document.getElementById("date").valueAsNumber = currentDate;
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
@@ -43,14 +41,12 @@ let EmployeesArray = [{
     'position': 'Product owner'
 },
 ];
-
    
 /**
  * This function references to the form elements and assings the values to an Json object and stores the Json object in an array. The array is stored in the browser.
  * 
  */
 async function createTask() {  
-    
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
@@ -71,10 +67,6 @@ async function createTask() {
     } else {
         allTasks.push(task);
         await backend.setItem('allTasks', JSON.stringify(allTasks));
-        // saveBackend(task);
-        // allTasks.push(task);
-        // allTaskAsString = JSON.stringify(allTasks);
-        // localStorage.setItem('allTasks', allTaskAsString);
         title.value = ''
         date.value = '';
         catergory.value = '';
@@ -85,12 +77,6 @@ async function createTask() {
     }
 }
 
-// async function saveBackend(task) {
-//     allTasks.push('task', task);
-//     // let allTasksAsString = JSON.stringify(allTasks);
-//     // await backend.setItem('allTasks', allTasksAsString);
-//     await backend.setItem('allTasks', JSON.stringify(allTasks));
-// }
 
 function Employees() {
     let modal_body = document.getElementById('modal-body');
@@ -145,19 +131,12 @@ function closeModal() {
 }
 
 
-// function deleteTask() {
-//     let title = document.getElementById('title').value;
-//     let date = document.getElementById('date').value;
-//     let catergory = document.getElementById('catergory').value;
-//     let text = document.getElementById('text').value;
-//     let urgency = document.getElementById('urgency').value;
-//     let task = {
-//         'title': '',
-//         'date': '',
-//         'catergory': '',
-//         'text': '',
-//         'urgency': '',
-//         'createdAt': '',
-//         'assignEmployee': ''
-//     }
-// }
+ function deleteTask() {
+     document.getElementById('title').value = '';
+     document.getElementById('date').value = '';
+     document.getElementById('catergory').value = '';
+     document.getElementById('text').value = '';
+     document.getElementById('urgency').value = '';
+     profile_pictures.innerHTML = '';
+
+ }
