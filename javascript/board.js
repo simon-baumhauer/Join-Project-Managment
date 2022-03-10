@@ -93,9 +93,10 @@ function generateTasksHTML(element, i, type) {
 }
 
 /**
- * this function open the task (overlay)
+ * push to the next board
  * 
  * @param {parameter} i 
+ * @param {parameter} type 
  */
 function openTask(i, type) {
     document.getElementById('overlayBg').classList.remove('d-none');
@@ -165,7 +166,7 @@ function phoneSize() {
 }
 
 /**
- * push to the next board
+ * 
  * 
  * @param {parameter} i 
  */
