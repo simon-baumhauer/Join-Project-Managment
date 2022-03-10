@@ -172,11 +172,14 @@ function arrow(pax, index) {
  * it helps to scroll right if user clicks on right Arrow
  */
 function scrollright(index) {
+
     document.getElementById(`left-scrollbar${index}`).classList.remove('d-none');
+    document.getElementById(`left-scrollbar${index}`);
     let content = document.getElementById(`person-name${index}`);
     content.style.scrollBehavior = 'smooth';
 
     content.scrollLeft += 200;
+
 }
 
 /**

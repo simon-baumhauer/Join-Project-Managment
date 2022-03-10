@@ -124,5 +124,6 @@
         @media (max-width: 1000px) {
             .myAnimation {
                 width: 95%;
+                top: 250px;
             }
         }
