@@ -6,7 +6,6 @@
     display: none;
 }
 
-
 .main-addTask {
     background-color: rgb(233, 233, 241);
     margin: 15px;
@@ -28,8 +27,6 @@
     width: 450px;
     position: relative;
 }
-
-
 
 label,
 h2 {
@@ -98,6 +95,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .row-3 {
     display: flex;
 }
+
 .assingments {
     width: 450px;
 }
@@ -174,6 +172,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: rgb(34, 49, 139);
 }
 
+
 /* Overlay style for chossing employees*/
 
 .modal {
@@ -234,7 +233,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .modal-profile:hover {
-    background-color:  rgb(156, 172, 252);
+    background-color: rgb(156, 172, 252);
 }
 
 .modal-profile-image {
@@ -269,16 +268,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 
-
-
 /* Popup container for assigend employees */
+
 .popup {
     position: relative;
     display: inline-block;
     cursor: pointer;
-  }
+}
 
-  .popup .popuptext {
+.popup .popuptext {
     visibility: hidden;
     background-color: #fff;
     color: rgb(34, 49, 139);
@@ -292,10 +290,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     left: 50%;
     margin-left: -80px;
     padding: 3px;
-  }
-  
- 
-  .popup .popuptext::after {
+}
+
+.popup .popuptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -304,26 +301,32 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-width: 5px;
     border-style: solid;
     border-color: #fff transparent transparent transparent;
-  }
+}
 
-  .popup .show {
+.popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+}
 
-  
-  
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* Resposive styles */
 
@@ -338,27 +341,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .textarea {
         width: 100%;
     }
-
     .assingments {
         width: 100%;
     }
     .styled-select {
         background-position: 99% 56%;
     }
-    
 }
 
 @media(max-width:1000px) {
     .border {
         width: 45px;
     }
-} 
+}
 
 @media(max-width:650px) {
     .border {
         width: 43px;
     }
-} 
+    .heading1 {
+        margin-top: 80px;
+    }
+}
 
 @media(max-width:530px) {
     .profile-pictures {
@@ -367,21 +371,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .border {
         width: 41px;
     }
-    .buttons > img {
+    .buttons>img {
         height: 50px;
     }
     .email {
         display: none;
     }
-} 
+}
 
 @media(max-width:430px) {
     .border {
         width: 39px;
     }
-} 
-
-
-
-
-
+}

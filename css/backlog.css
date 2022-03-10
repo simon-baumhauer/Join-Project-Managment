@@ -259,69 +259,6 @@
         overflow-x: scroll;
     }
     /* Responsive */
-    /* @media (max-width:1880px) {
-    .person-name {
-        width: 60%;
-    }
-     .right-arrow{
-    right: ;
-}
-} */
-    /* @media (max-width:1766px) {
-    .person-name {
-        width: 68%;
-    }
-} */
-    /* @media (max-width:1600px) {
-    .person-name {
-        width: 70%;
-    }
-} */
-    /* @media (max-width:1550px) {
-    .r-arrow-img {
-        left: 300px;
-    }
-} */
-    /* @media (max-width:1539px) {
-    .person-name {
-        width: 80%;
-    }
-    .r-arrow-img {
-        left: 300px;
-    }
-} */
-    /* @media (max-width:1400px) {
-    .person-name {
-        width: 92%;
-    }
-} */
-    /* @media (max-width:1250px) {
-    .person-name {
-        width: 92%;
-    }
-    .r-arrow-img {
-        left: 300px;
-    }
-}
-
-@media (max-width:1170px) {
-    .person-name {
-        width: 100%;
-    }
-} */
-    /* @media (max-width:1095px) {
-    .todo-container {
-        margin-right: 12px;
-        height: 200px;
-        position: relative;
-    }
-    .r-arrow-img {
-        left: 280px;
-    }
-    .p-left {
-        padding-left: 0;
-    }
-} */
     
     @media (max-width:1100px) {
         .det1 {
@@ -365,12 +302,12 @@
             display: flex;
             width: 60%;
             overflow: scroll;
-            /* max-width: 550px; */
         }
         /* Hide scrollbar for Chrome, Safari and Opera */
         .person-name::-webkit-scrollbar {
             display: none;
         }
+        /* till here Hide scrollbar for Chrome, Safari and Opera */
         .details {
             flex-direction: column;
         }

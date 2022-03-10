@@ -32,28 +32,6 @@
             animation: wakeup 1s ease-in-out;
         }
         
-        @keyframes wakeup {
-            0% {
-                height: 60%;
-                opacity: 0;
-            }
-            20% {
-                top: 135px;
-                opacity: 0;
-            }
-            35% {
-                opacity: 0, 5;
-            }
-            40% {
-                opacity: 1;
-            }
-            100% {
-                height: 10%;
-                top: 0px;
-                opacity: 1;
-            }
-        }
-        
         .myAnimation {
             font-size: 16px;
             position: absolute;
@@ -61,10 +39,12 @@
             width: 80%;
             top: 300px;
             margin-top: 0;
-            /* animation: myAnim 2s ease-in-out 0s normal forwards; */
             animation: reveal 5s ease-in-out;
             margin: 0px 30px;
         }
+        /*
+        Welcome animation
+        */
         
         @keyframes reveal {
             0% {
@@ -89,7 +69,29 @@
                 opacity: 1;
             }
         }
-        /* Name affects */
+        
+        @keyframes wakeup {
+            0% {
+                height: 60%;
+                opacity: 0;
+            }
+            20% {
+                top: 135px;
+                opacity: 0;
+            }
+            35% {
+                opacity: 0, 5;
+            }
+            40% {
+                opacity: 1;
+            }
+            100% {
+                height: 10%;
+                top: 0px;
+                opacity: 1;
+            }
+        }
+        /* Name hover affects */
         
         .names {
             color: #484848;
@@ -120,6 +122,9 @@
             color: #484848;
             text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
         }
+        /*
+        Responsive
+        */
         
         @media (max-width: 1000px) {
             .myAnimation {
