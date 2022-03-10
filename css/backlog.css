@@ -89,7 +89,7 @@
         align-items: center;
         overflow-y: scroll;
         width: 30%;
-        height: 35px;
+        height: fit-content;
     }
     
     .det2 br {
@@ -103,6 +103,7 @@
     .l-arrow-img {
         position: absolute;
         width: 20px;
+        bottom: -11px;
     }
     
     .person-info {
@@ -383,7 +384,7 @@
             text-align: center;
             margin-right: 0px;
             align-items: center;
-            overflow-y: scroll;
+            overflow: visible;
             width: 80%;
             height: fit-content;
         }
