@@ -166,3 +166,4 @@ function closeModal() {
      profile_pictures.innerHTML = '';
 
  }
+
