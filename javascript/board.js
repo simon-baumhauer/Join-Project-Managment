@@ -2,7 +2,8 @@ setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
 let currenDraggedElement;
 let i;
 let type;
-
+let date = new Date();
+let today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' || ' + date.getHours() + ':' + date.getMinutes();
 /**
  * load from backendserver
  * 
@@ -151,7 +152,7 @@ function generateOpenTaskHTML(task) {
                 </div>
                 <div class="column">
                     Created On: 
-                    <span class="bold">${task['createdAt']}</span>
+                    <span class="bold">${today}</span>
                 </div>
                 <div class="delete" onclick="deleteTask('${task['createdAt']}')" src="img/x.ico">Delete</div>
             </div> 

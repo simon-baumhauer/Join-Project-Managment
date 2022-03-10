@@ -118,7 +118,7 @@ function close_popup(i) {
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
      profile_pictures.innerHTML += `
-     <div class="popup" onmouseover="popup(${i})" onmouseout="close_popup${i}" onclick="popup(${i})">
+     <div class="popup" onclick="popup(${i})">
      <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
      <div class="popuptext" id="myPopup${i}">
      ${EmployeesArray[i]['name']}<br>
@@ -129,7 +129,7 @@ function assigningEmployees(i) {
     `;
     assignedEmployees.push(EmployeesArray[i]);
 }
-
+// onmouseover="popup(${i})" onmouseout="close_popup${i}"
 /**
  * This function opens a Modal overlay
  * 
