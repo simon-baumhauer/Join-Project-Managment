@@ -6,6 +6,7 @@
     
     .body {
         scroll-behavior: smooth;
+        overflow-y: hidden;
     }
     
     .mainContainer {
@@ -84,10 +85,10 @@
         position: absolute;
         left: 0;
         margin-left: 560px;
-        bottom: 0;
-        margin-bottom: 60px;
         text-align: left;
         margin-right: 50px;
+        align-items: center;
+        overflow-y: auto;
     }
     
     .todo-container:hover {
@@ -170,12 +171,11 @@
     }
     
     .details {
-        margin-left: 150px;
+        margin-left: 60px;
         height: min-content;
         padding-top: 15px;
         padding-bottom: 15px;
         width: 25%;
-        text-align: center;
     }
     
     .catagroy {
