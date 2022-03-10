@@ -137,7 +137,7 @@ function generateOpenTaskHTML(task) {
                 </div>
                 <div class="delete" onclick="deleteTask('${task['createdAt']}')" src="img/x.ico">Delete</div>
             </div> 
-            <div>Urgency:  <span class="red bold">${task['urgency']}</span></div>   
+            <div>Urgency:  <span class="${task['urgency']} bold">${task['urgency']}</span></div>   
             <div class="title bold">${task['title']}</div>
             <div>${task['text']}</div>
             <div class="footerTask">
