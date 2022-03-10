@@ -14,7 +14,7 @@ a {
 }
 
 .width {
-    width: 60vw;
+    width: 80vw;
 }
 
 @media (max-width: 775px) {
