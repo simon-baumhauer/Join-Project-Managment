@@ -108,7 +108,7 @@ function renderTemplate(info, index) {
                 <div class="arrow" id="scrollbar${index}" onclick=scrollright("${index}")>
                     <img class="r-arrow-img" src="img/arrow-right-b.png">
                     </div>
-                <div id="responsive${index}" class="responsive">
+                <div id="responsive${index}" class="responsive ass1">
                 <b>ASSIGNED TO</b>
                 </div>
                 <div class="profile-img" id="profile_img${index}">
