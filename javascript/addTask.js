@@ -111,7 +111,7 @@ function close_popup(i) {
  
     /**
      * 
-     * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee } i 
+     * @param {number} i //This paramter gives each employee its own number so that the funtion scope is only for the seleted employee 
      * The function creates a HTML element for the selected Employee and pushes is value in an array so that in can be accsessed from the backend. 
      */
     //  let staff_member = document.getElementById(`employee_${i}`);
