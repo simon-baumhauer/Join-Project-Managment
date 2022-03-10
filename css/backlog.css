@@ -118,6 +118,7 @@
     }
     
     .person-name {
+        margin-left: 10px;
         display: flex;
         width: 55%;
         overflow: scroll;
@@ -400,7 +401,7 @@
             margin-top: 12px;
             justify-content: center;
             flex-wrap: wrap;
-            width: 100%;
+
             overflow: hidden;
         }
 
