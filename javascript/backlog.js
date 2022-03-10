@@ -79,7 +79,7 @@ function renderTemplate(info, index) {
                 <div class="arrow" id="scrollbar${index}" onclick=scrollright("${index}")>
                     <img class="r-arrow-img" src="img/arrow-right-b.png">
                     </div>
-                <div id="responsive${index}" class="responsive">
+                <div id="responsive${index}" class="ass1 responsive">
                 <b>ASSIGNED TO</b>
                 </div>
                 <div class="profile-img" id="profile_img${index}">
@@ -90,13 +90,13 @@ function renderTemplate(info, index) {
                 <div class="assigend-to d-none" id="assigned-box${index}">
                 </div>
                 <div class="catagroy ctg-absolute">
-                <div id="responsive${index}" class="responsive">
+                <div id="responsive${index}" class="cat3 responsive">
                 <b>CATEGORY</b>
                 </div>
                     <h3 class="cat2 font-s-17" id="catagory">${info['catergory']}</h3>
                 </div>
                 <div class="details">
-                <div id="responsive${index}" class="responsive">
+                <div id="responsive${index}" class="det3 responsive">
                 <b>DETAILS</b>
                 </div>
                 <div class="d-none chnge-container" id=chnge-container${index}>
