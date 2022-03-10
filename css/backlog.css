@@ -86,6 +86,8 @@
         margin-left: 560px;
         bottom: 0;
         margin-bottom: 60px;
+        text-align: left;
+        margin-right: 50px;
     }
     
     .todo-container:hover {
@@ -120,9 +122,9 @@
     .person-name {
         margin-left: 10px;
         display: flex;
-        width: 55%;
+        width: 72%;
         overflow: scroll;
-        max-width: 550px;
+        /* max-width: 550px; */
     }
     /* Hide scrollbar for Chrome, Safari and Opera */
     
