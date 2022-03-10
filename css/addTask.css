@@ -302,15 +302,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: #fff transparent transparent transparent;
   }
-  
 
   .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
   }
+
+  
   
 
   @-webkit-keyframes fadeIn {

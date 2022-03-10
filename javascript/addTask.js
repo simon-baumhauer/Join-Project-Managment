@@ -97,12 +97,17 @@ function Employees() {
 }
 
 
-// When the user clicks on <div>, open the popup
-function myFunction(i) {
+// When the user clicks on Id popup(number), it opens the popup
+function popup(i) {
   let popup = document.getElementById("myPopup" + i);
   popup.classList.toggle("show");
 }
 
+// When the user clicks on Id popup(number), it closes the popup
+function close_popup(i) {
+    let popup = document.getElementById("myPopup" + i);
+    popup.classList.remove("show");
+  }
  
     /**
      * 
@@ -113,7 +118,7 @@ function myFunction(i) {
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
      profile_pictures.innerHTML += `
-     <div class="popup" onmouseover="myFunction(${i})" onclick="myFunction(${i})">
+     <div class="popup" onmouseover="popup(${i})" onmouseout="close_popup${i}" onclick="popup(${i})">
      <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
      <div class="popuptext" id="myPopup${i}">
      ${EmployeesArray[i]['name']}<br>

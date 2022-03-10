@@ -53,10 +53,7 @@ function noTasks() {
 
 function renderImage(emp, j) {
     return `
-    
     <div class="profile-img" id="${emp['name']}">
-  
-
     <img src="${emp['bild-src']}">
     <div class="d-none" id="box${emp['name']}">${emp['name']}, ${emp['e-mail']}
     <img src="${emp['bild-src']}">   
