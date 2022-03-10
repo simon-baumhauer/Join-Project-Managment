@@ -139,7 +139,7 @@ function generateOpenTaskHTML(task) {
             </div> 
             <div>Urgency:  <span class="${task['urgency']} bold">${task['urgency']}</span></div>   
             <div class="title bold">${task['title']}</div>
-            <div>${task['text']}</div>
+            <div class="textOpenTask">${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
                 <div class="currentEmployer2" id="currentEmployer2"></div>
