@@ -133,7 +133,7 @@ h1 {
     top: 0;
     left: 0;
     right: 0; 
-    margin-top: 30vh;
+    margin-top: 20vh;
     margin-left: auto;
     margin-right: auto; 
     background-color: rgb(189, 189, 189);
@@ -169,6 +169,10 @@ h1 {
     font-size: larger;
     margin-top: 16px;
     margin-bottom: 4px;
+}
+
+.textOpenTask {
+    overflow-y: auto;
 }
 
 .footerTask {
