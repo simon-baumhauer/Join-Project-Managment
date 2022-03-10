@@ -100,7 +100,7 @@
     .person-info {
         display: flex;
         align-items: center;
-        min-width: 550px;
+       
     }
     
     .arrow {
@@ -122,6 +122,7 @@
         display: flex;
         width: 55%;
         overflow: scroll;
+        max-width: 550px;
     }
     /* Hide scrollbar for Chrome, Safari and Opera */
     
