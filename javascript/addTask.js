@@ -52,7 +52,7 @@ async function createTask() {
         'title': title.value,
         'date': date.value,
         'catergory': catergory.value,
-        'text': text.value,
+        'text': text.value.replace(/\n\r?/g, "<br/>"),
         'urgency': urgency.value,
         'createdAt': new Date().getTime(),
         'assignEmployee': assignedEmployees,
