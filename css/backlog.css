@@ -314,6 +314,18 @@
             padding-left: 0;
         }
     } */
+
+    @media (max-width:1100px) {
+
+            .det1 {
+                margin-left: 500px;
+            }
+
+            .det2 {
+                margin-left: 500px;
+            }
+    }
+
     
     @media (max-width:1000px) {
         .heading1 {
