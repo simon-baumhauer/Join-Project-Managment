@@ -107,6 +107,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     width: 450px;
     border-radius: 5px;
+    white-space: pre;
 }
 
 .textarea textarea {
