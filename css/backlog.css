@@ -9,13 +9,32 @@
     }
     
     .mainContainer {
+        position: relative;
         width: 90%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         margin-top: 75px;
-        margin-right: 40px;
+        /* margin-right: 40px; */
         margin-bottom: 25px;
+    }
+
+    .cat1 {
+        position: absolute;
+        left: 0;
+        margin-left: 360px;
+    }
+
+    .det1 {
+        position: absolute;
+        left: 0;
+        margin-left: 560px;
+    }
+
+    .pus1 {
+        position: absolute;
+        right: 0;
+        margin-right: 5px;
     }
     
     .d-none {
@@ -34,17 +53,39 @@
     .margin-b {
         padding-left: 35px;
     }
+
+    /* .backlog_container {
+        position: relative;
+    } */
     
     .todo-container {
+        position: relative;
+        width: 90%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         background-color: #d6d5dc;
         height: 140px;
-        margin-right: 40px;
+        /* margin-right: 40px; */
         border-radius: 10px;
         margin-bottom: 25px;
         cursor: pointer;
+    }
+
+    .cat2 {
+        position: absolute;
+        left: 0;
+        margin-left: 360px;
+        bottom: 0;
+        margin-bottom: 60px;
+    }
+
+    .det2 {
+        position: absolute;
+        left: 0;
+        margin-left: 560px;
+        bottom: 0;
+        margin-bottom: 60px;
     }
     
     .todo-container:hover {
@@ -122,6 +163,7 @@
     }
     
     .details {
+        margin-left: 150px;
         height: min-content;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -170,6 +212,9 @@
     }
     
     .pushToBoard {
+        position: absolute;
+        right: 0;
+        margin-right: 5px;
         height: 35px;
         margin-right: 8px;
     }

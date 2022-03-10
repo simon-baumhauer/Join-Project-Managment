@@ -74,53 +74,42 @@ function renderImage(emp, j) {
 
 function renderTemplate(info, index) {
     return `
-<div class="todo-container heading1">
-<div class="person-info" id="person_info">
-
-    <div class="arrow d-none" id="left-scrollbar${index}" onclick=scrollleft("${index}")>
-
-        <img id="left-arrow${index}" class="l-arrow-img" src="img/arrow-left-b.png">
-    </div>
-
-<div class="arrow" id="scrollbar${index}" onclick=scrollright("${index}")>
-
-    <img class="r-arrow-img" src="img/arrow-right-b.png">
-    </div>
-<div id="responsive${index}" class="responsive">
-<b>ASSIGNED TO</b>
-</div>
-<div class="profile-img" id="profile_img${index}">
- </div>
-<div class="person-name" id="person-name${index}">
- </div>
-             
- </div>
- <div class="assigend-to d-none" id="assigned-box${index}">
-
- </div>
- <div class="catagroy ctg-absolute">
- <div id="responsive${index}" class="responsive">
-<b>CATEGORY</b>
-</div>
-      <h3 class="font-s-17 p-left" id="catagory">${info['catergory']}</h3>
- </div>
- <div class="details">
- <div id="responsive${index}" class="responsive">
-<b>DETAILS</b>
-</div>
- <div class="d-none chnge-container" id=chnge-container${index}>
- 
-
- <input type="text" id="text-edit${index}" class="d-none input-feld" value="${info['text']}">
- 
- <button onclick="saveChanges(${index})">Save</button>
- </div>
- 
-      <span class="font-s-17" id="details${index}" onclick="edit_details(${index})">${info['text']}</span>
-</div>
-<img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})">
-`;
-
+                <div class="todo-container heading1">
+                <div class="person-info" id="person_info">
+                    <div class="arrow d-none" id="left-scrollbar${index}" onclick=scrollleft("${index}")>
+                        <img id="left-arrow${index}" class="l-arrow-img" src="img/arrow-left-b.png">
+                    </div>
+                <div class="arrow" id="scrollbar${index}" onclick=scrollright("${index}")>
+                    <img class="r-arrow-img" src="img/arrow-right-b.png">
+                    </div>
+                <div id="responsive${index}" class="responsive">
+                <b>ASSIGNED TO</b>
+                </div>
+                <div class="profile-img" id="profile_img${index}">
+                </div>
+                <div class="person-name" id="person-name${index}">
+                </div>
+                </div>
+                <div class="assigend-to d-none" id="assigned-box${index}">
+                </div>
+                <div class="catagroy ctg-absolute">
+                <div id="responsive${index}" class="responsive">
+                <b>CATEGORY</b>
+                </div>
+                    <h3 class="cat2 font-s-17" id="catagory">${info['catergory']}</h3>
+                </div>
+                <div class="details">
+                <div id="responsive${index}" class="responsive">
+                <b>DETAILS</b>
+                </div>
+                <div class="d-none chnge-container" id=chnge-container${index}>
+                <input type="text" id="text-edit${index}" class="d-none input-feld" value="${info['text']}">
+                <button onclick="saveChanges(${index})">Save</button>
+                </div>               
+                    <span class="det2 font-s-17" id="details${index}" onclick="edit_details(${index})">${info['text']}</span>
+                </div>
+                <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})">
+            `;
 }
 
 
