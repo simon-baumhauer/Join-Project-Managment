@@ -1,9 +1,8 @@
 setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
 let currenDraggedElement;
-let i;
-let type;
 let date = new Date();
 let today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' || ' + date.getHours() + ':' + date.getMinutes();
+
 /**
  * load from backendserver
  * 
@@ -92,24 +91,6 @@ function generateTasksHTML(element, i, type) {
         </div>    
     `;
 }
-
-
-
-// let elem = document.getElementById(`currentEmployer${i}${type}`);
-//   let ausgabe = document.getElementById('Ausgabe');
-//   elem.addEventListener('mouseover', mouseOver);
-//   elem.addEventListener('mouseout', mouseOut);
-
-//   function mouseOver() {
-//     ausgabe.innerHTML = 'Ich bin dynamisch!';
-//     elem.innerHTML = 'Drüber!';
-//   }
-
-//   function mouseOut() {
-//     ausgabe.innerHTML = ' ';
-// 	elem.innerHTML = 'Wieder weg!';
-//   }
-
 
 /**
  * this function open the task (overlay)
