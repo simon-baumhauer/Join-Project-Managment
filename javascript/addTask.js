@@ -74,7 +74,7 @@ async function createTask() {
 }
 
 /**
- * This function accesesses the available Employees and renders each profile in a its own HTML element.
+ * This function accesesses the available Employees and renders each profile in its own HTML element.
  * 
  */
 function Employees() {
@@ -96,16 +96,32 @@ function Employees() {
     }
 }
 
+
+// When the user clicks on <div>, open the popup
+function myFunction(i) {
+  let popup = document.getElementById("myPopup" + i);
+  popup.classList.toggle("show");
+}
+
  
     /**
      * 
-     * @param {This paramter givey each employee its own number so that the funtion scopes is only for the seleted an employee } i 
-     * The function creat a HTML element for the selected Employee and pushes his value in an array so that in can be accsessed from the backend. 
+     * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee } i 
+     * The function creates a HTML element for the selected Employee and pushes is value in an array so that in can be accsessed from the backend. 
      */
     //  let staff_member = document.getElementById(`employee_${i}`);
 function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
-     profile_pictures.innerHTML += `<img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">`;
+     profile_pictures.innerHTML += `
+     <div class="popup" onmouseover="myFunction(${i})" onclick="myFunction(${i})">
+     <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
+     <div class="popuptext" id="myPopup${i}">
+     ${EmployeesArray[i]['name']}<br>
+     ${EmployeesArray[i]['position']}<br>
+     ${EmployeesArray[i]['e-mail']}
+     </div>
+     </div>
+    `;
     assignedEmployees.push(EmployeesArray[i]);
 }
 
@@ -122,7 +138,7 @@ function openModal() {
 }
 
 /**
- * This function closes the Modal and overlay
+ * This function closes the Modal overlay
  * 
  */
 function closeModal() {
@@ -134,7 +150,7 @@ function closeModal() {
 
 
 /**
- * This function delete all the value of all inputfield and also of the array with the assigned employees
+ * This function deletes all the values of all inputfields and also of the array with the assigned employees
  */
  function clearTask() {
      document.getElementById('title').value = '';
