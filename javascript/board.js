@@ -95,8 +95,8 @@ function generateTasksHTML(element, i, type) {
 /**
  * push to the next board
  * 
- * @param {parameter} i 
- * @param {parameter} type 
+ * @param {parameter} i - transfers the clicked task
+ * @param {parameter} type - returns the value on which board the task is
  */
 function openTask(i, type) {
     document.getElementById('overlayBg').classList.remove('d-none');
@@ -166,9 +166,9 @@ function phoneSize() {
 }
 
 /**
+ * in small screen-size push to the next board
  * 
- * 
- * @param {parameter} i 
+ * @param {parameter} i - passes the value the id (createdAt)
  */
 function pushToOtherBoard(i) {
     let tasks = boardArray.find(t => t['createdAt'] == i);
@@ -200,7 +200,7 @@ function backToBoard() {
 /**
  * if you drag a task with the mouse, the value ('createdAt') is given to the variable currendDraggedElement.
  * 
- * @param {string} i 
+ * @param {string} i - passes the value the id (createdAt)
  */
 function startDragging(i) {
     currenDraggedElement = i;
@@ -218,7 +218,7 @@ function allowDrop(ev) {
 /**
  * this function starts when you drop a task on the html and save in backend
  * 
- * @param {parameter} i 
+ * @param {parameter} i - returns the value on which board the task is
  */
 function moveTo(i) {
     let task = boardArray.find(t => t.createdAt === currenDraggedElement);
@@ -239,7 +239,7 @@ async function save() {
 /**
  * delete Task finally in backend
  * 
- * @param {parameter} element 
+ * @param {parameter} element - passes the value the id (createdAt)
  */
 async function deleteTask(element) {
     let i = boardArray.findIndex(obj => obj.createdAt == element);
