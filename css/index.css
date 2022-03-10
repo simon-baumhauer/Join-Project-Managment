@@ -63,6 +63,7 @@
             margin-top: 0;
             /* animation: myAnim 2s ease-in-out 0s normal forwards; */
             animation: reveal 5s ease-in-out;
+            margin: 0px 30px;
         }
         
         @keyframes reveal {
@@ -122,6 +123,6 @@
         
         @media (max-width: 1000px) {
             .myAnimation {
-                width: 100%;
+                width: 95%;
             }
         }
