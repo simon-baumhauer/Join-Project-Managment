@@ -87,7 +87,13 @@
         text-align: left;
         margin-right: 50px;
         align-items: center;
-        overflow-y: auto;
+        overflow-y: scroll;
+        width: 30%;
+        height: 35px;
+    }
+    
+    .det2 br {
+        display: none;
     }
     
     .todo-container:hover {
@@ -120,7 +126,7 @@
     .person-name {
         margin-left: 10px;
         display: flex;
-        width: 72%;
+        width: 60%;
         overflow: scroll;
         /* max-width: 550px; */
     }
@@ -173,6 +179,8 @@
         padding-top: 15px;
         padding-bottom: 15px;
         width: 25%;
+        display: flex;
+        align-items: center;
     }
     
     .catagroy {
@@ -314,18 +322,15 @@
             padding-left: 0;
         }
     } */
-
+    
     @media (max-width:1100px) {
-
-            .det1 {
-                margin-left: 500px;
-            }
-
-            .det2 {
-                margin-left: 500px;
-            }
+        .det1 {
+            margin-left: 500px;
+        }
+        .det2 {
+            margin-left: 500px;
+        }
     }
-
     
     @media (max-width:1000px) {
         .heading1 {
@@ -337,6 +342,9 @@
         .r-arrow-img,
         .l-arrow-img {
             display: none;
+        }
+        .details {
+            flex-direction: column;
         }
         .todo-container {
             height: fit-content;
@@ -359,7 +367,7 @@
         .ass1 {
             position: absolute;
             top: 0;
-            margin-top: 12px;
+            margin-top: 10px;
         }
         .cat2 {
             position: relative;
@@ -372,6 +380,12 @@
         .det2 {
             position: relative;
             margin-left: 0;
+            text-align: center;
+            margin-right: 0px;
+            align-items: center;
+            overflow-y: scroll;
+            width: 80%;
+            height: fit-content;
         }
         .cat3 {
             margin-top: 24px;

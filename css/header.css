@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-
 .d-none {
     display: none !important;
 }
@@ -203,6 +202,7 @@ input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
     }
     .hide-img img {
         width: 32px;
+        padding-top: 20px;
     }
     .hide-img a {
         display: flex !important;
