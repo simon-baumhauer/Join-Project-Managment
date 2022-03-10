@@ -120,11 +120,7 @@
     .person-name {
         margin-left: 10px;
         display: flex;
-<<<<<<< HEAD
         width: 72%;
-=======
-        width: 60%;
->>>>>>> 7d59b87ea171a06eb2e484846037ff3e7704a535
         overflow: scroll;
         /* max-width: 550px; */
     }
@@ -318,6 +314,18 @@
             padding-left: 0;
         }
     } */
+
+    @media (max-width:1100px) {
+
+            .det1 {
+                margin-left: 500px;
+            }
+
+            .det2 {
+                margin-left: 500px;
+            }
+    }
+
     
     @media (max-width:1000px) {
         .heading1 {
