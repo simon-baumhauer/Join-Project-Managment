@@ -14,5 +14,11 @@ a {
 }
 
 .width {
-    max-width: 60vw;
+    width: 60vw;
+}
+
+@media (max-width: 775px) {
+    .width {
+        width: 90vw;
+    }
 }
