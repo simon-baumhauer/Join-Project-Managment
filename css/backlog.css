@@ -119,11 +119,7 @@
     .person-name {
         margin-left: 10px;
         display: flex;
-<<<<<<< HEAD
         width: 72%;
-=======
-        width: 60%;
->>>>>>> 7d59b87ea171a06eb2e484846037ff3e7704a535
         overflow: scroll;
         /* max-width: 550px; */
     }
