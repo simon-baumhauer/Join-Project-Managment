@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="Img/logo.png">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Island+Moments&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Supermercado+One&display=swap"
         rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/help.css">
+
+    <script src="javascript/templates.js"></script>
+
     <title>Datenschutz</title>
 </head>
 
-<body>
-    <div class="width">
+<body onload="includeHTML()">
+    <div w3-include-html="templates/header.html" class="header"></div>
+    <div class="width m-left-50">
         <h2>Datenschutzerkl&auml;rung</h2>
         <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
         </p><br />
@@ -80,7 +88,8 @@
         <p>Bitte beachten Sie, dass Daten, die &uuml;ber ein offenes Netz wie das Internet oder einen E-Mail-Dienst ohne SSL-Verschl&uuml;sselung &uuml;bermittelt werden, f&uuml;r jedermann einsehbar sind. Eine unverschl&uuml;sselte Verbindung erkennen Sie
             daran, dass die Adresszeile des Browsers &quot;http://&quot; anzeigt und kein Schloss-Symbol in Ihrer Browserzeile angezeigt wird. Informationen die &uuml;ber das Internet &uuml;bertragen werden und online empfangene Inhalte, k&ouml;nnen unter
             Umst&auml;nden &uuml;ber Netze von Drittanbietern &uuml;bermittelt werden. Wir k&ouml;nnen die Vertraulichkeit von Mitteilungen oder Unterlagen, die &uuml;ber solche offenen Netze oder Netze von Drittanbietern &uuml;bermittelt werden, nicht
-            garantieren.</p>
+            garantieren.
+        </p>
         <p>Wenn Sie &uuml;ber ein offenes Netz oder Netze von Drittanbietern personenbezogene Informationen bekannt geben, sollten Sie sich der Tatsache bewusst sein, dass Ihre Daten verloren gehen oder Dritte potenziell auf diese Informationen zugreifen
             und folglich die Daten ohne Ihre Zustimmung sammeln und nutzen k&ouml;nnen. Zwar werden in vielen F&auml;llen die einzelnen Datenpakete verschl&uuml;sselt &uuml;bermittelt, nicht aber die Namen des Absenders und des Empf&auml;ngers. Selbst
             wenn der Absender und der Empf&auml;nger im gleichen Land wohnen, erfolgt die Daten&uuml;bermittlung &uuml;ber solche Netze h&auml;ufig und ohne Kontrollen auch &uuml;ber Drittstaaten, d.h. auch &uuml;ber L&auml;nder, die nicht das gleiche
@@ -206,6 +215,7 @@
         <a href="https://www.swissanwalt.ch" target="_blank" rel="noopener">SwissAnwalt</a></p>
         <!--Bitte beachten Sie die AGB von SwissAnwalt betreffend allfällig anfallenden Kosten bei Weglassen der Quelle!-->
     </div>
+    <div w3-include-html="templates/footer.html"></div>
 </body>
 
 </html>
