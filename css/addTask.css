@@ -2,6 +2,11 @@
     position: relative;
 }
 
+.d-none {
+    display: none;
+}
+
+
 .main-addTask {
     background-color: rgb(233, 233, 241);
     margin: 15px;
@@ -168,6 +173,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: rgb(34, 49, 139);
 }
 
+/* Overlay style for chossing employees*/
+
 .modal {
     position: fixed;
     top: 50%;
@@ -260,10 +267,63 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     pointer-events: none;
 }
 
-.d-none {
-    display: none;
-}
 
+
+
+/* Popup container for assigend employees */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .popup .popuptext {
+    visibility: hidden;
+    background-color: #fff;
+    color: rgb(34, 49, 139);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    padding: 3px;
+  }
+  
+ 
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+/* Resposive styles */
 
 @media(max-width:1275px) {
     .row {
