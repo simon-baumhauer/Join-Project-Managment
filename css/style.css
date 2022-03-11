@@ -72,6 +72,10 @@ h1 {
     animation: fadeIn 1s
 }
 
+.widthDadenschutz {
+    width: 90%;
+}
+
 @-webkit-keyframes fadeIn {
     from {
         opacity: 0;
