@@ -2,6 +2,7 @@ let allTasks = [];
 let assignedEmployees = [];
 let date = new Date();
 let currentHours = date.getHours();
+let currenMinutes = date.getMinutes();
 currentHours = ("0" + currentHours).slice(-2);
 let today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' || ' + currentHours + ':' + date.getMinutes();
 let EmployeesArray = [{

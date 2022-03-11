@@ -1,8 +1,4 @@
-    /* .heading1 {
-    margin-left: 300px;
-} */
-    /*In globalscope/style.css transferd because all pages need the layout adjustment of the header
-*/
+
 
     .body {
         scroll-behavior: smooth;
@@ -183,7 +179,7 @@
         border-radius: 50%;
         border: white solid 4px;
         margin-right: 10px;
-        margin-left: 10px;
+        margin-left: 20px;
     }
 
     .profile {
