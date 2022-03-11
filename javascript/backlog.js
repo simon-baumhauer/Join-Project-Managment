@@ -138,6 +138,7 @@ function renderTemplate(info, index) {
                 </div>               
                     <span class="det2 font-s-17" id="details${index}" onclick="edit_details(${index})">${info['text']}</span>
                 </div>
+                <div class="dat2">${info['date']}</div>
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})">
             `;
 }
