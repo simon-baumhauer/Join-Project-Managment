@@ -121,7 +121,7 @@ function openTask(i, type) {
         document.getElementById('currentEmployer2').innerHTML += `
         <div class="popup" onclick="popup(${j})">
         <img class="profileImg" src="${employer['bild-src']}">
-         <div class="popuptext" id="myPopup${i}">
+         <div class="popuptext" id="myPopup${j}">
             ${employer['name']}<br>
             ${employer['position']}<br>
             ${employer['e-mail']}

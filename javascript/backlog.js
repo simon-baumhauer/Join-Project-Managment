@@ -86,14 +86,15 @@ function renderDetails(emp, j) {
      ${emp['position']}<br>
      ${emp['e-mail']}
      </div>
+     <div class="emp-name">
+     <p> ${emp['name']}</p>
+     </div> 
  </div>
 
  `;
 }
 
-{/* <div class="emp-name">
-<p> ${emp['name']}</p>
-</div> */}
+ 
 
 /**
  * 
