@@ -134,7 +134,7 @@ function assigningEmployees(i) {
     `;
     assignedEmployees.push(EmployeesArray[i]);
 }
-// onmouseover="popup(${i})" onmouseout="close_popup${i}"
+
 /**
  * This function opens a Modal overlay
  * 

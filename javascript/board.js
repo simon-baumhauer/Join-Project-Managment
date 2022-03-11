@@ -118,10 +118,27 @@ function openTask(i, type) {
     let employers = tasks[i]['assignEmployee'];
     for (let j = 0; j < employers.length; j++) {
         let employer = employers[j];
-        document.getElementById('currentEmployer2').innerHTML += `<img class="profileImg" src="${employer['bild-src']}">`;
+        document.getElementById('currentEmployer2').innerHTML += `
+        <div class="popup" onclick="popup(${j})">
+        <img class="profileImg" src="${employer['bild-src']}">
+         <div class="popuptext" id="myPopup${i}">
+            ${employer['name']}<br>
+            ${employer['position']}<br>
+            ${employer['e-mail']}
+         </div>
+        </div>
+        `;
     }
     phoneSize();
 }
+
+// When the user clicks on Id popup(number), it opens the popup
+function popup(j) {
+    let popup = document.getElementById("myPopup" + j);
+    popup.classList.toggle("show");
+  }
+
+
 function generateOpenTaskHTML(task) {
     return `
         <div class="openTask" id="openTask">

@@ -52,7 +52,7 @@ function forAssignEmploye(index) {
         img.innerHTML += renderDetails(emp);
 
         let render = document.getElementById(`person-name${index}`);
-        render.innerHTML += renderDetails(emp);
+        render.innerHTML += renderDetails(emp, j);
         arrow(employee, index);
     }
 }
@@ -67,29 +67,33 @@ function noTasks() {
     </div>`;
 }
 
+// When the user clicks on Id popup(number), it opens the popup
+function popup(j) {
+    let popup = document.getElementById("myPopup" + j);
+    popup.classList.toggle("show");
+  }
+
 /**
  * 
  *This function helps to show the images and names of the Employe with the help forscheleife 
  */
-function renderDetails(emp) {
+function renderDetails(emp, j) {
     return `
-    
-    <div class="profile-img" id="${emp['name']}">
-  
-
+    <div class="profile-img popup" id="${emp['name']}" onclick="popup(${j})">
     <img src="${emp['bild-src']}">
-    <div class="d-none" id="box${emp['name']}">${emp['name']}, ${emp['e-mail']}
-    <img src="${emp['bild-src']}">   
-    </div>
-         <div class="emp-name">
-         <p> ${emp['name']}</p>
-        </div>
-       
+    <div class="popuptext" id="myPopup${j}">
+     ${emp['name']}<br>
+     ${emp['position']}<br>
+     ${emp['e-mail']}
+     </div>
  </div>
+
  `;
 }
 
-
+{/* <div class="emp-name">
+<p> ${emp['name']}</p>
+</div> */}
 
 /**
  * 
