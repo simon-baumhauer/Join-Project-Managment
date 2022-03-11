@@ -1,7 +1,5 @@
 setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
 let currenDraggedElement;
-let date = new Date();
-let today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' || ' + date.getHours() + ':' + date.getMinutes();
 
 /**
  * load from backendserver
@@ -85,7 +83,7 @@ function forLoop4(currentDone) {
 }
 function generateTasksHTML(element, i, type) {
     return `
-        <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['createdAt']})" id="taskOnBoard${i}${type}">
+        <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['UnixStamp']})" id="taskOnBoard${i}${type}">
             <span class="titleTask">${element['title']}</span>
             <div class="currentEmployer" id="currentEmployer${i}${type}"></div> 
         </div>    
@@ -134,9 +132,9 @@ function generateOpenTaskHTML(task) {
                 </div>
                 <div class="column">
                     Created On: 
-                    <span class="bold">${today}</span>
+                    <span class="bold">${task['createdAt']}</span>
                 </div>
-                <div class="delete" onclick="deleteTask('${task['createdAt']}')" src="img/x.ico">Delete</div>
+                <div class="delete" onclick="deleteTask('${task['UnixStamp']}')" src="img/x.ico">Delete</div>
             </div> 
             <div>Urgency:  <span class="${task['urgency']} bold">${task['urgency']}</span></div>   
             <div class="title bold">${task['title']}</div>
@@ -145,7 +143,7 @@ function generateOpenTaskHTML(task) {
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
                 <div class="currentEmployer2" id="currentEmployer2"></div>
             </div>
-            <div class="pushTo d-none" onclick="pushToOtherBoard('${task['createdAt']}')" id="pushToOtherBoard">
+            <div class="pushTo d-none" onclick="pushToOtherBoard('${task['UnixStamp']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
                 <img class="arrow" src="img/arrow.ico">
             </div>
@@ -168,10 +166,10 @@ function phoneSize() {
 /**
  * in small screen-size push to the next board
  * 
- * @param {parameter} i - passes the value the id (createdAt)
+ * @param {parameter} i - passes the value the id (UnixStamp)
  */
 function pushToOtherBoard(i) {
-    let tasks = boardArray.find(t => t['createdAt'] == i);
+    let tasks = boardArray.find(t => t['UnixStamp'] == i);
     if (tasks['inArray'] == 'toDo') {
         tasks['inArray'] = 'inProgress'
     } else {
@@ -198,9 +196,9 @@ function backToBoard() {
 }
 
 /**
- * if you drag a task with the mouse, the value ('createdAt') is given to the variable currendDraggedElement.
+ * if you drag a task with the mouse, the value ('UnixStamp') is given to the variable currendDraggedElement.
  * 
- * @param {string} i - passes the value the id (createdAt)
+ * @param {string} i - passes the value the id (UnixStamp)
  */
 function startDragging(i) {
     currenDraggedElement = i;
@@ -221,7 +219,7 @@ function allowDrop(ev) {
  * @param {parameter} i - returns the value on which board the task is
  */
 function moveTo(i) {
-    let task = boardArray.find(t => t.createdAt === currenDraggedElement);
+    let task = boardArray.find(t => t.UnixStamp === currenDraggedElement);
     task['inArray'] = i;
     save();
 }
@@ -239,10 +237,10 @@ async function save() {
 /**
  * delete Task finally in backend
  * 
- * @param {parameter} element - passes the value the id (createdAt)
+ * @param {parameter} element - passes the value the id (UnixStamp)
  */
 async function deleteTask(element) {
-    let i = boardArray.findIndex(obj => obj.createdAt == element);
+    let i = boardArray.findIndex(obj => obj.UnixStamp == element);
     boardArray.splice(i, 1);
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     document.getElementById('overlayBg').classList.add('d-none');

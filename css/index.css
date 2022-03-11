@@ -9,6 +9,11 @@
             position: relative;
         }
         
+        .github-icon {
+            width: 30px;
+            height: 30px;
+        }
+
         .my {
             height: 10%;
             margin-top: 155px;

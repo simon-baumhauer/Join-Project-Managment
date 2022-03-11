@@ -47,7 +47,7 @@ h2 {
 }
 
 .input input::placeholder {
-    color: black;
+    color: grey;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -109,6 +109,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .textarea textarea {
+    font-size: 18px;
+    padding: 5px;
     border-radius: 5px;
     border: none;
     resize: none;

@@ -1,5 +1,9 @@
 let allTasks = [];
 let assignedEmployees = [];
+let date = new Date();
+let currentHours = date.getHours();
+currentHours = ("0" + currentHours).slice(-2);
+let today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' || ' + currentHours + ':' + date.getMinutes();
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
@@ -54,7 +58,8 @@ async function createTask() {
         'catergory': catergory.value,
         'text': text.value.replace(/\n\r?/g, "<br/>"),
         'urgency': urgency.value,
-        'createdAt': new Date().getTime(),
+        'UnixStamp': new Date().getTime(),
+        'createdAt': today,
         'assignEmployee': assignedEmployees,
         'inArray': 'toDo'
     }
