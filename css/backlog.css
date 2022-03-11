@@ -141,13 +141,9 @@
     .person-name {
         margin-left: 18px;
         display: flex;
-<<<<<<< HEAD
         width: 48%;
         overflow: scroll;
         /* max-width: 550px; */
-=======
-        width: 72%;
->>>>>>> 9cf324ef573fc86a477b2a341f659da6c1949733
     }
 
     /* Hide scrollbar for Chrome, Safari and Opera */
