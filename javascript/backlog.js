@@ -31,7 +31,7 @@ function renderBacklogTasks() {
 /**
  * 
  * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
-    this is a forschiefe for assignEmployee and this function render the images or details from assignEmployee array
+    this is a for loop for assigningEmployees and this function renders the images or details from assignEmployee array
  * 
  */
 function forAssignEmploye(index) {
@@ -59,17 +59,13 @@ function noTasks() {
     </div>`;
 }
 // When the user clicks on Id popup(number), it opens the popup
-function popup(index, j) {
-    let popup = document.getElementById("myPopup" + index + j);
-    popup.classList.toggle("show");
-  }
 /**
  * 
  *This function helps to show the images and names of the Employe with the help forscheleife 
  */
 function renderDetails(emp, index, j) {
     return `
-    <div class="profile-img popup" id="${emp['name']}" onclick="popup(${index}${j})" >
+    <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}${j})" >
     <img src="${emp['bild-src']}">
     <div class="popuptext" id="myPopup${index}${j}">
      ${emp['name']}<br>
@@ -82,12 +78,13 @@ function renderDetails(emp, index, j) {
  </div>
  `;
 }
+// popup.classList.toggle("show");
+function popupBacklog(index, j) {
+    let popup = document.getElementById(`myPopup-${index}${j}`);
+    alert(`myPopup-${index}-${j}`);
+  }
 
-{/* <div class="emp-name">
-<p> ${emp['name']}</p>
-</div> */}
-
-
+  
 /**
  * 
  * @param {THis paramter show direct the from the Array to number with person Details } info 
