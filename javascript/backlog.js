@@ -42,12 +42,28 @@ function forAssignEmploye(index) {
         const staff_name = document.createElement("h3");
         const name_as_text = document.createTextNode(emp['name']);
         staff_name.appendChild(name_as_text);
-        img.innerHTML += renderDetails(emp);
         let render = document.getElementById(`person-name${index}`);
-        render.innerHTML += renderDetails(emp, index, j);
+        render.innerHTML += `
+        <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}, ${j})" >
+           <img src="${emp['bild-src']}">
+          <div class="popuptext" id="myPopup${index}, ${j}">
+            ${emp['name']}<br>
+             ${emp['position']}<br>
+              ${emp['e-mail']}
+             </div>
+             <div class="emp-name">
+             <p> ${emp['name']}</p>
+            </div> 
+        `;
         arrow(employee, index);
     }
 }
+function popupBacklog(index, j) {
+    let popup = document.getElementById(`myPopup${index}, ${j}`);
+    popup.classList.toggle("show");
+  }
+
+
 /**
  * 
  * @returns if there is no task created
@@ -63,26 +79,23 @@ function noTasks() {
  * 
  *This function helps to show the images and names of the Employe with the help forscheleife 
  */
-function renderDetails(emp, index, j) {
-    return `
-    <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}${j})" >
-    <img src="${emp['bild-src']}">
-    <div class="popuptext" id="myPopup${index}${j}">
-     ${emp['name']}<br>
-     ${emp['position']}<br>
-     ${emp['e-mail']}
-     </div>
-     <div class="emp-name">
-     <p> ${emp['name']}</p>
-     </div> 
- </div>
- `;
-}
+// function renderDetails(emp, index, j) {
+//     return `
+//     <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}${j})" >
+//     <img src="${emp['bild-src']}">
+//     <div class="popuptext" id="myPopup${index}${j}">
+//      ${emp['name']}<br>
+//      ${emp['position']}<br>
+//      ${emp['e-mail']}
+//      </div>
+//      <div class="emp-name">
+//      <p> ${emp['name']}</p>
+//      </div> 
+//  </div>
+//  `;
+// }
 // popup.classList.toggle("show");
-function popupBacklog(index, j) {
-    let popup = document.getElementById(`myPopup-${index}${j}`);
-    alert(`myPopup-${index}-${j}`);
-  }
+
 
   
 /**
