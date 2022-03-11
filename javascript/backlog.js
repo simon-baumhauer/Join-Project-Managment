@@ -49,10 +49,9 @@ function forAssignEmploye(index) {
         const staff_name = document.createElement("h3");
         const name_as_text = document.createTextNode(emp['name']);
         staff_name.appendChild(name_as_text);
-        img.innerHTML += renderDetails(emp);
-
+        img.innerHTML += renderDetails(emp, index, j);
         let render = document.getElementById(`person-name${index}`);
-        render.innerHTML += renderDetails(emp, j);
+        render.innerHTML += renderDetails(emp, index, j);
         arrow(employee, index);
     }
 }
@@ -68,27 +67,23 @@ function noTasks() {
 }
 
 // When the user clicks on Id popup(number), it opens the popup
-function popup(j) {
-    let popup = document.getElementById("myPopup" + j);
-    popup.classList.toggle("show");
-  }
+function popupBacklog(index, j) {
+    let popup = document.getElementById("myPopup" + index + '/' + j);
+    popup.classList.toggle("show")
 
 /**
  * 
  *This function helps to show the images and names of the Employe with the help forscheleife 
  */
-function renderDetails(emp, j) {
+function renderDetails(emp, index, j) {
     return `
-    <div class="profile-img popup" id="${emp['name']}" onclick="popup(${j})">
+    <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}/${j})">
     <img src="${emp['bild-src']}">
-    <div class="popuptext" id="myPopup${j}">
+    <div class="popuptext" id="myPopup${index}/${j}">
      ${emp['name']}<br>
      ${emp['position']}<br>
      ${emp['e-mail']}
      </div>
-     <div class="emp-name">
-     <p> ${emp['name']}</p>
-     </div> 
  </div>
 
  `;
