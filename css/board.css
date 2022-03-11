@@ -159,6 +159,7 @@ h1 {
     padding: 6px;
     font-size: 12px;
     color: red;
+    text-align: center;
 }
 
 .delete:hover {

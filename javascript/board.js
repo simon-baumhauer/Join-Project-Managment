@@ -37,8 +37,8 @@ function forLoop1(currentToDo) {
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
-            let employer = assignEmployee[j];
-            document.getElementById(`currentEmployer${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            let employee = assignEmployee[j];
+            document.getElementById(`currentemployee${i}${'toDo'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
         }
     }
 }
@@ -50,8 +50,8 @@ function forLoop2(currentInProgress) {
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
-            let employer = assignEmployee[j];
-            document.getElementById(`currentEmployer${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            let employee = assignEmployee[j];
+            document.getElementById(`currentemployee${i}${'inProgress'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
         }
     }
 }
@@ -63,8 +63,8 @@ function forLoop3(currentTesting) {
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
-            let employer = assignEmployee[j];
-            document.getElementById(`currentEmployer${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            let employee = assignEmployee[j];
+            document.getElementById(`currentemployee${i}${'testing'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
         }
     }
 }
@@ -76,8 +76,8 @@ function forLoop4(currentDone) {
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
         for (let j = 0; j < assignEmployee.length; j++) {
-            let employer = assignEmployee[j];
-            document.getElementById(`currentEmployer${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employer['bild-src']}">`;
+            let employee = assignEmployee[j];
+            document.getElementById(`currentemployee${i}${'done'}`).innerHTML += `<img class="profileImgTaks" src="${employee['bild-src']}">`;
         }
     }
 }
@@ -85,7 +85,7 @@ function generateTasksHTML(element, i, type) {
     return `
         <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['UnixStamp']})" id="taskOnBoard${i}${type}">
             <span class="titleTask">${element['title']}</span>
-            <div class="currentEmployer" id="currentEmployer${i}${type}"></div> 
+            <div class="currentemployee" id="currentemployee${i}${type}"></div> 
         </div>    
     `;
 }
@@ -115,30 +115,22 @@ function openTask(i, type) {
     if (tasks[i]['inArray'] == 'done') {
         document.getElementById('openTask').innerHTML = generateOpenTaskHTML(tasks[i]);
     }
-    let employers = tasks[i]['assignEmployee'];
-    for (let j = 0; j < employers.length; j++) {
-        let employer = employers[j];
-        document.getElementById('currentEmployer2').innerHTML += `
+    let employees = tasks[i]['assignEmployee'];
+    for (let j = 0; j < employees.length; j++) {
+        let employee = employees[j];
+        document.getElementById('currentemployee2').innerHTML += `
         <div class="popup" onclick="popup(${j})">
-        <img class="profileImg" src="${employer['bild-src']}">
+        <img class="profileImg" src="${employee['bild-src']}">
          <div class="popuptext" id="myPopup${j}">
-            ${employer['name']}<br>
-            ${employer['position']}<br>
-            ${employer['e-mail']}
+            ${employee['name']}<br>
+            ${employee['position']}<br>
+            ${employee['e-mail']}
          </div>
         </div>
         `;
     }
     phoneSize();
 }
-
-// When the user clicks on Id popup(number), it opens the popup
-function popup(j) {
-    let popup = document.getElementById("myPopup" + j);
-    popup.classList.toggle("show");
-  }
-
-
 function generateOpenTaskHTML(task) {
     return `
         <div class="openTask" id="openTask">
@@ -151,14 +143,14 @@ function generateOpenTaskHTML(task) {
                     Created On: 
                     <span class="bold">${task['createdAt']}</span>
                 </div>
-                <div class="delete" onclick="deleteTask('${task['UnixStamp']}')" src="img/x.ico">Delete</div>
+                <div class="delete" onclick="deleteTask('${task['UnixStamp']}')" src="img/x.ico">Delete<br>Task</div>
             </div> 
             <div>Urgency:  <span class="${task['urgency']} bold">${task['urgency']}</span></div>   
             <div class="title bold">${task['title']}</div>
             <div class="textOpenTask">${task['text']}</div>
             <div class="footerTask">
                 <div>Category: <span class="bold">${task['catergory']}</span></div>
-                <div class="currentEmployer2" id="currentEmployer2"></div>
+                <div class="currentemployee2" id="currentemployee2"></div>
             </div>
             <div class="pushTo d-none" onclick="pushToOtherBoard('${task['UnixStamp']}')" id="pushToOtherBoard">
                 <span id="pushTo"></span>
@@ -166,6 +158,16 @@ function generateOpenTaskHTML(task) {
             </div>
         </div>
     `;
+}
+
+/**
+ * When the user clicks on Id popup(number), it opens the popup
+ * 
+ * @param {parameter} j - transfers the value of the respective employee
+ */
+function popup(j) {
+    let popup = document.getElementById("myPopup" + j);
+    popup.classList.toggle("show");
 }
 
 /**
