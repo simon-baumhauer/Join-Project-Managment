@@ -1,14 +1,10 @@
-    /* .heading1 {
-    margin-left: 300px;
-} */
-    /*In globalscope/style.css transferd because all pages need the layout adjustment of the header
-*/
-    
+
+
     .body {
         scroll-behavior: smooth;
         overflow-y: hidden;
     }
-    
+
     .mainContainer {
         position: relative;
         width: 90%;
@@ -19,45 +15,52 @@
         /* margin-right: 40px; */
         margin-bottom: 25px;
     }
-    
+
     .cat1 {
         position: absolute;
         left: 0;
         margin-left: 360px;
     }
-    
+
     .det1 {
         position: absolute;
         left: 0;
         margin-left: 560px;
     }
-    
+
+    .dat1 {
+        position: absolute;
+        right: 0;
+        margin-right: 80px;
+    }
+
     .pus1 {
         position: absolute;
         right: 0;
         margin-right: 5px;
     }
-    
+
     .d-none {
         display: none !important;
     }
-    
+
     .margin-a {
         margin-right: 340px;
     }
-    
+
     .margin-b {
         margin-left: 40px;
         padding-right: 65px;
     }
-    
+
     .margin-b {
         padding-left: 35px;
     }
+
     /* .backlog_container {
     position: relative;
 } */
-    
+
     .todo-container {
         position: relative;
         width: 90%;
@@ -71,7 +74,7 @@
         margin-bottom: 25px;
         cursor: pointer;
     }
-    
+
     .cat2 {
         position: absolute;
         left: 0;
@@ -79,7 +82,7 @@
         bottom: 0;
         margin-bottom: 60px;
     }
-    
+
     .det2 {
         position: absolute;
         left: 0;
@@ -91,54 +94,64 @@
         width: 30%;
         height: fit-content;
     }
-    
+
+    .dat2 {
+        position: absolute;
+        right: 0;
+        margin-right: 80px;
+    }
+
     .det2 br {
         display: none;
     }
-    
+
     .todo-container:hover {
         background-color: #bdbdbd;
     }
-    
+
     .l-arrow-img {
         position: absolute;
-        width: 20px;
-    }
-    
-    .person-info {
-        display: flex;
-        align-items: center;
-    }
-    
-    .arrow {
-        position: relative;
-        z-index: 8;
-    }
-    
-    .r-arrow-img {
-        position: absolute;
-        left: 300px;
         width: 20px;
         bottom: 0;
         margin-bottom: -10px;
     }
-    
-    .person-name {
-        margin-left: 10px;
+
+    .person-info {
         display: flex;
-        width: 50%;
-        overflow: scroll;
+        align-items: center;
     }
+
+    .arrow {
+        position: relative;
+        z-index: 8;
+    }
+
+    .r-arrow-img {
+        position: absolute;
+        left: 280px;
+        width: 20px;
+        bottom: 0;
+        margin-bottom: -10px;
+    }
+
+    .person-name {
+        margin-left: 18px;
+        display: flex;
+        width: 48%;
+        overflow: scroll;
+        /* max-width: 550px; */
+    }
+
     /* Hide scrollbar for Chrome, Safari and Opera */
-    
+
     .person-name::-webkit-scrollbar {
         display: none;
     }
-    
+
     .det2::-webkit-scrollbar {
         display: none;
     }
-    
+
     .person-name>h3 {
         font-size: 12px;
         width: 50%;
@@ -146,20 +159,20 @@
         margin-right: 10px;
         margin-top: 0;
     }
-    
+
     .profile-img {
         display: flex;
         align-items: center;
         flex-direction: column;
         margin-top: 15px;
     }
-    
+
     .emp-name {
         margin-top: -10px;
         width: 100px;
         text-align: center;
     }
-    
+
     .profile-img img {
         width: 60px;
         /*     height: 60px; */
@@ -168,14 +181,14 @@
         margin-right: 10px;
         margin-left: 20px;
     }
-    
+
     .profile {
         height: 50px;
         width: 50px;
         object-fit: contain;
         border-radius: 100%;
     }
-    
+
     .details {
         margin-left: 60px;
         height: min-content;
@@ -185,38 +198,38 @@
         display: flex;
         align-items: center;
     }
-    
+
     .catagroy {
         width: 10%;
     }
-    
+
     .p-left {
         padding-left: 50px;
     }
-    
+
     .font-s-17 {
         font-size: 17px;
     }
-    
+
     .font-s-14 {
         font-size: 14px;
     }
-    
+
     .font-s-20 {
         font-weight: 900;
         font-size: 20px;
     }
-    
+
     .m-btm-2 {
         margin-bottom: 2px;
     }
-    
+
     .input-feld {
         text-align: center;
         overflow: visible;
         height: min-content;
     }
-    
+
     .chnge-container {
         height: 100%;
         background-color: white;
@@ -225,7 +238,7 @@
         align-items: center;
         flex-direction: column;
     }
-    
+
     .pushToBoard {
         position: absolute;
         right: 0;
@@ -233,7 +246,7 @@
         height: 35px;
         margin-right: 8px;
     }
-    
+
     .responsive {
         display: flex;
         align-items: center;
@@ -241,11 +254,11 @@
         display: none;
         color: #22318B;
     }
-    
+
     .person-name h3 {
         width: 60%;
     }
-    
+
     .assigend-to {
         background-color: rgb(167, 164, 164);
         z-index: 9;
@@ -255,14 +268,15 @@
         top: 150px;
         left: 10px;
     }
-    
+
     .child {
         width: 100px;
         white-space: nowrap;
         overflow-x: scroll;
     }
+
     /* Responsive */
-    
+    /*     
     @media (max-width:1100px) {
         .det1 {
             margin-left: 500px;
@@ -270,50 +284,56 @@
         .det2 {
             margin-left: 500px;
         }
-    }
-    
-    @media (max-width:1000px) {
+    } */
+
+    @media (max-width:1100px) {
         .heading1 {
             margin-left: 12px;
             margin-top: 70px;
             transition: all 115ms ease-in-out;
             margin-bottom: 0;
         }
+
         .r-arrow-img,
         .l-arrow-img {
             position: absolute;
             width: 20px;
-            bottom: -11px;
         }
+
         .person-info {
             display: flex;
             align-items: center;
         }
+
         .arrow {
             position: relative;
             z-index: 8;
         }
+
         .r-arrow-img {
             position: absolute;
-            left: 300px;
+            left: 280px;
             width: 20px;
             bottom: 0;
-            margin-bottom: -10px;
         }
+
         .person-name {
             margin-left: 10px;
             display: flex;
             width: 60%;
             overflow: scroll;
         }
+
         /* Hide scrollbar for Chrome, Safari and Opera */
         .person-name::-webkit-scrollbar {
             display: none;
         }
+
         /* till here Hide scrollbar for Chrome, Safari and Opera */
         .details {
             flex-direction: column;
         }
+
         .todo-container {
             height: fit-content;
             min-height: fit-content;
@@ -321,30 +341,37 @@
             margin-top: 0px !important;
             margin-bottom: 50px !important;
         }
+
         .person-info,
         .catagroy,
         .details {
             width: fit-content;
         }
+
         .person-info {
             flex-direction: column;
         }
+
         .responsive {
             display: flex;
         }
+
         .ass1 {
             position: absolute;
             top: 0;
             margin-top: 10px;
         }
+
         .cat2 {
             position: relative;
             margin-left: 0;
             margin-bottom: 12px;
         }
+
         .details {
             margin-left: 0;
         }
+
         .det2 {
             position: relative;
             margin-left: 0;
@@ -355,102 +382,123 @@
             width: 80%;
             height: fit-content;
         }
+
         .cat3 {
             margin-top: 24px;
         }
+
         .pushToBoard {
             margin-top: 8px;
         }
+
         #catagory {
             font-size: 12px;
         }
+
         .hide-cont {
             display: none;
         }
+
         .person-name {
             margin-top: 12px;
             justify-content: center;
             flex-wrap: wrap;
             overflow: hidden;
         }
+
         .p-left {
             padding-left: 0;
         }
-        @media (max-width:1000px) {
-            .heading1 {
-                margin-left: 12px;
-                margin-top: 70px;
-                transition: all 115ms ease-in-out;
-                margin-bottom: 0;
-            }
-            .r-arrow-img,
-            .l-arrow-img {
-                display: none;
-            }
-            .details {
-                flex-direction: column;
-            }
-            .todo-container {
-                height: fit-content;
-                min-height: fit-content;
-                flex-direction: column;
-                margin-top: 0px !important;
-                margin-bottom: 50px !important;
-            }
-            .person-info,
-            .catagroy,
-            .details {
-                width: fit-content;
-            }
-            .person-info {
-                flex-direction: column;
-            }
-            .responsive {
-                display: flex;
-            }
-            .ass1 {
-                position: absolute;
-                top: 0;
-                margin-top: 10px;
-            }
-            .cat2 {
-                position: relative;
-                margin-left: 0;
-                margin-bottom: 12px;
-            }
-            .details {
-                margin-left: 0;
-            }
-            .det2 {
-                position: relative;
-                margin-left: 0;
-                text-align: center;
-                margin-right: 0px;
-                align-items: center;
-                overflow: visible;
-                width: 80%;
-                height: fit-content;
-            }
-            .cat3 {
-                margin-top: 24px;
-            }
-            .pushToBoard {
-                margin-top: 8px;
-            }
-            #catagory {
-                font-size: 12px;
-            }
-            .hide-cont {
-                display: none;
-            }
-            .person-name {
-                margin-top: 12px;
-                justify-content: center;
-                flex-wrap: wrap;
-                overflow: hidden;
-            }
-            .p-left {
-                padding-left: 0;
-            }
+
+        .heading1 {
+            margin-left: 12px;
+            margin-top: 70px;
+            transition: all 115ms ease-in-out;
+            margin-bottom: 0;
+        }
+
+        .r-arrow-img,
+        .l-arrow-img {
+            display: none;
+        }
+
+        .details {
+            flex-direction: column;
+        }
+
+        .todo-container {
+            height: fit-content;
+            min-height: fit-content;
+            flex-direction: column;
+            margin-top: 0px !important;
+            margin-bottom: 50px !important;
+        }
+
+        .person-info,
+        .catagroy,
+        .details {
+            width: fit-content;
+        }
+
+        .person-info {
+            flex-direction: column;
+        }
+
+        .responsive {
+            display: flex;
+        }
+
+        .ass1 {
+            position: absolute;
+            top: 0;
+            margin-top: 10px;
+        }
+
+        .cat2 {
+            position: relative;
+            margin-left: 0;
+            margin-bottom: 12px;
+        }
+
+        .details {
+            margin-left: 0;
+        }
+
+        .det2 {
+            position: relative;
+            margin-left: 0;
+            text-align: center;
+            margin-right: 0px;
+            align-items: center;
+            overflow: visible;
+            width: 80%;
+            height: fit-content;
+        }
+
+        .cat3 {
+            margin-top: 24px;
+        }
+
+        .pushToBoard {
+            margin-top: 8px;
+        }
+
+        #catagory {
+            font-size: 12px;
+        }
+
+        .hide-cont {
+            display: none;
+        }
+
+        .person-name {
+            margin-top: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+
+        .p-left {
+            padding-left: 0;
         }
     }
