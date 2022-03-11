@@ -69,7 +69,7 @@ function popup(index, j) {
  */
 function renderDetails(emp, index, j) {
     return `
-    <div class="profile-img popup" id="${emp['name']}" onclick="popup(${index}${j})">
+    <div class="profile-img popup" id="${emp['name']}" onclick="popup(${index}${j})" >
     <img src="${emp['bild-src']}">
     <div class="popuptext" id="myPopup${index}${j}">
      ${emp['name']}<br>
