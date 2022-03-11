@@ -3,7 +3,6 @@ setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
  * A array to load from Server
  */
 let boardArray = [];
-
 /**
  *  to load and show saved taskes from Server
  */
@@ -13,7 +12,6 @@ async function loadBacklog() {
     boardArray = JSON.parse(backend.getItem('boardArray')) || [];
     renderBacklogTasks();
 }
-
 /**
  * This function render the Code to HTML
  */
@@ -23,18 +21,13 @@ function renderBacklogTasks() {
     if (allTasks == '') {
         backlogContainer.innerHTML = noTasks();
     } else {
-
         for (let index = 0; index < allTasks.length; index++) {
             let info = allTasks[index];
-
             backlogContainer.innerHTML += renderTemplate(info, index);
             forAssignEmploye(index);
-
         }
     }
 }
-
-
 /**
  * 
  * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
@@ -49,9 +42,9 @@ function forAssignEmploye(index) {
         const staff_name = document.createElement("h3");
         const name_as_text = document.createTextNode(emp['name']);
         staff_name.appendChild(name_as_text);
-        img.innerHTML += renderDetails(emp, index, j);
+        img.innerHTML += renderDetails(emp);
         let render = document.getElementById(`person-name${index}`);
-        render.innerHTML += renderDetails(emp, index, j);
+        render.innerHTML += renderDetails(emp, j);
         arrow(employee, index);
     }
 }
@@ -65,31 +58,35 @@ function noTasks() {
     Keine Tasks mehr
     </div>`;
 }
-
 // When the user clicks on Id popup(number), it opens the popup
-function popupBacklog(index, j) {
-    let popup = document.getElementById("myPopup" + index + '/' + j);
-    popup.classList.toggle("show")
-
+function popup(j) {
+    let popup = document.getElementById("myPopup" + j);
+    popup.classList.toggle("show");
+  }
 /**
  * 
  *This function helps to show the images and names of the Employe with the help forscheleife 
  */
-function renderDetails(emp, index, j) {
+function renderDetails(emp, j) {
     return `
-    <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}/${j})">
+    <div class="profile-img popup" id="${emp['name']}" onclick="popup(${j})">
     <img src="${emp['bild-src']}">
-    <div class="popuptext" id="myPopup${index}/${j}">
+    <div class="popuptext" id="myPopup${j}">
      ${emp['name']}<br>
      ${emp['position']}<br>
      ${emp['e-mail']}
      </div>
+     <div class="emp-name">
+     <p> ${emp['name']}</p>
+     </div> 
  </div>
-
  `;
 }
 
- 
+{/* <div class="emp-name">
+<p> ${emp['name']}</p>
+</div> */}
+
 
 /**
  * 
@@ -97,7 +94,6 @@ function renderDetails(emp, index, j) {
  * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
  * @returns   The function creates a HTML element for the selected Employee and pushes is value in an array so that in can be accsessed from the backend.
  */
-
 function renderTemplate(info, index) {
     return `
                 <div class="todo-container heading1">
@@ -138,7 +134,6 @@ function renderTemplate(info, index) {
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})">
             `;
 }
-
 /**
  * 
  * @param {Paramter from borrd.js} i 
@@ -151,7 +146,6 @@ async function pushToBoard(i) {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderBacklogTasks();
 }
-
 /**
  * 
  * @param {this is employee Array only named pax} pax 
@@ -160,29 +154,22 @@ async function pushToBoard(i) {
  */
 function arrow(pax, index) {
     if (pax.length <= 3) {
-
         document.getElementById(`person-name${index}`).style.width = '100%';
         document.getElementById(`scrollbar${index}`).classList.add('d-none');
-
     }
 }
-
 /**
  * 
  * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
  * it helps to scroll right if user clicks on right Arrow
  */
 function scrollright(index) {
-
     document.getElementById(`left-scrollbar${index}`).classList.remove('d-none');
     document.getElementById(`left-scrollbar${index}`);
     let content = document.getElementById(`person-name${index}`);
     content.style.scrollBehavior = 'smooth';
-
     content.scrollLeft += 200;
-
 }
-
 /**
  * 
  * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
@@ -192,8 +179,5 @@ function scrollright(index) {
 function scrollleft(index) {
     let content = document.getElementById(`person-name${index}`);
     content.style.scrollBehavior = 'smooth';
-
     content.scrollLeft -= 200;
-
-
 }
