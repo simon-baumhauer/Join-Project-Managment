@@ -2,7 +2,7 @@ setURL('http://gruppe-177.developerakademie.net/smallest_backend_ever');
 let currenDraggedElement;
 
 /**
- * load from backendserver
+ * Diese Funkion wird durch die Onload-Funktion aufgerufen, lädt das boardArray aus dem Backend und löst die Funktion renderBoard() aus.
  * 
  */
 async function loadBoard() {
@@ -12,7 +12,8 @@ async function loadBoard() {
 }
 
 /**
- *  This function filters the tasks from the array and generated in the right place on the board 
+ * Diese Funktion filtert das boardArray nach dem String im Key-Value-Pair "inArray" und vergibt die Objekte mit demjenigen String an die jeweilgen Variablen. 
+ * Dann wird das Board gecleant und die forLoop-Funktionen werden aufgerufen.
  * 
  */
 function renderBoard() {
@@ -29,6 +30,11 @@ function renderBoard() {
     forLoop3(currentTesting);
     forLoop4(currentDone);
 }    
+/**
+ * Die folgenden Funktionen enthalten For-Schleifen. Diese iterieren durch das boardArray und rendern die Objekte (Tasks) an diejenige Stelle auf dem Board, die im dazugehöhrigen Parameter enthalten sind.
+ * 
+ * @param {object[]} currentToDo - Der Parameter currentToDo enthält alle Objekte (Tasks), die aus dem boardArray gefiltert wurden.
+ */
 function forLoop1(currentToDo) {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
@@ -77,6 +83,14 @@ function forLoop4(currentDone) {
         }
     }
 }
+/**
+ * Diese Funktion generiert HTML und gibt das Generierte zurück an die For-Schleife.
+ * 
+ * @param {object[]} element - Dieser Parameter enthält die Objekte mit den gefilterten Strings im Key-Value-Pair "inArray".
+ * @param {number} i - Dieser Parameter übergibt die Position vom boardArray.
+ * @param {string} type - Dieser Parameter übegibt den String vom Key-Value-Pair "inArray".
+ * @returns - HTML-Template
+ */
 function generateTasksHTML(element, i, type) {
     return `
         <div class="tasks ${element['urgency']}" onclick="openTask(${i}, '${type}')" draggable="true" ondragstart="startDragging(${element['UnixStamp']})" id="taskOnBoard${i}${type}">
@@ -87,10 +101,10 @@ function generateTasksHTML(element, i, type) {
 }
 
 /**
- * push to the next board
+ * This function opens a task by clicking on it.
  * 
- * @param {parameter} i - transfers the clicked task
- * @param {parameter} type - returns the value on which board the task is
+ * @param {number} i - transfers the position from the object in the boardArray.
+ * @param {string} type - Dieser Parameter übegibt den String vom Key-Value-Pair "inArray".
  */
 function openTask(i, type) {
     document.getElementById('overlayBg').classList.remove('d-none');
@@ -127,6 +141,12 @@ function openTask(i, type) {
     }
     phoneSize();
 }
+/**
+ * Diese Funktion generiert HTML und gibt das Generierte zurück an die If-Abfrage.
+ * 
+ * @param {object} task - Dieser Parameter enthält das Objekt mit dem gefilterten String im Key-Value-Pair "inArray".
+ * @returns - HTML-code
+ */
 function generateOpenTaskHTML(task) {
     return `
         <div class="openTask" id="openTask">
@@ -159,9 +179,9 @@ function generateOpenTaskHTML(task) {
 }
 
 /**
- * When the user clicks on Id popup(number), it opens the popup
+ * When the user clicks on Id popup(number), it opens the popup.
  * 
- * @param {parameter} j - transfers the value of the respective employee
+ * @param {number} j - transfers the value of the respective employee.
  */
 function popup(j) {
     let popup = document.getElementById("myPopup" + j);
@@ -169,7 +189,7 @@ function popup(j) {
 }
 
 /**
- *  in small screen-size add a button to push to the next board
+ *  in small screen-size add a button to push to the next board.
  * 
  */
 function phoneSize() {
@@ -181,9 +201,9 @@ function phoneSize() {
 }
 
 /**
- * in small screen-size push to the next board
+ * in small screen-size push to the next board.
  * 
- * @param {parameter} i - passes the value the id (UnixStamp)
+ * @param {parameter} i - passes the value (UnixStamp).
  */
 function pushToOtherBoard(i) {
     let tasks = boardArray.find(t => t['UnixStamp'] == i);
@@ -204,7 +224,7 @@ function pushToOtherBoard(i) {
 }
 
 /**
- * this function close the opened task (overlay)
+ * this function close the opened task (overlay).
  * 
  */
 function backToBoard() {
@@ -215,16 +235,16 @@ function backToBoard() {
 /**
  * if you drag a task with the mouse, the value ('UnixStamp') is given to the variable currendDraggedElement.
  * 
- * @param {string} i - passes the value the id (UnixStamp)
+ * @param {string} i - passes the value the id (UnixStamp).
  */
 function startDragging(i) {
     currenDraggedElement = i;
 }
 
 /**
- * this function allows the html to drop something
+ * this function allows that div-container to drop something.
  * 
- * @param {parameter} ev 
+ * @param {parameter} ev - Dieser Parameter enthält den wert des jeweiligen div-Conatainers.
  */
 function allowDrop(ev) {
     ev.preventDefault();
@@ -233,7 +253,7 @@ function allowDrop(ev) {
 /**
  * this function starts when you drop a task on the html and save in backend
  * 
- * @param {parameter} i - returns the value on which board the task is
+ * @param {parameter} i - passes the value the id (UnixStamp).
  */
 function moveTo(i) {
     let task = boardArray.find(t => t.UnixStamp === currenDraggedElement);
@@ -242,23 +262,22 @@ function moveTo(i) {
 }
 
 /**
- * this function save the array in the backend
+ * this function save the array in the backend.
  * 
  */
 async function save() {
-    // users.push('John);
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     loadBoard();
 }
 
 /**
- * delete Task finally in backend
+ * delete current Task finally in the backend.
  * 
- * @param {parameter} element - passes the value the id (UnixStamp)
+ * @param {parameter} i - passes the value the id (UnixStamp).
  */
-async function deleteTask(element) {
-    let i = boardArray.findIndex(obj => obj.UnixStamp == element);
-    boardArray.splice(i, 1);
+async function deleteTask(i) {
+    let element = boardArray.findIndex(obj => obj.UnixStamp == i);
+    boardArray.splice(element, 1);
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
