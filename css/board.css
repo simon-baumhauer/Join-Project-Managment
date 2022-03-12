@@ -161,15 +161,12 @@ h1 {
         opacity: 0;
     }
     25% {
-        /* margin-top: -75px; */
         opacity: 0.25;
     }
     50% {
-        /* margin-top: -50px; */
         opacity: 0.50;
     }
     75% {
-        /* margin-top: -25px; */
         opacity: 0.75;
     }
     100% {
