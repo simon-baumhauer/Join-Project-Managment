@@ -32,7 +32,6 @@ function renderBoard() {
 function forLoop1(currentToDo) {
     for (let i = 0; i < currentToDo.length; i++) {
         let element = currentToDo[i];
-        i = i;
         type = 'toDo';
         document.getElementById('toDo').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
@@ -45,7 +44,6 @@ function forLoop1(currentToDo) {
 function forLoop2(currentInProgress) {   
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
-        i = i;
         type = 'inProgress';
         document.getElementById('inProgress').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
@@ -58,7 +56,6 @@ function forLoop2(currentInProgress) {
 function forLoop3(currentTesting) {   
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
-        i = i;
         type = 'testing';
         document.getElementById('testing').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
@@ -71,7 +68,6 @@ function forLoop3(currentTesting) {
 function forLoop4(currentDone) {   
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
-        i = i;
         type = 'done';
         document.getElementById('done').innerHTML += generateTasksHTML(element, i, type);
         let assignEmployee = element['assignEmployee'];
