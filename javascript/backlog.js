@@ -30,8 +30,8 @@ function renderBacklogTasks() {
 }
 /**
  * 
- * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
-    this is a for loop for assigningEmployees and this function renders the images or details from assignEmployee array
+ * @param {This paramter gives each employee its own number so that the funtion scope is only for the the seletected employee} index 
+    this is a for loop for assigningEmployees and this function renders the images and details from assignEmployee array
  * 
  */
 function forAssignEmploye(index) {
@@ -51,9 +51,6 @@ function forAssignEmploye(index) {
              ${emp['position']}<br>
               ${emp['e-mail']}
              </div>
-             <div class="emp-name">
-             <p> ${emp['name']}</p>
-            </div> 
         `;
         arrow(employee, index);
     }
@@ -108,12 +105,6 @@ function renderTemplate(info, index) {
     return `
                 <div class="todo-container heading1">
                 <div class="person-info" id="person_info">
-                    <div class="arrow d-none" id="left-scrollbar${index}" onclick=scrollleft("${index}")>
-                        <img id="left-arrow${index}" class="l-arrow-img" src="img/arrow-left-b.png">
-                    </div>
-                <div class="arrow" id="scrollbar${index}" onclick=scrollright("${index}")>
-                    <img class="r-arrow-img" src="img/arrow-right-b.png">
-                    </div>
                 <div id="responsive${index}" class="responsive ass1">
                 <b>ASSIGNED TO</b>
                 </div>
@@ -164,8 +155,7 @@ async function pushToBoard(i) {
  */
 function arrow(pax, index) {
     if (pax.length <= 3) {
-        document.getElementById(`person-name${index}`).style.width = '100%';
-        document.getElementById(`scrollbar${index}`).classList.add('d-none');
+        document.getElementById(`person-name${index}`).style.flexWrap = 'wrap';
     }
 }
 /**

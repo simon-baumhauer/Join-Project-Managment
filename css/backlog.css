@@ -66,13 +66,11 @@
         width: 90%;
         display: flex;
         align-items: center;
-        /* justify-content: space-between; */
         background-color: #d6d5dc;
         height: 140px;
-        /* margin-right: 40px; */
         border-radius: 10px;
         margin-bottom: 25px;
-        cursor: pointer;
+        padding: 30px 0px;
     }
 
     .cat2 {
@@ -80,7 +78,7 @@
         left: 0;
         margin-left: 360px;
         bottom: 0;
-        margin-bottom: 60px;
+        margin-bottom: 80px;
     }
 
     .det2 {
@@ -137,7 +135,8 @@
     .person-name {
         margin-left: 18px;
         display: flex;
-        max-width: 550px; 
+        max-width: 390px; 
+        flex-wrap: wrap;
     }
 
     /* Hide scrollbar for Chrome, Safari and Opera */
