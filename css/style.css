@@ -1,0 +1,111 @@
+* {
+    font-family: 'PT Sans', sans-serif;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    /* height: 100%;  dies lässt mein impressum auf addtask nich am ende der seite sein bei der responsive styles*/ 
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #fff;
+    margin-left: 250px;
+    position: relative;
+}
+
+.heading1 {
+    margin-left: 50px;
+}
+
+h1 {
+    margin-block-start: 0.2em;
+    margin-block-end: 0.1em;
+}
+
+.m-left-50 {
+    margin-left: 50px;
+}
+
+/* Popup container for assigend employees */
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    background-color: #fff;
+    color: rgb(34, 49, 139);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    padding: 3px;
+}
+
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+.widthDadenschutz {
+    width: 90%;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media(max-width: 1200px) {
+    body { 
+        margin-left: 200px;
+    }
+}
+
+@media(max-width: 775px) {
+    body {
+        margin-left: 0;
+        overflow-y: scroll;
+    }
+    .heading1 {
+        margin-left: 15px;
+    }
+}
