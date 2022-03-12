@@ -45,20 +45,21 @@ function forAssignEmploye(index) {
         let render = document.getElementById(`person-name${index}`);
         render.innerHTML += `
         <div class="profile-img popup" id="${emp['name']}" onclick="popupBacklog(${index}, ${j})" >
-           <img src="${emp['bild-src']}">
+           <img class="hover" src="${emp['bild-src']}">
           <div class="popuptext" id="myPopup${index}, ${j}">
             ${emp['name']}<br>
              ${emp['position']}<br>
               ${emp['e-mail']}
              </div>
         `;
-        arrow(employee, index);
+        heightofContainer(employee, index);
     }
 }
+
 function popupBacklog(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.toggle("show");
-  }
+}
 
 
 /**
@@ -94,7 +95,7 @@ function noTasks() {
 // popup.classList.toggle("show");
 
 
-  
+
 /**
  * 
  * @param {THis paramter show direct the from the Array to number with person Details } info 
@@ -103,7 +104,7 @@ function noTasks() {
  */
 function renderTemplate(info, index) {
     return `
-                <div class="todo-container heading1">
+                <div class="todo-container heading1" id="todo${index}">
                 <div class="person-info" id="person_info">
                 <div id="responsive${index}" class="responsive ass1">
                 <b>ASSIGNED TO</b>
@@ -119,7 +120,7 @@ function renderTemplate(info, index) {
                 <div id="responsive${index}" class="responsive">
                 <b>CATEGORY</b>
                 </div>
-                    <h3 class="cat2 font-s-17" id="catagory">${info['catergory']}</h3>
+                    <h3 class="cat2 font-s-17" id="catagroy${index}">${info['catergory']}</h3>
                 </div>
                 <div class="details">
                 <div id="responsive${index}" class="responsive">
@@ -151,11 +152,17 @@ async function pushToBoard(i) {
  * 
  * @param {this is employee Array only named pax} pax 
  * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
- * This function bring Arrow button if there are more then 3 Assigned Employe in an array. 
+ * This function decided height of container if there are more then 3 Assigned Employe in an array or less than 3. 
  */
-function arrow(pax, index) {
+function heightofContainer(pax, index) {
     if (pax.length <= 3) {
-        document.getElementById(`person-name${index}`).style.flexWrap = 'wrap';
+        document.getElementById(`todo${index}`).style.height = "70px";
+        document.getElementById(`catagroy${index}`).style.top = "40px";
+        console.log('catagroy${index} ')
+    }
+    if (pax.length >= 4) {
+        document.getElementById(`todo${index}`).style.height = "140px";
+
     }
 }
 /**
