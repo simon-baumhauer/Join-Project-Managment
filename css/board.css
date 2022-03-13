@@ -185,6 +185,22 @@ h1 {
     flex-direction: column;
 }
 
+.closeTask {
+    padding: 6px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.closeTask:hover {
+    cursor: pointer;
+}
+
+.header2OpenTask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .delete {
     padding: 6px;
     font-size: 12px;

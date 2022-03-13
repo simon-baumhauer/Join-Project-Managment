@@ -159,11 +159,16 @@ function generateOpenTaskHTML(task) {
                     Created On: 
                     <span class="bold">${task['createdAt']}</span>
                 </div>
+                <div class="closeTask" onclick="backToBoard()">Close<br>Task</div>
+            </div> 
+            <div class="header2OpenTask">
+                <div>
+                    Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span>
+                </div>
                 <div class="delete" onclick="deleteTask('${task['UnixStamp']}')" src="img/x.ico">
                     Delete<br>Task
                 </div>
-            </div> 
-            <div>Urgency:  <span class="${task['urgency']} bold">${task['urgency']}</span></div>   
+            </div>   
             <div class="title bold">${task['title']}</div>
             <div class="textOpenTask">${task['text']}</div>
             <div class="footerTask">
@@ -176,6 +181,20 @@ function generateOpenTaskHTML(task) {
             </div>
         </div>
     `;
+}
+
+/**
+ * Delete current task finally in the backend.
+ * 
+ * @param {number} i - Passes the value the id ('UnixStamp').
+ */
+ async function deleteTask(i) {
+    let element = boardArray.findIndex(obj => obj.UnixStamp == i);
+    boardArray.splice(element, 1);
+    await backend.setItem('boardArray', JSON.stringify(boardArray));
+    document.getElementById('overlayBg').classList.add('d-none');
+    document.getElementById('openTask').classList.add('d-none');
+    loadBoard();
 }
 
 /**
@@ -203,7 +222,7 @@ function phoneSize() {
 /**
  * For small screens, push to the next board.
  * 
- * @param {number} i - Passes the value ('UnixStamp').
+ * @param {number} i - Passes the value the id ('UnixStamp').
  */
 function pushToOtherBoard(i) {
     let tasks = boardArray.find(t => t['UnixStamp'] == i);
@@ -267,19 +286,5 @@ function moveTo(i) {
  */
 async function save() {
     await backend.setItem('boardArray', JSON.stringify(boardArray));
-    loadBoard();
-}
-
-/**
- * delete current Task finally in the backend.
- * 
- * @param {number} i - Passes the value the id ('UnixStamp').
- */
-async function deleteTask(i) {
-    let element = boardArray.findIndex(obj => obj.UnixStamp == i);
-    boardArray.splice(element, 1);
-    await backend.setItem('boardArray', JSON.stringify(boardArray));
-    document.getElementById('overlayBg').classList.add('d-none');
-    document.getElementById('openTask').classList.add('d-none');
     loadBoard();
 }
