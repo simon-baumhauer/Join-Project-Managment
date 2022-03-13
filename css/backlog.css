@@ -5,6 +5,7 @@ body {
 
 h3 {
     margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .d-none {
@@ -24,7 +25,7 @@ h3 {
     font-size: 20px;
 }
 
-.flipped{
+.flipped {
     direction: rtl;
 }
 
@@ -103,10 +104,15 @@ h3 {
     margin-left: 20px;
 }
 
-.hover:hover {
-    transform: scaleY(1.1) scaleX(1.11);
+.hover {
     transition: all 225ms ease-in-out;
-    box-shadow: 0px 0px 20px 0px #373737;
+    cursor: pointer;
+}
+
+.hover:hover {
+    transform: translateY(-15px) scaleY(1.2) scaleX(1.2);
+    transition: all 200ms ease-in-out;
+    box-shadow: 1px 18px 7px 0px grey;
     ;
 }
 
@@ -123,9 +129,9 @@ h3 {
     padding-left: 8px;
     text-align: left;
     align-items: center;
-    overflow-y: auto;
     max-width: 400px;
     max-height: 120px;
+    overflow-y: auto;
 }
 
 .detailsTasks:hover {
@@ -135,11 +141,56 @@ h3 {
 .change {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
 }
 
 .inputField {
-    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -55px;
+    max-height: 80px;
+    width: 400px;
+    text-align: left;
+    border: 0px solid;
+    border-radius: 8px;
+    resize: none;
+    overflow-y: auto;
+}
+
+.buttons {
+    position: absolute;
+    left: 0;
+    display: flex;
+    margin-top: 84px;
+}
+
+.buttonSave {
+    margin-top: 8px;
+    margin-right: 8px;
+    width: 60px;
+    border: 0px solid;
+    border-radius: 5px;
+}
+
+.buttonSave:hover {
+    cursor: pointer;
+}
+
+.buttonAbort {
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 60px;
+    border: 0px solid;
+    border-radius: 5px;
+}
+
+.buttonAbort:hover {
+    cursor: pointer;
+}
+
+.inputField {
     height: 80px;
     text-align: left;
 }
@@ -163,45 +214,45 @@ h3 {
 }
 
 
-
-
 /* Responsive */
 
-@media (max-width:1450px) {
-
+@media (max-width: 1450px) {
     .detailsTasks {
         max-width: 350px;
     }
+    .inputField {
+        width: 350px;
+    }
 }
 
-@media (max-width:1400px) {
-
+@media (max-width: 1400px) {
     .detailsTasks {
         max-width: 250px;
     }
+    .inputField {
+        width: 250px;
+    }
 }
 
-@media (max-width:1300px) {
-
+@media (max-width: 1300px) {
     .detailsTasks {
         max-width: 150px;
     }
+    .inputField {
+        width: 150px;
+    }
 }
 
-@media (max-width:1200px) {
-
+@media (max-width: 1200px) {
     .responsive {
         display: flex;
     }
-
     .hideCont {
         display: none;
     }
-
     .mainContainer {
         margin-top: 0;
     }
-
     .todoContainer {
         height: fit-content !important;
         min-height: fit-content;
@@ -213,13 +264,11 @@ h3 {
         transition: all 115ms ease-in-out;
         margin-bottom: 0;
     }
-
     .assignedToTasks {
         position: absolute;
         top: 0;
         margin-top: 16px;
     }
-
     .pushToBoard {
         position: absolute;
         top: 0;
@@ -227,26 +276,23 @@ h3 {
         margin-top: 8px;
         margin-right: 8px;
     }
-
     .employeeContainer {
         justify-content: center;
         flex-wrap: wrap;
-        overflow: hidden;
+        overflow: visible;
         width: 100%;
         padding: 20px;
     }
-
     .catogeryTasks {
         position: relative;
         margin-left: 0;
-        margin-bottom: 12px;
+        margin-bottom: 32px;
         top: 0;
     }
-
     .detailsTasks {
         position: relative;
         margin-left: 0;
-        margin-bottom: 16px;
+        margin-bottom: 32px;
         margin-right: 0px;
         text-align: center;
         align-items: center;
@@ -254,9 +300,31 @@ h3 {
         max-width: 300px;
         max-height: fit-content;
     }
-
+    .change {
+        margin-top: 8px;
+        width: 300px;
+        height: 120px;
+    }
+    .inputField {
+        top: 0;
+        margin-top: 8px;
+        width: 300px;
+        height: 180px;
+        border-radius: 8px !important;
+    }
+    .buttons {
+        margin-top: 72px;
+        left: auto;
+        right: auto;
+    }
     .dueDateTasks {
         position: relative;
         margin-right: 0px;
+    }
+}
+
+@media (max-width: 400px) {
+    .change {
+        width: 250px;
     }
 }

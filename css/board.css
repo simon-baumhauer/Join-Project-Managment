@@ -2,7 +2,8 @@ body {
     margin: 0;
     height: 100%;
     display: flex;
-    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
 }
 
 h1 {
@@ -17,7 +18,6 @@ h1 {
 .contentCont {
     width: calc(100% - 250px);
     min-width: 100%;
-
 }
 
 .content {
@@ -108,6 +108,7 @@ h1 {
     background-color: rgb(168, 255, 168);
 }
 
+
 /* overlay */
 
 .bold {
@@ -137,15 +138,14 @@ h1 {
     }
 }
 
-
 .openTask {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0; 
+    right: 0;
     margin-top: 20vh;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     background-color: rgb(189, 189, 189);
     height: fit-content;
     padding: 8px;
@@ -247,11 +247,10 @@ h1 {
 }
 
 @media(max-width: 1200px) {
-
     .contentCont {
         width: calc(100% - 200px);
         min-width: 100%;
-    }    
+    }
 }
 
 @media(max-width: 900px) {
@@ -261,32 +260,26 @@ h1 {
 }
 
 @media(max-width: 775px) {
-
     .contentCont {
         margin-top: 60px;
     }
-
     .board {
         height: 70vh;
     }
 }
 
 @media(max-width: 620px) {
-
     .contentCont {
         margin-top: 60px;
     }
-
     .content {
         flex-wrap: wrap;
     }
-
     .boards {
         margin-top: 16px !important;
         width: 40vw;
         margin-top: 0;
     }
-
     .board {
         margin-top: 2px;
         height: 36vh;
@@ -294,46 +287,35 @@ h1 {
 }
 
 @media(max-width: 450px) {
-
-        .openTask {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 240px
-        }
-
-
+    .openTask {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 240px
+    }
     .headerOpenTask {
         flex-direction: column;
         align-items: center;
     }
-
     .title {
         text-align: center;
     }
-
     .column {
         margin-top: 16px;
     }
-
     .footerTask {
         flex-direction: column;
     }
-
     .currentEmployer2 {
         margin-top: 8px;
     }
-
 }
 
 @media(max-width: 400px) {
-
     .boards {
         width: 90%;
     }
-
     .board {
         height: 80vh;
     }
-
 }

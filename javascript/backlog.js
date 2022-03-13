@@ -63,10 +63,13 @@ function renderTemplate(info, index) {
                 </div>
                 <div class="detailsTasks flipped" onclick="changeContainer(${index})">
                     <div class="d-none change" id="textEditCont${index}">
-                        <textarea name="justtext" class="inputField" id="textEdit${index}"></textarea>
-                        <button onclick="saveChanges(${index})">Save</button>  
+                        <textarea class="inputField" id="textEdit${index}"></textarea>
+                        <div class="buttons">
+                            <button class="buttonAbort" onclick="abortButton(${index})">Cancel</button>
+                            <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
+                        </div>    
                     </div>
-                    ${info['text']}    
+                    <div id="detailTask${index}">${info['text']}</div>    
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -96,8 +99,8 @@ function forAssignEmploye(index) {
         staff_name.appendChild(name_as_text);
         let render = document.getElementById(`employeeContainer${index}`);
         render.innerHTML += `
-            <div class="employeeImg popup" id="${emp['name']}" onclick="popupBacklog(${index}, ${j})">
-                <img class="hover" src="${emp['bild-src']}">
+            <div class="employeeImg popup" id="${emp['name']}">
+                <img class="hover" src="${emp['bild-src']}"  onmouseover="popupBacklog(${index}, ${j})" onmouseout="popupbackloghide(${index}, ${j})">
                 <div class="popuptext" id="myPopup${index}, ${j}">
                     ${emp['name']}<br>
                     ${emp['position']}<br>
@@ -115,8 +118,14 @@ function popupBacklog(index, j) {
     popup.classList.toggle("show");
 }
 
+function popupbackloghide(index, j) {
+    let popup = document.getElementById(`myPopup${index}, ${j}`);
+    popup.classList.remove("show");
+}
+
 
 function changeContainer(i) {
+    document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
     document.getElementById('textEdit' + i).innerHTML = currentText;
@@ -127,6 +136,14 @@ async function saveChanges(i) {
     allTasks[i]['text'] = newText;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     document.getElementById('textEditCont' + i).classList.add('d-none');
+    document.getElementById('detailTask' + i).classList.remove('d-none');
+    loadBacklog();
+}
+
+async function abortButton(i) {
+    document.getElementById('detailTask' + i).classList.remove('d-none');
+    document.getElementById('textEditCont' + i).classList.add('d-none');
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
     loadBacklog();
 }
 
@@ -140,5 +157,5 @@ async function pushToBoard(i) {
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     allTasks.splice(i, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    renderBacklogTasks();
+    loadBacklog();
 }

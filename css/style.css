@@ -40,7 +40,6 @@ h1 {
 .popup {
     position: relative;
     display: inline-block;
-    cursor: pointer;
 }
 
 .popup .popuptext {
@@ -53,10 +52,12 @@ h1 {
     padding: 8px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 140%;
     left: 50%;
     margin-left: -80px;
     padding: 3px;
+    box-shadow: 11px 9px 5px 0px grey;
+    border: 1px solid rgb(34, 49, 139);
 }
 
 .popup .popuptext::after {
@@ -72,8 +73,8 @@ h1 {
 
 .popup .show {
     visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
+    -webkit-animation: fadeIn 500ms ease-in-out;
+    animation: fadeIn 500ms ease-in-out;
 }
 
 .widthDadenschutz {
