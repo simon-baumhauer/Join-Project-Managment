@@ -66,7 +66,7 @@ function renderTemplate(info, index) {
                         <textarea name="justtext" class="inputField" id="textEdit${index}"></textarea>
                         <button onclick="saveChanges(${index})">Save</button>  
                     </div>
-                    ${info['text']}    
+                    <div id="detailTask${index}">${info['text']}</div>    
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -117,6 +117,7 @@ function popupBacklog(index, j) {
 
 
 function changeContainer(i) {
+    document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
     document.getElementById('textEdit' + i).innerHTML = currentText;
@@ -127,6 +128,7 @@ async function saveChanges(i) {
     allTasks[i]['text'] = newText;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     document.getElementById('textEditCont' + i).classList.add('d-none');
+    document.getElementById('detailTask' + i).classList.remove('d-none');
     loadBacklog();
 }
 
