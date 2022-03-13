@@ -60,10 +60,8 @@ h1 {
     flex-direction: column;
     text-align: left;
     font-weight: 100;
-    padding-top: 4px;
-    padding-bottom: 4px;
     background-color: beige;
-    padding: 4px;
+    padding: 6px;
     position: relative;
 }
 
@@ -71,10 +69,15 @@ h1 {
     cursor: pointer;
 }
 
+.dateOnTask {
+    font-size: 16px;
+}
+
 .titleTask {
     width: 100%;
-    margin-right: 14px;
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .currentEmployer {
