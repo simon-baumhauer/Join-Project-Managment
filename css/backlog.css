@@ -207,57 +207,45 @@ h3 {
 }
 
 
-
-
 /* Responsive */
 
 @media (max-width: 1450px) {
-
     .detailsTasks {
         max-width: 350px;
     }
-
     .inputField {
         width: 350px;
     }
 }
 
 @media (max-width: 1400px) {
-
     .detailsTasks {
         max-width: 250px;
     }
-
     .inputField {
         width: 250px;
     }
 }
 
 @media (max-width: 1300px) {
-
     .detailsTasks {
         max-width: 150px;
     }
-
     .inputField {
         width: 150px;
     }
 }
 
 @media (max-width: 1200px) {
-
     .responsive {
         display: flex;
     }
-
     .hideCont {
         display: none;
     }
-
     .mainContainer {
         margin-top: 0;
     }
-
     .todoContainer {
         height: fit-content !important;
         min-height: fit-content;
@@ -269,13 +257,11 @@ h3 {
         transition: all 115ms ease-in-out;
         margin-bottom: 0;
     }
-
     .assignedToTasks {
         position: absolute;
         top: 0;
         margin-top: 16px;
     }
-
     .pushToBoard {
         position: absolute;
         top: 0;
@@ -283,7 +269,6 @@ h3 {
         margin-top: 8px;
         margin-right: 8px;
     }
-
     .employeeContainer {
         justify-content: center;
         flex-wrap: wrap;
@@ -291,14 +276,12 @@ h3 {
         width: 100%;
         padding: 20px;
     }
-
     .catogeryTasks {
         position: relative;
         margin-left: 0;
         margin-bottom: 12px;
         top: 0;
     }
-
     .detailsTasks {
         position: relative;
         margin-left: 0;
@@ -310,11 +293,9 @@ h3 {
         max-width: 300px;
         max-height: fit-content;
     }
-
     .inputField {
         width: 300px;
     }
-
     .dueDateTasks {
         position: relative;
         margin-right: 0px;
@@ -322,7 +303,6 @@ h3 {
 }
 
 @media (max-width: 400px) {
-
     .change {
         width: 250px;
     }

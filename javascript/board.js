@@ -28,7 +28,7 @@ function renderBoard() {
     forLoop2(currentInProgress);
     forLoop3(currentTesting);
     forLoop4(currentDone);
-}    
+}
 /**
  * The following functions contain for-loops. These iterate through the boardArray and render the objects (tasks) to the location on the board,
  * contained in the corresponding parameter.
@@ -47,7 +47,8 @@ function forLoop1(currentToDo) {
         }
     }
 }
-function forLoop2(currentInProgress) {   
+
+function forLoop2(currentInProgress) {
     for (let i = 0; i < currentInProgress.length; i++) {
         let element = currentInProgress[i];
         type = 'inProgress';
@@ -59,7 +60,8 @@ function forLoop2(currentInProgress) {
         }
     }
 }
-function forLoop3(currentTesting) {   
+
+function forLoop3(currentTesting) {
     for (let i = 0; i < currentTesting.length; i++) {
         let element = currentTesting[i];
         type = 'testing';
@@ -71,7 +73,8 @@ function forLoop3(currentTesting) {
         }
     }
 }
-function forLoop4(currentDone) {   
+
+function forLoop4(currentDone) {
     for (let i = 0; i < currentDone.length; i++) {
         let element = currentDone[i];
         type = 'done';
@@ -188,7 +191,7 @@ function generateOpenTaskHTML(task) {
  * 
  * @param {number} i - Passes the value the id ('UnixStamp').
  */
- async function deleteTask(i) {
+async function deleteTask(i) {
     let element = boardArray.findIndex(obj => obj.UnixStamp == i);
     boardArray.splice(element, 1);
     await backend.setItem('boardArray', JSON.stringify(boardArray));
