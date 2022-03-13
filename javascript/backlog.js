@@ -64,7 +64,10 @@ function renderTemplate(info, index) {
                 <div class="detailsTasks flipped" onclick="changeContainer(${index})">
                     <div class="d-none change" id="textEditCont${index}">
                         <textarea name="justtext" class="inputField" id="textEdit${index}"></textarea>
-                        <button onclick="saveChanges(${index})">Save</button>  
+                        <div class="buttons">
+                            <button class="buttonAbort" oncklick="abortButton(${index})">Cancel</button>
+                            <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
+                        </div>    
                     </div>
                     <div id="detailTask${index}">${info['text']}</div>    
                 </div>
@@ -132,6 +135,13 @@ async function saveChanges(i) {
     loadBacklog();
 }
 
+function abortButton(i) {
+    document.getElementById('detailTask' + i).classList.remove('d-none');
+    document.getElementById('textEditCont' + i).classList.add('d-none');
+    renderBacklogTasks();
+
+}
+
 /**
  * 
  * @param {Paramter from borrd.js} i 
@@ -142,5 +152,5 @@ async function pushToBoard(i) {
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     allTasks.splice(i, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    renderBacklogTasks();
+    loadBacklog();
 }

@@ -135,7 +135,24 @@ h3 {
 .change {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttonSave {
+    margin-top: 8px;
+    margin-right: 8px;
+    width: 60px;
+}
+
+.buttonAbort {
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 60px;
 }
 
 .inputField {
