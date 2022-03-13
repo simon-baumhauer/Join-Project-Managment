@@ -293,8 +293,13 @@ h3 {
         max-width: 300px;
         max-height: fit-content;
     }
+    .change {
+        width: 250px;
+        height: 180px;
+    }
     .inputField {
         width: 300px;
+        height: 180px;
     }
     .dueDateTasks {
         position: relative;
