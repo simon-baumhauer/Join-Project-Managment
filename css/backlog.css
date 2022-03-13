@@ -80,7 +80,11 @@ h3 {
 
 .todoContainer:hover {
     background-color: #bdbdbd;
+    transition: all 225ms ease-in-out;
 }
+
+
+/* Catogery colors */
 
 .High {
     border: 3px solid rgb(255, 147, 147)!important;
@@ -132,6 +136,11 @@ h3 {
     position: absolute;
     left: 0;
     margin-left: 340px;
+}
+
+.ctg {
+    width: 65%;
+    text-align: center;
 }
 
 .detailsTasks {
@@ -214,7 +223,7 @@ h3 {
     margin-right: 80px;
 }
 
-.closeContainer{
+.closeContainer {
     position: absolute;
     right: 9px;
     top: 3px;
@@ -331,7 +340,6 @@ h3 {
         margin-top: 8px;
         width: 300px;
         height: 180px;
-
     }
     .buttons {
         margin-top: 72px;
