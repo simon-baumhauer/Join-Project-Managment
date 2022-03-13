@@ -69,7 +69,7 @@ function renderTemplate(info, index) {
                             <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
                         </div>    
                     </div>
-                    <div id="detailTask${index}">${info['text']}</div>    
+                    <div class="p-top" id="detailTask${index}">${info['text']}</div>    
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -77,7 +77,9 @@ function renderTemplate(info, index) {
                 <div class="dueDateTasks" onclick="changeDate()">
                     ${info['date']}
                 </div>
-                <div class="closeContainer" onclick="closeContainer(${index})">X</div>
+                <div class="deleteContainer" onclick="deleteContainer(${index})" src="img/x.ico">
+                    Delete
+                </div>
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
             </div>
                 
@@ -89,10 +91,21 @@ function changeDate() {
     alert('change');
 }
 
-function closeContainer(index) {
-    let container = document.getElementById(`todo${index}`);
-    delete container;
+function deleteContainer(index) {
+    allTasks.splice(index, 1);
+    renderBacklogTasks();
 }
+
+
+// async function deleteTask(i) {
+//    let element = boardArray.findIndex(obj => obj.UnixStamp == i);
+//    boardArray.splice(element, 1);
+//    await backend.setItem('boardArray', JSON.stringify(boardArray));
+//    document.getElementById('overlayBg').classList.add('d-none');
+//    document.getElementById('openTask').classList.add('d-none');
+//    loadBoard();
+
+// }
 
 
 /**
@@ -119,6 +132,7 @@ function forAssignEmploye(index) {
                 </div>
             </div>    
         `;
+
     }
 }
 
@@ -186,3 +200,13 @@ async function pushToBoard(i) {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     loadBacklog();
 }
+
+/* function detailsCenter(pax, index) {
+    if (pax.length <= 3) {
+        document.getElementById(`scrollbar${index}`).classList.add('d-none');
+
+
+        console.log(allTasks[index]['assignEmployee'].length);
+    }
+
+} */
