@@ -12,7 +12,7 @@ async function loadBacklog() {
 }
 
 /**
- * This function render the Code to HTML
+ * This function loops trough the allTask arrary and renders the information to the backlog.html
  */
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
@@ -75,14 +75,26 @@ function renderTemplate(info, index) {
                 <div class="responsive fontS20">
                     <b>Due Date</b>
                 </div>
-                <div class="dueDateTasks">
+                <div class="dueDateTasks" onclick="changeDate()">
                     ${info['date']}
                 </div>
+                <div class="closeContainer" onclick="closeContainer(${index})">X</div>
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
             </div>
                 
         `;
 }
+
+
+function changeDate() {
+    alert('change');
+}
+
+function closeContainer(index) {
+    let container = document.getElementById(`todo${index}`);
+    delete container;
+}
+
 
 /**
  * 
