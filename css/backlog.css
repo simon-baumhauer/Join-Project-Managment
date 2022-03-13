@@ -80,7 +80,11 @@ h3 {
 
 .todoContainer:hover {
     background-color: #bdbdbd;
+    transition: all 225ms ease-in-out;
 }
+
+
+/* Catogery colors */
 
 .High {
     border: 3px solid rgb(255, 147, 147)!important;
@@ -132,6 +136,11 @@ h3 {
     position: absolute;
     left: 0;
     margin-left: 310px;
+}
+
+.ctg {
+    width: 65%;
+    text-align: center;
 }
 
 .detailsTasks {
@@ -210,6 +219,14 @@ h3 {
     position: absolute;
     right: 0;
     margin-right: 80px;
+}
+
+.closeContainer {
+    position: absolute;
+    right: 9px;
+    top: 3px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .pushToBoard {
@@ -332,7 +349,12 @@ h3 {
     .inputField {
         top: 0;
         margin-top: 8px;
+<<<<<<< HEAD
      
+=======
+        width: 300px;
+        height: 180px;
+>>>>>>> b0cc7467ba213dcce9304e494cdd0f6ab4963206
     }
 
     .buttons {

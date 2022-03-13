@@ -12,7 +12,7 @@ async function loadBacklog() {
 }
 
 /**
- * This function render the Code to HTML
+ * This function loops trough the allTask arrary and renders the information to the backlog.html
  */
 function renderBacklogTasks() {
     let backlogContainer = document.getElementById('backlog_container');
@@ -24,7 +24,6 @@ function renderBacklogTasks() {
             let info = allTasks[index];
             backlogContainer.innerHTML += renderTemplate(info, index);
             forAssignEmploye(index);
-            console.log(info['urgency'])
         }
     }
 }
@@ -42,9 +41,9 @@ function noTasks() {
 
 /**
  * 
- * @param {THis paramter show direct the from the Array to number with person Details } info 
- * @param {This paramter gives each employee its own number so that the funtion scope is only for the seleted employee} index 
- * @returns   The function creates a HTML element for the selected Employee and pushes is value in an array so that in can be accsessed from the backend.
+ * @param {Object[] } info -This paramter gives each employee its own number so that the funtion scope is only for the the seletected employee
+ * @param {number} index -This parameter passes the position of the object in the boardArray.
+ * @returns   The function creates a HTML element from the backend data from the selected Employee that were pushed from Addtask to Backend.
  */
 function renderTemplate(info, index) {
     return `
@@ -57,7 +56,7 @@ function renderTemplate(info, index) {
                     <b>CATEGORY</b>
                 </div>
                 <div class="catogeryTasks">
-                    <h3>${info['catergory']}</h3>
+                    <h3 class="ctg">${info['catergory']}</h3>
                 </div>
                 <div class="responsive fontS20">
                     <b>DETAILS</b>
@@ -75,19 +74,30 @@ function renderTemplate(info, index) {
                 <div class="responsive fontS20">
                     <b>Due Date</b>
                 </div>
-                <div class="dueDateTasks">
+                <div class="dueDateTasks" onclick="changeDate()">
                     ${info['date']}
                 </div>
+                <div class="closeContainer" onclick="closeContainer(${index})">X</div>
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
             </div>
                 
         `;
 }
 
+
+function changeDate() {
+    alert('change');
+}
+
+function closeContainer(index) {
+    let container = document.getElementById(`todo${index}`);
+    delete container;
+}
+
+
 /**
  * 
- * @param {This paramter gives each employee its own number so that the funtion scope is only for the the seletected employee} index 
-    this is a for loop for assigningEmployees and this function renders the images and details from assignEmployee array
+ * @param {number} index 
  * 
  */
 function forAssignEmploye(index) {
@@ -112,28 +122,38 @@ function forAssignEmploye(index) {
     }
 }
 
-
-// When the user hovers on image of employe popup(number), it opens the popup
+/**
+ * 
+ * @param {number} index -This parameter passes the position of the object in the boardArray.
+ * @param {Object[]} j - This parameter passes the position of the assignEmployee Arrray
+ * @returns - When the user hovers on image of employe popup(number), it opens the popup
+ */
 function popupBacklog(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.toggle("show");
 }
-// When the user hovers out from image from employe popup(number), it clos the popup
+/**
+ *@returns When the user hovers out from image from employe popup(number), it close the popup
+ */
 
 function popupbackloghide(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.remove("show");
 }
-
-// When user click on details text, container will changed to text area and filled details as value
+/**
+ * @returns When user click on details text, container will changed to text area and filled details as value
+ */
 function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
-
-// When user click on save, container will changed to div container like as useall and will save new text or details to backend
+/**
+ * 
+ * @returns When user click on save, container will changed to div container like as useall and will save new text or details to backend
+ */
+// 
 
 async function saveChanges(i) {
     let newText = document.getElementById('textEdit' + i).value;
@@ -143,7 +163,10 @@ async function saveChanges(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     loadBacklog();
 }
-// if useer don't want to change anything
+/**
+ * 
+ * @returns if useer don't want to change anything
+ */
 async function abortButton(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     document.getElementById('textEditCont' + i).classList.add('d-none');
