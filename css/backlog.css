@@ -5,6 +5,7 @@ body {
 
 h3 {
     margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .d-none {
@@ -284,13 +285,13 @@ h3 {
     .catogeryTasks {
         position: relative;
         margin-left: 0;
-        margin-bottom: 12px;
+        margin-bottom: 32px;
         top: 0;
     }
     .detailsTasks {
         position: relative;
         margin-left: 0;
-        margin-bottom: 16px;
+        margin-bottom: 32px;
         margin-right: 0px;
         text-align: center;
         align-items: center;
