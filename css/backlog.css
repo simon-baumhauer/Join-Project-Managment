@@ -132,6 +132,7 @@ h3 {
     max-width: 400px;
     max-height: 120px;
     overflow-y: auto;
+    word-break: break-all;
 }
 
 .detailsTasks:hover {
@@ -310,7 +311,7 @@ h3 {
         margin-top: 8px;
         width: 300px;
         height: 180px;
-        border-radius: 8px !important;
+
     }
     .buttons {
         margin-top: 72px;
