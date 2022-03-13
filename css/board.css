@@ -195,6 +195,45 @@ h1 {
     }
 }
 
+.exit-ani-o-t {
+    animation: exit 400ms ease-in-out;
+}
+
+@keyframes exit {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.exit-openTask {
+    animation: exitUp 500ms ease-in-out;
+}
+
+@keyframes exitUp {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.50;
+    }
+    75% {
+        opacity: 0.25;
+    }
+    100% {
+        margin-top: -200px;
+        opacity: 0;
+    }
+}
+
 .headerOpenTask {
     display: flex;
     justify-content: space-between;
