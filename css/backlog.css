@@ -142,8 +142,7 @@ h3 {
 .inputField {
     position: absolute;
     left: 0;
-    top: 0;
-    margin-top: auto;
+    top: -55px;
     height: 80px;
     width: 400px;
     text-align: left;
@@ -154,6 +153,8 @@ h3 {
 }
 
 .buttons {
+    position: absolute;
+    left: 0;
     display: flex;
     margin-top: 84px;
 }
@@ -163,7 +164,7 @@ h3 {
     margin-right: 8px;
     width: 60px;
     border: 0px solid;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .buttonSave:hover {
@@ -175,7 +176,7 @@ h3 {
     margin-left: 8px;
     width: 60px;
     border: 0px solid;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .buttonAbort:hover {
@@ -308,6 +309,10 @@ h3 {
         overflow: hidden;
         max-width: 300px;
         max-height: fit-content;
+    }
+
+    .inputField {
+        width: 300px;
     }
 
     .dueDateTasks {
