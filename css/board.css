@@ -17,7 +17,7 @@ h1 {
 .contentCont {
     width: calc(100% - 250px);
     min-width: 100%;
-    height: 100vh;
+
 }
 
 .content {
@@ -235,9 +235,6 @@ h1 {
     .contentCont {
         width: calc(100% - 200px);
         min-width: 100%;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
     }    
 }
 
@@ -258,21 +255,18 @@ h1 {
     }
 }
 
-@media(max-width: 560px) {
+@media(max-width: 620px) {
 
     .contentCont {
         margin-top: 60px;
     }
 
     .content {
-        /* height: calc(100vh - 140px);
-        max-height: 100%; */
-        /* margin-top: 16px; */
         flex-wrap: wrap;
     }
 
     .boards {
-        margin-top: 8px !important;
+        margin-top: 16px !important;
         width: 40vw;
         margin-top: 0;
     }
@@ -303,7 +297,7 @@ h1 {
     }
 
     .column {
-        margin-top: 8px;
+        margin-top: 16px;
     }
 
     .footerTask {
@@ -312,6 +306,18 @@ h1 {
 
     .currentEmployer2 {
         margin-top: 8px;
+    }
+
+}
+
+@media(max-width: 400px) {
+
+    .boards {
+        width: 90%;
+    }
+
+    .board {
+        height: 80vh;
     }
 
 }
