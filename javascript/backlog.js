@@ -69,7 +69,7 @@ function renderTemplate(info, index) {
                             <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
                         </div>    
                     </div>
-                    <div id="detailTask${index}">${info['text']}</div>    
+                    <div class="p-top" id="detailTask${index}">${info['text']}</div>    
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -132,6 +132,7 @@ function forAssignEmploye(index) {
                 </div>
             </div>    
         `;
+
     }
 }
 
@@ -199,3 +200,13 @@ async function pushToBoard(i) {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     loadBacklog();
 }
+
+/* function detailsCenter(pax, index) {
+    if (pax.length <= 3) {
+        document.getElementById(`scrollbar${index}`).classList.add('d-none');
+
+
+        console.log(allTasks[index]['assignEmployee'].length);
+    }
+
+} */

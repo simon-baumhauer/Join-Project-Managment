@@ -133,8 +133,8 @@ function openTask(i, type) {
     for (let j = 0; j < employees.length; j++) {
         let employee = employees[j];
         document.getElementById('currentemployee2').innerHTML += `
-        <div class="popup" onclick="popup(${j})">
-        <img class="profileImg" src="${employee['bild-src']}">
+        <div class="popup">
+        <img class="profileImg hover" src="${employee['bild-src']}"  onmouseover="popup(${j})" onmouseout="popup(${j})">
          <div class="popuptext" id="myPopup${j}">
             ${employee['name']}<br>
             ${employee['position']}<br>
