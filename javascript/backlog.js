@@ -24,7 +24,6 @@ function renderBacklogTasks() {
             let info = allTasks[index];
             backlogContainer.innerHTML += renderTemplate(info, index);
             forAssignEmploye(index);
-            console.log(info['urgency'])
         }
     }
 }
