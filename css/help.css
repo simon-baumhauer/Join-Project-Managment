@@ -1,0 +1,70 @@
+.help h1 {
+    font-size: 2.3em;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.High {
+    background-color: rgb(255, 147, 147);
+    transition: all 225ms ease-in-out;
+    cursor: pointer;
+    padding: 0px 2px 0px 4px;
+}
+
+.Intermediate {
+    background-color: rgb(255 231 97 / 84%);
+    transition: all 225ms ease-in-out;
+    cursor: pointer;
+    padding: 0px 2px 0px 4px;
+}
+
+.Low {
+    background-color: rgba(65, 170, 30, 0.5);
+    transition: all 225ms ease-in-out;
+    cursor: pointer;
+    padding: 0px 2px 0px 4px;
+}
+
+
+/* Border */
+
+.HighB {
+    border: 3px solid rgb(255, 147, 147)!important;
+}
+
+.IntermediateB {
+    border: 3px solid rgb(255 231 97 / 84%) !important;
+}
+
+.LowB {
+    border: 3px solid rgba(65, 170, 30, 0.5)!important;
+}
+
+
+/* on Hover */
+
+.High:hover {
+    background-color: rgb(246 87 87);
+    transition: all 225ms ease-in-out;
+}
+
+.Intermediate:hover {
+    background-color: rgb(248 221 67);
+    transition: all 225ms ease-in-out;
+}
+
+.Low:hover {
+    background-color: rgb(50 202 0 / 80%);
+    transition: all 225ms ease-in-out;
+}

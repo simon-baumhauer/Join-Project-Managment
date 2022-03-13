@@ -82,6 +82,18 @@ h3 {
     background-color: #bdbdbd;
 }
 
+.High {
+    border: 3px solid rgb(255, 147, 147)!important;
+}
+
+.Intermediate {
+    border: 3px solid rgb(255 231 97 / 84%) !important;
+}
+
+.Low {
+    border: 3px solid rgba(65, 170, 30, 0.5)!important;
+}
+
 .employeeContainer {
     display: flex;
     max-width: 300px;
@@ -132,6 +144,7 @@ h3 {
     max-width: 400px;
     max-height: 120px;
     overflow-y: auto;
+    word-break: break-all;
 }
 
 .detailsTasks:hover {
@@ -318,7 +331,7 @@ h3 {
         margin-top: 8px;
         width: 300px;
         height: 180px;
-        border-radius: 8px !important;
+
     }
     .buttons {
         margin-top: 72px;
