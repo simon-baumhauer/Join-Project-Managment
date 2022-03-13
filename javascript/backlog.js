@@ -119,11 +119,11 @@ function renderTemplate(info, index) {
                     <b>DETAILS</b>
                 </div>
                 <div class="detailsTasks flipped" onclick="changeContainer(${index})">
-                    ${info['text']}
-                    <div class="d-none" id="textEditCont${index}">
-                        <textarea class="inputField" id="textEdit${index}"></textarea>
+                    <div class="d-none change" id="textEditCont${index}">
+                        <textarea name="justtext" class="inputField" id="textEdit${index}"></textarea>
                         <button onclick="saveChanges(${index})">Save</button>  
-                    </div>    
+                    </div>
+                    ${info['text']}    
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -137,10 +137,18 @@ function renderTemplate(info, index) {
         `;
 }
 
-function changeContainer(index) {
-    document.getElementById('textEditCont' + index).classList.remove('d-none');
-    let currentText = allTasks[index]['text'];
-    document.getElementById('textEdit'+ index).innerHTML = currentText;
+function changeContainer(i) {
+    document.getElementById('textEditCont' + i).classList.remove('d-none');
+    let currentText = allTasks[i]['text'];
+    document.getElementById('textEdit'+ i).innerHTML = currentText;
+}
+
+async function saveChanges(i) {
+    let newText = document.getElementById('textEdit' + i).value;
+    allTasks[i]['text'] = newText;
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    document.getElementById('textEditCont' + i).classList.add('d-none');
+    loadBacklog();
 }
 
 
