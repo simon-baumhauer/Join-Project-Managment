@@ -135,10 +135,11 @@ h3 {
 .change {
     display: flex;
     flex-direction: column;
+    justify-content: left;
 }
 
 .inputField {
-    width: 240px;
+    width: 100%;
     height: 80px;
     text-align: left;
 }
