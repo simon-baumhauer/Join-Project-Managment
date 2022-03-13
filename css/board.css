@@ -329,6 +329,9 @@ h1 {
     .board {
         height: 70vh;
     }
+    .m-top {
+        margin-top: 24px !important;
+    }
 }
 
 @media(max-width: 620px) {
