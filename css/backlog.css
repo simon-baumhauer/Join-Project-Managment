@@ -129,6 +129,7 @@ h3 {
     align-items: center;
     max-width: 400px;
     max-height: 120px;
+    overflow-y: auto;
 }
 
 .detailsTasks:hover {
@@ -147,7 +148,7 @@ h3 {
     position: absolute;
     left: 0;
     top: -55px;
-    height: 80px;
+    max-height: 80px;
     width: 400px;
     text-align: left;
     border: 0px solid;
@@ -298,12 +299,19 @@ h3 {
         max-height: fit-content;
     }
     .change {
-        width: 250px;
+        width: 300px;
         height: 180px;
     }
     .inputField {
         width: 300px;
         height: 180px;
+        border-radius: 8px !important;
+    }
+
+    .buttons {
+        margin-top: 100px;
+        left: auto;
+        right: auto;
     }
     .dueDateTasks {
         position: relative;

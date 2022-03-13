@@ -63,7 +63,7 @@ function renderTemplate(info, index) {
                 </div>
                 <div class="detailsTasks flipped" onclick="changeContainer(${index})">
                     <div class="d-none change" id="textEditCont${index}">
-                        <textarea name="justtext" class="inputField" id="textEdit${index}"></textarea>
+                        <textarea class="inputField" id="textEdit${index}"></textarea>
                         <div class="buttons">
                             <button class="buttonAbort" onclick="abortButton(${index})">Cancel</button>
                             <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
