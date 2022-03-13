@@ -65,7 +65,17 @@ async function createTask() {
         'inArray': 'toDo'
     }
     if (assignedEmployees.length == 0) {
-        alert('Please add employee')
+        alert('Please add employee!')
+    } else if (text.value == '') {
+        alert('Please enter a description!')
+    }else if (title.value == '') {
+        alert('Please enter a title!')
+    }else if (catergory.value == '') {
+        alert('Please enter a catergory!')
+    }else if (urgency.value == '') {
+        alert('Please enter a state of urgency!')
+    }else if (date.value == '') {
+        alert('Please enter a Date!')
     } else {
         allTasks.push(task);
         await backend.setItem('allTasks', JSON.stringify(allTasks));
