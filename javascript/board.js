@@ -153,7 +153,7 @@ function openTask(i, type) {
  */
 function generateOpenTaskHTML(task) {
     return `
-        <div class="openTask" id="openTask">
+        <div class="openTask" id="openTask1">
             <div class="headerOpenTask">
                 <div class="column">
                     Due Date: 
@@ -198,6 +198,7 @@ async function deleteTask(i) {
     await backend.setItem('boardArray', JSON.stringify(boardArray));
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
+    document.getElementById('openTask').classList.remove('exit-ani');
     loadBoard();
 }
 
@@ -243,16 +244,29 @@ function pushToOtherBoard(i) {
     }
     document.getElementById('overlayBg').classList.add('d-none');
     document.getElementById('openTask').classList.add('d-none');
+    document.getElementById('openTask').classList.remove('exit-ani');
+
     save();
 }
 
 /**
- * This function close the opened task (overlay).
+ * This function close the opened task (overlay). with animation
  * 
  */
 function backToBoard() {
-    document.getElementById('overlayBg').classList.add('d-none');
-    document.getElementById('openTask').classList.add('d-none');
+    document.getElementById('overlayBg').classList.add('exit-ani-o-t');
+    document.getElementById('openTask1').classList.add('exit-openTask');
+    setTimeout(() => {
+        document.getElementById('overlayBg').classList.add('d-none');
+        document.getElementById('openTask1').classList.add('d-none');
+        document.getElementById('openTask').classList.add('d-none');
+
+    }, 300);
+    setTimeout(() => {
+        document.getElementById('openTask1').classList.remove('exit-openTask');
+        document.getElementById('overlayBg').classList.remove('exit-ani-o-t');
+    }, 300);
+
 }
 
 /**

@@ -50,7 +50,7 @@ h3 {
 .detailsMain {
     position: absolute;
     left: 0;
-    margin-left: 520px;
+    margin-left: 500px;
 }
 
 .dueDateMain {
@@ -140,13 +140,13 @@ h3 {
 
 .ctg {
     width: 65%;
-    text-align: center;
+    text-align: left;
 }
 
 .detailsTasks {
     position: absolute;
     left: 0;
-    margin-left: 510px;
+    margin-left: 490px;
     padding-left: 8px;
     text-align: left;
     align-items: center;
