@@ -203,7 +203,7 @@ function phoneSize() {
 /**
  * in small screen-size push to the next board.
  * 
- * @param {parameter} i - passes the value (UnixStamp).
+ * @param {number} i - passes the value (UnixStamp).
  */
 function pushToOtherBoard(i) {
     let tasks = boardArray.find(t => t['UnixStamp'] == i);
@@ -244,7 +244,7 @@ function startDragging(i) {
 /**
  * this function allows that div-container to drop something.
  * 
- * @param {parameter} ev - Dieser Parameter enthält den wert des jeweiligen div-Conatainers.
+ * @param {objekt} ev - Dieser Parameter enthält ein Event mit dem Wert des jeweiligen div-Conatainers.
  */
 function allowDrop(ev) {
     ev.preventDefault();
@@ -253,7 +253,7 @@ function allowDrop(ev) {
 /**
  * this function starts when you drop a task on the html and save in backend
  * 
- * @param {parameter} i - passes the value the id (UnixStamp).
+ * @param {number} i - passes the value the id (UnixStamp).
  */
 function moveTo(i) {
     let task = boardArray.find(t => t.UnixStamp === currenDraggedElement);
@@ -273,7 +273,7 @@ async function save() {
 /**
  * delete current Task finally in the backend.
  * 
- * @param {parameter} i - passes the value the id (UnixStamp).
+ * @param {number} i - passes the value the id (UnixStamp).
  */
 async function deleteTask(i) {
     let element = boardArray.findIndex(obj => obj.UnixStamp == i);

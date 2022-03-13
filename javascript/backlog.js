@@ -113,13 +113,17 @@ function renderTemplate(info, index) {
                     <b>CATEGORY</b>
                 </div>
                 <div class="catogeryTasks">
-                    <h3 >${info['catergory']}</h3>
+                    <h3>${info['catergory']}</h3>
                 </div>
                 <div class="responsive fontS20">
                     <b>DETAILS</b>
                 </div>
-                <div class="detailsTasks flipped" onclick="changeContainer(${info})">
-                    ${info['text']}  
+                <div class="detailsTasks flipped" onclick="changeContainer(${index})">
+                    ${info['text']}
+                    <div class="d-none" id="textEditCont${index}">
+                        <textarea class="inputField" id="textEdit${index}"></textarea>
+                        <button onclick="saveChanges(${index})">Save</button>  
+                    </div>    
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -133,8 +137,10 @@ function renderTemplate(info, index) {
         `;
 }
 
-function changeContainer(i) {
-    document.getElementById(`changeContainer${i}`).classList.remove('d-none');
+function changeContainer(index) {
+    document.getElementById('textEditCont' + index).classList.remove('d-none');
+    let currentText = allTasks[index]['text'];
+    document.getElementById('textEdit'+ index).innerHTML = currentText;
 }
 
 
