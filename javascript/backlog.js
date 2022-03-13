@@ -24,6 +24,7 @@ function renderBacklogTasks() {
             let info = allTasks[index];
             backlogContainer.innerHTML += renderTemplate(info, index);
             forAssignEmploye(index);
+            console.log(info['urgency'])
         }
     }
 }
@@ -47,7 +48,7 @@ function noTasks() {
  */
 function renderTemplate(info, index) {
     return `
-            <div class="todoContainer" id="todo${index}">
+            <div class="todoContainer ${info['urgency']}" id="todo${index}">
                 <div class="responsive assignedToTasks fontS20">
                     <b>ASSIGNED TO</b>
                 </div>
@@ -112,24 +113,27 @@ function forAssignEmploye(index) {
 }
 
 
-// When the user clicks on Id popup(number), it opens the popup
+// When the user hovers on image of employe popup(number), it opens the popup
 function popupBacklog(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.toggle("show");
 }
+// When the user hovers out from image from employe popup(number), it clos the popup
 
 function popupbackloghide(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.remove("show");
 }
 
-
+// When user click on details text, container will changed to text area and filled details as value
 function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
+
+// When user click on save, container will changed to div container like as useall and will save new text or details to backend
 
 async function saveChanges(i) {
     let newText = document.getElementById('textEdit' + i).value;
@@ -139,7 +143,7 @@ async function saveChanges(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     loadBacklog();
 }
-
+// if useer don't want to change anything
 async function abortButton(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     document.getElementById('textEditCont' + i).classList.add('d-none');

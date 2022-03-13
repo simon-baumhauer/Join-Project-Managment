@@ -98,14 +98,35 @@ h1 {
 
 .High {
     background-color: rgb(255, 147, 147);
+    transition: all 225ms ease-in-out;
 }
 
 .Intermediate {
-    background-color: rgb(255, 255, 100);
+    background-color: rgb(255 231 97 / 84%);
+    transition: all 225ms ease-in-out;
 }
 
 .Low {
-    background-color: rgb(168, 255, 168);
+    background-color: rgba(65, 170, 30, 0.5);
+    transition: all 225ms ease-in-out;
+}
+
+
+/* on Hover */
+
+.High:hover {
+    background-color: rgb(246 87 87);
+    transition: all 225ms ease-in-out;
+}
+
+.Intermediate:hover {
+    background-color: rgb(248 221 67);
+    transition: all 225ms ease-in-out;
+}
+
+.Low:hover {
+    background-color: rgb(50 202 0 / 80%);
+    transition: all 225ms ease-in-out;
 }
 
 

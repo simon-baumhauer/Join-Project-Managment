@@ -82,6 +82,18 @@ h3 {
     background-color: #bdbdbd;
 }
 
+.High {
+    border: 3px solid rgb(255, 147, 147)!important;
+}
+
+.Intermediate {
+    border: 3px solid rgb(255 231 97 / 84%) !important;
+}
+
+.Low {
+    border: 3px solid rgba(65, 170, 30, 0.5)!important;
+}
+
 .employeeContainer {
     display: flex;
     max-width: 300px;
