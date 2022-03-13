@@ -58,6 +58,8 @@ h1 {
     left: 50%;
     margin-left: -80px;
     padding: 3px;
+    box-shadow: 11px 9px 5px 0px grey;
+    border: 1px solid rgb(34, 49, 139);
 }
 
 .popup .popuptext::after {
@@ -74,7 +76,7 @@ h1 {
 .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
+    animation: fadeIn 500ms;
 }
 
 .widthDadenschutz {

@@ -99,8 +99,8 @@ function forAssignEmploye(index) {
         staff_name.appendChild(name_as_text);
         let render = document.getElementById(`employeeContainer${index}`);
         render.innerHTML += `
-            <div class="employeeImg popup" id="${emp['name']}" onclick="popupBacklog(${index}, ${j})">
-                <img class="hover" src="${emp['bild-src']}">
+            <div class="employeeImg popup" id="${emp['name']}">
+                <img class="hover" src="${emp['bild-src']}"  onmouseover="popupBacklog(${index}, ${j})" onmouseout="popupbackloghide(${index}, ${j})">
                 <div class="popuptext" id="myPopup${index}, ${j}">
                     ${emp['name']}<br>
                     ${emp['position']}<br>
@@ -116,6 +116,11 @@ function forAssignEmploye(index) {
 function popupBacklog(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.toggle("show");
+}
+
+function popupbackloghide(index, j) {
+    let popup = document.getElementById(`myPopup${index}, ${j}`);
+    popup.classList.remove("show");
 }
 
 
