@@ -4,7 +4,7 @@ let date = new Date();
 let currentHours = date.getHours();
 let currenMinutes = date.getMinutes();
 currentHours = ("0" + currentHours).slice(-2);
-let today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' || ' + currentHours + ':' + date.getMinutes();
+let today =  date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' || ' + currentHours + ':' + date.getMinutes();
 let EmployeesArray = [{
     'bild-src': 'img/office_worker_1.jpg',
     'e-mail': 'simon.baumhauer@hotmail.de',
