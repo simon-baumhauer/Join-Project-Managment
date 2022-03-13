@@ -75,8 +75,8 @@ h1 {
 
 .popup .show {
     visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 500ms;
+    -webkit-animation: fadeIn 500ms ease-in-out;
+    animation: fadeIn 500ms ease-in-out;
 }
 
 .widthDadenschutz {
