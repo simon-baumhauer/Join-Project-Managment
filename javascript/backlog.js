@@ -65,7 +65,7 @@ function renderTemplate(info, index) {
                     <div class="d-none change" id="textEditCont${index}">
                         <textarea name="justtext" class="inputField" id="textEdit${index}"></textarea>
                         <div class="buttons">
-                            <button class="buttonAbort" oncklick="abortButton(${index})">Cancel</button>
+                            <button class="buttonAbort" onclick="abortButton(${index})">Cancel</button>
                             <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
                         </div>    
                     </div>
@@ -135,11 +135,11 @@ async function saveChanges(i) {
     loadBacklog();
 }
 
-function abortButton(i) {
+async function abortButton(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     document.getElementById('textEditCont' + i).classList.add('d-none');
-    renderBacklogTasks();
-
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    loadBacklog();
 }
 
 /**
