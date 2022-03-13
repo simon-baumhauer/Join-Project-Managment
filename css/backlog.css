@@ -299,16 +299,19 @@ h3 {
         max-height: fit-content;
     }
     .change {
+        margin-top: 8px;
         width: 300px;
-        height: 180px;
+        height: 120px;
     }
     .inputField {
+        top: 0;
+        margin-top: 8px;
         width: 300px;
         height: 180px;
         border-radius: 8px !important;
     }
     .buttons {
-        margin-top: 100px;
+        margin-top: 72px;
         left: auto;
         right: auto;
     }
