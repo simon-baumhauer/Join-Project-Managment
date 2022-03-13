@@ -24,7 +24,7 @@ h3 {
     font-size: 20px;
 }
 
-.flipped{
+.flipped {
     direction: rtl;
 }
 
@@ -123,7 +123,6 @@ h3 {
     padding-left: 8px;
     text-align: left;
     align-items: center;
-    overflow-y: auto;
     max-width: 400px;
     max-height: 120px;
 }
@@ -137,26 +136,53 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 300px;
+}
+
+.inputField {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: auto;
+    height: 80px;
+    width: 400px;
+    text-align: left;
+    border: 0px solid;
+    border-radius: 8px;
+    resize: none;
+    overflow-y: auto;
 }
 
 .buttons {
     display: flex;
+    margin-top: 84px;
 }
 
 .buttonSave {
     margin-top: 8px;
     margin-right: 8px;
     width: 60px;
+    border: 0px solid;
+    border-radius: 8px;
+}
+
+.buttonSave:hover {
+    cursor: pointer;
 }
 
 .buttonAbort {
     margin-top: 8px;
     margin-left: 8px;
     width: 60px;
+    border: 0px solid;
+    border-radius: 8px;
+}
+
+.buttonAbort:hover {
+    cursor: pointer;
 }
 
 .inputField {
-    width: 100%;
     height: 80px;
     text-align: left;
 }
@@ -184,28 +210,40 @@ h3 {
 
 /* Responsive */
 
-@media (max-width:1450px) {
+@media (max-width: 1450px) {
 
     .detailsTasks {
         max-width: 350px;
     }
+
+    .inputField {
+        width: 350px;
+    }
 }
 
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
 
     .detailsTasks {
         max-width: 250px;
     }
+
+    .inputField {
+        width: 250px;
+    }
 }
 
-@media (max-width:1300px) {
+@media (max-width: 1300px) {
 
     .detailsTasks {
         max-width: 150px;
     }
+
+    .inputField {
+        width: 150px;
+    }
 }
 
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
 
     .responsive {
         display: flex;
@@ -275,5 +313,12 @@ h3 {
     .dueDateTasks {
         position: relative;
         margin-right: 0px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .change {
+        width: 250px;
     }
 }
