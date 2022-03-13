@@ -101,11 +101,11 @@ h1 {
 }
 
 .Intermediate {
-    background-color: rgb(255, 255, 100);
+    background-color: rgb(255 231 97 / 84%);
 }
 
 .Low {
-    background-color: rgb(168, 255, 168);
+    background-color: rgba(65, 170, 30, 0.5);
 }
 
 
