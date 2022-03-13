@@ -103,10 +103,14 @@ h3 {
     margin-left: 20px;
 }
 
-.hover:hover {
-    transform: scaleY(1.1) scaleX(1.11);
+.hover {
     transition: all 225ms ease-in-out;
-    box-shadow: 0px 0px 20px 0px #373737;
+}
+
+.hover:hover {
+    transform: translateY(-15px) scaleY(1.2) scaleX(1.2);
+    transition: all 200ms ease-in-out;
+    box-shadow: 1px 18px 7px 0px grey;
     ;
 }
 
