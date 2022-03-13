@@ -312,13 +312,20 @@ h3 {
     }
 
     .change {
-        width: 250px;
+        width: 300px;
         height: 180px;
     }
 
     .inputField {
         width: 300px;
         height: 180px;
+        border-radius: 8px !important;
+    }
+
+    .buttons {
+        margin-top: 100px;
+        left: auto;
+        right: auto;
     }
 
     .dueDateTasks {
