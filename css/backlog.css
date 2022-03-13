@@ -277,7 +277,7 @@ h3 {
     .employeeContainer {
         justify-content: center;
         flex-wrap: wrap;
-        overflow: hidden;
+        overflow: visible;
         width: 100%;
         padding: 20px;
     }
@@ -307,7 +307,6 @@ h3 {
         height: 180px;
         border-radius: 8px !important;
     }
-
     .buttons {
         margin-top: 100px;
         left: auto;
