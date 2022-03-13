@@ -250,6 +250,7 @@ h1 {
 
 .closeTask {
     padding: 6px;
+    margin-right: 3px;
     font-size: 12px;
     text-align: center;
 }
