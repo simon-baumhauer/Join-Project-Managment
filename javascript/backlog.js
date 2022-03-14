@@ -95,12 +95,14 @@ function renderTemplate(info, index) {
             <div id="overlay" class="d-none"></div>
         `;
 }
-/**
- * 
- * @param {number} index This parameter selects the object through an onlcick fuction an deletes it out of the array and then loads the array again.
- *  
- */
-async function deleteContainer(index) {
+
+
+function changeDate() {
+    alert('change');
+    console.log('reco')
+}
+
+ async function deleteContainer(index) {
     allTasks.splice(index, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderBacklogTasks();
