@@ -160,9 +160,11 @@ function popupbackloghide(index, j) {
 function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
-    let currentText = allTasks[i]['text'];
-    document.getElementById('textEdit' + i).innerHTML = currentText;
+    let txtArea = document.getElementById('textEdit' + i);
+    txtArea.value +=  text + '\r\n';
+    txtArea.innerHTML = txtArea;
 }
+
 /**
  * 
  * @returns When user click on save, container will changed to div container like as useall and will save new text or details to backend
@@ -177,6 +179,7 @@ async function saveChanges(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     loadBacklog();
 }
+
 /**
  * 
  * @returns if useer don't want to change anything
