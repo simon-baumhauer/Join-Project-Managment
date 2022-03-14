@@ -68,3 +68,23 @@
     background-color: rgb(50 202 0 / 80%);
     transition: all 225ms ease-in-out;
 }
+
+@media(max-width:800px) {
+    .m-left-50 {
+        margin-left: 15px !important;
+        margin-right: 15px;
+    }
+    ul {
+        padding: 015px
+    }
+    ol {
+        padding: 0 17px 0 5px;
+    }
+}
+
+@media(max-width: 650px) {
+    .d-flex {
+        flex-direction: column;
+        align-items: start;
+    }
+}
