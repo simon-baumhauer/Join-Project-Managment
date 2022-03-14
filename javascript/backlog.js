@@ -106,7 +106,7 @@ function changeDate() {
     allTasks.splice(index, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderBacklogTasks();
-}
+}git 
 /**
  * 
  * @param {number} index 
