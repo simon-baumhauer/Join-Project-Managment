@@ -69,7 +69,8 @@ function renderTemplate(info, index) {
                             <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
                         </div>    
                     </div>
-                    <div class="p-top" id="detailTask${index}">${info['text']}</div>    
+                    <div class="p-top" id="detailTask${index}">${info['text']}</div> 
+                    <img class="edit-img" src="img/edit.png">   
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -81,7 +82,7 @@ function renderTemplate(info, index) {
                     Edit employees
                 </div>
                 <div class="deleteContainer" onclick="deleteContainer(${index})">
-                    Delete
+                <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
                 </div>
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
 
@@ -152,13 +153,13 @@ function forAssignEmployee(index) {
 
 
 function editAssignedEmployees(index) {
-        let render = document.getElementById(`employeeContainer${index}`);
-        render.innerHTML = '';
-        let modal_body = document.getElementById('modalBodyBacklog');
-        modal_body.innerHTML = '';
-        for (let i = 0; i < EmployeesArray.length; i++) {
-            const element = EmployeesArray[i];
-            modal_body.innerHTML += `
+    let render = document.getElementById(`employeeContainer${index}`);
+    render.innerHTML = '';
+    let modal_body = document.getElementById('modalBodyBacklog');
+    modal_body.innerHTML = '';
+    for (let i = 0; i < EmployeesArray.length; i++) {
+        const element = EmployeesArray[i];
+        modal_body.innerHTML += `
                 <div class="modal-profile" onclick="assigningEmployeesBacklog(${index}, ${i}); this.onclick = null;" id="employee_${i}">
                     <div class=modal-profile-column1>
                         <img src="${element['bild-src']}" alt="" class="modal-profile-image">
@@ -169,10 +170,10 @@ function editAssignedEmployees(index) {
                         <span class="job-position">${element['position']}</span>
                     </div>
                 </div>`;
-        }
+    }
 }
 
- function assigningEmployeesBacklog(index, i) {
+function assigningEmployeesBacklog(index, i) {
     let render = document.getElementById(`employeeContainer${index}`);
     render.innerHTML += `
     <div class="popup" onclick="popup(${i})">
@@ -184,7 +185,7 @@ function editAssignedEmployees(index) {
        </div>
     </div>
    `;
-   assignedEmployees.push(EmployeesArray[i]);
+    assignedEmployees.push(EmployeesArray[i]);
 }
 
 function openModal(index) {
@@ -262,13 +263,13 @@ function changeDate(i) {
  * This function assings the made change of the changeDate funtion and stores it in the backend.The if statement takes is there in case non change is made so that that value stays the same
  */
 async function saveDate(i) {
-let newDate = document.getElementById('dateChange' + i).value;
-if (newDate == 0) {
-allTasks[i]['date'] = allTasks[i]['date'];
-} else
-allTasks[i]['date'] = newDate;
-await backend.setItem('allTasks', JSON.stringify(allTasks));
-loadBacklog();
+    let newDate = document.getElementById('dateChange' + i).value;
+    if (newDate == 0) {
+        allTasks[i]['date'] = allTasks[i]['date'];
+    } else
+        allTasks[i]['date'] = newDate;
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    loadBacklog();
 }
 
 /**

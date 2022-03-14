@@ -130,8 +130,7 @@ h3 {
     margin-bottom: 8px;
 }
 
-.employeeImg
-img {
+.employeeImg img {
     width: 60px;
     border-radius: 50%;
     border: white solid 4px;
@@ -182,6 +181,13 @@ img {
     padding-top: 50px;
 }
 
+.edit-img {
+    width: 20px;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+}
+
 .change {
     position: absolute;
     display: flex;
@@ -203,6 +209,7 @@ img {
     border-radius: 8px;
     resize: none;
     overflow-y: auto;
+    z-index: 1;
 }
 
 .buttons {
@@ -276,6 +283,20 @@ img {
 
 .pushToBoard:hover {
     cursor: pointer;
+}
+
+.trash-bin {
+    width: 25px;
+    transition: all 225ms ease-in-out;
+}
+
+.trash-bin:hover {
+    transform: translateY(-6px) scaleY(1.2) scaleX(1.2);
+    background-color: #f7f3f3a6;
+    padding: 5px;
+    transition: all 225ms ease-in-out;
+    border-radius: 100%;
+    box-shadow: 0px 8px 5px 2px grey;
 }
 
 
