@@ -206,6 +206,31 @@ a {
     width: 80vw;
 }
 
+
+/**Animation to impressum on hover*/
+
+.impressum {
+    color: blue !important;
+}
+
+.impressum::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 225ms;
+    margin-left: 50px;
+}
+
+.impressum:hover::after {
+    width: 24%;
+    margin-left: 50px;
+}
+
+
+/**Animation to impressum on hover till here*/
+
 @media (max-width: 775px) {
     .width {
         width: 90vw;
