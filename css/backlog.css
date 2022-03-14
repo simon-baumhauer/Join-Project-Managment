@@ -389,7 +389,7 @@ h3 {
     }
     .pushToBoard {
         position: absolute;
-        top: 0;
+        top: 40px;
         right: 0;
         margin-top: 8px;
         margin-right: 8px;
@@ -435,5 +435,8 @@ h3 {
     .dueDateTasks {
         position: relative;
         margin-right: 0px;
+    }
+    .edit-img {
+        left: 130px;
     }
 }
