@@ -74,8 +74,10 @@ function renderTemplate(info, index) {
                 <div class="responsive fontS20">
                     <b>Due Date</b>
                 </div>
-                <div class="dueDateTasks" onclick="changeDate()">
-                    ${info['date']}
+                <div class="dueDateTasks" onclick="changeDate(${index})">
+                   <div id="dateEdit${index}">${info['date']}</div> 
+                   <input class="inputfield d-none" type="date" id="dateChange${index}" value="">
+                   <button class="buttonSave" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="deleteContainer" onclick="deleteContainer(${index})" src="img/x.ico">
                     Delete
@@ -87,28 +89,16 @@ function renderTemplate(info, index) {
 }
 
 
-function changeDate() {
-    alert('change');
-}
-
-
+/**
+ * 
+ * @param {number} index This parameter selects the object through an onlcick fuction an deletes it out of the array and then loads the array again.
+ *  
+ */
 async function deleteContainer(index) {
     allTasks.splice(index, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderBacklogTasks();
 }
-
-
-// async function deleteTask(i) {
-//    let element = boardArray.findIndex(obj => obj.UnixStamp == i);
-//    boardArray.splice(element, 1);
-//    await backend.setItem('boardArray', JSON.stringify(boardArray));
-//    document.getElementById('overlayBg').classList.add('d-none');
-//    document.getElementById('openTask').classList.add('d-none');
-//    loadBoard();
-
-// }
-
 
 /**
  * 
@@ -165,6 +155,19 @@ function changeContainer(i) {
     let currentText = allTasks[i]['text'];
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
+
+function changeDate(i) {
+    document.getElementById('dateEdit' + i).classList.add('d-none');
+    document.getElementById('dateChange' + i).classList.remove('d-none');
+}
+
+async function saveDate(i) {
+let newDate = document.getElementById('dateChange' + i).value;
+allTasks[i]['date'] = newDate;
+await backend.setItem('allTasks', JSON.stringify(allTasks));
+loadBacklog();
+}
+
 /**
  * 
  * @returns When user click on save, container will changed to div container like as useall and will save new text or details to backend
@@ -203,12 +206,3 @@ async function pushToBoard(i) {
     loadBacklog();
 }
 
-/* function detailsCenter(pax, index) {
-    if (pax.length <= 3) {
-        document.getElementById(`scrollbar${index}`).classList.add('d-none');
-
-
-        console.log(allTasks[index]['assignEmployee'].length);
-    }
-
-} */

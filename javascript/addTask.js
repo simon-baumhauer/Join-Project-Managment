@@ -99,16 +99,16 @@ function Employees() {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-<div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
-<div class=modal-profile-column1>
-<img src="${element['bild-src']}" alt="" class="modal-profile-image">
-<span class="email" href="#">${element['e-mail']}</span>
-</div>
-<div class=modal-profile-column2>
-<span>${element['name']}</span>
-<span class="job-position">${element['position']}</span>
-</div>
-</div>`;
+            <div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
+                <div class=modal-profile-column1>
+                    <img src="${element['bild-src']}" alt="" class="modal-profile-image">
+                    <span class="email" href="#">${element['e-mail']}</span>
+                </div>
+                <div class=modal-profile-column2>
+                    <span>${element['name']}</span>
+                    <span class="job-position">${element['position']}</span>
+                </div>
+            </div>`;
     }
 }
 
@@ -135,12 +135,12 @@ function assigningEmployees(i) {
      let profile_pictures = document.getElementById('profile_pictures');
      profile_pictures.innerHTML += `
      <div class="popup" onclick="popup(${i})">
-     <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
-     <div class="popuptext" id="myPopup${i}">
-     ${EmployeesArray[i]['name']}<br>
-     ${EmployeesArray[i]['position']}<br>
-     ${EmployeesArray[i]['e-mail']}
-     </div>
+        <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
+        <div class="popuptext" id="myPopup${i}">
+            ${EmployeesArray[i]['name']}<br>
+            ${EmployeesArray[i]['position']}<br>
+            ${EmployeesArray[i]['e-mail']}
+        </div>
      </div>
     `;
     assignedEmployees.push(EmployeesArray[i]);
