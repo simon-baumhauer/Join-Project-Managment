@@ -185,12 +185,7 @@ function assigningEmployeesBacklog(index, i) {
        </div>
     </div>
    `;
-<<<<<<< HEAD
-   assignedEmployees.push(EmployeesArray[i]);
-  
-=======
     assignedEmployees.push(EmployeesArray[i]);
->>>>>>> ea112abf9e6726995964066a4fe3d43b66d5c691
 }
 
 function openModal(index) {
