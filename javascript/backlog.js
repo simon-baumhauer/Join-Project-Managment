@@ -219,10 +219,8 @@ function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
+    currentText.replace(/<br\s*[\/]?>/gi, "\n");
     document.getElementById('textEdit' + i).innerHTML = currentText;
-    let txtArea = document.getElementById('textEdit' + i);
-    txtArea.value += text + '\r\n';
-    txtArea.innerHTML = txtArea;
 }
 
 /**
