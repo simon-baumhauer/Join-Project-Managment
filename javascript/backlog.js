@@ -23,7 +23,7 @@ function renderBacklogTasks() {
         for (let index = 0; index < allTasks.length; index++) {
             let info = allTasks[index];
             backlogContainer.innerHTML += renderTemplate(info, index);
-            forAssignEmploye(index);
+            forAssignEmployee(index);
         }
     }
 }
@@ -79,12 +79,25 @@ function renderTemplate(info, index) {
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
-                <div class="deleteContainer" onclick="deleteContainer(${index})" src="img/x.ico">
+                <div class="EditEmployees" onclick="openModal(${index})">
+                    Edit employees
+                </div>
+                <div class="deleteContainer" onclick="deleteContainer(${index})">
                     Delete
                 </div>
                 <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
+
+            <div class="modal d-none" id="modalBacklog">
+               <div class="modal-header">
+                <div class="modal-title">Available Employees</div>
+                  <button data-close-button class="close-button" onclick="closeModal()">X</button>
+                </div>
+                  <div class="modal-body" id="modalBodyBacklog">
+                </div>
+               </div>
+            
             </div>
-                
+            <div id="overlay" class="d-none"></div>
         `;
 }
 
@@ -105,7 +118,7 @@ async function deleteContainer(index) {
  * @param {number} index 
  * 
  */
-function forAssignEmploye(index) {
+function forAssignEmployee(index) {
     let employee = allTasks[index]['assignEmployee'];
     for (let j = 0; j < employee.length; j++) {
         emp = employee[j];
@@ -115,8 +128,8 @@ function forAssignEmploye(index) {
         staff_name.appendChild(name_as_text);
         let render = document.getElementById(`employeeContainer${index}`);
         render.innerHTML += `
-            <div class="employeeImg popup" id="${emp['name']}">
-                <img class="hover" src="${emp['bild-src']}"  onmouseover="popupBacklog(${index}, ${j})" onmouseout="popupbackloghide(${index}, ${j})">
+            <div class="employeeImg popup popupDelete" id="${emp['name']}">
+                <img class="hover" src="${emp['bild-src']}" onclick="popupDelete(${index}, ${j}), popupInfohide(${index}, ${j})"  onmouseover="popupInfo(${index}, ${j})" onmouseout="popupInfohide(${index}, ${j})">
                 <div class="popuptext" id="myPopup${index}, ${j}">
                     ${emp['name']}<br>
                     ${emp['position']}<br>
@@ -128,13 +141,80 @@ function forAssignEmploye(index) {
     }
 }
 
+
+
+function editAssignedEmployees(index) {
+        let render = document.getElementById(`employeeContainer${index}`);
+        render.innerHTML = '';
+        let modal_body = document.getElementById('modalBodyBacklog');
+        modal_body.innerHTML = '';
+        for (let i = 0; i < EmployeesArray.length; i++) {
+            const element = EmployeesArray[i];
+            modal_body.innerHTML += `
+                <div class="modal-profile" onclick="assigningEmployeesBacklog(${index}, ${i}); this.onclick = null;" id="employee_${i}">
+                    <div class=modal-profile-column1>
+                        <img src="${element['bild-src']}" alt="" class="modal-profile-image">
+                        <span class="email" href="#">${element['e-mail']}</span>
+                    </div>
+                    <div class=modal-profile-column2>
+                        <span>${element['name']}</span>
+                        <span class="job-position">${element['position']}</span>
+                    </div>
+                </div>`;
+        }
+}
+
+ function assigningEmployeesBacklog(index, i) {
+    let render = document.getElementById(`employeeContainer${index}`);
+    render.innerHTML += `
+    <div class="popup" onclick="popup(${i})">
+       <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
+       <div class="popuptext" id="myPopup${i}">
+           ${EmployeesArray[i]['name']}<br>
+           ${EmployeesArray[i]['position']}<br>
+           ${EmployeesArray[i]['e-mail']}
+       </div>
+    </div>
+   `;
+   assignedEmployees.push(EmployeesArray[i]);
+}
+
+function openModal(index) {
+    let modal = document.getElementById('modalBacklog');
+    let overlay = document.getElementById('overlay');
+    modal.classList.remove('d-none')
+    overlay.classList.remove('d-none')
+    editAssignedEmployees(index);
+}
+
+async function closeModal() {
+    let modal = document.getElementById('modalBacklog');
+    let overlay = document.getElementById('overlay');
+    modal.classList.add('d-none')
+    overlay.classList.add('d-none')
+}
+
+
+/**
+ * 
+ * @param {number} index This parameter declares the index of the allTask
+ * @param {number} j This parameter declares the index of the employee array
+ * This function deletes an assinged employees of the trough an onlclick event
+ */
+async function delteEmployee(index, j) {
+    allTasks[index]['assignEmployee'].splice(j, 1);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderBacklogTasks();
+}
+
+
 /**
  * 
  * @param {number} index -This parameter passes the position of the object in the boardArray.
  * @param {Object[]} j - This parameter passes the position of the assignEmployee Arrray
  * @returns - When the user hovers on image of employe popup(number), it opens the popup
  */
-function popupBacklog(index, j) {
+function popupInfo(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.toggle("show");
 }
@@ -142,7 +222,7 @@ function popupBacklog(index, j) {
  *@returns When the user hovers out from image from employe popup(number), it close the popup
  */
 
-function popupbackloghide(index, j) {
+function popupInfohide(index, j) {
     let popup = document.getElementById(`myPopup${index}, ${j}`);
     popup.classList.remove("show");
 }
@@ -156,12 +236,22 @@ function changeContainer(i) {
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
 
+/**
+ * 
+ * @param {number} i this parameter declares the index of the alltask array
+ * This function is built to change the date by an onclick event.
+ */
 function changeDate(i) {
     document.getElementById('dateEdit' + i).classList.add('d-none');
     document.getElementById('dateChange' + i).classList.remove('d-none');
     document.getElementById('savaDate_btn' + i).classList.remove('d-none');
 }
 
+/**
+ * 
+ * @param {number} i this parameter declares the index of the alltask array
+ * This function assings the made change of the changeDate funtion and stores it in the backend.The if statement takes is there in case non change is made so that that value stays the same
+ */
 async function saveDate(i) {
 let newDate = document.getElementById('dateChange' + i).value;
 if (newDate == 0) {
