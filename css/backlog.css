@@ -130,8 +130,7 @@ h3 {
     margin-bottom: 8px;
 }
 
-.employeeImg
-img {
+.employeeImg img {
     width: 60px;
     border-radius: 50%;
     border: white solid 4px;
@@ -182,6 +181,13 @@ img {
     padding-top: 50px;
 }
 
+.edit-img {
+    width: 20px;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+}
+
 .change {
     position: absolute;
     display: flex;
@@ -203,6 +209,8 @@ img {
     border-radius: 8px;
     resize: none;
     overflow-y: auto;
+    z-index: 1;
+    background-color: #eaeaea;
 }
 
 .buttons {
@@ -255,15 +263,29 @@ img {
 }
 
 .EditEmployees {
+    display: flex;
+    align-items: center;
     position: absolute;
     left: 6px;
-    top: 0px;
+    bottom: 0px;
     font-weight: bold;
     cursor: pointer;
     padding: 6px;
     font-size: 12px;
-    color: blue;
+    color: #22318b;
     text-align: center;
+    transition: all 225ms ease-in-out;
+}
+
+.EditEmployees img {
+    width: 20px;
+    padding-right: 5px;
+}
+
+.EditEmployees:hover {
+    transform: scaleX(1.1)scaleY(1.1) translateY(5px);
+    transition: all 225ms ease-in-out;
+    text-shadow: 6px -8px 2px grey;
 }
 
 .pushToBoard {
@@ -272,10 +294,31 @@ img {
     margin-right: 8px;
     margin-right: 8px;
     height: 35px;
+    transition: all 225ms ease-in-out;
+    border-radius: 100%;
+    background-color: #f7f3f3a6;
+    z-index: 3;
 }
 
 .pushToBoard:hover {
     cursor: pointer;
+    transform: translateY(10px);
+    transition: all 225ms ease-in-out;
+    box-shadow: 0px -10px 4px 0px grey;
+}
+
+.trash-bin {
+    width: 25px;
+    transition: all 225ms ease-in-out;
+}
+
+.trash-bin:hover {
+    transform: translateY(-6px) scaleY(1.2) scaleX(1.2);
+    background-color: #f7f3f3a6;
+    padding: 5px;
+    transition: all 225ms ease-in-out;
+    border-radius: 100%;
+    box-shadow: 0px 8px 5px 2px grey;
 }
 
 
