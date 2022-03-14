@@ -75,9 +75,9 @@ function renderTemplate(info, index) {
                     <b>Due Date</b>
                 </div>
                 <div class="dueDateTasks" onclick="changeDate(${index})">
-                   <div id="dateEdit${index}">${info['date']}</div> 
-                   <input class="inputfield d-none" type="date" id="dateChange${index}" value="">
-                   <button class="buttonSave" onclick="saveDate(${index})">Save</button>  
+                   <div id="dateEdit${index}" class="DateToBeShown">${info['date']}</div> 
+                   <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
+                   <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="deleteContainer" onclick="deleteContainer(${index})" src="img/x.ico">
                     Delete
@@ -159,10 +159,14 @@ function changeContainer(i) {
 function changeDate(i) {
     document.getElementById('dateEdit' + i).classList.add('d-none');
     document.getElementById('dateChange' + i).classList.remove('d-none');
+    document.getElementById('savaDate_btn' + i).classList.remove('d-none');
 }
 
 async function saveDate(i) {
 let newDate = document.getElementById('dateChange' + i).value;
+if (newDate == 0) {
+allTasks[i]['date'] = allTasks[i]['date'];
+} else
 allTasks[i]['date'] = newDate;
 await backend.setItem('allTasks', JSON.stringify(allTasks));
 loadBacklog();
@@ -179,6 +183,7 @@ async function saveChanges(i) {
     allTasks[i]['text'] = newText;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     document.getElementById('textEditCont' + i).classList.add('d-none');
+    document.getElementById('detailTask' + i).classList.remove('d-none');
     document.getElementById('detailTask' + i).classList.remove('d-none');
     loadBacklog();
 }

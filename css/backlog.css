@@ -59,6 +59,15 @@ h3 {
     margin-right: 80px;
 }
 
+.DateToBeShown {
+    cursor: pointer;
+}
+
+.inputfieldDate {
+    border: none;
+    border-radius: 5px;
+}
+
 .pushMain {
     position: absolute;
     right: 0;
