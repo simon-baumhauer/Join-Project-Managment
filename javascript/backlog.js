@@ -244,8 +244,6 @@ function changeContainer(i) {
     currentText.value += currentText + '\r\n';
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
-<<<<<<< HEAD
-=======
 
 /**
  * 
@@ -273,7 +271,6 @@ await backend.setItem('allTasks', JSON.stringify(allTasks));
 loadBacklog();
 }
 
->>>>>>> 0a3605017ef26bd279f41f439275c6c11f0fdd3d
 /**
  * 
  * @returns When user click on save, container will changed to div container like as useall and will save new text or details to backend
