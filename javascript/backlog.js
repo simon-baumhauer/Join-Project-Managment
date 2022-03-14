@@ -91,8 +91,10 @@ function changeDate() {
     alert('change');
 }
 
-function deleteContainer(index) {
+
+async function deleteContainer(index) {
     allTasks.splice(index, 1);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderBacklogTasks();
 }
 
