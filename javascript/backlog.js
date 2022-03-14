@@ -172,7 +172,7 @@ function editAssignedEmployees(index) {
         }
 }
 
- function assigningEmployeesBacklog(index, i) {
+  function assigningEmployeesBacklog(index, i) {
     let render = document.getElementById(`employeeContainer${index}`);
     render.innerHTML += `
     <div class="popup" onclick="popup(${i})">
@@ -185,6 +185,7 @@ function editAssignedEmployees(index) {
     </div>
    `;
    assignedEmployees.push(EmployeesArray[i]);
+  
 }
 
 function openModal(index) {
