@@ -153,6 +153,17 @@ h1 {
     animation: reveal1 225ms ease-in-out;
 }
 
+.hover {
+    transition: all 225ms ease-in-out;
+    cursor: pointer;
+}
+
+.hover:hover {
+    transform: translateY(-15px) scaleY(1.2) scaleX(1.2);
+    transition: all 200ms ease-in-out;
+    box-shadow: 1px 18px 7px 0px grey;
+}
+
 @keyframes reveal1 {
     0% {
         opacity: 0;
@@ -250,6 +261,7 @@ h1 {
 
 .closeTask {
     padding: 6px;
+    margin-right: 3px;
     font-size: 12px;
     text-align: center;
 }
