@@ -224,7 +224,7 @@ a {
 }
 
 .impressum:hover::after {
-    width: 24%;
+    width: 370px;
     margin-left: 50px;
 }
 
