@@ -232,8 +232,9 @@ function popupInfohide(index, j) {
 function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
-    let currentText = allTasks[i]['text'];
-    document.getElementById('textEdit' + i).innerHTML = currentText;
+    let txtArea = document.getElementById('textEdit' + i);
+    txtArea.value +=  text + '\r\n';
+    txtArea.innerHTML = txtArea;
 }
 
 /**
@@ -277,6 +278,7 @@ async function saveChanges(i) {
     document.getElementById('detailTask' + i).classList.remove('d-none');
     loadBacklog();
 }
+
 /**
  * 
  * @returns if useer don't want to change anything
