@@ -103,6 +103,7 @@ function renderTemplate(info, index) {
 
 function changeDate() {
     alert('change');
+    console.log('reco')
 }
 
 function deleteContainer(index) {
