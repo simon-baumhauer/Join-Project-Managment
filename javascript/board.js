@@ -163,14 +163,14 @@ function generateOpenTaskHTML(task) {
                     Created On: 
                     <span class="bold">${task['createdAt']}</span>
                 </div>
-                <div class="closeTask" onclick="backToBoard()">Close<br>Task</div>
+                <div class="closeTask" onclick="backToBoard()"><img class="trash-bin" src="img/close.svg"></div>
             </div> 
             <div class="header2OpenTask">
                 <div>
                     Urgency: <span class="${task['urgency']} bold">${task['urgency']}</span>
                 </div>
                 <div class="delete" onclick="deleteTask('${task['UnixStamp']}')" src="img/x.ico">
-                    Delete<br>Task
+                <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
                 </div>
             </div>   
             <div class="title bold">${task['title']}</div>
