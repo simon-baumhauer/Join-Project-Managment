@@ -263,15 +263,29 @@ h3 {
 }
 
 .EditEmployees {
+    display: flex;
+    align-items: center;
     position: absolute;
     left: 6px;
-    top: 0px;
+    bottom: 0px;
     font-weight: bold;
     cursor: pointer;
     padding: 6px;
     font-size: 12px;
-    color: blue;
+    color: #22318b;
     text-align: center;
+    transition: all 225ms ease-in-out;
+}
+
+.EditEmployees img {
+    width: 20px;
+    padding-right: 5px;
+}
+
+.EditEmployees:hover {
+    transform: scaleX(1.1)scaleY(1.1) translateY(5px);
+    transition: all 225ms ease-in-out;
+    text-shadow: 6px -8px 2px grey;
 }
 
 .pushToBoard {
@@ -283,6 +297,7 @@ h3 {
     transition: all 225ms ease-in-out;
     border-radius: 100%;
     background-color: #f7f3f3a6;
+    z-index: 3;
 }
 
 .pushToBoard:hover {

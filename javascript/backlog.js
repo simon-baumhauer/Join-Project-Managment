@@ -79,7 +79,7 @@ function renderTemplate(info, index) {
                     ${info['date']}
                 </div>
                 <div class="EditEmployees" onclick="openModal(${index})">
-                    Edit employees
+                   <img src="img/pencil.png"> Edit employees
                 </div>
                 <div class="deleteContainer" onclick="deleteContainer(${index})">
                 <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
