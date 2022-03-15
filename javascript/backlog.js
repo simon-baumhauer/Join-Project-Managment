@@ -97,12 +97,6 @@ function renderTemplate(info, index) {
         `;
 }
 
-
-function changeDate() {
-    alert('change');
-    console.log('reco')
-}
-
 async function deleteContainer(index) {
     allTasks.splice(index, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
@@ -156,7 +150,7 @@ function editAssignedEmployees(index) {
     }
 }
 
-function assigningEmployeesBacklog(index, i) {
+async function assigningEmployeesBacklog(index, i) {
     let render = document.getElementById(`employeeContainer${index}`);
     render.innerHTML += `
     <div class="popup" onclick="popup(${i})">
@@ -169,6 +163,7 @@ function assigningEmployeesBacklog(index, i) {
     </div>
    `;
     assignedEmployees.push(EmployeesArray[i]);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
 function openModal(index) {
