@@ -59,6 +59,7 @@ function renderTemplate(info, index) {
                     <b>DETAILS</b>
                 </div>
                 <div class="detailsTasks flipped">
+                <img src="img/pencil.png" class="pencil1">
                     <div class="d-none change" id="textEditCont${index}">
                         <textarea class="inputField" id="textEdit${index}"></textarea>
                         <div class="buttons">
@@ -72,6 +73,8 @@ function renderTemplate(info, index) {
                     <b>Due Date</b>
                 </div>
                 <div class="dueDateTasks" onclick="changeDate(${index})">
+                <img src="img/pencil.png" class="pencil3">
+
                    <div id="dateEdit${index}" class="DateToBeShown">${info['date']}</div> 
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
