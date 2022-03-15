@@ -203,7 +203,7 @@ h3 {
     transition: all 225ms ease-in-out;
 }
 
-.pencil1:hover {
+/* .pencil1:hover {
     transform: scaleX(1.1)scaleY(1.1) translateY(5px);
     transition: all 225ms ease-in-out;
     text-shadow: 6px -8px 2px grey;
@@ -213,20 +213,20 @@ h3 {
     transform: scaleX(1.1)scaleY(1.1) translateY(5px);
     transition: all 225ms ease-in-out;
     text-shadow: 6px -8px 2px grey;
-}
+} */
 
 .pencil2 {
     width: 15px;
     position: absolute;
     top: -20px;
     cursor: pointer;
-    transition: all 225ms ease-in-out;
+    /* transition: all 225ms ease-in-out; */
 }
 
 .pencil3 {
     width: 15px;
     cursor: pointer;
-    transition: all 225ms ease-in-out;
+    /* transition: all 225ms ease-in-out; */
     position: absolute;
     left: 10px;
 }
