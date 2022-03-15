@@ -78,12 +78,12 @@ function renderTemplate(info, index) {
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="EditEmployees" onclick="openModal(${index})">
-                 Edit employees
+                <img src="img/pencil.png" class="pencil3"> 
                 </div>
-                <div class="deleteContainer" onclick="deleteContainer(${index})">
-                <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
-                </div>
-                <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
+                    <div class="deleteContainer" onclick="deleteContainer(${index})">
+                    <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
+                    </div>
+                    <img class="pushToBoard" src="img/arrowToBoard.ico" onclick="pushToBoard(${index})"> 
             <div class="modal d-none" id="modalBacklog">
                <div class="modal-header">
                 <div class="modal-title">Available Employees</div>
