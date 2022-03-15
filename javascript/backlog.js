@@ -66,7 +66,7 @@ function renderTemplate(info, index) {
                         </div>    
                     </div>
                     <div class="p-top" id="detailTask${index}" onclick="changeContainer(${index})">${info['text']}</div> 
-                    <img src="img/pencil.png" class="pencil1"> 
+                    <img src="img/pencil.png" class="pencil1">
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
@@ -78,7 +78,7 @@ function renderTemplate(info, index) {
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="EditEmployees" onclick="openModal(${index})">
-                <img src="img/pencil.png" class="pencil3"> 
+                <img src="img/pencil.png" class="pencil3">
                 </div>
                     <div class="deleteContainer" onclick="deleteContainer(${index})">
                     <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
@@ -253,7 +253,7 @@ async function saveDate(i) {
 async function saveChanges(i) {
     let newText = document.getElementById('textEdit' + i);
     newText = newText.value.replace(/\n\r?/g, "<br/>"),
-    allTasks[i]['text'] = newText;
+        allTasks[i]['text'] = newText;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     document.getElementById('textEditCont' + i).classList.add('d-none');
     document.getElementById('detailTask' + i).classList.remove('d-none');
