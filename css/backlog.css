@@ -229,6 +229,7 @@ h3 {
     /* transition: all 225ms ease-in-out; */
     position: absolute;
     left: 10px;
+    top: -15px;
 }
 
 
