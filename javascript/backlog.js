@@ -47,10 +47,7 @@ function renderTemplate(info, index) {
                 <div class="responsive assignedToTasks fontS20">
                     <b>ASSIGNED TO</b>
                 </div>
-                <div class="editAndEmployeeContainer">
-                <img src="img/pencil.png" class="pencil3" onclick="openModal(${index})"> 
                 <div class="employeeContainer" id="employeeContainer${index}">
-                </div>
                 </div>
                 <div class="responsive fontS20">
                     <b>CATEGORY</b>
@@ -71,14 +68,12 @@ function renderTemplate(info, index) {
                         </div>    
                     </div>
                     <div class="p-top" id="detailTask${index}" onclick="changeContainer(${index})">${info['text']}</div> 
-                    <img src="img/pencil.png" class="pencil1"> 
                 </div> 
                 <div class="responsive fontS20">
                     <b>Due Date</b>
                 </div>
                 <div class="dueDateTasks" onclick="changeDate(${index})">
                 <img src="img/pencil.png" class="pencil3">
-
                    <div id="dateEdit${index}" class="DateToBeShown">${info['date']}</div> 
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
