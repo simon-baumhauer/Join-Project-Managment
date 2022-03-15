@@ -163,6 +163,7 @@ async function assigningEmployeesBacklog(index, i) {
     </div>
    `;
     assignedEmployees.push(EmployeesArray[i]);
+    allTasks[index]['assignEmployee'] = assignedEmployees;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
