@@ -98,6 +98,11 @@ function renderTemplate(info, index) {
         `;
 }
 
+
+/**
+ * 
+ * @param {number} index This function deletes one task[index] via onclick and stores the changes in the backend  
+ */
 async function deleteContainer(index) {
     allTasks.splice(index, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
@@ -175,6 +180,9 @@ function openModal(index) {
     overlay.classList.remove('d-none')
     editAssignedEmployees(index);
 }
+
+
+
 async function closeModal() {
     let modal = document.getElementById('modalBacklog');
     let overlay = document.getElementById('overlay');
