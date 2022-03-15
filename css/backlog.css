@@ -307,7 +307,7 @@ h3 {
     transition: all 225ms ease-in-out;
     border-radius: 100%;
     background-color: #f7f3f3a6;
-    z-index: 3;
+    z-index: 0;
 }
 
 .pushToBoard:hover {
