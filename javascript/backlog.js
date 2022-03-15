@@ -38,7 +38,7 @@ function noTasks() {
 /**
  * 
  * @param {Object[] } info -This paramter gives each employee its own number so that the funtion scope is only for the the seletected employee
- * @param {number} index -This parameter passes the position of the object in the boardArray.
+ * @param {number} index -This parameter declares the index of the allTask
  * @returns   The function creates a HTML element from the backend data from the selected Employee that were pushed from Addtask to Backend.
  */
 function renderTemplate(info, index) {
@@ -104,7 +104,8 @@ function renderTemplate(info, index) {
 
 /**
  * 
- * @param {number} index This function deletes one task[index] via onclick and stores the changes in the backend  
+ * @param {number} index This parameter declares the index of the allTask
+ * This function deletes one task[index] via onclick and stores the changes in the backend  
  */
 async function deleteContainer(index) {
     allTasks.splice(index, 1);
@@ -113,13 +114,13 @@ async function deleteContainer(index) {
 }
 /**
  * 
- * @param {number} index 
- * 
+ * @param {number} index This parameter declares the index of the allTask
+ * This loops through employees array and renders for each index number a html element with the given html structure and insert the infomation of the the array.
  */
 function forAssignEmployee(index) {
-    let employee = allTasks[index]['assignEmployee'];
-    for (let j = 0; j < employee.length; j++) {
-        emp = employee[j];
+    let employees = allTasks[index]['assignEmployee'];
+    for (let j = 0; j < employees.length; j++) {
+        emp = employees[j];
         const img = document.createElement("div");
         const staff_name = document.createElement("h3");
         const name_as_text = document.createTextNode(emp['name']);
@@ -138,6 +139,11 @@ function forAssignEmployee(index) {
     }
 }
 
+/**
+ * 
+ * @param {*} index This parameter declares the index of the allTask
+ * This function loops trough the EmployeesArray and creates an html element for each employees.
+ */
 function editAssignedEmployees(index) {
     let render = document.getElementById(`employeeContainer${index}`);
     render.innerHTML = '';
@@ -158,7 +164,12 @@ function editAssignedEmployees(index) {
                 </div>`;
     }
 }
-
+/**
+ * 
+ * @param {*} index This parameter declares the index of the allTask
+ * @param {*} i This parameter declares the index of the EmployeesArray
+ * This function get invoked by an onclick function and pushes the choosen element in an HTML container and array, then it will be saved in the backend
+ */
 async function assigningEmployeesBacklog(index, i) {
     let render = document.getElementById(`employeeContainer${index}`);
     render.innerHTML += `
@@ -176,6 +187,11 @@ async function assigningEmployeesBacklog(index, i) {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
+/**
+ * 
+ * @param {*} index This parameter declares the index of the allTask
+ * This function open the modal
+ */
 function openModal(index) {
     let modal = document.getElementById('modalBacklog');
     let overlay = document.getElementById('overlay');
@@ -185,7 +201,10 @@ function openModal(index) {
 }
 
 
-
+/**
+ * This function closes the Modal
+ * 
+ */
 async function closeModal() {
     let modal = document.getElementById('modalBacklog');
     let overlay = document.getElementById('overlay');
@@ -205,7 +224,7 @@ async function delteEmployee(index, j) {
 }
 /**
  * 
- * @param {number} index -This parameter passes the position of the object in the boardArray.
+ * @param {number} index -This parameter declares the index of the allTask
  * @param {Object[]} j - This parameter passes the position of the assignEmployee Arrray
  * @returns - When the user hovers on image of employe popup(number), it opens the popup
  */
