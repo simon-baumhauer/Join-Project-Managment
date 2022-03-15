@@ -101,7 +101,7 @@ async function deleteContainer(index) {
     allTasks.splice(index, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderBacklogTasks();
-}git 
+}
 /**
  * 
  * @param {number} index 
@@ -215,9 +215,10 @@ function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
-    currentText = currentText.replace(/<br\s*[\/]?>/gi, "\n");
+    currentText = currentText.replace(/<br\r?/g, "\n");
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
+// currentText = currentText.replace(/\n\r?/g, "<br/>");
 
 /**
  * 
@@ -249,7 +250,8 @@ async function saveDate(i) {
  */
 // 
 async function saveChanges(i) {
-    let newText = document.getElementById('textEdit' + i).value;
+    let newText = document.getElementById('textEdit' + i);
+    newText = newText.value.replace(/\n\r?/g, "<br/>"),
     allTasks[i]['text'] = newText;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     document.getElementById('textEditCont' + i).classList.add('d-none');

@@ -414,7 +414,7 @@ h3 {
         margin-right: 0px;
         text-align: center;
         align-items: center;
-        overflow: hidden;
+        overflow-y: auto;
         width: none;
         min-width: 260px;
         height: 120px;
