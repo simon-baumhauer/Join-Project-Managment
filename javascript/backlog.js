@@ -57,7 +57,7 @@ function renderTemplate(info, index) {
                 <div class="responsive fontS20">
                     <b>DETAILS</b>
                 </div>
-                <div class="detailsTasks flipped" onclick="changeContainer(${index})">
+                <div class="detailsTasks flipped">
                     <div class="d-none change" id="textEditCont${index}">
                         <textarea class="inputField" id="textEdit${index}"></textarea>
                         <div class="buttons">
@@ -65,7 +65,7 @@ function renderTemplate(info, index) {
                             <button class="buttonSave" onclick="saveChanges(${index})">Save</button>  
                         </div>    
                     </div>
-                    <div class="p-top" id="detailTask${index}">${info['text']}</div> 
+                    <div class="p-top" id="detailTask${index}" onclick="changeContainer(${index})">${info['text']}</div> 
                     <img class="edit-img" src="img/edit.png">     
                 </div>
                 <div class="responsive fontS20">
@@ -214,7 +214,7 @@ function changeContainer(i) {
     document.getElementById('detailTask' + i).classList.add('d-none');
     document.getElementById('textEditCont' + i).classList.remove('d-none');
     let currentText = allTasks[i]['text'];
-    currentText.replace(/<br\s*[\/]?>/gi, "\n");
+    currentText = currentText.replace(/<br\s*[\/]?>/gi, "\n");
     document.getElementById('textEdit' + i).innerHTML = currentText;
 }
 
