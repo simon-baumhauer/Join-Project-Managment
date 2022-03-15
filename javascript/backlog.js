@@ -48,7 +48,7 @@ function renderTemplate(info, index) {
                     <b>ASSIGNED TO</b>
                 </div>
                 <div class="editAndEmployeeContainer">
-                <img src="img/pencil.png" class="pencil3"> 
+                <img src="img/pencil.png" class="pencil3" onclick="openModal(${index})"> 
                 <div class="employeeContainer" id="employeeContainer${index}">
                 </div>
                 </div>

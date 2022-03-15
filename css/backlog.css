@@ -209,6 +209,7 @@ h3 {
     width: 15px;
     position: absolute;
     left: 10px;
+    cursor: pointer;
     }
 
 .edit-img:hover {
