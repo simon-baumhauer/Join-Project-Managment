@@ -108,6 +108,11 @@ h3 {
     border: 3px solid rgba(65, 170, 30, 0.5)!important;
 }
 
+.EditAndEmployeeContainer {
+    position: relative;
+    display: flex;
+}
+
 .employeeContainer {
     display: flex;
     max-width: 300px;
@@ -222,7 +227,10 @@ h3 {
     width: 15px;
     cursor: pointer;
     transition: all 225ms ease-in-out;
+    position: absolute;
+    left: 10px;
 }
+
 
 .edit-img:hover {
     transform: translateY(-6px) scaleY(1.2) scaleX(1.2);
@@ -420,7 +428,7 @@ h3 {
     }
     .pushToBoard {
         position: absolute;
-        top: 40px;
+        top: 2px;
         right: 0;
         margin-top: 8px;
         margin-right: 8px;
@@ -475,7 +483,7 @@ h3 {
         left: 130px;
     }
     .pencil1 {
-        left: initial;
+        left: 105px;
     }
     .dueDateTasks {
         display: flex;
@@ -486,10 +494,20 @@ h3 {
     .pencil2 {
         position: relative;
         top: 0;
+        left: -31px;
     }
+
+    .pencil3 {
+        top: 25px;
+    }
+
     .pencil1,
     .pencil2,
     .pencil3 {
-        width: 20px;
+        width: 15px;
+    }
+
+    .employeeContainer img {
+        margin: 0px;
     }
 }

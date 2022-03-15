@@ -47,7 +47,10 @@ function renderTemplate(info, index) {
                 <div class="responsive assignedToTasks fontS20">
                     <b>ASSIGNED TO</b>
                 </div>
+                <div class="EditAndEmployeeContainer">
+                <img src="img/pencil.png" class="pencil3">
                 <div class="employeeContainer" id="employeeContainer${index}">
+                </div>
                 </div>
                 <div class="responsive fontS20">
                     <b>CATEGORY</b>
@@ -73,13 +76,12 @@ function renderTemplate(info, index) {
                     <b>Due Date</b>
                 </div>
                 <div class="dueDateTasks" onclick="changeDate(${index})">
-                <img src="img/pencil.png" class="pencil3">
+                <img src="img/pencil.png" class="pencil2">
                    <div id="dateEdit${index}" class="DateToBeShown">${info['date']}</div> 
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="EditEmployees" onclick="openModal(${index})">
-                <img src="img/pencil.png" class="pencil3">
                 </div>
                     <div class="deleteContainer" onclick="deleteContainer(${index})">
                     <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
