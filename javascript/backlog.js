@@ -62,6 +62,7 @@ function renderTemplate(info, index) {
                     <b>DETAILS</b>
                 </div>
                 <div class="detailsTasks flipped">
+                <img src="img/pencil.png" class="pencil1">
                     <div class="d-none change" id="textEditCont${index}">
                         <textarea class="inputField" id="textEdit${index}"></textarea>
                         <div class="buttons">
@@ -76,12 +77,14 @@ function renderTemplate(info, index) {
                     <b>Due Date</b>
                 </div>
                 <div class="dueDateTasks" onclick="changeDate(${index})">
-                <img src="img/pencil.png" class="pencil2"> 
+                <img src="img/pencil.png" class="pencil3">
+
                    <div id="dateEdit${index}" class="DateToBeShown">${info['date']}</div> 
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="EditEmployees" onclick="openModal(${index})">
+                <img src="img/pencil.png" class="pencil3">
                 </div>
                     <div class="deleteContainer" onclick="deleteContainer(${index})">
                     <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
@@ -264,7 +267,7 @@ async function saveDate(i) {
 async function saveChanges(i) {
     let newText = document.getElementById('textEdit' + i);
     newText = newText.value.replace(/\n\r?/g, "<br/>"),
-    allTasks[i]['text'] = newText;
+        allTasks[i]['text'] = newText;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     document.getElementById('textEditCont' + i).classList.add('d-none');
     document.getElementById('detailTask' + i).classList.remove('d-none');

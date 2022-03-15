@@ -192,25 +192,41 @@ h3 {
     left: 30px;
     transition: all 225ms ease-in-out;
 }
+
 .pencil1 {
     width: 15px;
     position: absolute;
     top: 30px;
     left: 7px;
-    }
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+}
+
+.pencil1:hover {
+    transform: scaleX(1.1)scaleY(1.1) translateY(5px);
+    transition: all 225ms ease-in-out;
+    text-shadow: 6px -8px 2px grey;
+}
+
+.pencil3:hover {
+    transform: scaleX(1.1)scaleY(1.1) translateY(5px);
+    transition: all 225ms ease-in-out;
+    text-shadow: 6px -8px 2px grey;
+}
 
 .pencil2 {
     width: 15px;
     position: absolute;
     top: -20px;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
 }
 
 .pencil3 {
     width: 15px;
-    position: absolute;
-    left: 10px;
     cursor: pointer;
-    }
+    transition: all 225ms ease-in-out;
+}
 
 .edit-img:hover {
     transform: translateY(-6px) scaleY(1.2) scaleX(1.2);
@@ -282,6 +298,7 @@ h3 {
     right: 0;
     margin-right: 80px;
 }
+
 .deleteContainer {
     position: absolute;
     bottom: 0px;
@@ -419,6 +436,10 @@ h3 {
         width: 100%;
         padding: 20px;
     }
+    .EditEmployees {
+        top: -325px;
+        bottom: 1px;
+    }
     .catogeryTasks {
         position: relative;
         margin-left: 0;
@@ -457,16 +478,22 @@ h3 {
     .edit-img {
         left: 130px;
     }
-
-    .pencil2 {
-        width: 15px;
-        position: absolute;
-        top: -40px;
+    .pencil1 {
+        left: initial;
     }
-
+    .dueDateTasks {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .pencil2 {
+        position: relative;
+        top: 0;
+    }
+    .pencil1,
+    .pencil2,
     .pencil3 {
-        position: absolute;
-        left: 30px;
-        top: 20px;
+        width: 20px;
     }
 }
