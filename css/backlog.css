@@ -198,8 +198,13 @@ h3 {
     transition: all 225ms ease-in-out;
 }
 
-.pencil1:hover,
-.pencil2:hover {
+.pencil1:hover {
+    transform: scaleX(1.1)scaleY(1.1) translateY(5px);
+    transition: all 225ms ease-in-out;
+    text-shadow: 6px -8px 2px grey;
+}
+
+.pencil3:hover {
     transform: scaleX(1.1)scaleY(1.1) translateY(5px);
     transition: all 225ms ease-in-out;
     text-shadow: 6px -8px 2px grey;
@@ -215,6 +220,8 @@ h3 {
 
 .pencil3 {
     width: 15px;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
 }
 
 .edit-img:hover {
