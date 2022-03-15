@@ -155,10 +155,10 @@ h3 {
     margin-left: 310px;
 }
 
-.ctg {
+/* .ctg {
     width: 65%;
     text-align: left;
-}
+} */
 
 .detailsTasks {
     position: absolute;
@@ -307,7 +307,7 @@ h3 {
     text-align: center;
 }
 
-.EditEmployees {
+.editEmployees {
     display: flex;
     align-items: center;
     position: absolute;
@@ -322,7 +322,7 @@ h3 {
     transition: all 225ms ease-in-out;
 }
 
-.EditEmployees:hover {
+.editEmployees:hover {
     transform: scaleX(1.1)scaleY(1.1) translateY(5px);
     transition: all 225ms ease-in-out;
     text-shadow: 6px -8px 2px grey;
@@ -432,7 +432,7 @@ h3 {
         width: 100%;
         padding: 20px;
     }
-    .EditEmployees {
+    .editEmployees {
         top: -325px;
         bottom: 1px;
     }

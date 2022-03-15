@@ -53,7 +53,7 @@ function renderTemplate(info, index) {
                     <b>CATEGORY</b>
                 </div>
                 <div class="catogeryTasks">
-                    <h3 class="ctg">${info['catergory']}</h3>
+                    <h3>${info['catergory']}</h3>
                 </div>
                 <div class="responsive fontS20">
                     <b>DETAILS</b>
@@ -78,7 +78,7 @@ function renderTemplate(info, index) {
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
-                <div class="EditEmployees" onclick="openModal(${index})">
+                <div class="editEmployees" onclick="openModal(${index})">
                 <img src="img/pencil.png" class="pencil3">
                 </div>
                     <div class="deleteContainer" onclick="deleteContainer(${index})">
