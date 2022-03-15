@@ -66,18 +66,19 @@ function renderTemplate(info, index) {
                         </div>    
                     </div>
                     <div class="p-top" id="detailTask${index}" onclick="changeContainer(${index})">${info['text']}</div> 
-                    <img class="edit-img" src="img/edit.png">     
+                    <img src="img/pencil.png" class="pencil1"> 
                 </div>
                 <div class="responsive fontS20">
                     <b>Due Date</b>
                 </div>
                 <div class="dueDateTasks" onclick="changeDate(${index})">
+                <img src="img/pencil.png" class="pencil2">
                    <div id="dateEdit${index}" class="DateToBeShown">${info['date']}</div> 
                    <input class="inputfieldDate d-none" type="date" id="dateChange${index}">
                    <button class="buttonSave d-none" id="savaDate_btn${index}" onclick="saveDate(${index})">Save</button>  
                 </div>
                 <div class="EditEmployees" onclick="openModal(${index})">
-                <img src="img/pencil.png"> Edit employees
+                 Edit employees
                 </div>
                 <div class="deleteContainer" onclick="deleteContainer(${index})">
                 <img class="trash-bin" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
