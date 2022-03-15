@@ -56,7 +56,7 @@ function renderTemplate(info, index) {
                     <b>CATEGORY</b>
                 </div>
                 <div class="catogeryTasks">
-                    <h3 class="ctg">${info['catergory']}</h3>
+                    <h3>${info['catergory']}</h3>
                 </div>
                 <div class="responsive fontS20">
                     <b>DETAILS</b>
