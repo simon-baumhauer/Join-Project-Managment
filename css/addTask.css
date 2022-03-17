@@ -182,13 +182,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         align-items: center;
     }
     .input {
-        width: 100%;
+        width: 110%;
     }
     .textarea {
-        width: 100%;
+        width: 110%;
     }
     .assingments {
-        width: 100%;
+        width: 110%;
     }
     .styled-select {
         background-position: 99% 56%;
@@ -226,6 +226,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media(max-width:430px) {
+    .input {
+        width: 128%;
+    }
+    .textarea {
+        width: 128%;
+    }
+    .assingments {
+        width: 128%;
+    }
+
     .border {
         width: 39px;
     }

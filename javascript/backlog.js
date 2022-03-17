@@ -170,7 +170,7 @@ function editAssignedEmployees(index) {
  * @param {*} i This parameter declares the index of the EmployeesArray
  * This function get invoked by an onclick function and pushes the choosen element in an HTML container and array, then it will be saved in the backend
  */
-async function assigningEmployeesBacklog(index, i) {
+ async function assigningEmployeesBacklog(index, i) {
     let render = document.getElementById(`employeeContainer${index}`);
     render.innerHTML += `
     <div class="popup" onclick="popup(${i})">
@@ -187,18 +187,37 @@ async function assigningEmployeesBacklog(index, i) {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
-/**
- * 
- * @param {*} index This parameter declares the index of the allTask
- * This function open the modal
- */
-function openModal(index) {
-    let modal = document.getElementById('modalBacklog');
+
+// async function assigningEmployeesBacklog(index, i) {
+//     let render = document.getElementById(`employeeContainer${index}`);
+//     j = 0;
+//     render.innerHTML += `
+//     <div onclick="onclick="popup(${i})">
+//        <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
+//        <div class="popuptext" id="myPopup${i}">
+//            ${EmployeesArray[i]['name']}<br>
+//            ${EmployeesArray[i]['position']}<br>
+//            ${EmployeesArray[i]['e-mail']}
+//        </div>
+//     </div>
+//    `;
+//     assignedEmployees.push(EmployeesArray[i]);
+//     allTasks[index]['assignEmployee'] = assignedEmployees;
+//     await backend.setItem('allTasks', JSON.stringify(allTasks));
+// }
+
+ /**
+  * 
+  * @param {*} index This parameter declares the index of the allTask
+  * This function open the modal
+  */
+ function openModal(index) {
+     let modal = document.getElementById('modalBacklog');
     let overlay = document.getElementById('overlay');
     modal.classList.remove('d-none')
     overlay.classList.remove('d-none')
-    editAssignedEmployees(index);
-}
+     editAssignedEmployees(index);
+ }
 
 
 /**
