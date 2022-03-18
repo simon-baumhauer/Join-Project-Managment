@@ -146,7 +146,6 @@ function forAssignEmployee(index) {
  */
 function editAssignedEmployees(index) {
     let render = document.getElementById(`employeeContainer${index}`);
-    // render.innerHTML = '';
     let modal_body = document.getElementById('modalBodyBacklog');
     modal_body.innerHTML = '';
     for (let i = 0; i < EmployeesArray.length; i++) {

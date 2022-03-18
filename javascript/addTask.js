@@ -96,10 +96,10 @@ async function createTask() {
 function Employees() {
     let modal_body = document.getElementById('modal-body');
     modal_body.innerHTML = '';
-    for (let i = 0; i < EmployeesArray.length; i++) {
+    for (let i = 0; i < EmployeesArray.length; i++) { //this.onclick = null;
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-            <div class="modal-profile" onclick="assigningEmployees(${i}); this.onclick = null;" id="employee_${i}">
+             <div class="modal-profile" onclick="assigningEmployees(${i});" id="employee_${i}"> 
                 <div class=modal-profile-column1>
                     <img src="${element['bild-src']}" alt="" class="modal-profile-image">
                     <span class="email" href="#">${element['e-mail']}</span>
@@ -133,17 +133,21 @@ function close_popup(i) {
 //  let staff_member = document.getElementById(`employee_${i}`);
 function assigningEmployees(i) {
     let profile_pictures = document.getElementById('profile_pictures');
-    profile_pictures.innerHTML += `
-     <div class="popup" onclick="popup(${i})">
-        <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
-        <div class="popuptext" id="myPopup${i}">
-            ${EmployeesArray[i]['name']}<br>
-            ${EmployeesArray[i]['position']}<br>
-            ${EmployeesArray[i]['e-mail']}
+    if(!assignedEmployees.includes(EmployeesArray[i])) {
+        profile_pictures.innerHTML += `
+        <div class="popup" onclick="popup(${i})">
+           <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
+           <div class="popuptext" id="myPopup${i}">
+               ${EmployeesArray[i]['name']}<br>
+               ${EmployeesArray[i]['position']}<br>
+               ${EmployeesArray[i]['e-mail']}
+           </div>
         </div>
-     </div>
-    `;
-    assignedEmployees.push(EmployeesArray[i]);
+       `;
+       assignedEmployees.push(EmployeesArray[i]);
+    } else {
+        alert('The person is already assgined to the task')
+    }
 }
 
 /**
