@@ -146,7 +146,7 @@ function forAssignEmployee(index) {
  */
 function editAssignedEmployees(index) {
     let render = document.getElementById(`employeeContainer${index}`);
-    render.innerHTML = '';
+    // render.innerHTML = '';
     let modal_body = document.getElementById('modalBodyBacklog');
     modal_body.innerHTML = '';
     for (let i = 0; i < EmployeesArray.length; i++) {
@@ -186,26 +186,6 @@ function editAssignedEmployees(index) {
     allTasks[index]['assignEmployee'] = assignedEmployees;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
-
-
-// async function assigningEmployeesBacklog(index, i) {
-//     let render = document.getElementById(`employeeContainer${index}`);
-//     j = 0;
-//     render.innerHTML += `
-//     <div onclick="onclick="popup(${i})">
-//        <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
-//        <div class="popuptext" id="myPopup${i}">
-//            ${EmployeesArray[i]['name']}<br>
-//            ${EmployeesArray[i]['position']}<br>
-//            ${EmployeesArray[i]['e-mail']}
-//        </div>
-//     </div>
-//    `;
-//     assignedEmployees.push(EmployeesArray[i]);
-//     allTasks[index]['assignEmployee'] = assignedEmployees;
-//     await backend.setItem('allTasks', JSON.stringify(allTasks));
-// }
-
  /**
   * 
   * @param {*} index This parameter declares the index of the allTask
