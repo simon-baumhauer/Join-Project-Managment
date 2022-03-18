@@ -117,8 +117,9 @@ async function deleteContainer(index) {
  * @param {number} index This parameter declares the index of the allTask
  * This loops through employees array and renders for each index number a html element with the given html structure and insert the infomation of the the array.
  */
+
 function forAssignEmployee(index) {
-    let employees = allTasks[index]['assignEmployee'];
+     let employees = allTasks[index]['assignEmployee'];
     for (let j = 0; j < employees.length; j++) {
         emp = employees[j];
         const img = document.createElement("div");
@@ -151,7 +152,7 @@ function editAssignedEmployees(index) {
     for (let i = 0; i < EmployeesArray.length; i++) {
         const element = EmployeesArray[i];
         modal_body.innerHTML += `
-                <div class="modal-profile" onclick="assigningEmployeesBacklog(${index}, ${i}); this.onclick = null;" id="employee_${i}">
+                <div class="modal-profile" onclick="assigningEmployeesBacklog(${index}, ${i});" id="employee_${i}">
                     <div class=modal-profile-column1>
                         <img src="${element['bild-src']}" alt="" class="modal-profile-image">
                         <span class="email" href="#">${element['e-mail']}</span>
@@ -171,7 +172,8 @@ function editAssignedEmployees(index) {
  */
  async function assigningEmployeesBacklog(index, i) {
     let render = document.getElementById(`employeeContainer${index}`);
-    render.innerHTML += `
+    if(!assignedEmployees.includes(EmployeesArray[i])) {
+        render.innerHTML += `
     <div class="popup" onclick="popup(${i})">
        <img src="${EmployeesArray[i]['bild-src']}" class="profile-picture">
        <div class="popuptext" id="myPopup${i}">
@@ -184,6 +186,7 @@ function editAssignedEmployees(index) {
     assignedEmployees.push(EmployeesArray[i]);
     allTasks[index]['assignEmployee'] = assignedEmployees;
     await backend.setItem('allTasks', JSON.stringify(allTasks));
+    }
 }
  /**
   * 
